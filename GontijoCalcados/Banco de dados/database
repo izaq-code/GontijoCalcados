@@ -1,0 +1,13 @@
+CREATE DATABASE ProductEase;
+
+CREATE TABLE funcionario (
+    id_funcionario int auto-increment primary key,
+    ra_funcionario int,
+    email_funcionario varchar(120),
+    senha_funcionario varchar (120) 
+)
+
+CREATE TABLE ramal (
+    id_ramal int AUTO-INCRHEMENT primary key,
+    ra_funcionario int,
+)
