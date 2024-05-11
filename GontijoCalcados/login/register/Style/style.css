@@ -11,6 +11,7 @@ html {
 :root {
     --cor-principal: #225d99;
     --cor-principal-hover: #154a80;
+    --cor-outline:#e1ad33;
 }
 
 main {
@@ -38,14 +39,38 @@ label {
 
 input[type="email"],
 input[type="password"],
-input[type="submit"],
 input[type="text"] {
-    width: 100%;
+    width: 220px;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    padding-right: 40px;
+
+}
+
+#btn-entrar{
+    width: 80px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+font-weight: bolder;
+
+}
+
+input[type="submit"] {
+
+    width: 80px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+font-weight: bolder;
+
 }
 
 input[type="submit"] {
@@ -83,17 +108,56 @@ input:focus {
 }
 
 #view {
-    color: var(--cor-principal);
-    top: 29px;
-    position: relative;
-    left: 255px;
+    color: var(--cor-principal);    
+    position: absolute;
+    margin-top: -3px;
+    left: 370px;
     padding: 12px 15px;
 }
 
 #view2 {
     color: var(--cor-principal);
-    top: 29px;
-    position: relative;
-    left: 255px;
+    position: absolute;
+    margin-top: -3px;
+    left: 370px;
     padding: 12px 15px;
+}
+
+
+#forcaTexto{
+
+position: absolute;
+margin-top: -25px;
+}
+
+#forcaSenhaIndicator {
+    display: none;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bar {
+    height: 10px;
+    flex-grow: 1;
+    margin-right: 5px;
+    background-color:gray;
+    border-radius: 10px;
+    transition: 0.2s all linear;
+}
+
+.fraco {
+    background-color: red;
+}
+
+.vazio {
+    background-color: grey;
+}
+
+.medio {
+    background-color: orange;
+}
+
+.forte {
+    background-color: blue;
 }

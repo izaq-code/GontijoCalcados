@@ -31,7 +31,14 @@
                 <span class= "bi bi-eye" id="view2" onclick="viewsenha2()"></span>
                 <input type="password" id="confirmar-Senha" name="confrimar-senha" placeholder="Confirme a sua senha" required>
                 <h6 id="alerta"></h6>
-                <input type="submit" value="Entrar" id="btn-entrar">
+                <div id="forcaSenhaIndicator">
+                    <p id="forcaTexto">Fraco</p>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                
+                <input type="submit" value="Criar" id="btn-criar">
             </form>
             <div class="criar-conta-div">
                 Já tem uma conta? <a href="index.html" class="criar-conta-link">Entre aqui!</a>
@@ -41,6 +48,7 @@
 
         </div>
     </main>
+    <script src="../JS/senhaforte.js"></script>
     <script src="../JS/cadastro.js"></script>
     <script src="../JS/view.js"></script>
 </body>
