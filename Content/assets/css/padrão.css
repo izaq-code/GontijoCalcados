@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap');
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Outfit', sans-serif;
+}
+
+:root {
+    --cor-principal: #225d99;
+    --cor-principal-hover: #154a80;
+    --cor-outline:#e1ad33;
+}
+
+main {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
