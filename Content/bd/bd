@@ -1,0 +1,68 @@
+-- Geração de Modelo físico
+-- Sql ANSI 2003 - brModelo.
+
+DROP DATABASE IF EXISTS gontijo_calcados;
+
+CREATE DATABASE gontijo_calcados;
+
+USE gontijo_calcados;
+
+CREATE TABLE material (
+id int PRIMARY KEY,
+nome Varchar(120),
+caminho Varchar(120),
+caminho2 Varchar(120)
+);
+
+CREATE TABLE tinta (
+id int PRIMARY KEY,
+nome Varchar(120),
+caminho Varchar(120)
+);
+
+CREATE TABLE tipo_tinta (
+id int PRIMARY KEY,
+nome Varchar(120)
+);
+
+CREATE TABLE adesivo (
+id int PRIMARY KEY,
+nome Varchar(120),
+caminho Varchar(120),
+caminho2 Varchar(120)
+);
+
+CREATE TABLE solado (
+id int PRIMARY KEY,
+nome Varchar(120)
+);
+
+CREATE TABLE cadarco (
+id int PRIMARY KEY,
+nome Varchar(120)
+);
+
+CREATE TABLE calcado (
+id int PRIMARY KEY,
+espe_linha int,
+temp_equi int,
+cor_linha int,
+tam_costura int,
+temp_sec int,
+reg_equip int,
+id_tinta int,
+id_material int,
+id_cadarco int,
+id_solado int,
+id_adesivo int,
+id_tip_tinta int,
+data date,
+FOREIGN KEY(id_tinta) REFERENCES tinta (id),
+FOREIGN KEY(id_material) REFERENCES material (id),
+FOREIGN KEY(id_adesivo) REFERENCES adesivo (id),
+FOREIGN KEY(id_tip_tinta) REFERENCES tipo_tinta (id),
+FOREIGN KEY(id_cadarco) REFERENCES cadarco (id),
+FOREIGN KEY(id_solado) REFERENCES solado (id)
+);
+
+
