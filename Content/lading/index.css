@@ -225,6 +225,62 @@ body {
     margin: 50px;
 }
 
+/* RODAPÉ */
+footer {
+    background-color: #e9ecef;
+    padding: 20px 0;
+    border-top: 1px solid rgb(139, 144, 151);
+    text-align: center;
+    /* margin: auto 20px; */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.footer-group {
+    flex: 1 1 300px; /* Ajuste o tamanho conforme necessário */
+    margin: 10px;
+    text-align: left;
+}
+
+.footer-group h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.footer-group ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-group ul li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-group p {
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-group h3{
+    text-align: initial ;
+}
+
+.footer-group h3:hover{
+    color: var(--corprincipal);
+    cursor: pointer;
+}
+
+
+
 @media screen and (max-width: 730px) {
     .nav-bar {
         padding: 0.5rem 0.5rem;

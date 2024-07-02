@@ -7,6 +7,20 @@ CREATE DATABASE ProductEase;
 
 USE ProductEase;
 
+-- usuarios do sistema 
+CREATE TABLE usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    google_id VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    name VARCHAR(255),
+    cpf VARCHAR(255),
+    senha varchar(255),
+    profile_picture VARCHAR(255),
+    funcao Varchar(40)
+);
+
+-- fim dos usuarios
+
 CREATE TABLE material (
 id int PRIMARY KEY,
 nome Varchar(120),
@@ -50,12 +64,12 @@ cor_linha Varchar(30),
 tam_costura Varchar(30),
 temp_sec Varchar(30),
 reg_equip Varchar(30),
-id_tinta Varchar(30),
-id_material Varchar(30),
-id_cadarco Varchar(30),
-id_solado Varchar(30),
-id_adesivo Varchar(30),
-id_tip_tinta Varchar(30),
+id_tinta int,
+id_material int,
+id_cadarco int,
+id_solado int,
+id_adesivo int,
+id_tip_tinta int,
 data date,
 FOREIGN KEY(id_tinta) REFERENCES tinta (id),
 FOREIGN KEY(id_material) REFERENCES material (id),
