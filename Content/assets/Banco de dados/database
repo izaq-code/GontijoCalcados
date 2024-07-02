@@ -16,7 +16,8 @@ CREATE TABLE usuario (
     cpf VARCHAR(255),
     senha varchar(255),
     profile_picture VARCHAR(255),
-    funcao Varchar(40)
+    funcao Varchar(40),
+    telefone Varchar(40)
 );
 
 -- fim dos usuarios
@@ -79,4 +80,6 @@ FOREIGN KEY(id_cadarco) REFERENCES cadarco (id),
 FOREIGN KEY(id_solado) REFERENCES solado (id)
 );
 
+INSERT INTO usuario (name, email, funcao, telefone, profile_picture)
+VALUES ('João Silva', 'joao.silva@email.com', 'Gerente de Vendas', '(11) 9999-9999', 'https://img.freepik.com/fotos-gratis/vista-do-carro-3d_23-2150796894.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1719878400&semt=sph');
 
