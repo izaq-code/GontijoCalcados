@@ -26,7 +26,7 @@ body {
 .nav-logo img {
     display: flex;
     align-items: center;
-    width: 200px;
+    width: 150px;
     vertical-align: center;
 }
 
@@ -149,6 +149,17 @@ body {
     color: black;
 }
 
+#banner img{
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    width: 98%;
+    height: 50%;
+    border-radius: .5rem;
+    margin: 0 auto;
+}
+
+
 /* ACORDEON */
 
 .accordion__header {
@@ -161,10 +172,13 @@ body {
     align-items: center;
     border: 1px solid var(--corprincipal);
     color: var(--cortextoprincipal);
-    background: transparent;
+    background: hsla(215, 100%, 92%, 0.3);
     text-align: left;
     cursor: pointer;
-    transition: ease-in-out .3s;
+    transition: ease-in-out .8s;
+    border-radius: .6rem;
+    padding: 15px;
+    margin: 3px;
 }
 
 .accordion__header span {
@@ -172,7 +186,7 @@ body {
 }
 
 .accordion__item.active .accordion__header.end{
-    border-radius: 0;
+    border-radius: .6rem;
 }
 
 .accordion__body {
@@ -188,7 +202,8 @@ body {
 }
 
 .accordion__item.active .accordion__body {
-    display: flex;
+    display: block;
+    transition: 1s;
 }
 
 .accordion__item.active .bi-caret-down-fill {
@@ -202,6 +217,7 @@ body {
     text-align: justify;
     gap: 2rem;
     padding: 0 20vw;
+    margin: 50px;
 }
 
 #accordion{

@@ -15,12 +15,12 @@
     <header>
         <nav class="nav-bar">
             <div class="nav-logo">
-                <a href="navbar.html"><img src="assets/imagens/logo.png" alt=""></a>
+                <a href="navbar.html"><img src="../assets/imagens/Vector.svg" alt="logo"></a>
             </div>
             <div class="nav-lista-direita">
                 <ul>
                     <li class="nav-item"><a href="#" class="nav-link" >Sobre nós</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link" >Dúvidas</a></li>
+                    <li class="nav-item"><a href="#perguntas-frequentes" class="nav-link" >Dúvidas</a></li>
                     <li class="nav-item login"><a href="#" class="nav-link" >Login</a></li>
                 </ul>
             </div>
@@ -40,7 +40,9 @@
     </header>
 
     <main>
-        <div> banner</div>
+        <div id="banner">
+          <img src="../assets/imagens/tennis2.jpg" alt="">
+        </div>
         
         <h3>A produção encontra perdas frequentes</h3>
         <div class="container-informacoes-iniciais">
@@ -62,7 +64,7 @@
         </div>
     </main>
 
-    <div class="perguntas-frequentes">
+    <section class="perguntas-frequentes" id="perguntas-frequentes">
         <h3>Perguntas frequentes</h3>
             <div id="accordion">
                 <div class="accordion__item active">
@@ -111,9 +113,10 @@
                       </div>
             </div>
     </div>
-</div>
+  </section>
 
     <script src="navbar.js"></script>
-</body>
+    <script src="./accordion.js"></script>
+  </body>
 
 </html>
