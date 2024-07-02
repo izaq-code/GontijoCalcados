@@ -14,8 +14,41 @@ html {
     --cor-outline:#e1ad33;
 }
 
+
 main {
     display: flex;
     height: 100%;
     align-items: center;
 }
+
+.content {
+    margin-left: 290px;
+    padding: 20px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .content {
+      margin-left: 120px;
+    }
+  }
+  
+  .content1 {
+    margin-left: 240px;
+    padding: 20px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .content1 {
+      margin-left: 120px;
+    }
+  }
+  
+  a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+  
+  body.dark-mode a {
+    color: rgb(255, 255, 255);
+  }
+  
