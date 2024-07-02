@@ -1,0 +1,164 @@
+body.light-mode {
+  background-color: #fff;
+  color: #333;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+body.light-mode .navbar {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+body.dark-mode .navbar {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark-mode .solicitacoes-table tbody tr {
+  background-color: #444;
+}
+
+body.light-mode .solicitacoes-table tbody tr {
+  background-color: #cacaca;
+}
+
+body.light-mode .card-solicitacoes-container {
+  background-color: #cacaca;
+}
+
+body.dark-mode .card-solicitacoes-container,
+body.dark-mode .solicitacoes-table {
+  color: rgb(255, 255, 255);
+  background-color: #444;
+}
+
+body.light-mode .card-solicitacoes-container,
+body.light-mode .solicitacoes-table {
+  color: rgb(0, 0, 0);
+}
+
+body.dark-mode .input input,
+body.dark-mode .input select,
+body.dark-mode .input label {
+  background-color: #333;
+  color: #ccc;
+}
+
+body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: #333;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+body.light-mode .navbar {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+body.dark-mode .navbar {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark-mode .solicitacoes-table tbody tr {
+  background-color: #444;
+}
+
+body.light-mode .solicitacoes-table tbody tr {
+  background-color: #cacaca;
+}
+
+body.light-mode .card-solicitacoes-container {
+  background-color: #cacaca;
+}
+
+body.dark-mode .card-solicitacoes-container,
+body.dark-mode .solicitacoes-table {
+  color: rgb(255, 255, 255);
+  background-color: #444;
+}
+
+body.light-mode .card-solicitacoes-container,
+body.light-mode .solicitacoes-table {
+  color: rgb(0, 0, 0);
+}
+
+body.dark-mode .input input,
+body.dark-mode .input select,
+body.dark-mode .input label {
+  background-color: #333;
+  color: #ccc;
+}
+
+body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+/* Modo escuro adicional */
+body.dark-mode .produto {
+  border: 1px solid #555;
+  box-shadow: 0 0px 10px 1px rgba(46, 46, 46, 0.7);
+}
+
+body.dark-mode .produto p {
+  color: #ccc;
+}
+
+body.dark-mode .input-group {
+  background-color: #555;
+}
+
+body.dark-mode .quantidade-input {
+  background-color: #555;
+}
+
+body.dark-mode .confirmar-btn,
+body.dark-mode .cancelar-btn {
+  background-color: #006060;
+  color: white;
+}
+
+body.dark-mode .cancelar-btn {
+  background-color: #800024;
+}
+
+body.dark-mode .confirmar-btn:hover {
+  background-color: #005050;
+}
+
+body.dark-mode .cancelar-btn:hover {
+  background-color: #990036;
+}
+
+body.dark-mode #searchInput {
+  padding-left: 40px !important;
+  padding: 10px;
+  width: 300px;
+  outline: #008080;
+  border: 2px solid rgb(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background-color: #333;
+  color: #ccc;
+}
+
+body.dark-mode #peo {
+  margin-left: -310px;
+  position: absolute;
+  color: #777777;
+}
+
+body.light-mode #dados_exibidos {
+  box-shadow: inset 0 0 10px rgb(34, 34, 34,0.3);
+}
