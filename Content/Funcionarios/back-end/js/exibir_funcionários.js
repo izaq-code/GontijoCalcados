@@ -10,19 +10,19 @@ function listarfuncionarios() {
             console.log(funcionarios);
 
             funcionarios.forEach(function (funcionario) {
-                var item = $('<div>').addClass('produto');
+                var item = $('<div>').addClass('usuario-card');
 
-                var nome = $('<h3>').addClass('funcionarios-nome').text(funcionario.nome);
-                item.append(nome);
-
-                var imgContainer = $('<div>').addClass('img-container');
+                var imgContainer = $('<div>').addClass('usuario-imagem');
                 var imagem = $('<img>').attr('src', funcionario.imagem);
                 imgContainer.append(imagem);
                 item.append(imgContainer);
 
+                var nome = $('<h3>').addClass('funcionarios-nome').text(funcionario.nome);
+                item.append(nome);
+
                 // Div para ver perfil do usuário
                 var divPerfil = $('<div>').addClass('perfil-container');
-                var botaoPerfil = $('<input>').addClass('perfil').attr('type', 'button').val('Ver informações').data('id', funcionario.id);
+                var botaoPerfil = $('<input>').addClass('perfil').attr('type', 'button').val('Ver informações ↪').data('id', funcionario.id);
                 divPerfil.append(botaoPerfil);
                 item.append(divPerfil);
 
