@@ -13,51 +13,62 @@ var sweetalert2Script = document.createElement('script');
 sweetalert2Script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
 document.body.appendChild(sweetalert2Script);
 
-    /// Função para verificar se estamos em um Mobile Simulator
-    function isMobileSimulator() {
-        // Verifica se estamos em um ambiente que sabemos ser um Mobile Simulator
-        // Exemplo: verificar o título da página ou outros indicadores específicos do simulador
-        return document.title.includes("Mobile Simulator") || window.location.href.includes("mobile_simulator");
+let deviceType = detectDevice();
+
+function detectDevice() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Verifica se o userAgent contém palavras-chave específicas de dispositivos móveis
+    if (/android/i.test(userAgent)) {
+        return "Mobile (Android)";
+    }
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "Mobile (iOS)";
+    }
+    if (/Windows Phone/i.test(userAgent)) {
+        return "Mobile (Windows Phone)";
+    }
+    if (/BB10/i.test(userAgent) || /BlackBerry/i.test(userAgent)) {
+        return "Mobile (BlackBerry)";
+    }
+    if (/IEMobile/i.test(userAgent)) {
+        return "Mobile (IE)";
     }
 
-    // Função para detectar o tipo de dispositivo
-    function detectDevice() {
-        // Verifica se estamos em um Mobile Simulator
-        if (isMobileSimulator()) {
-            return "Mobile Simulator";
-        }
 
-        // Verifica se o userAgent contém palavras-chave específicas de dispositivos móveis
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        if (/android/i.test(userAgent)) {
-            return "Mobile";
-        }
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            return "Mobile";
-        }
-        if (/Windows Phone/i.test(userAgent)) {
-            return "Mobile";
-        }
-        if (/BB10/i.test(userAgent) || /BlackBerry/i.test(userAgent)) {
-            return "Mobile";
-        }
-        if (/IEMobile/i.test(userAgent)) {
-            return "Mobile";
-        }
-
-        // Verifica se o userAgent contém alguma indicação genérica de dispositivo móvel
-        if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile/.test(userAgent)) {
-            return "Mobile";
-        }
-
-        // Se não for identificado como Mobile Simulator e contiver palavras-chave de desktops, retorna "Desktop"
-        if (/Windows NT|Macintosh|Linux x86_64|X11/.test(userAgent)) {
-            return "Desktop";
-        }
-
-        // Se não corresponder a nenhum dos casos anteriores, retorna "Unknown" ou outro valor padrão
-        return "Unknown";
+        if (window.innerWidth <= 768) {
+        return "Mobile";
     }
+    // Verifica se o userAgent contém alguma indicação genérica de dispositivo móvel
+    if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile/.test(userAgent)) {
+        return "Mobile";
+    }
+
+    // Verifica se o userAgent contém palavras-chave específicas de desktops
+    if (/Windows NT|Macintosh|Linux x86_64|X11/.test(userAgent)) {
+        return "Desktop";
+    }
+
+   
+ 
+}
+
+// Função para atualizar o tipo de dispositivo apenas se houver mudança significativa no userAgent
+function updateDeviceType() {
+    const newDeviceType = detectDevice();
+    if (newDeviceType !== deviceType) {
+        deviceType = newDeviceType;
+    }
+}
+
+// Atualiza o tipo de dispositivo inicialmente
+updateDeviceType();
+
+
+
+
+
+
 
 
 
