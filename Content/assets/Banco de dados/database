@@ -85,3 +85,45 @@ VALUES ('João Silva', 'joao.silva@email.com', 'Gerente de Vendas', '(11) 9999-9
        ('tiago', 'tiago@email.com', 'gay', '(31) 7777-7777', 'https://img.freepik.com/fotos-premium/carro-supra-mk4-no-fundo-da-imagem-da-ponte_911078-4767.jpg?w=1380');
 
 
+INSERT INTO material (id, nome, caminho, caminho2)
+VALUES
+(1, 'Material 1', 'caminho1.jpg', 'caminho1_thumb.jpg'),
+(2, 'Material 2', 'caminho2.jpg', 'caminho2_thumb.jpg'),
+(3, 'Material 3', 'caminho3.jpg', 'caminho3_thumb.jpg');
+
+INSERT INTO tinta (id, nome, caminho)
+VALUES
+(1, 'Tinta 1', 'caminho_tinta1.jpg'),
+(2, 'Tinta 2', 'caminho_tinta2.jpg'),
+(3, 'Tinta 3', 'caminho_tinta3.jpg');
+
+INSERT INTO tipo_tinta (id, nome)
+VALUES
+(1, 'Tipo de Tinta 1'),
+(2, 'Tipo de Tinta 2'),
+(3, 'Tipo de Tinta 3');
+
+INSERT INTO adesivo (id, nome, caminho, caminho2)
+VALUES
+(1, 'Adesivo 1', 'caminho_adesivo1.jpg', 'caminho_adesivo1_thumb.jpg'),
+(2, 'Adesivo 2', 'caminho_adesivo2.jpg', 'caminho_adesivo2_thumb.jpg'),
+(3, 'Adesivo 3', 'caminho_adesivo3.jpg', 'caminho_adesivo3_thumb.jpg');
+
+INSERT INTO solado (id, nome)
+VALUES
+(1, 'Solado 1'),
+(2, 'Solado 2'),
+(3, 'Solado 3');
+
+INSERT INTO cadarco (id, nome)
+VALUES
+(1, 'Cadarço 1'),
+(2, 'Cadarço 2'),
+(3, 'Cadarço 3');
+
+INSERT INTO calcado (id, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data)
+VALUES
+(1, 'Espessura Linha 1', 'Tempo Equipamento 1', 'Cor Linha 1', 'Tamanho Costura 1', 'Tempo Secagem 1', 'Registro Equipamento 1', 1, 1, 1, 1, 1, 1, '2024-07-03'),
+(2, 'Espessura Linha 2', 'Tempo Equipamento 2', 'Cor Linha 2', 'Tamanho Costura 2', 'Tempo Secagem 2', 'Registro Equipamento 2', 2, 2, 2, 2, 2, 2, '2024-07-04'),
+(3, 'Espessura Linha 3', 'Tempo Equipamento 3', 'Cor Linha 3', 'Tamanho Costura 3', 'Tempo Secagem 3', 'Registro Equipamento 3', 3, 3, 3, 3, 3, 3, '2024-07-05');
+
