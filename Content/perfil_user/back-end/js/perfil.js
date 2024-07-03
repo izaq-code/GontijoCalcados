@@ -15,7 +15,7 @@ function listarfuncionarios() {
             var perfil_funcionario = perfil.find(function (funcionario) {
                 return funcionario.id == idFuncionario;
             });
-
+            
             if (perfil_funcionario) {
                 var item = $('<div>').addClass('produto');
 

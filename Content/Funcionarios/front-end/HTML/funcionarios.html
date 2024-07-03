@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../assets/css/padrão.css">
-    <link rel="stylesheet" href="../Style/padrão.css">
+    <!-- <link rel="stylesheet" href="../../../assets/css/padrão.css"> -->
+    <link rel="stylesheet" href="../Style/funcionarios.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Funcionários</title>
+    <title>Gontijo | Funcionários</title>
 </head>
-<body>
-    <div id="exibir_funcionarios">
+<body id="tela-principal">
+    <main id="tela-busca-usuario">
+        <div class="barraPesquisa">
+            <div class="search-usuario">
+                <i id="searchIconUsuario" class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInputUsuario" placeholder="Pesquise nome do funcionário" onkeyup="search()">
+            </div>
+        </div>
+        <div class="usuario-header">
+            <h2>Usuários</h2>
+        </div>
+        <div id="errorMessage" style="display:none;">
+            <div class='erro-nenhum-usuario-encontrado'>
+                <div class='mensagem-erro'>IH! Não encontramos usuários</div>
+            </div>
+        </div>
+        <div id="exibir_funcionarios">
 
-    </div>
-
+        </div>
+    </main>
     <script src="../../back-end/js/exibir_funcionários.js"></script>
+    <script src="https://kit.fontawesome.com/993326fe18.js" crossorigin="anonymous"></script>
+    <script src="../js/funcionarios.js"></script>
 </body>
 </html>
