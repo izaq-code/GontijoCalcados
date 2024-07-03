@@ -135,10 +135,10 @@ input[type="search"]::-webkit-search-cancel-button {
     background-color: var(--cor-principal);
     color: #ffffff;
     position: absolute;
-    padding: 7px;
+    padding: 6px;
     padding-right: 7px;
     border-radius: 50%;
-    transform: translate(-19%, -51%);
+    transform: translate(-19%, -49%);
     transition: 200ms ease-in-out color;
 }
 
@@ -153,8 +153,8 @@ input:checked~label .to {
 input:checked~label .to::before {
     content: "\f186";
     color: #ffffff;
-    padding-left: 7px;
-    padding-right: 5px;
+    padding-left: 8px;
+    padding-right: 10px;
 }
 
 #labe {

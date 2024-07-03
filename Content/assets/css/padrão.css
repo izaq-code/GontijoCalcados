@@ -16,13 +16,6 @@ html {
   --cor-fundo: #f5f5f6;
 }
 
-
-main {
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-
 .content {
     margin-left: 290px;
     padding: 20px;

@@ -94,7 +94,7 @@ function loadDesktopNavbar() {
                     </div>
                     <div class="submenu" id="menu">
                         <a href="#">
-                            <div id="Clientes" data-tooltip="Home" class="submenu-item"><i class="bi bi-house icon-space"></i> Graficos</div>
+                            <div id="Clientes" data-tooltip="Home" class="submenu-item"><i class="bi bi-house icon-space"></i> Home</div>
                         </a>
                         <a href="#">
                             <div id="cad" data-tooltip="Graficos" class="submenu-item"><i class="bi bi-bar-chart icon-space"></i> Graficos</div>
