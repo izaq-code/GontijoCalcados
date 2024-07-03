@@ -119,6 +119,47 @@
     width: 40%;
 }
 
+#cadastro-separacao{
+    margin: 30px 0px 30px 0px;
+    border-color: var(--corfundo);
+}
+
+#cadastro-outra-opcao {
+    position: relative;
+    text-align: center;
+}
+
+#cadastro-texto-outro {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -140%);
+    background-color: var(--corfundo);
+    color: #828282;
+    padding: 0 5px;
+    
+}
+
+#login-google {
+    background-color: var(--corfundosecundaria);
+    border-radius: 10px;
+    font-weight: 600;
+    width: 100%;
+    border: none;   
+    font-size: 15px;   
+    padding: 10px;
+    cursor: pointer;
+}
+
+#login-google p {
+    margin: 0;
+    margin-top: 3px;
+}
+
+#cadastro-imagem-google {
+    max-width: 24px;
+    float: left;
+}
+
 @media (max-width: 960px) {
     .container-direito {
         display: none;

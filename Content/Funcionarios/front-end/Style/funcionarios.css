@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+
+
+:root {
+    --corprincipal: #225d99;
+    --corprincipalhover: #154a80;
+    --cor-outline:#e1ad33;
+    --corterciaria: #426441;
+    --corterciariahover: #2e4b2d;
+    --corfundo: #f5f6f6;
+    --corfundosecundaria: white;
+    --cortextoprincipal: black;
+    --cortextoprincipalhover: #d8d8d8;
+}
+
+body {
+    background-color: var(--corfundo);
+    font-family: Outfit;
+    margin: 0;
+}
+
+#tela-busca-usuario {
+    padding: 50px 7% 0 7%;
+}
+
+.search-usuario {
+    width: 100%;
+    position: relative;
+}
+
+.search-usuario input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--cortextosecundario);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--cortextoprincipal)
+}
+
+.search-usuario i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#searchInputUsuario {
+    width: 100%;
+    padding: 13px;
+    font-size: 15px;
+    background-color: var(--corfundosecundaria);
+    border: none;
+    border-radius: 5px;
+    padding-left: 40px;
+}
+
+#searchIconUsuario {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    margin-top: 1px;
+}
+
+#exibir_funcionarios {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.usuario-card {
+    width: 27vh;
+    margin: 10px;
+    background-color: var(--corfundosecundaria);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.usuario-imagem img {
+    margin-top: 30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.usuario-conteudo {
+    margin-top: -25px;
+    padding: 10px;
+}
+
+.busca-username {
+    color: var(--cortextoprincipal);
+}
+
+.busca-nome {
+    margin-top: -10px;
+    color: var(--cortextosecundario);
+}
+
+.perfil {
+    background-color: transparent;
+    border: none;
+    color: var(--corprincipal);
+    font-weight: bolder;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.perfil:hover {
+    color: var(--corprincipalhover);
+    text-decoration: underline;
+}
