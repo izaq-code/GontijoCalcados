@@ -1,5 +1,13 @@
+:root {
+  --cor-principal: #225d99;
+  --cor-principal-hover: #154a80;
+  --cor-outline: #e1ad33;
+  --cor-fundo: #f5f5f6;
+  --cor-nav: white;
+}
+
 body.light-mode {
-  background-color: #fff;
+  background-color: var(--cor-fundo);
   color: #333;
 }
 
@@ -9,7 +17,7 @@ body.dark-mode {
 }
 
 body.light-mode .navbar {
-  background-color: #d9d9d9;
+  background-color: var(--cor-nav);
   color: #000;
 }
 
@@ -53,7 +61,7 @@ body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 body.light-mode {
-  background-color: #fff;
+  background-color: var(--cor-fundo);
   color: #333;
 }
 
@@ -63,7 +71,7 @@ body.dark-mode {
 }
 
 body.light-mode .navbar {
-  background-color: #d9d9d9;
+  background-color: var(--cor-nav);
   color: #000;
 }
 
@@ -127,7 +135,7 @@ body.dark-mode .quantidade-input {
 body.dark-mode .confirmar-btn,
 body.dark-mode .cancelar-btn {
   background-color: #006060;
-  color: white;
+  color: var(--cor-nav);
 }
 
 body.dark-mode .cancelar-btn {
@@ -140,17 +148,6 @@ body.dark-mode .confirmar-btn:hover {
 
 body.dark-mode .cancelar-btn:hover {
   background-color: #990036;
-}
-
-body.dark-mode #searchInput {
-  padding-left: 40px !important;
-  padding: 10px;
-  width: 300px;
-  outline: #008080;
-  border: 2px solid rgb(255, 255, 255, 0.3);
-  border-radius: 10px;
-  background-color: #333;
-  color: #ccc;
 }
 
 body.dark-mode #peo {

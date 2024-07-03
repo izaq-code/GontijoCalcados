@@ -1,3 +1,4 @@
+
 var bootstrapIconsLink = document.createElement('link');
 bootstrapIconsLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css';
 bootstrapIconsLink.rel = 'stylesheet';
@@ -12,10 +13,60 @@ var sweetalert2Script = document.createElement('script');
 sweetalert2Script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
 document.body.appendChild(sweetalert2Script);
 
-function loadNavbar() {
+    /// Função para verificar se estamos em um Mobile Simulator
+    function isMobileSimulator() {
+        // Verifica se estamos em um ambiente que sabemos ser um Mobile Simulator
+        // Exemplo: verificar o título da página ou outros indicadores específicos do simulador
+        return document.title.includes("Mobile Simulator") || window.location.href.includes("mobile_simulator");
+    }
+
+    // Função para detectar o tipo de dispositivo
+    function detectDevice() {
+        // Verifica se estamos em um Mobile Simulator
+        if (isMobileSimulator()) {
+            return "Mobile Simulator";
+        }
+
+        // Verifica se o userAgent contém palavras-chave específicas de dispositivos móveis
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/android/i.test(userAgent)) {
+            return "Mobile";
+        }
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "Mobile";
+        }
+        if (/Windows Phone/i.test(userAgent)) {
+            return "Mobile";
+        }
+        if (/BB10/i.test(userAgent) || /BlackBerry/i.test(userAgent)) {
+            return "Mobile";
+        }
+        if (/IEMobile/i.test(userAgent)) {
+            return "Mobile";
+        }
+
+        // Verifica se o userAgent contém alguma indicação genérica de dispositivo móvel
+        if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile/.test(userAgent)) {
+            return "Mobile";
+        }
+
+        // Se não for identificado como Mobile Simulator e contiver palavras-chave de desktops, retorna "Desktop"
+        if (/Windows NT|Macintosh|Linux x86_64|X11/.test(userAgent)) {
+            return "Desktop";
+        }
+
+        // Se não corresponder a nenhum dos casos anteriores, retorna "Unknown" ou outro valor padrão
+        return "Unknown";
+    }
+
+
+
+
+
+
+function loadDesktopNavbar() {
     const header = document.createElement('div');
     header.id = "header-inicial";
-
     header.innerHTML = `
         <header>
             <div class="navbar">
@@ -32,26 +83,21 @@ function loadNavbar() {
                     </div>
                     <div class="submenu" id="menu">
                         <a href="#">
-                            <div id="Clientes" data-tooltip="Clientes" class="submenu-item"><i class="bi bi-people icon-space"></i> Clientes</div>
+                            <div id="Clientes" data-tooltip="Home" class="submenu-item"><i class="bi bi-house icon-space"></i> Graficos</div>
                         </a>
                         <a href="#">
-                            <div id="cad" data-tooltip="Cadastrar produtos" class="submenu-item"><i class="bi bi-grid icon-space"></i> Cadastrar produtos</div>
+                            <div id="cad" data-tooltip="Graficos" class="submenu-item"><i class="bi bi-bar-chart icon-space"></i> Graficos</div>
                         </a>
                         <a href="#">
-                            <div id="at" data-tooltip="Agendar atendimento" class="submenu-item"><i class="bi bi-calendar-event icon-space"></i> Agendar atendimento</div>
+                            <div id="at" data-tooltip="Demandas" class="submenu-item"><i class="bi bi-clipboard2-pulse icon-space"></i> Demandas</div>
                         </a>
                         <a href="#">
-                            <div id="ar" data-tooltip="Agendar retorno" class="submenu-item"><i class="bi bi-calendar-week icon-space"></i> Agendar retorno</div>
+                            <div id="ar" data-tooltip="Chats" class="submenu-item"><i class="bi bi-chat-left-dots icon-space"></i> Chats</div>
                         </a>
                         <a href="#">
-                            <div id="estoque" data-tooltip="Estoque" class="submenu-item"><i class="bi bi-box2 icon-space"></i> Estoque</div>
+                            <div id="estoque" data-tooltip="Funcionarios" class="submenu-item"><i class="bi bi-person icon-space"></i> Funcionarios</div>
                         </a>
-                        <a href="#">
-                            <div id="Venda" data-tooltip="Venda" class="submenu-item"><i class="bi bi-bag icon-space"></i> Venda</div>
-                        </a>
-                        <a href="#">
-                            <div id="rel" data-tooltip="Relatório" class="submenu-item"><i class="bi bi-clipboard-data icon-space"></i> Relatório</div>
-                        </a>
+                       
                     </div>
                 </div>
 
@@ -60,7 +106,7 @@ function loadNavbar() {
                         <h3 id="settingsHeader">SETTINGS</h3>
                     </div>
                     <div class="submenu" id="settings">
-                        <div id="Informacoes" data-tooltip="Informações" class="submenu-item"><i class="bi bi-info-circle icon-space"></i> Suporte</div>
+                        <div id="Informacoes" data-tooltip="Informações" class="submenu-item"><i class="bi bi-gear icon-space"></i> Configurações</div>
                         <div id="salvos" data-tooltip="Salvos" class="submenu-item"><i class="bi bi-bookmark icon-space"></i> Salvos</div>
                     </div>
                 </div>
@@ -75,8 +121,105 @@ function loadNavbar() {
     document.body.prepend(header);
 }
 
+function loadMobileNavbar() {
+    const footer = document.createElement('div');
+    footer.id = "footer-navbar";
+
+    footer.innerHTML = `
+     
+  <footer>
+    <nav class="mobile-navbar">
+       
+<ul>
+
+
+<li class="">
+  <a href="#">
+   <div class="icone">
+     <i class="bi bi-house"></i>
+    </div>
+    <span class="label">Home</span>
+  </a>
+</li>
+
+<li class="">
+  <a href="#">
+   <div class="icone">
+    <i class="bi bi-bar-chart"></i>
+    </div>
+    <span class="label">Graficos</span>
+  </a>
+</li>
+
+<li class="">
+  <a href="#">
+   <div class="icone">
+    <i class="bi bi-clipboard2-pulse"></i>
+    </div>
+    <span class="label">Demandas</span>
+  </a>
+</li>
+
+<li class="">
+  <a href="#">
+   <div class="icone">
+    <i class="bi bi-chat-left-dots"></i>
+    </div>
+    <span class="label">Chats</span>
+  </a>
+</li>
+
+<li class="">
+  <a href="#">
+   <div class="icone">
+    <i class="bi bi-person"></i>
+    </div>
+    <span class="label">Funcionarios</span>
+  </a>
+</li>
+
+<li class="">
+  <a href="#">
+   <div class="icone">
+    <i class="bi bi-gear"></i>
+    </div>
+    <span class="label">configuraçoes.</span>
+  </a>
+</li>
+
+<li class="">
+  <a href="#">
+   <div class="icone">
+    <i class="bi bi-bookmark"></i>
+    </div>
+    <span class="label">Salvos</span>
+  </a>
+</li>
+
+<div class="indicador"></div>
+
+</ul>
+
+
+
+    </nav>
+</footer>
+
+    `;
+
+    document.body.appendChild(footer);
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
-    loadNavbar();
+    const deviceType = detectDevice();
+    if (deviceType === "Desktop") {
+ 
+        loadDesktopNavbar();
+    } else {
+
+        loadMobileNavbar();
+    }
 
     function extractIconAndTextOnMobile() {
         const screenWidth = window.innerWidth;
@@ -112,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function() {
     extractIconAndTextOnMobile();
     window.addEventListener('resize', extractIconAndTextOnMobile);
 
-    function toggleSubMenu(submenuId, iconId, ) {
+    function toggleSubMenu(submenuId, iconId) {
         const submenu = document.getElementById(submenuId);
         const icon = document.getElementById(iconId);
         submenu.classList.toggle('visible');
@@ -127,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function restoreSubMenuState(submenuId, iconId) {
         const submenuState = localStorage.getItem(submenuId + '-state');
         if (submenuState === 'visible') {
-            toggleSubMenu(submenuId, iconId, 'bi-caret-down-fill');
+            toggleSubMenu(submenuId, iconId);
         }
     }
 
@@ -147,12 +290,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const menuHeader = document.getElementById('menuHeader');
     menuHeader.addEventListener('click', function() {
-        toggleSubMenu('menu', 'menuIcon', 'bi-caret-down-fill');
+        toggleSubMenu('menu', 'menuIcon');
     });
 
     const settingsHeader = document.getElementById('settingsHeader');
     settingsHeader.addEventListener('click', function() {
-        toggleSubMenu('settings', 'settingsIcon', 'bi-caret-down-fill');
+        toggleSubMenu('settings', 'settingsIcon');
     });
 
     const checkbox = document.getElementById('inputto');
@@ -214,3 +357,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navLista = document.querySelectorAll('nav li');
+    const indicador = document.querySelector('nav .indicador');
+    const gutter = 80.8;  
+
+    indicador.style.left = '0px';
+    indicador.style.display = 'none';
+    const onClick = (event, index) => {
+        event.preventDefault();
+        indicador.style.display = 'block';
+        navLista.forEach(item => item.classList.remove('ativa'));
+        event.currentTarget.classList.add('ativa');
+        const itemWidth = event.currentTarget.offsetWidth;
+        const itemLeft = event.currentTarget.offsetLeft;
+        indicador.style.left = `${itemLeft + (itemWidth / 3) - (indicador.offsetWidth / 1.6)}px`;
+    }
+
+    navLista.forEach((item, index) => item.addEventListener('click', (event) => {
+        onClick(event, index);
+    }));
+});
+
