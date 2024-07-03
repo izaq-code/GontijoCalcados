@@ -1,10 +1,19 @@
+:root {
+    --cor-principal: #225d99;
+    --cor-principal-hover: #154a80;
+    --cor-outline: #e1ad33;
+    --cor-fundo: #f5f5f6;
+    --cor-nav: white;
+  }
+  
+
 .navbar {
     height: 96vh;
     width: 250px;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #d9d9d9;
+    background-color: white;
     color: #000000;
     padding: 20px;
 }
@@ -29,7 +38,7 @@
 }
 
 .submenu-item:hover {
-    background-color: #008080;
+    background-color: var(--cor-principal);
     border-radius: 10px;
     padding: 10px;
     width: 240px;
@@ -63,7 +72,7 @@
     color: #ffffff;
     outline: none;
     border: none;
-    background-color: #008080;
+    background-color: var(--cor-principal);
     padding-left: 35px;
     padding-right: 20px;
 }
@@ -86,12 +95,12 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .logout-button {
-    margin-top: 250px;
+    margin-top: 240px;
     bottom: 20px;
     left: 20px;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #008080;
+    background-color: var(--cor-principal);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -123,7 +132,7 @@ input[type="search"]::-webkit-search-cancel-button {
     content: "\f185";
     font-family: "Font Awesome 5 Free";
     font-size: 0.80rem;
-    background-color: #008080;
+    background-color: var(--cor-principal);
     color: #ffffff;
     position: absolute;
     padding: 7px;
@@ -212,7 +221,7 @@ input:checked~label .to::before {
     }
 
     .submenu-item:hover {
-        background-color: #008080;
+        background-color: var(--cor-principal);
         border-radius: 10px;
         padding: 10px;
         color: #fff;
@@ -224,12 +233,12 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
         left: 150px;
-        top: 620px;
+        top: 460px;
     }
 
     #salvos:hover::after {
@@ -245,12 +254,12 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
         left: 150px;
-        top: 580px;
+        top: 420px;
     }
 
     #Informacoes:hover::after {
@@ -266,12 +275,12 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
         left: 150px;
-        top: 215px;
+        top: 135px;
     }
 
     #Clientes:hover::after {
@@ -288,12 +297,12 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
         left: 150px;
-        top: 250px;
+        top: 175px;
     }
 
     #cad:hover::after {
@@ -310,12 +319,12 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
         left: 150px;
-        top: 290px;
+        top: 215px;
     }
 
     #at:hover::after {
@@ -332,12 +341,12 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
         left: 150px;
-        top: 325px;
+        top: 255px;
     }
 
     #ar:hover::after {
@@ -354,12 +363,12 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
         left: 150px;
-        top: 365px;
+        top: 296px;
     }
 
     #estoque:hover::after {
@@ -376,7 +385,7 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
@@ -398,7 +407,7 @@ input:checked~label .to::before {
         content: attr(data-tooltip);
         display: none;
         position: absolute;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
@@ -440,10 +449,111 @@ input:checked~label .to::before {
         left: 15px;
         padding: 10px;
         border-radius: 5px;
-        background-color: #008080;
+        background-color: var(--cor-principal);
         color: #fff;
         border: none;
         cursor: pointer;
     }
 
+}
+
+
+
+/* mobile */
+.mobile-navbar {
+    width: 100%;
+    height: 70px;
+    border-radius: 20px 20px 0 0;
+    background-color: white;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+}
+
+.mobile-navbar ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-navbar ul li {
+  margin-right: 10px;
+    list-style: none;
+    width: 40px;
+    height: 60px;
+    z-index: 1;
+}
+
+.mobile-navbar ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    font-weight: 500;
+}
+
+.mobile-navbar ul li .icone,
+.mobile-navbar ul li .label {
+    position: relative;
+    line-height: 70px;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: 0.5s;
+    color: #000000;
+}
+
+.mobile-navbar ul li .label {
+    position: relative;
+    position: absolute;
+    font-size: 0.60em;
+    opacity: 0;
+    transform: translateY(10px);
+    font-weight: bolder;
+}
+
+.mobile-navbar ul li.ativa .icone {
+    transform: translateY(-40px);
+    color: white;
+}
+
+.mobile-navbar ul li.ativa .label {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+.mobile-navbar .indicador {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background-color: var(--cor-principal);
+    top: -46%;
+    border: 6px solid var(--cor-fundo);
+    transition: .5s;
+}
+
+.mobile-navbar .indicador::after,
+.mobile-navbar .indicador::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: -21px;
+    border-top-right-radius: 22px;
+    box-shadow: 0px -11px 0 0 var(--cor-fundo);
+}
+
+.mobile-navbar .indicador::before {
+    left: unset;
+    right: -21px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 22px;
 }
