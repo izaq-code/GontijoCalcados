@@ -48,7 +48,7 @@ body {
     margin: 0 15px;
 }
 .nav-item.login{
-    background-color: hsla(216, 63%, 72%, 0.3);
+    background-color: #8bafe54d;
     border-radius: 10px;
     padding: 8px;
     margin: -8px 3px;
@@ -229,7 +229,6 @@ body {
 footer {
     background-color: #e9ecef;
     padding: 20px 0;
-    border-top: 1px solid rgb(139, 144, 151);
     text-align: center;
     /* margin: auto 20px; */
 }
@@ -243,7 +242,7 @@ footer {
 }
 
 .footer-group {
-    flex: 1 1 300px; /* Ajuste o tamanho conforme necessário */
+    flex: 1 1 300px;
     margin: 10px;
     text-align: left;
 }
@@ -278,9 +277,6 @@ footer {
     color: var(--corprincipal);
     cursor: pointer;
 }
-
-
-
 
 @media screen and (max-width: 730px) {
     .nav-bar {
