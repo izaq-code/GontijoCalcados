@@ -16,7 +16,7 @@ function listarfuncionarios() {
                 item.append(nome);
 
                 var imgContainer = $('<div>').addClass('img-container');
-                var imagem = $('<img>').attr('src', funcionario.imagem); 
+                var imagem = $('<img>').attr('src', funcionario.imagem);
                 imgContainer.append(imagem);
                 item.append(imgContainer);
 
@@ -28,10 +28,11 @@ function listarfuncionarios() {
 
                 container.append(item);
 
-                //evento para ver o perfil do usuário
-                botaoPerfil.on('click', function() {
+        
+                botaoPerfil.on('click', function () {
                     var idFuncionario = $(this).data('id');
-                    window.location.href = '../../../perfil_user/front-end/HTML/perfil.html?id=' + idFuncionario;
+                    localStorage.setItem('idFuncionario', idFuncionario);
+                    window.location.href = '../../../perfil_user/front-end/HTML/perfil.html';
                 });
             });
         }

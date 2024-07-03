@@ -81,7 +81,9 @@ FOREIGN KEY(id_solado) REFERENCES solado (id)
 );
 
 INSERT INTO usuario (name, email, funcao, telefone, profile_picture)
-VALUES ('João Silva', 'joao.silva@email.com', 'Gerente de Vendas', '(11) 9999-9999', 'https://img.freepik.com/fotos-gratis/vista-do-carro-3d_23-2150796894.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1719878400&semt=sph');
+VALUES ('João Silva', 'joao.silva@email.com', 'Gerente de Vendas', '(11) 9999-9999', 'https://img.freepik.com/fotos-gratis/vista-do-carro-3d_23-2150796894.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1719878400&semt=sph'),
+       ('tiago', 'tiago@email.com', 'gay', '(31) 7777-7777', 'https://img.freepik.com/fotos-premium/carro-supra-mk4-no-fundo-da-imagem-da-ponte_911078-4767.jpg?w=1380');
+
 
 INSERT INTO material (id, nome, caminho, caminho2)
 VALUES
