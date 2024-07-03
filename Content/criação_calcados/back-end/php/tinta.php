@@ -1,6 +1,6 @@
 <?php
 
-require '../../conexao.php'; // Arquivo com a conexão ao banco de dados
+require '../../../assets/php/conexaop.php'; // Arquivo com a conexão ao banco de dados
 
 header('Content-Type: application/json');
 
