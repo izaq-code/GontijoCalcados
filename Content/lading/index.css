@@ -239,10 +239,11 @@ footer {
     justify-content: center;
     max-width: 1300px;
     margin: 0 auto;
+    padding: 30px;
 }
 
 .footer-group {
-    flex: 1 1 300px;
+    flex: 1 1 260px;
     margin: 10px;
     text-align: left;
 }
