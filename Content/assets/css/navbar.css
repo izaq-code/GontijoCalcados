@@ -150,7 +150,7 @@ input:checked~label .to::before {
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 690px) {
     .navbar {
         width: 80px;
     }
@@ -203,6 +203,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 460px;
+        z-index: 1;
     }
 
     #salvos:hover::after {
@@ -224,6 +225,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 420px;
+        z-index: 1;
     }
 
     #Informacoes:hover::after {
@@ -245,6 +247,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 135px;
+        z-index: 1;
     }
 
     #Clientes:hover::after {
@@ -267,6 +270,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 175px;
+        z-index: 1;
     }
 
     #cad:hover::after {
@@ -289,6 +293,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 215px;
+        z-index: 1;
     }
 
     #at:hover::after {
@@ -311,6 +316,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 255px;
+        z-index: 1;
     }
 
     #ar:hover::after {
@@ -333,6 +339,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 296px;
+        z-index: 1;
     }
 
     #estoque:hover::after {
@@ -355,6 +362,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 405px;
+        z-index: 1;
     }
 
     #Venda:hover::after {
@@ -377,6 +385,7 @@ input:checked~label .to::before {
         border-radius: 5px;
         left: 150px;
         top: 445px;
+        z-index: 1;
     }
 
     #rel:hover::after {
