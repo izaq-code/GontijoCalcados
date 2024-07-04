@@ -6,7 +6,6 @@
     --cor-nav: white;
   }
   
-
 .navbar {
     height: 96vh;
     width: 250px;
@@ -57,41 +56,6 @@
 
 .submenu.visible {
     display: none;/
-}
-
-.search-bar {
-
-    margin-top: 10px;
-}
-
-.search-bar input[type="search"] {
-    margin-top: 20px;
-    padding: 10px;
-    width: 240px;
-    border-radius: 30px;
-    color: #ffffff;
-    outline: none;
-    border: none;
-    background-color: var(--cor-principal);
-    padding-left: 35px;
-    padding-right: 20px;
-}
-
-.search-bar input[type="search"]::placeholder {
-    color: #fff;
-}
-
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-#sea {
-    position: absolute;
-    margin-top: 25px;
-    margin-left: 10px;
-    color: #fff;
 }
 
 .logout-button {
@@ -154,7 +118,7 @@ input:checked~label .to::before {
     content: "\f186";
     color: #ffffff;
     padding-left: 8px;
-    padding-right: 10px;
+    /* padding-right: 10px; */
 }
 
 #labe {
@@ -457,9 +421,39 @@ input:checked~label .to::before {
 
 }
 
+.perfil-desk {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+  }
 
+  #nome_user-desk {
+    margin-right: 10px;
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  #foto_user-desk {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+
+  @media only screen and (min-width: 1800px) {
+    .logout-button {
+        margin-top: 360px;
+        bottom: 20px;
+
+    }
+}
 
 /* mobile */
+
 .mobile-navbar {
     width: 100%;
     height: 70px;
@@ -532,12 +526,12 @@ input:checked~label .to::before {
     height: 33px;
     border-radius: 50%;
     background-color: var(--cor-principal);
-    top: -46%;
+    top: -45%;
     border: 6px solid var(--cor-fundo);
     transition: .5s;
 }
 
-.mobile-navbar .indicador::after,
+/* .mobile-navbar .indicador::after,
 .mobile-navbar .indicador::before {
     content: "";
     display: block;
@@ -549,11 +543,118 @@ input:checked~label .to::before {
     left: -21px;
     border-top-right-radius: 22px;
     box-shadow: 0px -11px 0 0 var(--cor-fundo);
-}
+} */
 
 .mobile-navbar .indicador::before {
     left: unset;
     right: -21px;
     border-top-right-radius: 0;
     border-top-left-radius: 22px;
+}
+
+.header_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--cor-nav);
+    border-radius: 0 0 20px 20px;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    z-index: 1000; 
+}
+
+  
+  .perfil {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  #foto_user {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc; 
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  #nome_user {
+    font-size: 10px;
+    color: #333;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
+
+  .container-toggle {
+    width: 35px;
+    height: 15px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    transition: 200ms ease-in-out background-color;
+}
+
+
+.container-toggle {
+    margin-left: 50px;
+  }
+
+.toggle {
+    position: absolute;
+    left: 5px;
+    aspect-ratio: 1/1;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    transition: 200ms ease-in-out left;
+}
+
+.toggle::before {
+    content: "\f185";
+    font-family: "Font Awesome 5 Free";
+    font-size: 0.80rem;
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    position: absolute;
+    padding: 6px;
+    padding-right: 7px;
+    border-radius: 50%;
+    transform: translate(-19%, -52%);
+    transition: 200ms ease-in-out color;
+}
+
+input:checked~label .container-toggle {
+    background-color: #000000;
+}
+
+input:checked~label .toggle {
+    left: calc(44% + 5px);
+}
+
+input:checked~label .toggle::before {
+    content: "\f186";
+    color: #ffffff;
+    padding-left: 8px;
+    /* padding-right: 10px; */
+}
+
+#labelToggle {
+    cursor: pointer;
+}
+
+#inputToggle {
+    display: none;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit; 
 }

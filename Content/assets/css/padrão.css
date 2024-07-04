@@ -17,33 +17,20 @@ html {
 }
 
 .content {
-    margin-left: 290px;
-    padding: 20px;
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .content {
+  margin-left: 290px;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
       margin-left: 120px;
-    }
   }
-  
-  .content1 {
-    margin-left: 240px;
-    padding: 20px;
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .content1 {
-      margin-left: 120px;
-    }
-  }
-  
-  a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-  }
-  
-  body.dark-mode a {
-    color: rgb(255, 255, 255);
-  }
-  
+}
+
+.content1 {
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px; 
+}
+

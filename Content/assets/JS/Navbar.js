@@ -14,6 +14,7 @@ sweetalert2Script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
 document.body.appendChild(sweetalert2Script);
 
 let deviceType = detectDevice();
+const mainElement = document.querySelector('main');
 
 function detectDevice() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -35,12 +36,7 @@ function detectDevice() {
         return "Mobile (IE)";
     }
 
-
-        if (window.innerWidth <= 768) {
-        return "Mobile";
-    }
-    // Verifica se o userAgent contém alguma indicação genérica de dispositivo móvel
-    if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile/.test(userAgent)) {
+    if (window.innerWidth <= 600) {
         return "Mobile";
     }
 
@@ -49,8 +45,16 @@ function detectDevice() {
         return "Desktop";
     }
 
-   
- 
+    // Caso padrão para detecção de desktop
+    return "Desktop";
+}
+
+function applyStylesForDeviceType() {
+    if (deviceType === "Desktop") {
+        mainElement.classList.add('content');
+    } else {
+        mainElement.classList.add('content1');
+    }
 }
 
 // Função para atualizar o tipo de dispositivo apenas se houver mudança significativa no userAgent
@@ -58,19 +62,18 @@ function updateDeviceType() {
     const newDeviceType = detectDevice();
     if (newDeviceType !== deviceType) {
         deviceType = newDeviceType;
+        applyStylesForDeviceType(); // Chama a função para aplicar os estilos baseados no novo tipo de dispositivo
     }
 }
 
 // Atualiza o tipo de dispositivo inicialmente
 updateDeviceType();
 
+// Adicionar um listener de redimensionamento da janela para atualizar o tipo de dispositivo dinamicamente
+window.addEventListener('resize', updateDeviceType);
 
 
-
-
-
-
-
+console.log(deviceType)
 
 
 
@@ -79,6 +82,12 @@ function loadDesktopNavbar() {
     const header = document.createElement('div');
     header.id = "header-inicial";
     header.innerHTML = `
+
+   <div class="perfil-desk">
+      <div id="nome_user-desk">Nome do Usuário</div>
+      <div id="foto_user-desk"></div>
+    </div>
+
         <header>
             <div class="navbar">
                 <div class="to-con">
@@ -138,6 +147,23 @@ function loadMobileNavbar() {
 
     footer.innerHTML = `
      
+
+  <header class="header_mobile">
+<div class="container-toggle">
+  <input type="checkbox" id="inputToggle" />
+  <label id="labelToggle" for="inputToggle">
+    <div class="toggle"></div>
+  </label>
+</div>
+
+  
+    <div class="perfil">
+      <div id="nome_user">Nome do Usuário</div>
+      <div id="foto_user"></div>
+    </div>
+  </header>
+
+
   <footer>
     <nav class="mobile-navbar">
        
@@ -224,11 +250,13 @@ function loadMobileNavbar() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const deviceType = detectDevice();
+    
+    applyStylesForDeviceType(); // Chama a função para aplicar os estilos baseados no novo tipo de dispositivo
     if (deviceType === "Desktop") {
- 
+       
         loadDesktopNavbar();
     } else {
-
+       
         loadMobileNavbar();
     }
 
@@ -272,8 +300,10 @@ document.addEventListener("DOMContentLoaded", function() {
         submenu.classList.toggle('visible');
 
         if (submenu.classList.contains('visible')) {
+            
             localStorage.setItem(submenuId + '-state', 'visible');
         } else {
+            
             localStorage.setItem(submenuId + '-state', 'hidden');
         }
     }
@@ -391,3 +421,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }));
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    function temadapagina() {
+        const darkmode = localStorage.getItem('dark-mode') === 'true';
+
+        if (darkmode) {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+        } else {
+            document.body.classList.add('light-mode');
+            document.body.classList.remove('dark-mode');
+        }
+        checkbox.checked = darkmode;
+    }
+
+    const checkbox = document.getElementById('inputToggle');
+    checkbox.addEventListener('change', function() {
+        const isChecked = this.checked;
+        if (isChecked) {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+            localStorage.setItem('dark-mode', true);
+            localStorage.setItem('light-mode', false);
+        } else {
+            document.body.classList.add('light-mode');
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('dark-mode', false);
+            localStorage.setItem('light-mode', true);
+        }
+    });
+
+    temadapagina();
+});
