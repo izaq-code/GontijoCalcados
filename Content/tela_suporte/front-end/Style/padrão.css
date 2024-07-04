@@ -412,4 +412,21 @@ button[type="submit"]:hover {
     .perguntas-frequentes{
         padding: 0 10vw;
     }
+
+    .atendimento {
+        display: block;
+    }
+
+  
+    /* .form-group{
+        display: block;
+        padding: 10px;
+    } */
+
+    .form-group textarea{
+        width: 90%;
+    }
+    .feedback {
+        max-width: 450px;
+    }
 }
