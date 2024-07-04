@@ -22,7 +22,7 @@ function listarfuncionarios() {
 
                 // Div para ver perfil do usuário
                 var divPerfil = $('<div>').addClass('perfil-container');
-                var botaoPerfil = $('<input>').addClass('perfil').attr('type', 'button').val('Ver informações ↪').data('id', funcionario.id);
+                var botaoPerfil = $('<input>').addClass('verinformacoes').attr('type', 'button').val('Ver informações ↪').data('id', funcionario.id);
                 divPerfil.append(botaoPerfil);
                 item.append(divPerfil);
 

@@ -166,6 +166,11 @@ main {
     float: left;
 }
 
+.container-textos-form img {
+    max-width: 200px;
+    filter: drop-shadow(0 0 2px #353d467c);
+}
+
 @media (max-width: 960px) {
     .container-direito {
         display: none;

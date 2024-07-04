@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function extractIconAndTextOnMobile() {
         const screenWidth = window.innerWidth;
-        const mobileScreenWidth = 668;
+        const mobileScreenWidth = 700;
         const desktopScreenWidth = 700;
         const submenuItems = document.querySelectorAll('.submenu-item');
 

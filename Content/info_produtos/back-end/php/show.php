@@ -6,14 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = $pdo->prepare("SELECT 
     material.nome as nome,
     tipo_tinta.nome as tipotinta,
-    calcado.espe_linha,
-    solado.nome,
-    cadarco.nome,
-    calcado.temp_equi,
-    tinta.nome,
-    calcado.cor_linha,
-    calcado.tam_costura,
-    calcado.temp_sec,
+    calcado.espe_linha as espelinha,
+    solado.nome as nomesolado,
+    cadarco.nome as nomecadarco,
+    calcado.temp_equi  as tempocalcado,
+    tinta.nome as nometinta,
+    calcado.cor_linha as corlinhacalcado,
+    calcado.tam_costura as temcosturacalcado,
+    calcado.temp_sec as tempsec,
     calcado.reg_equip
   FROM 
     material

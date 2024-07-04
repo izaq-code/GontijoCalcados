@@ -580,6 +580,7 @@ input:checked~label .to::before {
     display: flex;
     align-items: center;
     margin-right: 20px;
+    margin-top: 25px;
   }
   
   #foto_user {

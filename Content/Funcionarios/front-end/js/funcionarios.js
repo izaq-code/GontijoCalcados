@@ -5,7 +5,7 @@ function search() {
 
   UsuariosItems.forEach(item => {
       const nomeFuncionario = item.querySelector('.funcionarios-nome').innerText.toLowerCase();
-      const botaoPerfil = item.querySelector('.perfil');
+      const botaoPerfil = item.querySelector('.verinformacoes');
 
       if (nomeFuncionario.includes(searchInput)) {
           item.style.display = 'block';
@@ -22,7 +22,7 @@ function search() {
   if (searchInput === '') {
       UsuariosItems.forEach(item => {
           item.style.display = 'block';
-          item.querySelector('.perfil').style.display = 'inline-block';
+          item.querySelector('.verinformacoes').style.display = 'inline-block';
       });
       mensagemErro.style.display = 'none';
   } else {
