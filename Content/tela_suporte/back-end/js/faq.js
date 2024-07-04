@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#fac').submit(function (e) {
+    $('#faq').submit(function (e) {
         e.preventDefault();
 
         var formData = $(this).serialize();
@@ -8,8 +8,6 @@ $(document).ready(function () {
             type: 'POST',
             url: '../../../tela_suporte/back-end/php/faq.php',
             data: formData,
-            contentType: false,
-            processData: false,
             success: function (data) {
                 Swal.fire({
                     position: "top-end",
@@ -18,7 +16,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 1500
                 }).then(function() {
-                    window.location.reload();
+                     window.location.reload();
                 });
             }
         });
