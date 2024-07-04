@@ -22,6 +22,15 @@ CREATE TABLE usuario (
 
 -- fim dos usuarios
 
+CREATE TABLE faq (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name Varchar(120),
+    comentario Varchar(300),
+    avaliacao INT
+);
+
+-- fim do faq
+
 CREATE TABLE material (
 id int PRIMARY KEY,
 nome Varchar(120),
