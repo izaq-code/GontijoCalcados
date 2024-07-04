@@ -12,6 +12,12 @@
     --cortextosecundariohover: #7e7e7e;
 }
 
+main {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
 .input {
     position: relative;
     margin-bottom: 20px;
