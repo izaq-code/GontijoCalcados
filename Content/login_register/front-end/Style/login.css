@@ -12,6 +12,12 @@
     --cortextosecundariohover: #7e7e7e;
 }
 
+main {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
 .input {
     position: relative;
     margin-bottom: 20px;
@@ -158,6 +164,11 @@
 #cadastro-imagem-google {
     max-width: 24px;
     float: left;
+}
+
+.container-textos-form img {
+    max-width: 200px;
+    filter: drop-shadow(0 0 2px #353d467c);
 }
 
 @media (max-width: 960px) {

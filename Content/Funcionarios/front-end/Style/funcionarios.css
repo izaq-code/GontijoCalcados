@@ -104,7 +104,7 @@ body {
     color: var(--cortextosecundario);
 }
 
-.perfil {
+.verinformacoes {
     background-color: transparent;
     border: none;
     color: var(--corprincipal);
@@ -113,8 +113,11 @@ body {
     margin-bottom: 30px;
 }
 
-.perfil:hover {
+.verinformacoes:hover {
     color: var(--corprincipalhover);
     text-decoration: underline;
 }
 
+.perfil-container {
+    text-align: center;
+}

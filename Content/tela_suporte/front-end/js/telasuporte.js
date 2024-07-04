@@ -1,10 +1,3 @@
-document.querySelectorAll('.accordion__header').forEach(button => {
-    button.addEventListener('click', () => {
-        const accordionItem = button.parentElement;
-        accordionItem.classList.toggle('active');
-    });
-});
-
 function menuShow() {
     const menuMobile = document.querySelector('.mobile-menu');
     const icon = document.querySelector('.icone');
