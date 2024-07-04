@@ -417,12 +417,6 @@ button[type="submit"]:hover {
         display: block;
     }
 
-  
-    /* .form-group{
-        display: block;
-        padding: 10px;
-    } */
-
     .form-group textarea{
         width: 90%;
     }
