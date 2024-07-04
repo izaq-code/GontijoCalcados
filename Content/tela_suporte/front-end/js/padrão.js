@@ -15,3 +15,12 @@ function menuShow() {
 function Deslogar() {
     window.location = "../login";
 }
+
+document.getElementById('submit').addEventListener('click', () => {
+    const rating = document.querySelector('input[name="rating"]:checked');
+    if (rating) {
+        alert(`Você avaliou com ${rating.value} estrela(s)!`);
+    } else {
+        alert('Por favor, selecione uma avaliação.');
+    }
+});
