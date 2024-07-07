@@ -1,0 +1,26 @@
+
+netstat -ano | findstr :3000
+taskkill /PID 36676 /F
+
+npm init -y
+
+npm install express socket.io mysql body-parser
+
+node server.js
+
+xamp:
+
+<VirtualHost *:80>
+    ServerName redePI
+
+    ProxyRequests off
+    ProxyPass /chat http://localhost:3000/
+    ProxyPassReverse /chat http://localhost:3000/
+
+    DocumentRoot "C:/xampp/htdocs"
+    <Directory "C:/xampp/htdocs">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
