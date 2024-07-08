@@ -35,27 +35,60 @@ Para utilizar nossos sistema é necessário ter instalado na sua maquina:
 **Passo 1: Clone o projeto**
 
 ```bash
-  git clone https://link-para-o-projeto
+  git clone https://github.com/iannovais/GontijoCalcados.git
 ```
 
-**Passo 2: Entre no diretório do projeto**
+**Passo 2: Cadastre o banco de dados no xamp**
+
+
+**Passo 3: No xamp, vá nas configurações do Apache:**
+- Vá no httpd.conf
+- Em seguida inisira no final do arquivo txt
+  
 
 ```bash
-  cd my-project
+  
+<VirtualHost *:80>
+    ServerName redePI
+
+    ProxyRequests off
+    ProxyPass /chat http://localhost:3000/
+    ProxyPassReverse /chat http://localhost:3000/
+
+    DocumentRoot "C:/xampp/htdocs"
+    <Directory "C:/xampp/htdocs">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
 ```
 
-**Passo 3: Instale as dependências**
+**Passo 4: Instalar os pacotes node:**
 
 ```bash
-  npm install
+  npm install express socket.io mysql body-parser
 ```
-
-**Passo 4: Inicie o servidor**
+**Passo 5: Inicializar o servidor:**
 
 ```bash
-  npm run start
+  node server.js
 ```
+**Passo 6: Para encontrar a página:**
 
+```bash
+  http://localhost:3000/
+```
+**Passo 7: Para finalizar o servidor procure quem esta na porta 3000 com o:**
+
+```bash
+  netstat -ano | findstr :3000
+```
+**Passo 8: Finalaze colocando quem esta na porta com esse comando:**
+
+```bash
+  taskkill /PID <porta> /F
+```
 ## Referência
 
  - [Sweet Alert](https://sweetalert2.github.io/)
