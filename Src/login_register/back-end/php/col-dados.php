@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $_SESSION['user']['password'] = $password;
 
-    header('Location: http://localhost/fono/src/inicio/inicio.html');
+    header('Location: http://localhost/GONTIJOCALCADOS/src/padr%c3%a3o/front-end/HTML/padr%c3%a3o.html');
     exit;
 }
 ?>
