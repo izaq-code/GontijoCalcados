@@ -1,5 +1,6 @@
 
-    var t = 1 //localStorage.getItem('id');
+    var t = 1; //localStorage.getItem('id');
+
     
     $(document).ready(function(){
         $.ajax({

@@ -1,7 +1,23 @@
 <?php
+
 require '../../../assets/php/conexaop.php';
 
+//codigo em que puxa as imagens 
+
+if(isset($_GET['$code'])){
+
+  $id = $_POST['id'];
+
+WHERE :q;
+
+$T->execute([
+  'q'=> $id
+]);
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
 
     $sql = $pdo->prepare("SELECT 
     material.nome as nome,

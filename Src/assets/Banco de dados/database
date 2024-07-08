@@ -66,6 +66,11 @@ id int PRIMARY KEY,
 nome Varchar(120)
 );
 
+CREATE TABLE img(
+
+    
+)
+
 CREATE TABLE calcado (
 id int PRIMARY KEY,
 espe_linha Varchar(30),
@@ -74,6 +79,7 @@ cor_linha Varchar(30),
 tam_costura Varchar(30),
 temp_sec Varchar(30),
 reg_equip Varchar(30),
+img_calcado (30),
 id_tinta int,
 id_material int,
 id_cadarco int,
@@ -88,6 +94,8 @@ FOREIGN KEY(id_tip_tinta) REFERENCES tipo_tinta (id),
 FOREIGN KEY(id_cadarco) REFERENCES cadarco (id),
 FOREIGN KEY(id_solado) REFERENCES solado (id)
 );
+
+
 
 INSERT INTO usuario (name, email, funcao, telefone, profile_picture)
 VALUES ('João Silva', 'joao.silva@email.com', 'Gerente de Vendas', '(11) 9999-9999', 'https://img.freepik.com/fotos-gratis/vista-do-carro-3d_23-2150796894.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1719878400&semt=sph'),
@@ -130,9 +138,9 @@ VALUES
 (2, 'Cadarço 2'),
 (3, 'Cadarço 3');
 
-INSERT INTO calcado (id, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data)
+INSERT INTO calcado (id, img_calcado, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data)
 VALUES
-(1, 'Espessura Linha 1', 'Tempo Equipamento 1', 'Cor Linha 1', 'Tamanho Costura 1', 'Tempo Secagem 1', 'Registro Equipamento 1', 1, 1, 1, 1, 1, 1, '2024-07-03'),
-(2, 'Espessura Linha 2', 'Tempo Equipamento 2', 'Cor Linha 2', 'Tamanho Costura 2', 'Tempo Secagem 2', 'Registro Equipamento 2', 2, 2, 2, 2, 2, 2, '2024-07-04'),
-(3, 'Espessura Linha 3', 'Tempo Equipamento 3', 'Cor Linha 3', 'Tamanho Costura 3', 'Tempo Secagem 3', 'Registro Equipamento 3', 3, 3, 3, 3, 3, 3, '2024-07-05');
+(1,'amarelo','Espessura Linha 1', 'Tempo Equipamento 1', 'Cor Linha 1', 'Tamanho Costura 1', 'Tempo Secagem 1', 'Registro Equipamento 1', 1, 1, 1, 1, 1, 1, '2024-07-03'),
+(2,'azul','Espessura Linha 2', 'Tempo Equipamento 2', 'Cor Linha 2', 'Tamanho Costura 2', 'Tempo Secagem 2', 'Registro Equipamento 2', 2, 2, 2, 2, 2, 2, '2024-07-04'),
+(3,'lalaranja','Espessura Linha 3', 'Tempo Equipamento 3', 'Cor Linha 3', 'Tamanho Costura 3', 'Tempo Secagem 3', 'Registro Equipamento 3', 3, 3, 3, 3, 3, 3, '2024-07-05');
 
