@@ -4,7 +4,7 @@ require 'conexao.php'; // Certifique-se de que o caminho para db.php está corre
 
 $client_id = '686746649529-s1bjq6d0rjpl129etdr05ugps0n8a07b.apps.googleusercontent.com';
 $client_secret = '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';
-$redirect_uri = 'http://localhost/GONTIJOCALCADOS/Content/login_register/back-end/php/login-google.php'; //uri de redirecionamento
+$redirect_uri = 'http://localhost/GONTIJOCALCADOS/Src/login_register/back-end/php/login-google.php'; //uri de redirecionamento
 
 if (isset($_GET['code'])) {
 
@@ -39,7 +39,7 @@ if (isset($_GET['code'])) {
     if ($user) {
         $_SESSION['user'] = $user;
         // Iniciar sessão do usuário
-        header('Location: http://localhost/fono/src/Paciente/listar_pacientes.html'); // Redirecionar para a página inicial ou qualquer outra página MUDAR ISSO AQUI 
+        header('Location: http://localhost/GONTIJOCALCADOS/src/padr%c3%a3o/front-end/HTML/padr%c3%a3o.html'); // Redirecionar para a página inicial ou qualquer outra página MUDAR ISSO AQUI 
     } else {
 
         $insert = $pdo->prepare("INSERT INTO usuario (google_id, email, name, profile_picture) VALUES (:google_id, :email, :name, :profile_picture)");
@@ -52,7 +52,7 @@ if (isset($_GET['code'])) {
 
         $_SESSION['user'] = $userinfo;
 
-        header('Location: http://localhost/fono/src/Paciente/listar_pacientes.html');// Redirecionar para uma página de erro ou exibir uma mensagem de erro MUDAR ISSO AQUI TAMBEM
+        header('Location: http://localhost/GONTIJOCALCADOS/src/padr%c3%a3o/front-end/HTML/padr%c3%a3o.html');// Redirecionar para uma página de erro ou exibir uma mensagem de erro MUDAR ISSO AQUI TAMBEM
     }
     exit;
 }

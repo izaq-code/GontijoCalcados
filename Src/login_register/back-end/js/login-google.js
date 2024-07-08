@@ -5,7 +5,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         $.ajax({
-            url: '../../back-end/php/callback-log.php',
+            url: '../../../login_register/back-end/php/callback-log.php',
             type: 'GET',
             success: function(response) {
                 var data = JSON.parse(response);

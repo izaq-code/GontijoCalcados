@@ -6,6 +6,8 @@ npm init -y
 
 npm install express socket.io mysql body-parser
 
+cd Src/chat
+
 node server.js
 
 xamp:

@@ -10,8 +10,6 @@ function listarfuncionarios() {
         success: function (perfil) {
             container.empty();
 
-            console.log(perfil);
-
             var perfil_funcionario = perfil.find(function (funcionario) {
                 return funcionario.id == idFuncionario;
             });
