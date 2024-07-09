@@ -8,6 +8,9 @@
             url: '../../back-end/php/show.php',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             dataType: 'json',
+            data: {
+                id: t
+            },
             success: function(data){
                 console.log(data);
                 

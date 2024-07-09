@@ -4,8 +4,7 @@ require '../../../assets/php/conexaop.php';
 
 // //codigo em que puxa as imagens 
 // if (isset($_GET['code'])) {
-//   $id = 1; //$_POST['id'];
-
+  
 //   // Prepare a instrução SQL
 //   $stmt = $pdo->prepare('SELECT img_calcado FROM id = :q WHERE calcado');
 
@@ -17,14 +16,16 @@ require '../../../assets/php/conexaop.php';
 
 //   // Faça algo com os resultados
 //   foreach ($results as $row) {
-//     header('Content-Type: image/jpg'); // ou outro tipo de imagem
-//     echo $row['img_calcado'];
-// }
-// }
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
+  //     header('Content-Type: image/jpg'); // ou outro tipo de imagem
+  //     echo $row['img_calcado'];
+  // }
+  // }
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $id = $_POST['id'];
+    
+    
     $sql = $pdo->prepare("SELECT 
     material.nome as nome,
     tipo_tinta.nome as tipotinta,
@@ -44,11 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     INNER JOIN tipo_tinta ON calcado.id_tip_tinta = tipo_tinta.id
     INNER JOIN solado ON calcado.id_solado = solado.id
     INNER JOIN cadarco ON calcado.id_cadarco = cadarco.id
-    INNER JOIN tinta ON calcado.id_tinta = tinta.id
+    INNER JOIN tinta ON calcado.id_tinta = tinta.id WHERE calcado.id = :id
   
   ");
 
-    $sql->execute();
+    $sql->execute([
+      'id' => $id
+    ]);
 
     $resultado = array();
 
