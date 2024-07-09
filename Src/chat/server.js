@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./db');
+const { connection1, connection2 } = require('./db'); // Importe as conexões do arquivo db.js
 const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');

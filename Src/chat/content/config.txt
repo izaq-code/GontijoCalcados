@@ -1,13 +1,9 @@
-
 netstat -ano | findstr :3000
-taskkill /PID 3996 /F
-
-npm init -y
+taskkill /PID 13500 /F
 
 npm install express socket.io mysql body-parser
 
-cd Src/chat
-
+cd C:\xampp\htdocs\GontijoCalcados\Src\chat
 node server.js
 
 xamp:
@@ -27,9 +23,6 @@ xamp:
     </Directory>
 </VirtualHost>
 
-
-cd C:\xampp\htdocs\GontijoCalcados\Src\chat
-node server.js
 
 
 GontijoCalcados/
