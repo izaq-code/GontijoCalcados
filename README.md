@@ -38,7 +38,9 @@ Para utilizar nossos sistema é necessário ter instalado na sua maquina:
   git clone https://github.com/iannovais/GontijoCalcados.git
 ```
 
-**Passo 2: Cadastre o banco de dados no xamp**
+**Passo 2: Cadastre o banco de dados no xamp**ㅤ
+
+Atenção! Antes de inseirir o banco de dados do sistema(o bd principal) e o banco de dados no chat faça as instruções abaixo ao inicializar o xampp
 
 
 **Passo 3: No xamp, vá nas configurações do Apache:**
@@ -84,7 +86,7 @@ Para utilizar nossos sistema é necessário ter instalado na sua maquina:
 ```bash
   netstat -ano | findstr :3000
 ```
-**Passo 8: Finalaze colocando quem esta na porta com esse comando:**
+**Passo 8: Finalaze colocando o valor que está na porta(substituindo o porta abaixo pelo valor) com esse comando:**
 
 ```bash
   taskkill /PID <porta> /F
