@@ -1,6 +1,6 @@
 
 netstat -ano | findstr :3000
-taskkill /PID 36676 /F
+taskkill /PID 3996 /F
 
 npm init -y
 
@@ -26,3 +26,35 @@ xamp:
         Require all granted
     </Directory>
 </VirtualHost>
+
+
+cd C:\xampp\htdocs\GontijoCalcados\Src\chat
+node server.js
+
+
+GontijoCalcados/
+│
+├── node_modules/
+│
+├── Src/
+│   ├── chat/
+│   │   ├── public/
+│   │   │   ├── chat.html
+│   │   │   ├── chat.js
+│   │   │   ├── style.css
+│   │   │ 
+│   │   ├── db.js
+│   │   ├── server.js
+│   │ 
+│   │ 
+│   ├── lading/
+│   │   ├── index.css
+│   │   ├── index.js
+│   │   
+│   │  
+│   ├── ...
+│    
+├── index.html
+├── package.json
+├── package-lock.json
+└── README.md
