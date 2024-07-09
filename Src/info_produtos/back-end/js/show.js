@@ -29,6 +29,8 @@ function exibir(data){
 
     d = $('#nome_solado');
 
+    q = $('#img');
+
     x = $('#nome_cadarco');
 
     f = $('#tempo_calcado');
@@ -44,6 +46,10 @@ function exibir(data){
 
     
     data.forEach(function(e){
+
+        var table = $('<img>').attr('src', e['img']);
+        q.append(table);
+
         var table = $('<p>').text(e['nome']);//"<p>" + e['nome'] + "</p>"
         a.append(table); 
 
@@ -73,12 +79,6 @@ function exibir(data){
 
         var table = $('<p>').text(e['tempsec']);
         j.append(table);
-        
-        
-        
-
-
-
 
 
     });

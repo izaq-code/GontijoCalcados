@@ -2,19 +2,25 @@
 
 require '../../../assets/php/conexaop.php';
 
-//codigo em que puxa as imagens 
+// //codigo em que puxa as imagens 
+// if (isset($_GET['code'])) {
+//   $id = 1; //$_POST['id'];
 
-if(isset($_GET['$code'])){
+//   // Prepare a instrução SQL
+//   $stmt = $pdo->prepare('SELECT img_calcado FROM id = :q WHERE calcado');
 
-  $id = $_POST['id'];
+//   // Execute a instrução com o parâmetro
+//   $stmt->execute(['q' => $id]);
 
-WHERE :q;
+//   // Busque os resultados
+//   $results = $stmt->fetchAll();
 
-$T->execute([
-  'q'=> $id
-]);
-}
-
+//   // Faça algo com os resultados
+//   foreach ($results as $row) {
+//     header('Content-Type: image/jpg'); // ou outro tipo de imagem
+//     echo $row['img_calcado'];
+// }
+// }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -30,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     calcado.cor_linha as corlinhacalcado,
     calcado.tam_costura as temcosturacalcado,
     calcado.temp_sec as tempsec,
+    calcado.img_calcado as img,
     calcado.reg_equip
   FROM 
     material
