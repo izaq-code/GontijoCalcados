@@ -5,8 +5,8 @@ node server.js
 
 para finalizar: 
 netstat -ano | findstr :3000
-taskkill /PID 13216 /F
 
+taskkill /PID 28048 /F
 xamp:
 
 <VirtualHost *:80>
