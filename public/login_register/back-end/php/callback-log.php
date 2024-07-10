@@ -9,4 +9,5 @@ $scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.
 $auth_url = 'https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=' . $client_id . '&redirect_uri=' . urlencode($redirect_uri) . '&scope=' . urlencode($scope);
 
 echo json_encode(array("redirectUrl" => $auth_url));
+
 ?>

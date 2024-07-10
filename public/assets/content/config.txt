@@ -1,10 +1,12 @@
 npm install express socket.io mysql body-parser
+npm install axios
+
 
 node server.js
 
 para finalizar: 
 netstat -ano | findstr :3000
-taskkill /PID 20792 /F
+taskkill /PID 9300 /F
 
 xamp:
 
