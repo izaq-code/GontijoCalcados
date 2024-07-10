@@ -28,6 +28,16 @@ CREATE TABLE faq (
 
 -- fim do faq
 
+CREATE TABLE  bater_ponto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ini_ponto datetime,
+    ini_intervalo datetime,
+    fim_intervalo datetime,
+    fim_ponto datetime
+);
+
+-- fim bater ponto
+
 CREATE TABLE material (
 id int PRIMARY KEY,
 nome Varchar(120),
