@@ -4,8 +4,8 @@
     
     $(document).ready(function(){
         $.ajax({
-            type: 'POST',
-            url: '../../back-end/php/show.php',
+            type: 'GET',
+            url: '/info_produtos/',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             dataType: 'json',
             data: {
