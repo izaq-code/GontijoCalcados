@@ -4,8 +4,8 @@ function listarfuncionarios() {
     var idFuncionario = localStorage.getItem('idFuncionario');
 
     $.ajax({
-        url: '../../../perfil_user/back-end/php/perfil.php',
-        type: 'POST',
+        url: '/funcionarios/',
+        type: 'GET',
         dataType: 'json',
         success: function (perfil) {
             console.log("Perfil retornado:", perfil); // Verifique o que está sendo retornado
@@ -35,42 +35,17 @@ function listarfuncionarios() {
                 
                 //exibi imagem
                 var imgContainer = $('<div>').addClass('img-container');
-                var imagem = $('<img>').attr('src', perfil_funcionario.imagem);
+                var imagem = $('<img>').attr('src', perfil_funcionario.profile_picture);
                 imgContainer.append(imagem);
                 item.append(imgContainer);
 
                 var funcao = $('<h2>').addClass('perfil-funcao').text('Função: ' + perfil_funcionario.funcao);
                 item.append(funcao);
-                //fim de exibiução
-
-                // Adicionar botão Bater Ponto
-                var baterPontoButton = $('<button>').addClass('bater-ponto-button').text('Bater Ponto');
-                item.append(baterPontoButton);
-
+            
                 container.append(item);
-
-                // Evento de clique para bater ponto
-                baterPontoButton.on('click', function () {
-                    $.ajax({
-                        url: '../../../perfil_user/back-end/php/bater_ponto.php',
-                        type: 'POST',
-                        dataType: 'json',
-                        data: { 
-                            usuario_id: idFuncionario
-                        },
-                        success: function (response) {
-
-                        },
-                        error: function () {
-                            alert('Erro ao tentar bater ponto.');
-                        }
-                    });
-                });
+                //fim de exibiução
             } 
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("Erro na requisição AJAX:", textStatus, errorThrown);
-        }
     });
 }
 
