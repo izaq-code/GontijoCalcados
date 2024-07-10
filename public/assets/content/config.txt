@@ -1,0 +1,57 @@
+npm install express socket.io mysql body-parser
+
+node server.js
+
+para finalizar: 
+netstat -ano | findstr :3000
+taskkill /PID 20792 /F
+
+xamp:
+
+<VirtualHost *:80>
+    ServerName redePI
+    DocumentRoot "C:/xampp/htdocs/GontijoCalcados/public"
+
+    ProxyPass /Gontijocalcados http://localhost:3000/
+    ProxyPassReverse /Gontijocalcados http://localhost:3000/
+
+    Alias /backend "C:/xampp/htdocs/GontijoCalcados/backend"
+    <Directory "C:/xampp/htdocs/GontijoCalcados/backend">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    <Directory "C:/xampp/htdocs/GontijoCalcados/public">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog "logs/redePI-error.log"
+    CustomLog "logs/redePI-access.log" common
+</VirtualHost>
+
+GontijoCalcados/
+├── node_modules/
+├── backend/
+│   ├── funcionarios/
+│   │   ├── exibir_funcionários.php
+│   │...
+│
+├── public/
+│   ├── chat/
+│   │   ├── chat.html
+│   │   ├── js/
+│   │   │   ├── chat.js
+│   │   ├── css/
+│   │   │   ├── style.css
+│   │   │
+│   │   ├── db.js
+│   │   └── ...
+│   ├── landing/
+│   │   ├── index.css
+│   │   ├── index.js
+│   │   └── ...
+│   └── ...
+├── server.js  (aqui está o seu server.js na raiz do projeto)
