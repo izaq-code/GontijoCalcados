@@ -16,15 +16,18 @@ const port = 3000;
 app.use(bodyParser.json());
 
 // Gerar uma chave secreta segura
-const crypto = require('crypto');
-const secretKey = crypto.randomBytes(64).toString('hex');
+const crypto = require('crypto');// pede pro Node.js para gerar uma sequência aleatória de bytes.
+const secretKey = crypto.randomBytes(64).toString('hex');//crypto.randomBytes(64) gera 64 bytes de dados aleatórios.
+//.toString('hex') converte esses bytes em uma string hexadecimal, que é mais fácil de gerenciar e armazenar.
 
 // Session middleware setup
-app.use(session({
-    secret: secretKey, // Use a chave secreta gerada
-    resave: false,
-    saveUninitialized: true,
+app.use(session({//Aqui, está sendo configurado o middleware de sessão para o Express usando app.use(session({...})).
+    secret: secretKey, // Use a chave secreta gerada //secret: secretKey: Utiliza a chave secreta gerada anteriormente para assinar os cookies de sessão. Isso garante que os cookies só possam ser lidos e modificados pelo servidor.
+    resave: false,//resave: false: Evita salvar sessões que não foram modificadas durante o pedido. Isso ajuda a otimizar o desempenho.
+    saveUninitialized: true,//saveUninitialized: true: Salva sessões mesmo que elas não tenham sido inicializadas com dados. Pode ser útil para criar sessões automaticamente.
     cookie: { secure: false } // Set to true if using HTTPS
+
+    //cookie: { secure: false }: Configurações do cookie de sessão. secure: false significa que o cookie será enviado via HTTP, não apenas HTTPS. Se estiver usando HTTPS, deve ser definido como true para garantir a segurança.
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -72,12 +75,8 @@ app.get('/funcionarios', (req, res) => {
         res.json(results);
     });
 });
-// (prestes a descobrir o que só os loucos sabem)
+// (prestes a descobrir o que só os loucos sabem) (maluquisse dms isso aqui. ass: izaq)
 //rota para buscar as paradas do login
-
-// parametros para montar o token
-
-
 // Parâmetros para montar o token
 const client_id = '686746649529-s1bjq6d0rjpl129etdr05ugps0n8a07b.apps.googleusercontent.com';
 const client_secret = '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';
