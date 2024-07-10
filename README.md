@@ -29,8 +29,8 @@ Clique [aqui](https://link-da-documentação) para acessar a documentação comp
 **Pré-requisitos**
 
 Para utilizar nossos sistema é necessário ter instalado na sua maquina:
-- Xamp
-- Node JS
+- Clique [Xamp](https://link-da-documentação) para acessar
+- Clique [Node.js](https://www.apachefriends.org/pt_br/index.html) para acessar
 
 **Passo 1: Clone o projeto**
 
@@ -50,24 +50,33 @@ Para utilizar nossos sistema é necessário ter instalado na sua maquina:
   
 <VirtualHost *:80>
     ServerName redePI
+    DocumentRoot "C:/xampp/htdocs/GontijoCalcados/public"
 
-    ProxyRequests off
-    ProxyPass /chat http://localhost:3000/
-    ProxyPassReverse /chat http://localhost:3000/
+    ProxyPass /Gontijocalcados http://localhost:3000/
+    ProxyPassReverse /Gontijocalcados http://localhost:3000/
 
-    DocumentRoot "C:/xampp/htdocs"
-    <Directory "C:/xampp/htdocs">
+    Alias /backend "C:/xampp/htdocs/GontijoCalcados/backend"
+    <Directory "C:/xampp/htdocs/GontijoCalcados/backend">
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
+
+    <Directory "C:/xampp/htdocs/GontijoCalcados/public">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog "logs/redePI-error.log"
+    CustomLog "logs/redePI-access.log" common
 </VirtualHost>
 ```
 
 **Passo 4: Instalar os pacotes node:**
 
 ```bash
-  npm install express socket.io mysql body-parser
+npm install express body-parser express-session mysql http socket.io axios path crypto
 ```
 **Passo 5: Inicializar o servidor:**
 
@@ -89,7 +98,7 @@ Para utilizar nossos sistema é necessário ter instalado na sua maquina:
 ```bash
   taskkill /PID <porta> /F
 ```
-## Referência
+## API's / LIB's Referência
 
  - [Sweet Alert](https://sweetalert2.github.io/)
  - [API Google](https://developers.google.com/apis-explorer?hl=pt-br)

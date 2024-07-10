@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const { connection1, connection2 } = require('./public/chat/js/db.js');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -14,12 +15,23 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
+// Gerar uma chave secreta segura
+const crypto = require('crypto');
+const secretKey = crypto.randomBytes(64).toString('hex');
+
+// Session middleware setup
+app.use(session({
+    secret: secretKey, // Use a chave secreta gerada
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Set to true if using HTTPS
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
 
 app.post('/messages1', (req, res) => {
     const { user, message } = req.body;
@@ -60,19 +72,18 @@ app.get('/funcionarios', (req, res) => {
         res.json(results);
     });
 });
-
 // (prestes a descobrir o que só os loucos sabem)
 //rota para buscar as paradas do login
 
 // parametros para montar o token
 
+
+// Parâmetros para montar o token
 const client_id = '686746649529-s1bjq6d0rjpl129etdr05ugps0n8a07b.apps.googleusercontent.com';
 const client_secret = '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';
 const redirect_uri = 'http://localhost:3000/login-google';
 
-//fim dos parametros
-
-//primeira query
+// Primeira query
 app.get('/login-google', async (req, res) => {
     if (req.query.code) {
         const code = req.query.code;
@@ -89,22 +100,19 @@ app.get('/login-google', async (req, res) => {
             const response = await axios.post(token_url, params);
             const token = response.data;
 
-            //resgatando informações do usuario
-
+            // Resgatando informações do usuario
             const userinfo_url = `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${token.access_token}`;
             const userinfoResponse = await axios.get(userinfo_url);
             const userinfo = userinfoResponse.data;
 
-            //verifcando se o usuario já existe no banco de dados
-
+            // Verificando se o usuario já existe no banco de dados
             connection2.query('SELECT * FROM usuario WHERE email = ?', [userinfo.email], (error, results) => {
-
                 if (error) {
-                    console.error(error)
+                    console.error(error);
                 } else {
                     if (results.length > 0) {
                         req.session.user = results[0];
-                        res.redirect('http://localhost/GONTIJOCALCADOS/src/padr%c3%a3o/front-end/HTML/padr%c3%a3o.html');
+                        res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
                     } else {
                         // Inserir novo usuário
                         connection2.query('INSERT INTO usuario (google_id, email, name, profile_picture) VALUES (?, ?, ?, ?)', [
@@ -113,22 +121,15 @@ app.get('/login-google', async (req, res) => {
                             userinfo.name,
                             userinfo.picture
                         ], (error, results) => {
-
-                            if (error){
+                            if (error) {
                                 console.log(error);
                             }
-
                             req.session.user = userinfo;
                             res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
                         });
-
-
                     }
                 }
             });
-
-
-
         } catch (error) {
             console.error('Erro ao obter o token:', error);
             res.status(500).send('Erro ao obter o token');
@@ -137,8 +138,6 @@ app.get('/login-google', async (req, res) => {
         res.status(400).send('Código não encontrado');
     }
 });
-
-//favela venceu, fim 
 
 // Configuração do Socket.io para conexões de clientes
 io.on('connection', (socket) => {
@@ -150,14 +149,12 @@ io.on('connection', (socket) => {
             console.error('Erro ao buscar dados do segundo banco de dados:', err);
             return;
         }
-
     });
 
     socket.on('disconnect', () => {
         console.log('Cliente desconectado');
     });
 });
-
 
 server.listen(port, () => {
     console.log(`Servidor Node.js escutando na porta ${port}`);
