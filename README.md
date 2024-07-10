@@ -38,8 +38,9 @@ Para utilizar nossos sistema é necessário ter instalado na sua maquina:
   git clone https://github.com/iannovais/GontijoCalcados.git
 ```
 
-**Passo 2: Cadastre o banco de dados no xamp**
+**Passo 2: Cadastre o banco de dados no xamp**ㅤ
 
+Atenção! Cadastre os dois banco de dados `ProductEase` e `chat_app`
 
 **Passo 3: No xamp, vá nas configurações do Apache:**
 - Vá no httpd.conf
