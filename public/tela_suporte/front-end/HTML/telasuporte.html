@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../assets/css/padrão.css">
+    <link rel="stylesheet" href="../Style/telasuporte.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Suporte</title>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+          <div class="nav-logo">
+            <a href="../../../lading/index.html"><img src="../../../assets/imagens/Vector.svg" alt="logo"></a>
+          </div>
+          <div class="nav-lista-direita">
+            <ul>
+
+              <li class="nav-item"><a href="#" class="nav-link">Sobre nós</a></li>
+              <li class="nav-item"><a href="#perguntas-frequentes" class="nav-link">Dúvidas</a></li>
+              <li class="nav-item login"><a href="../../../login_register/front-end/HTML/login.html" class="nav-link">Login</a></li>
+
+            </ul>
+          </div>
+          <div class="mobile-menu-icone">
+            <button onclick="menuShow()">
+              <img class="icone" src="../../../assets/imagens/menu.svg" alt="">
+            </button>
+          </div>
+        </nav>
+        <div class="mobile-menu">
+          <ul>
+            <li class="nav-item"><a href="telasuporte.html" class="nav-link">Sobre nós</a></li>
+            <li class="nav-item"><a href="../../../lading/index.html#perguntas-frequentes" class="nav-link">Dúvidas</a></li>
+            <li class="nav-item"><a href="../login_register/front-end/HTML/login.html" class="nav-link">Login</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <section class="atendimento">
+        <div class="texto">
+          <div class="texto1">
+            <h2>Estamos aqui para te atender</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. industry's standard dummy text ever since the 1500s,</p>
+          </div>
+        </div>
+        <div class="contatos">
+            <div class="contato">
+                <img src="../../../assets/imagens/chat.svg" alt="Chat">
+                <div class="info">
+                    <h3>Chat</h3>
+                    <p>Possui dúvidas sobre o processo de fabricação do produto? Converse com o <a href="#">supervisor</a></p>
+                </div>
+            </div>
+            <div class="contato">
+                <img src="../../../assets/imagens/call.svg" alt="SAC">
+                <div class="info">
+                    <h3>SAC</h3>
+                    <p>É seu primeiro contato? Fale com o SAC no <br> <a href="tel:+5531982772819">(31) 98277-2819</a> (08:00 às 18:00)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback">
+        <h2>Feedback</h2>
+        <p>Avalie nosso sistema para podermos melhorar</p>
+        <form id="faq" action="#" method="post">
+          <div class="nome-avaliacao">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <div class="form-group">
+                <label for="avaliacao">Avaliação</label>
+                <div class="rating">
+                  <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 estrelas"></label>
+                  <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 estrelas"></label>
+                  <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 estrelas"></label>
+                  <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 estrelas"></label>
+                  <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 estrelas"></label>
+              </div>
+          </div>
+        </div>
+            <div class="form-group">
+                <label for="comentario">Comentário</label>
+                <textarea id="comentario" name="comentario"></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <script src="../js/telasuporte.js"></script>
+    <script src="../../back-end/js/faq.js"></script>
+
+</body>
+</html>

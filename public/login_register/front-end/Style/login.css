@@ -1,0 +1,182 @@
+:root {
+    --corprincipal: #225d99;
+    --corprincipalhover: #154a80;
+    --cor-outline: #e1ad33;
+    --corterciaria: #426441;
+    --corterciariahover: #2e4b2d;
+    --corfundo: #f5f6f6;
+    --corfundosecundaria: white;
+    --cortextoprincipal: black;
+    --cortextoprincipalhover: #d8d8d8;
+    --cortextosecundario: rgb(158, 158, 158);
+    --cortextosecundariohover: #7e7e7e;
+}
+
+main {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#input-email,
+#input-senha {
+    color: var(--cortextoprincipal);
+}
+
+.input input {
+    width: 300px;
+    height: 50px;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 0 15px;
+    border: 1px solid var(--cortextosecundario);
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    background-color: var(--corfundo);
+}
+
+.input label {
+    background-color: var(--corfundo);
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: var(--cortextosecundario);
+    font-size: 19px;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.input input:valid~label {
+    top: 0;
+    left: 15px;
+    font-size: 16px;
+    padding: 0 1px;
+    color: var(--cortextosecundario);
+}
+
+.input input:focus,
+.input input:not(:placeholder-shown) {
+    border-color: var(--cortextosecundario);
+}
+
+.input input:focus~label {
+    top: 0;
+    left: 15px;
+    font-size: 16px;
+    padding: 0 1px;
+    background: var(--corfundo);
+    color: var(--corprincipal);
+}
+
+.input select {
+    width: 100%;
+    height: 45px;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 0 15px;
+    border: 1px solid var(--cortextosecundario);
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.input input:focus {
+    border-color: var(--corprincipal);
+}
+
+#btn-entrar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding: 15px;
+    border: none;
+    box-sizing: border-box;
+    font-weight: bolder;
+    background-color: var(--corprincipal);
+    font-size: 15px;
+    color: var(--corfundo);
+}
+
+.container-textos-form {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container-esquerdo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--corfundo);
+    width: 60%;  
+}
+
+.container-direito {
+    background-image: url('../../../assets/imagens/foto-tela-inicial.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 40%;
+}
+
+#cadastro-separacao{
+    margin: 30px 0px 30px 0px;
+    border-color: var(--corfundo);
+}
+
+#cadastro-outra-opcao {
+    position: relative;
+    text-align: center;
+}
+
+#cadastro-texto-outro {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -140%);
+    background-color: var(--corfundo);
+    color: #828282;
+    padding: 0 5px;
+    
+}
+
+#login-google {
+    background-color: var(--corfundosecundaria);
+    border-radius: 10px;
+    font-weight: 600;
+    width: 100%;
+    border: none;   
+    font-size: 15px;   
+    padding: 10px;
+    cursor: pointer;
+}
+
+#login-google p {
+    margin: 0;
+    margin-top: 3px;
+}
+
+#cadastro-imagem-google {
+    max-width: 24px;
+    float: left;
+}
+
+.container-textos-form img {
+    max-width: 200px;
+    filter: drop-shadow(0 0 2px #353d467c);
+}
+
+@media (max-width: 960px) {
+    .container-direito {
+        display: none;
+    }
+
+    .container-esquerdo {
+        width: 100%;
+    }
+}
