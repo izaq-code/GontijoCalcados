@@ -1,0 +1,24 @@
+
+GontijoCalcados/
+├── node_modules/
+├── backend/
+│   ├── funcionarios/
+│   │   ├── exibir_funcionários.php
+│   │...
+│
+├── public/
+│   ├── chat/
+│   │   ├── chat.html
+│   │   ├── js/
+│   │   │   ├── chat.js
+│   │   ├── css/
+│   │   │   ├── style.css
+│   │   │
+│   │   ├── db.js
+│   │   └── ...
+│   ├── landing/
+│   │   ├── index.css
+│   │   ├── index.js
+│   │   └── ...
+│   └── ...
+├── server.js  (aqui está o seu server.js na raiz do projeto)

@@ -1,12 +1,13 @@
 npm install express body-parser express-session mysql http socket.io axios path crypto
 
-
 node server.js
 
 para finalizar: 
+
 netstat -ano | findstr :3000
 
 taskkill /PID 28048 /F
+
 xamp:
 
 <VirtualHost *:80>
@@ -32,27 +33,3 @@ xamp:
     ErrorLog "logs/redePI-error.log"
     CustomLog "logs/redePI-access.log" common
 </VirtualHost>
-
-GontijoCalcados/
-├── node_modules/
-├── backend/
-│   ├── funcionarios/
-│   │   ├── exibir_funcionários.php
-│   │...
-│
-├── public/
-│   ├── chat/
-│   │   ├── chat.html
-│   │   ├── js/
-│   │   │   ├── chat.js
-│   │   ├── css/
-│   │   │   ├── style.css
-│   │   │
-│   │   ├── db.js
-│   │   └── ...
-│   ├── landing/
-│   │   ├── index.css
-│   │   ├── index.js
-│   │   └── ...
-│   └── ...
-├── server.js  (aqui está o seu server.js na raiz do projeto)

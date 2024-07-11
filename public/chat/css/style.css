@@ -120,6 +120,11 @@
   justify-content: flex-start;
 }
 
+.mensagem-outro .nome-usuario {
+position: absolute;
+  margin-left: 25px;
+}
+
 .mensagem-outro .texto-mensagem {
   background-color: #f0f0f0;
 }
