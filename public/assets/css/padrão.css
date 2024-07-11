@@ -13,7 +13,14 @@ html {
   --cor-principal: #225d99;
   --cor-principal-hover: #154a80;
   --cor-outline: #e1ad33;
-  --cor-fundo: #f5f5f6;
+
+  --cor-fundo-body-light: #f5f5f6;
+  --cor-padrao-light: white;
+  --color-padrao-light: #333;
+
+  --cor-fundo-body-dark: #333;
+  --cor-padrao-dark: #444;
+  --color-padrao-dark: #fff;
 }
 
 .content {
