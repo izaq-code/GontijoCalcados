@@ -121,8 +121,13 @@
 }
 
 .mensagem-outro .nome-usuario {
-position: absolute;
+  margin-right: auto;
   margin-left: 25px;
+}
+
+.mensagem-outro .foto-perfil {
+  margin-right: auto;
+  margin-top: -15px;
 }
 
 .mensagem-outro .texto-mensagem {
