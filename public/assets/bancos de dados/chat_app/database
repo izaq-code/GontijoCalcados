@@ -4,9 +4,36 @@ CREATE DATABASE chat_app;
 
 use chat_app;
 
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email_user VARCHAR(300) NOT NULL,
+  FOREIGN KEY (email_user) REFERENCES ProductEase.usuario(email)
+);
+
 CREATE TABLE messages (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user VARCHAR(100) NOT NULL,
+  id_user VARCHAR(300) NOT NULL,
   message TEXT NOT NULL,
-  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_user) REFERENCES users(email_user) 
 );
+
+-- triggers
+
+use ProductEase;
+
+DELIMITER //
+
+CREATE TRIGGER after_insert_usuario
+AFTER INSERT ON usuario
+FOR EACH ROW
+BEGIN
+    -- Insere o e-mail na tabela users do banco de dados chat_app
+    INSERT INTO chat_app.users (email_user)
+    VALUES (NEW.email);
+END;
+
+//
+
+DELIMITER ;

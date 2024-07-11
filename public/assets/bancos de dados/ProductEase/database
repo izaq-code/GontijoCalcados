@@ -8,7 +8,7 @@ USE ProductEase;
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     google_id VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     name VARCHAR(255),
     cpf VARCHAR(255),
     senha varchar(255),
@@ -141,6 +141,7 @@ VALUES
 (1, 'Cadarço 1'),
 (2, 'Cadarço 2'),
 (3, 'Cadarço 3');
+
 
 INSERT INTO calcado (id, img_calcado, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data)
 VALUES

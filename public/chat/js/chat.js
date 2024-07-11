@@ -87,15 +87,36 @@ $.ajax({
     }
 });
 
+
+
+
+
 socket.on('connect', () => {
     console.log('Conectado ao servidor Socket.io');
     if (!usuarioAtual) {
-        usuarioAtual = prompt('Por favor, digite seu nome de usuário:');
-        if (usuarioAtual) {
-            localStorage.setItem('usuarioAtual', usuarioAtual);
-        } else {
-            usuarioAtual = 'Anônimo';
-        }
+
+        $.ajax({
+            url: '/nomeUsuario',
+            type: 'GET',
+            success: function (response) {
+                usuarioAtual = response;
+
+                console.log(usuarioAtual);
+                if (usuarioAtual) {
+                    localStorage.setItem('usuarioAtual', usuarioAtual);
+                } else {
+                    usuarioAtual = 'Anônimo';
+                }
+            },
+            error: function (xhr, status, error) {
+                var errorMessage = xhr.status + ': ' + xhr.statusText;
+                console.error('Erro ao enviar o formulário:', error);
+                return;
+
+            }
+        });
+
+
     }
 });
 

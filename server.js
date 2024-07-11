@@ -34,8 +34,9 @@ app.use(session({//Aqui, está sendo configurado o middleware de sessão para o 
 
 app.post('/messages1', (req, res) => {
     const { user, message } = req.body;
-    const query = 'INSERT INTO messages (user, message) VALUES (?, ?)';
-    connection1.query(query, [user, message], (err, results) => {
+    const email = req.session.user.email;
+    const query = 'INSERT INTO messages (user, id_user, message) VALUES (?, ?, ?)';
+    connection1.query(query, [user, email ,message], (err, results) => {
         if (err) {
             console.error('Erro ao inserir mensagem no primeiro banco de dados:', err);
             res.status(500).send('Erro ao inserir mensagem');
