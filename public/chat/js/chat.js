@@ -72,25 +72,6 @@ function enviarMensagem() {
     }
 }
 
-$.ajax({
-    url: './php/user.php',
-    type: 'POST',
-    success: function (response) {
-        // response == true ? t() : e()
-        alert(response);
-
-    },
-    error: function (xhr, status, error) {
-        var errorMessage = xhr.status + ': ' + xhr.statusText;
-        console.error('Erro ao enviar o formulário:', error);
-
-    }
-});
-
-
-
-
-
 socket.on('connect', () => {
     console.log('Conectado ao servidor Socket.io');
     if (!usuarioAtual) {
