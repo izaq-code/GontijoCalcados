@@ -22,7 +22,7 @@ const secretKey = crypto.randomBytes(64).toString('hex');//crypto.randomBytes(64
 //.toString('hex') converte esses bytes em uma string hexadecimal, que é mais fácil de gerenciar e armazenar.
 
 // Session middleware setup
-app.use(session({//Aqui, está sendo configurado o middleware de sessão para o Express usando app.use(session({...})).
+app.use(session({ //Aqui, está sendo configurado o middleware de sessão para o Express usando app.use(session({...})).
     secret: secretKey, // Use a chave secreta gerada //secret: secretKey: Utiliza a chave secreta gerada anteriormente para assinar os cookies de sessão. Isso garante que os cookies só possam ser lidos e modificados pelo servidor.
     resave: false,//resave: false: Evita salvar sessões que não foram modificadas durante o pedido. Isso ajuda a otimizar o desempenho.
     saveUninitialized: true,//saveUninitialized: true: Salva sessões mesmo que elas não tenham sido inicializadas com dados. Pode ser útil para criar sessões automaticamente.
