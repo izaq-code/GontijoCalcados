@@ -36,6 +36,40 @@ O sistema desenvolvido para a Calçados Gontijo é uma aplicação web que facil
 O sistema é baseado em uma arquitetura cliente-servidor, utilizando Node.js no backend para gerenciar requisições e integrar a API de cadastro com o Google. O frontend é desenvolvido com HTML, CSS e JavaScript, utilizando AJAX para requisições assíncronas e manipulação de dados em formato JSON.
 
 ## Estrutura de Diretórios
-- `/public`: Contém os arquivos estáticos do frontend (HTML, CSS, JavaScript).
-- `/src`: Código fonte do backend em Node.js.
+- Diretório Principal
+  - **Docs**
+    - `api-google.md`
+    - `documentation.md`
+  
+  - **public**
+    - `Funcionarios`
+      (subpastas adicionais)
+    - `assets`
+      (subpastas adicionais)
+    - `chat`
+      (subpastas adicionais)
+    - `criação_calcados`
+      (subpastas adicionais)
+    - `info_produtos`
+      (subpastas adicionais)
+    - `lading`
+      (subpastas adicionais)
+    - `login_register`
+      (subpastas adicionais)
+    - `meu_perfil`
+      (subpastas adicionais)
+    - `perfil_user`
+      (subpastas adicionais)
+    - `tela_grafico`
+      (subpastas adicionais)
+    - `tela_inicial_adm`
+      (subpastas adicionais)
+    - `tela_suporte`
+      (subpastas adicionais)
+    - `index.html`
+  
+  - **routes**
+  
+  - `readme.md`
+
 
