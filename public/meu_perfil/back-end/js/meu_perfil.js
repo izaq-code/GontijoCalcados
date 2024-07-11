@@ -8,7 +8,7 @@ function listarfuncionarios() {
         type: 'GET',
         dataType: 'json',
         success: function (perfil) {
-            console.log("Perfil retornado:", perfil); // Verifique o que está sendo retornado
+            console.log("Perfil retornado:", perfil); 
 
             container.empty();
 
@@ -16,7 +16,7 @@ function listarfuncionarios() {
                 return funcionario.id == idFuncionario;
             });
 
-            console.log("Perfil do funcionário encontrado:", perfil_funcionario); // Verifique se o funcionário foi encontrado
+            console.log("Perfil do funcionário encontrado:", perfil_funcionario); 
             
             if (perfil_funcionario) {
                 var item = $('<div>').addClass('produto');
@@ -41,8 +41,19 @@ function listarfuncionarios() {
 
                 var funcao = $('<h2>').addClass('perfil-funcao').text('Função: ' + perfil_funcionario.funcao);
                 item.append(funcao);
-                //fim de exibiução
+                //fim de exibição
 
+                var entrada = $('<h2>').addClass('entrada').text('Entrada');
+                item.append(entrada);
+
+                var Intervalo = $('<h2>').addClass('Intervalo').text('Intervalo');
+                item.append(Intervalo);
+
+                var volta = $('<h2>').addClass('volta').text('Volta');
+                item.append(volta);
+
+                var saida = $('<h2>').addClass('saida').text('saida');
+                item.append(saida);
                 // Adicionar botão Bater Ponto
                 var baterPontoButton = $('<button>').addClass('bater-ponto-button').text('Bater Ponto');
                 item.append(baterPontoButton);
@@ -52,7 +63,7 @@ function listarfuncionarios() {
                 // Evento de clique para bater ponto
                 baterPontoButton.on('click', function () {
                     $.ajax({
-                        url: '/registrar_ponto',
+                        url: '/bater_ponto',
                         type: 'GET',
                         dataType: 'json',
                         data: { 

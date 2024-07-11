@@ -30,6 +30,7 @@ CREATE TABLE faq (
 
 CREATE TABLE  bater_ponto (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    id_funcionario int,
     ini_ponto datetime,
     ini_intervalo datetime,
     fim_intervalo datetime,

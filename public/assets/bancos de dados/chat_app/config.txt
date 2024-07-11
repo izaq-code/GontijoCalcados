@@ -1,4 +1,4 @@
-npm install express body-parser express-session mysql http socket.io axios path crypto
+npm install express body-parser express-session mysql http socket.io axios path crypto moment 
 
 node server.js
 
