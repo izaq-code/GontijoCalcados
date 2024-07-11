@@ -1,4 +1,4 @@
-npm install express body-parser express-session mysql http socket.io axios path crypto
+npm install express body-parser express-session mysql http socket.io axios path crypto moment 
 
 node server.js
 
@@ -6,7 +6,7 @@ para finalizar:
 
 netstat -ano | findstr :3000
 
-taskkill /PID 28048 /F
+taskkill /PID :61902 /F
 
 xamp:
 
