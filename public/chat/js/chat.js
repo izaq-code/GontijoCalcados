@@ -3,7 +3,7 @@ const chat = document.getElementById('chat');
 const entradaMensagem = document.getElementById('entradaMensagem');
 const botaoEnviar = document.getElementById('botaoEnviar');
 
-let usuarioAtual = localStorage.getItem('usuarioAtual');
+let usuarioAtual = localStorage.getItem('usuarioAtual') || 'Anônimo';
 
 entradaMensagem.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && entradaMensagem.value.trim() !== '') {
@@ -74,31 +74,18 @@ function enviarMensagem() {
 
 socket.on('connect', () => {
     console.log('Conectado ao servidor Socket.io');
-    if (!usuarioAtual) {
 
-        $.ajax({
-            url: '/nomeUsuario',
-            type: 'GET',
-            success: function (response) {
-                usuarioAtual = response;
-
-                console.log(usuarioAtual);
-                if (usuarioAtual) {
-                    localStorage.setItem('usuarioAtual', usuarioAtual);
-                } else {
-                    usuarioAtual = 'Anônimo';
-                }
-            },
-            error: function (xhr, status, error) {
-                var errorMessage = xhr.status + ': ' + xhr.statusText;
-                console.error('Erro ao enviar o formulário:', error);
-                return;
-
-            }
+    fetch('/nomeUsuario')
+        .then(response => response.json())
+        .then(nome => {
+            usuarioAtual = nome;
+            localStorage.setItem('usuarioAtual', usuarioAtual); // Salva no localStorage
+            console.log('Usuário atual:', usuarioAtual);
+        })
+        .catch(error => {
+            console.error('Erro ao obter o nome do usuário:', error);
+            usuarioAtual = 'Anônimo';
         });
-
-
-    }
 });
 
 socket.on('initialMessages', (messages) => {

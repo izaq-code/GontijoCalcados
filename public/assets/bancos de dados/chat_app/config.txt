@@ -6,7 +6,7 @@ para finalizar:
 
 netstat -ano | findstr :3000
 
-taskkill /PID 3904 /F
+taskkill /PID 23904 /F
 
 xamp:
 
