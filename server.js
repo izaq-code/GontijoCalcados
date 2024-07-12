@@ -71,6 +71,10 @@ fs.readdirSync(path.join(__dirname, 'routes')).forEach((file) => {
     app.use('/', route);
 });
 
+app.use((req, res) => {
+    res.status(404).redirect('/not-found/front-end/html/notfound.html');
+});
+
 server.listen(port, () => {
     console.log(`Servidor Node.js escutando na porta ${port}`);
 });
@@ -90,3 +94,4 @@ io.on('connection', (socket) => {
         console.log('Cliente desconectado');
     });
 });
+
