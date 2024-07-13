@@ -16,7 +16,6 @@ body.light-mode {
   background-color: var(--cor-fundo-body-ligth-ligth);
   color: #333;
 }
-
 body.dark-mode {
   background-color: var(--cor-fundo-body-dark-dark);
   color: #fff;

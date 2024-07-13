@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS chat_app;
 
 CREATE DATABASE chat_app;
 
-use chat_app;
+USE chat_app;
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -15,13 +15,24 @@ CREATE TABLE messages (
   user VARCHAR(100) NOT NULL,
   id_user VARCHAR(300) NOT NULL,
   message TEXT NOT NULL,
+  privateChatWith VARCHAR(300) DEFAULT NULL,
   timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (id_user) REFERENCES users(email_user) 
+  FOREIGN KEY (id_user) REFERENCES users(email_user)
 );
 
--- triggers
+CREATE TABLE private_messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  from_user VARCHAR(300) NOT NULL,
+  to_user VARCHAR(300) NOT NULL,
+  message TEXT NOT NULL,
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (from_user) REFERENCES users(email_user),
+  FOREIGN KEY (to_user) REFERENCES users(email_user)
+);
 
-use ProductEase;
+-- Triggers
+
+USE ProductEase;
 
 DELIMITER //
 

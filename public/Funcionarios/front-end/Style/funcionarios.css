@@ -5,7 +5,7 @@
 :root {
     --corprincipal: #225d99;
     --corprincipalhover: #154a80;
-    --cor-outline:#e1ad33;
+    --cor-outline: #e1ad33;
     --corterciaria: #426441;
     --corterciariahover: #2e4b2d;
     --corfundo: #f5f6f6;
@@ -69,6 +69,7 @@ body {
 #exibir_funcionarios {
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .usuario-card {
@@ -120,4 +121,17 @@ body {
 
 .perfil-container {
     text-align: center;
+}
+
+
+
+@media screen and (max-width: 556px) {
+    .usuario-card:last-child {
+        margin-bottom: 100px;
+    }
+
+    .usuario-card {
+        width: 40vh;
+        margin-left: 60px;
+    }
 }
