@@ -5,6 +5,8 @@ const botaoEnviar = document.getElementById('botaoEnviar');
 const listaUsuarios = document.getElementById('listaUsuarios');
 
 let usuarioAtual = localStorage.getItem('usuarioAtual') || 'Anônimo';
+let fotoAtual = localStorage.getItem('fotoAtual') || 'null';
+
 let privateChatWith = null;
 
 entradaMensagem.addEventListener('keydown', (e) => {
@@ -22,6 +24,9 @@ function adicionarMensagem(usuario, mensagem, isPrivate) {
     containerMensagem.classList.add('mensagem-container');
 
     const fotoPerfil = document.createElement('div');
+    const fotomg = document.createElement('img');
+    fotomg.src = fotoAtual;
+    fotoPerfil.appendChild(fotomg);
     fotoPerfil.classList.add('foto-perfil');
 
     const conteudoMensagem = document.createElement('div');
@@ -120,19 +125,21 @@ function iniciarChatPrivado(email) {
 socket.on('connect', () => {
     console.log('Conectado ao servidor Socket.io');
 
-    fetch('/nomeUsuario')
+    fetch('/mostrarUsuarioLogado')
         .then(response => response.json())
         .then(nome => {
-            usuarioAtual = nome;
-            localStorage.setItem('usuarioAtual', usuarioAtual);
+            usuarioAtual = nome.nome;
+            localStorage.setItem('usuarioAtual', usuarioAtual); // Salva no localStorage
             console.log('Usuário atual:', usuarioAtual);
+            fotoAtual = nome.foto;
+            localStorage.setItem('fotoAtual', fotoAtual); // Salva no localStorage
         })
+
         .catch(error => {
             console.error('Erro ao obter o nome do usuário:', error);
             usuarioAtual = 'Anônimo';
         });
 });
-
 socket.on('initialMessages', (messages) => {
     console.log('Mensagens iniciais recebidas:', messages);
     messages.reverse().forEach(msg => adicionarMensagem(msg.user, msg.message, msg.privateChatWith !== null));

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,23 +13,26 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
+
 <body>
     <main>
-    <div id="chat" class="chat-container">
-      
-        <div id="mensagens" class="mensagens"></div>
-    </div>
-    <div class="campo-envio">
+        <div id="chat" class="chat-container">
 
-        <input id="entradaMensagem" type="text" placeholder="Digite sua mensagem...">
-      
-        <button id="botaoEnviar"><i id="icone-enviar" class="bi bi-send"></i></button>
-    </div>
-    <div class="usuarios" id="listaUsuarios"></div>
-</main>
-<script src="/socket.io/socket.io.js"></script>
+            <div id="mensagens" class="mensagens"></div>
+        </div>
+        <div class="campo-envio">
+
+            <input id="entradaMensagem" type="text" placeholder="Digite sua mensagem...">
+
+            <button id="botaoEnviar"><i id="icone-enviar" class="bi bi-send"></i></button>
+        </div>
+        <div class="usuarios" id="listaUsuarios"></div>
+    </main>
+    <script src="../../../assets/JS/redirecionarNotFound.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="../js/chat.js"></script>
-        <script src="../../assets/JS/links.js"></script>
-        <script src="../../assets/JS/Navbar.js"></script>
+    <script src="../../assets/JS/links.js"></script>
+    <script src="../../assets/JS/Navbar.js"></script>
 </body>
+
 </html>

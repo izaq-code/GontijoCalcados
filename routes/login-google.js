@@ -37,6 +37,11 @@ router.get('/login-google', async (req, res) => {
                 } else {
                     if (results.length > 0) {
                         req.session.user = results[0];
+
+                        if (!req.session.user){
+                            res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
+                        }
+
                         res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
                     } else {
                         // Inserir novo usuário
@@ -50,6 +55,11 @@ router.get('/login-google', async (req, res) => {
                                 console.log(error);
                             }
                             req.session.user = userinfo;
+
+                            if (!req.session.user){
+                                res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
+                            }
+
                             res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
                         });
                     }

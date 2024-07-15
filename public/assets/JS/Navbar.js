@@ -141,6 +141,41 @@ function loadDesktopNavbar() {
     document.body.prepend(header);
 }
 
+function mostrarUsuarioLogado() {
+
+    $.ajax({
+        url: '/mostrarUsuarioLogado',
+        type: 'GET',
+        success: function (response) {
+             t(response); 
+
+        },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText;
+            console.error('Erro ao enviar o formulário:', error);
+
+        }
+    });
+    function t(response) {
+        t = $('#nome_user-desk');
+        t.empty();
+        var nome = response.nome;
+        t.append(nome);
+
+        q = $('#foto_user-desk');
+        q.empty();
+        var foto = $('<img>').attr('src', response.foto);
+        console.log(response.foto);
+        q.append(foto);
+
+    }
+
+}
+setTimeout(function () {
+    mostrarUsuarioLogado();
+}, 50); // Executa a função após 2.5 segundos
+
+
 function loadMobileNavbar() {
     const footer = document.createElement('div');
     footer.id = "footer-navbar";
@@ -405,9 +440,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }).then((result) => {
                     if (result.dismiss === Swal.DismissReason.timer) {
-                        window.location.href = '../../index.html'; 
+                        window.location.href = '../../index.html';
                     }
                 });
+                //limpando arquivos temporários
+                $.ajax({
+                    url: '/sessionDestroi',
+                    type: 'GET',
+                    error: function (xhr, status, error) {
+                        var errorMessage = xhr.status + ': ' + xhr.statusText;
+                        console.error('Erro ao enviar o formulário:', error);
+
+                    }
+                });
+                localStorage.clear();
+
             }
         });
     });
