@@ -48,3 +48,14 @@ html{
   margin-top: 60px; 
 }
 
+#foto_user-desk img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.foto-perfil img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}

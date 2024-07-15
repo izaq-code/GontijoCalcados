@@ -76,8 +76,8 @@
 
 .foto-perfil {
   background-color: rgb(185, 183, 183);
-  width: 17px;
-  height: 17px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
 }
 
@@ -106,12 +106,12 @@
 
 .mensagem-propria .nome-usuario {
   margin-left: auto;
-  margin-right: 25px;
+  margin-right: 30px;
 }
 
 .mensagem-propria .foto-perfil {
   margin-left: auto;
-  margin-top: -15px;
+  margin-top: -19px;
 }
 
 .mensagem-propria .texto-mensagem {
@@ -125,12 +125,12 @@
 
 .mensagem-outro .nome-usuario {
   margin-right: auto;
-  margin-left: 25px;
+  margin-left: 30px;
 }
 
 .mensagem-outro .foto-perfil {
   margin-right: auto;
-  margin-top: -15px;
+  margin-top: -19px;
 }
 
 .mensagem-outro .texto-mensagem {
@@ -242,3 +242,4 @@ body.dark-mode #listaUsuarios {
     margin-bottom: 100px;
   }
 }
+
