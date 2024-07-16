@@ -72,9 +72,6 @@ function listarfuncionarios() {
                         success: function (response) {
 
                         },
-                        error: function () {
-                            alert('Erro ao tentar bater ponto.');
-                        }
                     });
                 });
             } 
