@@ -3,8 +3,12 @@
     height: auto;
 }    
 
-p, h3 {
+p, h3, h2 {
     margin: 0;
+}
+
+h2 {
+    margin-bottom: 20px;
 }
 
 .usuario-card {
