@@ -92,7 +92,9 @@
 }
 
 .texto-mensagem {
-  margin-top: 5px;
+margin: 10px;
+  display: inline-flex;
+  position: relative;
   padding: 8px;
   border-radius: 5px;
   word-wrap: break-word;
@@ -100,16 +102,19 @@
   max-width: 30ch;
 }
 
-.mensagem-propria .texto-mensagem::before {
+.mensagem-propria .texto-mensagem  {
+    border-radius: 5px 0px 5px 5px;
+  }
+.mensagem-propria .texto-mensagem::after {
   content: "";
   display: block;
   background-color: var(--cor-principal);
   width: 10px;
   height: 10px;
   position: absolute;
+  right: -8px;
+  top: calc(14% - 5px); 
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
-  margin-left: 93px;
-  margin-top: -8px;
   transform: rotate(90deg);
 }
 
@@ -119,23 +124,14 @@
   background-color: #f0f0f0;
   width: 10px;
   height: 10px;
-  position: absolute;
+  position: relative;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   margin-left: -15px;
   margin-top: -8px;
   transform: rotate(270deg);
 }
 body.dark-mode .mensagem-outro .texto-mensagem::before {
-  content: "";
-  display: block;
   background-color: #555;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-  margin-left: -15px;
-  margin-top: -8px;
-  transform: rotate(270deg);
 }
 
 .mobile-navbar .indicador::before {
