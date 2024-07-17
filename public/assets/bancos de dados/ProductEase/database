@@ -149,3 +149,15 @@ VALUES
 (1, '../../img/amarelo.jpg', 'Espessura Linha 1', 'Tempo Equipamento 1', 'Cor Linha 1', 'Tamanho Costura 1', 'Tempo Secagem 1', 'Registro Equipamento 1', 1, 1, 1, 1, 1, 1, '2024-07-03'),
 (2, '../../img/bomdia.jpg', 'Espessura Linha 2', 'Tempo Equipamento 2', 'Cor Linha 2', 'Tamanho Costura 2', 'Tempo Secagem 2', 'Registro Equipamento 2', 2, 2, 2, 2, 2, 2, '2024-07-04'),
 (3, '../../img/ursobomdia.gif', 'Espessura Linha 3', 'Tempo Equipamento 3', 'Cor Linha 3', 'Tamanho Costura 3', 'Tempo Secagem 3', 'Registro Equipamento 3', 3, 3, 3, 3, 3, 3, '2024-07-05');
+
+INSERT INTO faq (name, comentario, avaliacao) VALUES 
+('João', 'Ótimo atendimento!', 5),
+('Maria', 'Muito satisfeita com o suporte.', 4),
+('Pedro', 'Experiência razoável.', 3),
+('Ana', 'Poderia ser melhor.', 2),
+('Carlos', 'Insatisfeito com o serviço.', 1),
+('Rafaela', 'Serviço excelente!', 5),
+('Fernando', 'Bom suporte técnico.', 4),
+('Juliana', 'Acho que poderia melhorar.', 3),
+('Lucas', 'Não gostei muito do atendimento.', 2),
+('Patrícia', 'Péssima experiência.', 1);

@@ -1,0 +1,48 @@
+#tela-feedbacks{ 
+    padding: 40px;
+    height: auto;
+}    
+
+p, h3 {
+    margin: 0;
+}
+
+.usuario-card {
+    background-color: var(--cor-padrao-light);
+    padding: 15px 30px;
+    margin-bottom: 20px;
+}
+
+.nome-feedback {
+    margin-bottom: 10px;
+}    
+
+.container-avaliacao {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}    
+
+.avaliacao {
+    display: inline-block;
+    direction: rtl;
+}    
+
+.avaliacao label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../../../assets/imagens/star-empty.svg') no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}    
+
+.avaliacao .estrela-cheia {
+    background: url('../../../assets/imagens/star-full.svg') no-repeat center;
+    background-size: contain;
+} 
+
+.comentario {
+    opacity: .7;
+}
