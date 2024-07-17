@@ -73,11 +73,47 @@ app.get('/messages1', (req, res) => {
 app.get('/users', (req, res) => {
     const currentUserEmail = req.session.user.email;
 
-    const query = 'SELECT email_user FROM users WHERE email_user != ?';
+    const query = 'SELECT * FROM users WHERE email_user != ?';
     connection1.query(query, [currentUserEmail], (err, results) => {
         if (err) {
             console.error('Erro ao buscar usuários:', err);
             res.status(500).json({ error: 'Erro ao buscar usuários' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+app.get('/ultimaMensagem', (req, res) => {
+    const privateChatWith = req.query.privateChatWith;
+    const currentUserEmail = req.session.user.email;
+
+    let query;
+    let queryParams;
+
+    if (privateChatWith) {
+        query = `SELECT * 
+                 FROM messages 
+                 WHERE (id_user = ? AND privateChatWith = ?) OR (id_user = ? AND privateChatWith = ?) 
+                 ORDER BY timestamp DESC 
+                 LIMIT 1
+                `;
+        queryParams = [currentUserEmail, privateChatWith, privateChatWith, currentUserEmail];
+    } else {
+        query = `SELECT messages.*, users.user_nome AS nome_usuario
+                 FROM messages 
+                 LEFT JOIN users ON messages.id_user = users.email_user
+                 WHERE privateChatWith IS NULL 
+                 ORDER BY timestamp DESC 
+                 LIMIT 1
+                `;
+        queryParams = [];
+    }
+
+    connection1.query(query, queryParams, (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar última mensagem do banco de dados:', err);
+            res.status(500).send('Erro ao buscar última mensagem');
             return;
         }
         res.json(results);

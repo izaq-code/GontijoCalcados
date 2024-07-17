@@ -94,13 +94,18 @@ function carregarUsuarios() {
     listaUsuarios.innerHTML = '';
     listaUsuarios.appendChild(globalChatDiv);
 
+    carregarUltimaMensagem(null, globalChatDiv, 'Chat Global', true);
+
     fetch('/users')
         .then(response => response.json())
         .then(users => {
             users.forEach(user => {
                 const userDiv = document.createElement('div');
                 userDiv.classList.add('usuario');
-                userDiv.textContent = user.email_user;
+
+                carregarUltimaMensagem(user.email_user, userDiv, user.user_nome);
+                console.log(user.user_nome);
+
                 userDiv.addEventListener('click', () => {
                     iniciarChatPrivado(user.email_user);
                 });
@@ -111,6 +116,36 @@ function carregarUsuarios() {
             console.error('Erro ao carregar usuários:', error);
         });
 }
+
+function carregarUltimaMensagem(email, userDiv, nomeUsuario, isGlobal = false) {
+    const url = isGlobal ? '/ultimaMensagem' : `/ultimaMensagem?privateChatWith=${email}`;
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao buscar última mensagem');
+            }
+            return response.json();
+        })
+        .then(ultimaMensagem => {
+            const nomeDiv = document.createElement('div');
+            nomeDiv.textContent = nomeUsuario;
+            nomeDiv.classList.add('nome-usuario');
+
+            const mensagemDiv = document.createElement('div');
+            
+            mensagemDiv.textContent = ultimaMensagem.length > 0 ? (isGlobal ? `${ultimaMensagem[0].nome_usuario}: ${ultimaMensagem[0].message}` : ultimaMensagem[0].message) : 'Sem mensagens';
+
+            mensagemDiv.classList.add('ultima-mensagem');
+
+            userDiv.innerHTML = '';
+            userDiv.appendChild(nomeDiv);
+            userDiv.appendChild(mensagemDiv);
+        })
+        .catch(error => {
+            console.error('Erro ao carregar última mensagem:', error);
+        });
+}
+
 
 function iniciarChatPrivado(email) {
     privateChatWith = email;
