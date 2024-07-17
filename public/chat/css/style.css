@@ -112,7 +112,7 @@ margin: 10px;
   width: 10px;
   height: 10px;
   position: absolute;
-  right: -8px;
+  right: -7px;
   top: calc(14% - 5px); 
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
   transform: rotate(90deg);
