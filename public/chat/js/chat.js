@@ -109,7 +109,7 @@ function carregarUsuarios() {
                 console.log(user.user_nome);
 
                 userDiv.addEventListener('click', () => {
-                    iniciarChatPrivado(user.email_user);
+                    iniciarChatPrivado(user.email_user, user.user_nome);
                 });
                 listaUsuarios.appendChild(userDiv);
             });
@@ -148,9 +148,9 @@ function carregarUltimaMensagem(email, userDiv, nomeUsuario, isGlobal = false) {
         });
 }
 
-function iniciarChatPrivado(email) {
+function iniciarChatPrivado(email, usuario) {
     privateChatWith = email;
-    nomeConversaAtual.textContent = `${email}`;
+    nomeConversaAtual.textContent = `${usuario}`;
     carregarMensagens();
 }
 
