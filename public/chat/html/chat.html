@@ -16,6 +16,8 @@
 
 <body>
     <main>
+    <div id="div-geral-chat">
+        
         <div id="chat" class="chat-container">
 
             <div id="mensagens" class="mensagens"></div>
@@ -25,8 +27,12 @@
             <input id="entradaMensagem" type="text" placeholder="Digite sua mensagem...">
 
             <button id="botaoEnviar"><i id="icone-enviar" class="bi bi-send"></i></button>
+      
+    </div>
+        <div class="usuarios" id="listaUsuarios">
+        
         </div>
-        <div class="usuarios" id="listaUsuarios"></div>
+    </div>
     </main>
     <script src="../../../assets/JS/redirecionarNotFound.js"></script>
     <script src="/socket.io/socket.io.js"></script>

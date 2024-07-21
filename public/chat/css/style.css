@@ -12,13 +12,21 @@
   --color-padrao-dark: #fff;
 }
 
-.chat-container {
-  margin-left: 40px;
-  width: 80%;
-  max-width: 800px;
-  height: 60vh;
+#div-geral-chat {
+  border-radius: 10px;
+  padding-top: 50px;
+  height: 85vh;
   background-color: var(--cor-padrao-light);
-  border: 1px solid #ccc;
+}
+
+
+.chat-container {
+  margin-right: 10px;
+  float: right;
+  width: 80%;
+  max-width: 840px;
+  height: 70vh;
+  background-color: var(--cor-padrao-light);
   border-radius: 10px;
   overflow-y: scroll;
   margin-bottom: 20px;
@@ -31,11 +39,15 @@
   height: 0;
 }
 
+#separando {
+  border-left: 1px solid #ff0000;
+}
 .campo-envio {
-  margin-left: 40px;
+  float: right;
+  margin-right: 30px;
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 100%;
   max-width: 800px;
   background-color: var(--cor-padrao-light);
   border: 1px solid #ccc;
@@ -185,7 +197,6 @@ body.dark-mode .mensagem-outro .texto-mensagem::before {
 body.dark-mode .chat-container {
   background-color: var(--cor-padrao-dark);
   color: var(--color-padrao-dark);
-  border: 1px solid rgb(99, 99, 99);
 }
 
 body.dark-mode .campo-envio {
@@ -214,16 +225,14 @@ body.dark-mode #entradaMensagem {
 }
 
 #listaUsuarios {
-  margin-right: 100px;
-  position: absolute;
-  top: 40px;
+  margin-left: 10px;
+  margin-top: -10px;
   right: 20px;
   width: 20%;
   max-width: 800px;
-  height: 60vh;
+  height: 81vh;
   background-color: var(--cor-padrao-light);
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  border-right: 1px solid rgb(204, 204, 204, 0.4);
   overflow-y: scroll;
   padding: 10px;
   color: var(--color-padrao-light);
@@ -242,16 +251,15 @@ body.dark-mode #entradaMensagem {
 .usuario {
   padding: 10px;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-bottom: 1px solid #ccc;
   margin-bottom: 5px;
   background-color: var(--cor-padrao-light);
   color: var(--color-padrao-light);
 }
 
 .usuario:hover {
-  background-color: var(--cor-principal-hover);
-  color: #fff;
+  background-color: var(--cor-fundo-body-light);
+  color: #000000;
 }
 
 body.dark-mode .usuario {
@@ -260,17 +268,25 @@ body.dark-mode .usuario {
 }
 
 body.dark-mode .usuario:hover {
-  background-color: var(--cor-principal-hover);
+  background-color: #555;
   color: #fff;
 }
 
 body.dark-mode #listaUsuarios {
   background-color: var(--cor-padrao-dark);
-  border: 1px solid rgb(99, 99, 99);
+  border-right: 1px solid rgb(99, 99, 99, 0.4);
   color: var(--color-padrao-dark);
 }
 
-@media screen and (max-width: 1650px) {
+body.dark-mode #div-geral-chat {
+  background-color: var(--cor-padrao-dark);
+}
+
+body.dark-mode .usuario {
+  border-bottom: 1px solid rgb(99, 99, 99);
+}
+
+/* @media screen and (max-width: 1650px) {
   #listaUsuarios {
     position: relative;
     top: 40px;
@@ -286,4 +302,4 @@ body.dark-mode #listaUsuarios {
     color: var(--color-padrao-light);
     margin-bottom: 100px;
   }
-}
+} */
