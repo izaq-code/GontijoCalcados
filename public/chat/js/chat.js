@@ -20,13 +20,19 @@ function carregarUsuarios() {
         privateChatWith = null;
 
         nomeConversaAtual.innerHTML = '';
+
+        const fotoCont = document.createElement('div');
+        fotoCont.classList.add('foto-cont');
+        
         const fotoUsuarioAtual = document.createElement('img');
         fotoUsuarioAtual.src = fotoPadrao;
         fotoUsuarioAtual.alt = 'Foto do Chat Global';
         fotoUsuarioAtual.classList.add('foto-usuario-conversa'); 
-
-        nomeConversaAtual.appendChild(fotoUsuarioAtual);
+        
+        fotoCont.appendChild(fotoUsuarioAtual);
+        nomeConversaAtual.appendChild(fotoCont);
         nomeConversaAtual.appendChild(document.createTextNode('Chat Global'));
+        
 
         carregarMensagens();
     });
@@ -58,14 +64,18 @@ function carregarUsuarios() {
 function iniciarChatPrivado(email, usuario, foto) {
     privateChatWith = email;
 
-    const fotoUsuarioAtual = document.createElement('img');
-    fotoUsuarioAtual.src = foto;
-    fotoUsuarioAtual.alt = `Foto de ${usuario}`;
-    fotoUsuarioAtual.classList.add('foto-usuario-conversa');
+const fotoUsuarioAtual = document.createElement('img');
+fotoUsuarioAtual.src = foto;
+fotoUsuarioAtual.alt = `Foto de ${usuario}`;
+fotoUsuarioAtual.classList.add('foto-usuario-conversa');
+const fotoCont = document.createElement('div');
+fotoCont.classList.add('foto-cont');
+fotoCont.appendChild(fotoUsuarioAtual);
 
-    nomeConversaAtual.innerHTML = '';
-    nomeConversaAtual.appendChild(fotoUsuarioAtual);
-    nomeConversaAtual.appendChild(document.createTextNode(usuario));
+nomeConversaAtual.innerHTML = '';
+nomeConversaAtual.appendChild(fotoCont);
+nomeConversaAtual.appendChild(document.createTextNode(usuario));
+
 
     carregarMensagens();
 }

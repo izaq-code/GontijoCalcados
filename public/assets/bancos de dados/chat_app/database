@@ -22,3 +22,34 @@ CREATE TABLE messages (
   FOREIGN KEY (id_user) REFERENCES users(email_user)
 );
 
+
+-- Triggers
+
+USE ProductEase;
+
+DELIMITER //
+
+CREATE TRIGGER after_insert_usuario
+AFTER INSERT ON usuario
+FOR EACH ROW
+BEGIN
+    -- Insere o e-mail e o nome do usuário na tabela users do banco de dados chat_app
+    INSERT INTO chat_app.users (email_user, user_nome, foto_user)
+    VALUES (NEW.email, NEW.name, NEW.profile_picture);
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER after_update_usuario
+AFTER UPDATE ON usuario
+FOR EACH ROW
+BEGIN
+    -- Atualiza o nome e a foto do usuário na tabela users do banco de dados chat_app quando o nome ou a foto são alterados em usuario
+    UPDATE chat_app.users
+    SET user_nome = NEW.name, foto_user = NEW.profile_picture
+    WHERE email_user = NEW.email;
+END//
+
+DELIMITER ;

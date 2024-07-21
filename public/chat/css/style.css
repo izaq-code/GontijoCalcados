@@ -90,6 +90,24 @@
   border-radius: 50%;
 }
 
+.foto-usuario {
+  background-color: rgb(185, 183, 183);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.foto-usuario-conversa {
+  background-color: rgb(185, 183, 183);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.foto-cont {
+  margin-top: -3px;
+  margin-right: 10px;
+}
 .conteudo-mensagem {
   display: flex;
   flex-direction: column;
@@ -143,9 +161,18 @@
 }
 
 #nomeConversaAtual {
-  width: 50%;
+  margin-top: -30px;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
   margin-left: 25%;
   padding: 10px;
+  border-bottom: 1px solid rgb(204, 204, 204, 0.5);
+  margin-bottom: 10px;
+}
+
+body.dark-mode #nomeConversaAtual {
+  border-bottom: 1px solid rgb(99, 99, 99, 0.4);
 }
 body.dark-mode .mensagem-outro .texto-mensagem::before {
   background-color: #555;
@@ -258,7 +285,19 @@ body.dark-mode #entradaMensagem {
   background-color: var(--cor-padrao-light);
   color: var(--color-padrao-light);
 }
+.usuario .foto-container {
+  position: absolute;
+  margin-left: -14px;
+  margin-top: -1px;
+}
 
+.usuario .nome-usuario {
+  margin-left: 28px;
+}
+
+.usuario .ultima-mensagem {
+  margin-left: 28px;
+}
 .usuario:hover {
   background-color: var(--cor-fundo-body-light);
   color: #000000;
@@ -290,7 +329,7 @@ body.dark-mode .usuario {
 
 @media screen and (max-width: 1016px) {
   #nomeConversaAtual {
-    width: 50%;
+    width: 94%;
     margin-left: 1%;
     padding: 10px;
     margin-top: -40px;
@@ -342,13 +381,12 @@ body.dark-mode .usuario {
 }
 
 @media screen and (min-width: 1800px) {
-
   #nomeConversaAtual {
-    width: 50%;
+    width: 70%;
     margin-left: 23%;
     padding: 10px;
     margin-top: -40px;
-}
+  }
 
   .chat-container {
     margin-right: 10px;
