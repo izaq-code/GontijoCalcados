@@ -3,6 +3,7 @@ const chat = document.getElementById('chat');
 const entradaMensagem = document.getElementById('entradaMensagem');
 const botaoEnviar = document.getElementById('botaoEnviar');
 const listaUsuarios = document.getElementById('listaUsuarios');
+const nomeConversaAtual = document.getElementById('nomeConversaAtual');
 
 let usuarioAtual = localStorage.getItem('usuarioAtual') || 'Anônimo';
 let fotoAtual = localStorage.getItem('fotoAtual') || 'null';
@@ -89,6 +90,7 @@ function carregarUsuarios() {
     globalChatDiv.textContent = 'Chat Global';
     globalChatDiv.addEventListener('click', () => {
         privateChatWith = null;
+        nomeConversaAtual.textContent = 'Chat Global';
         carregarMensagens();
     });
     listaUsuarios.innerHTML = '';
@@ -146,14 +148,9 @@ function carregarUltimaMensagem(email, userDiv, nomeUsuario, isGlobal = false) {
         });
 }
 
-
 function iniciarChatPrivado(email) {
     privateChatWith = email;
-    carregarMensagens();
-}
-
-function iniciarChatPrivado(email) {
-    privateChatWith = email;
+    nomeConversaAtual.textContent = `${email}`;
     carregarMensagens();
 }
 
