@@ -16,27 +16,34 @@
 
 <body>
     <main>
-    <div id="div-geral-chat">
-        
-        <div id="nomeConversaAtual">Se você leu isso, tem que lembrar que tem que tirar o chat global de início ;)</div>
-        <div id="chat" class="chat-container">
+        <div id="div-geral-chat">
 
-            <div id="mensagens" class="mensagens"></div>
+            <div id="nomeConversaAtual">
+                <div class="foto-cont">
+                    <img src="../../assets/imagens/logo-G.svg" alt="Foto do Chat Global" class="foto-usuario-conversa">
+
+                </div>
+                Chat Global
+            </div>
+            <div id="chat" class="chat-container">
+
+                <div id="mensagens" class="mensagens"></div>
+            </div>
+            <div class="campo-envio">
+
+                <input id="entradaMensagem" type="text" placeholder="Digite sua mensagem...">
+
+                <button id="botaoEnviar"><i id="icone-enviar" class="bi bi-send"></i></button>
+
+            </div>
+            <div id="titulo-chats">Chats</div>
+            <div id="chats">
+
+                <div class="usuarios" id="listaUsuarios">
+
+                </div>
+            </div>
         </div>
-        <div class="campo-envio">
-
-            <input id="entradaMensagem" type="text" placeholder="Digite sua mensagem...">
-
-            <button id="botaoEnviar"><i id="icone-enviar" class="bi bi-send"></i></button>
-      
-    </div>
-    <div id="chats">
-    <div id="titulo-chats">Chats</div>
-        <div class="usuarios" id="listaUsuarios">
-           
-        </div>
-    </div>
-    </div>
     </main>
     <script src="../../../assets/JS/redirecionarNotFound.js"></script>
     <script src="/socket.io/socket.io.js"></script>

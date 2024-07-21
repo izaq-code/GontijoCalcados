@@ -270,7 +270,7 @@ body.dark-mode #entradaMensagem {
 #titulo-chats {
   font-size: 20px;
   position: absolute;
-  margin-top: -5.7px;
+  margin-top: -44px;
   margin-left: 20px;
   font-weight: bolder;
 }
@@ -284,8 +284,9 @@ body.dark-mode #entradaMensagem {
   margin-top: 20px;
   padding: 10px;
 }
-
 .usuario {
+  display: flex;
+  align-items: flex-start;
   margin-top: 10px;
   padding: 10px;
   cursor: pointer;
@@ -294,19 +295,37 @@ body.dark-mode #entradaMensagem {
   background-color: var(--cor-padrao-light);
   color: var(--color-padrao-light);
 }
+
 .usuario .foto-container {
-  position: absolute;
-  margin-left: -6px;
-  margin-top: -1px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  margin-top: -4px;
+}
+
+.usuario .info-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .usuario .nome-usuario {
-  margin-left: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .usuario .ultima-mensagem {
-  margin-left: 35px;
+  margin-top: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: -75px;
 }
+
+.usuario:first-child .ultima-mensagem {
+  margin-left: -63px;
+}
+
 .usuario:hover {
   background-color: var(--cor-fundo-body-light);
   color: #000000;
@@ -341,10 +360,10 @@ body.dark-mode .usuario {
     font-size: 20px;
     position: relative;
     margin-top: 20px;
-    margin-left: 10px;
-    top: 110px;
+    margin-left: 30px;
+    top: -10px;
     z-index: 1;
- max-height: 10px;
+    max-height: 10px;
   }
 
   #nomeConversaAtual {
@@ -353,10 +372,15 @@ body.dark-mode .usuario {
     padding: 10px;
     margin-top: -40px;
   }
+
   #div-geral-chat {
     border-radius: 10px;
     padding-top: 50px;
     height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
   }
 
   .chat-container {
@@ -371,6 +395,7 @@ body.dark-mode .usuario {
 
   .campo-envio {
     margin-right: 15px;
+    margin-left: 20px;
     width: 100%;
     max-width: 85%;
     border-radius: 10px;
@@ -379,24 +404,22 @@ body.dark-mode .usuario {
   }
 
   #listaUsuarios {
-    padding-top: 30px !important;
-    position: relative;
-    top: 100px;
-    margin-left: 20px;
+    margin-top: 10px;
     width: 100%;
-    max-width: 96.5%;
+    max-width: 91%;
     height: 20vh;
-    background-color: var(--cor-padrao-light);
-    border-radius: 10px;
+    border-right: 1px solid rgb(99, 99, 99, 0) !important;
     overflow-y: scroll;
     padding: 10px;
     color: var(--color-padrao-light);
+    border: none;
   }
 }
 
 @media screen and (max-width: 690px) {
   #div-geral-chat {
     margin-left: 10px;
+    margin-bottom: 90px;
   }
 }
 
