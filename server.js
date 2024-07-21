@@ -25,37 +25,42 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-// Rota para enviar mensagens
 app.post('/messages1', (req, res) => {
     const { user, message, privateChatWith } = req.body;
     const email = req.session.user.email;
 
-    const query = 'INSERT INTO messages (user, id_user, message, privateChatWith) VALUES (?, ?, ?, ?)';
+    const query = 'INSERT INTO messages (user, id_user, message, privateChatWith, is_read) VALUES (?, ?, ?, ?, FALSE)';
     connection1.query(query, [user, email, message, privateChatWith], (err, results) => {
         if (err) {
             console.error('Erro ao inserir mensagem no banco de dados:', err);
             res.status(500).send('Erro ao inserir mensagem');
             return;
         }
-        const insertedMessage = { user, message, privateChatWith };
-        io.emit('chatMessage', insertedMessage);
+        const mensagemInserida = { user, message, privateChatWith };
+        io.emit('chatMessage', mensagemInserida);
         res.status(201).send('Mensagem inserida com sucesso');
     });
 });
 
-// Rota para buscar mensagens globais ou privadas
 app.get('/messages1', (req, res) => {
     const privateChatWith = req.query.privateChatWith;
-    const currentUserEmail = req.session.user.email;
+    const emailUsuarioAtual = req.session.user.email;
 
     let query;
     let queryParams;
 
     if (privateChatWith) {
-        query = 'SELECT * FROM messages WHERE (id_user = ? AND privateChatWith = ?) OR (id_user = ? AND privateChatWith = ?) ORDER BY timestamp DESC';
-        queryParams = [currentUserEmail, privateChatWith, privateChatWith, currentUserEmail];
+        query = `SELECT * FROM messages 
+                 WHERE (id_user = ? AND privateChatWith = ?) 
+                 OR (id_user = ? AND privateChatWith = ?) 
+                 ORDER BY timestamp DESC`;
+        queryParams = [emailUsuarioAtual, privateChatWith, privateChatWith, emailUsuarioAtual];
     } else {
-        query = 'SELECT * FROM messages WHERE privateChatWith IS NULL ORDER BY timestamp DESC';
+        query = `SELECT messages.*, users.user_nome AS nome_usuario
+                 FROM messages
+                 LEFT JOIN users ON messages.id_user = users.email_user
+                 WHERE privateChatWith IS NULL
+                 ORDER BY timestamp DESC`;
         queryParams = [];
     }
 
@@ -69,7 +74,21 @@ app.get('/messages1', (req, res) => {
     });
 });
 
-// Rota para buscar usuários disponíveis
+app.post('/messages/read', (req, res) => {
+    const { messageId } = req.body;
+    const emailUsuarioAtual = req.session.user.email;
+
+    const query = 'UPDATE messages SET is_read = TRUE WHERE id = ? AND privateChatWith = ?';
+    connection1.query(query, [messageId, emailUsuarioAtual], (err) => {
+        if (err) {
+            console.error('Erro ao atualizar status de leitura da mensagem:', err);
+            res.status(500).send('Erro ao atualizar status de leitura');
+            return;
+        }
+        res.status(200).send('Status de leitura atualizado com sucesso');
+    });
+});
+
 app.get('/users', (req, res) => {
     const currentUserEmail = req.session.user.email;
 

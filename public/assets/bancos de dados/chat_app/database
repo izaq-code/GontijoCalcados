@@ -19,9 +19,9 @@ CREATE TABLE messages (
   message TEXT NOT NULL,
   privateChatWith VARCHAR(300) DEFAULT NULL,
   timestamp DATETIME(3) DEFAULT CURRENT_TIMESTAMP(3),
+  is_read BOOLEAN DEFAULT FALSE,
   FOREIGN KEY (id_user) REFERENCES users(email_user)
 );
-
 
 -- Triggers
 

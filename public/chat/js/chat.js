@@ -6,6 +6,7 @@ const listaUsuarios = document.getElementById('listaUsuarios');
 const nomeConversaAtual = document.getElementById('nomeConversaAtual');
 
 let usuarioAtual = localStorage.getItem('usuarioAtual') || 'Anônimo';
+let emailAtual = localStorage.getItem('emailAtual') || 'Anônimo';
 let fotoAtual = localStorage.getItem('fotoAtual') || 'null';
 
 let privateChatWith = null;
@@ -23,16 +24,16 @@ function carregarUsuarios() {
 
         const fotoCont = document.createElement('div');
         fotoCont.classList.add('foto-cont');
-        
+
         const fotoUsuarioAtual = document.createElement('img');
         fotoUsuarioAtual.src = fotoPadrao;
         fotoUsuarioAtual.alt = 'Foto do Chat Global';
-        fotoUsuarioAtual.classList.add('foto-usuario-conversa'); 
-        
+        fotoUsuarioAtual.classList.add('foto-usuario-conversa');
+
         fotoCont.appendChild(fotoUsuarioAtual);
         nomeConversaAtual.appendChild(fotoCont);
         nomeConversaAtual.appendChild(document.createTextNode('Chat Global'));
-        
+
 
         carregarMensagens();
     });
@@ -64,41 +65,32 @@ function carregarUsuarios() {
 function iniciarChatPrivado(email, usuario, foto) {
     privateChatWith = email;
 
-const fotoUsuarioAtual = document.createElement('img');
-fotoUsuarioAtual.src = foto;
-fotoUsuarioAtual.alt = `Foto de ${usuario}`;
-fotoUsuarioAtual.classList.add('foto-usuario-conversa');
-const fotoCont = document.createElement('div');
-fotoCont.classList.add('foto-cont');
-fotoCont.appendChild(fotoUsuarioAtual);
+    const fotoUsuarioAtual = document.createElement('img');
+    fotoUsuarioAtual.src = foto;
+    fotoUsuarioAtual.alt = `Foto de ${usuario}`;
+    fotoUsuarioAtual.classList.add('foto-usuario-conversa');
+    const fotoCont = document.createElement('div');
+    fotoCont.classList.add('foto-cont');
+    fotoCont.appendChild(fotoUsuarioAtual);
 
-nomeConversaAtual.innerHTML = '';
-nomeConversaAtual.appendChild(fotoCont);
-nomeConversaAtual.appendChild(document.createTextNode(usuario));
-
+    nomeConversaAtual.innerHTML = '';
+    nomeConversaAtual.appendChild(fotoCont);
+    nomeConversaAtual.appendChild(document.createTextNode(usuario));
 
     carregarMensagens();
 }
 
-
 function carregarInformacoesDaConversa(email, userDiv, nomeUsuario, fotoUsuario, isGlobal = false) {
     const url = isGlobal ? '/ultimaMensagem' : `/ultimaMensagem?privateChatWith=${email}`;
     fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao buscar última mensagem');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(ultimaMensagem => {
             const nomeDiv = document.createElement('div');
             nomeDiv.textContent = nomeUsuario;
             nomeDiv.classList.add('nome-usuario');
 
             const mensagemDiv = document.createElement('div');
-
             mensagemDiv.textContent = ultimaMensagem.length > 0 ? (isGlobal ? `${ultimaMensagem[0].nome_usuario}: ${ultimaMensagem[0].message}` : ultimaMensagem[0].message) : 'Sem mensagens';
-
             mensagemDiv.classList.add('ultima-mensagem');
 
             const fotoDiv = document.createElement('div');
@@ -113,6 +105,14 @@ function carregarInformacoesDaConversa(email, userDiv, nomeUsuario, fotoUsuario,
             userDiv.appendChild(fotoDiv);
             userDiv.appendChild(nomeDiv);
             userDiv.appendChild(mensagemDiv);
+            
+            console.log(`esse${email} = ${emailAtual}`);
+
+            if (ultimaMensagem[0] && !ultimaMensagem[0].is_read && email !== emailAtual) {
+                const notificaDot = document.createElement('div');
+                notificaDot.classList.add('notification-dot');
+                mensagemDiv.appendChild(notificaDot);
+            }
         })
         .catch(error => {
             console.error('Erro ao carregar última mensagem:', error);
@@ -129,7 +129,19 @@ function carregarMensagens() {
         })
         .then(messages => {
             chat.innerHTML = '';
-            messages.reverse().forEach(msg => adicionarMensagem(msg.user, msg.message, msg.privateChatWith !== null));
+            messages.reverse().forEach(msg => {
+                adicionarMensagem(msg.user, msg.message, msg.privateChatWith !== null);
+
+                if (msg.privateChatWith && msg.user !== usuarioAtual) {
+                    fetch('/messages/read', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ messageId: msg.id })
+                    });
+                }
+            });
         })
         .catch(error => {
             console.error('Erro ao buscar mensagens:', error);
@@ -215,6 +227,8 @@ socket.on('connect', () => {
         .then(nome => {
             usuarioAtual = nome.nome;
             localStorage.setItem('usuarioAtual', usuarioAtual);
+            emailAtual = nome.email
+            localStorage.setItem('emailAtual', emailAtual);
             fotoAtual = nome.foto;
             localStorage.setItem('fotoAtual', fotoAtual);
         })
