@@ -267,6 +267,14 @@ body.dark-mode #entradaMensagem {
   color: var(--color-padrao-light);
 }
 
+#titulo-chats {
+  font-size: 20px;
+  position: absolute;
+  margin-top: -5.7px;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+
 #listaUsuarios::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -278,6 +286,7 @@ body.dark-mode #entradaMensagem {
 }
 
 .usuario {
+  margin-top: 10px;
   padding: 10px;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
@@ -287,16 +296,16 @@ body.dark-mode #entradaMensagem {
 }
 .usuario .foto-container {
   position: absolute;
-  margin-left: -14px;
+  margin-left: -6px;
   margin-top: -1px;
 }
 
 .usuario .nome-usuario {
-  margin-left: 28px;
+  margin-left: 35px;
 }
 
 .usuario .ultima-mensagem {
-  margin-left: 28px;
+  margin-left: 35px;
 }
 .usuario:hover {
   background-color: var(--cor-fundo-body-light);
@@ -328,6 +337,15 @@ body.dark-mode .usuario {
 }
 
 @media screen and (max-width: 1016px) {
+  #titulo-chats {
+    font-size: 20px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
+    top: 110px;
+    z-index: 1;
+  }
+
   #nomeConversaAtual {
     width: 94%;
     margin-left: 1%;
@@ -360,6 +378,7 @@ body.dark-mode .usuario {
   }
 
   #listaUsuarios {
+    padding-top: 30px !important;
     position: relative;
     top: 100px;
     margin-left: 20px;
