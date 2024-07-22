@@ -17,6 +17,9 @@ function carregarUsuarios() {
     const globalChatDiv = document.createElement('div');
     globalChatDiv.classList.add('usuario');
     globalChatDiv.textContent = 'Chat Global';
+    globalChatDiv.dataset.email = null;
+    globalChatDiv.dataset.nome = 'Chat Global';
+    globalChatDiv.dataset.foto = fotoPadrao;
     globalChatDiv.addEventListener('click', () => {
         privateChatWith = null;
 
@@ -34,7 +37,6 @@ function carregarUsuarios() {
         nomeConversaAtual.appendChild(fotoCont);
         nomeConversaAtual.appendChild(document.createTextNode('Chat Global'));
 
-
         carregarMensagens();
     });
     listaUsuarios.innerHTML = '';
@@ -48,6 +50,9 @@ function carregarUsuarios() {
             users.forEach(user => {
                 const userDiv = document.createElement('div');
                 userDiv.classList.add('usuario');
+                userDiv.dataset.email = user.email_user;
+                userDiv.dataset.nome = user.user_nome;
+                userDiv.dataset.foto = user.foto_user;
 
                 carregarInformacoesDaConversa(user.email_user, userDiv, user.user_nome, user.foto_user);
 
@@ -61,6 +66,7 @@ function carregarUsuarios() {
             console.error('Erro ao carregar usuários:', error);
         });
 }
+
 
 function iniciarChatPrivado(email, usuario, foto) {
     privateChatWith = email;
@@ -257,6 +263,18 @@ socket.on('initialMessages', (messages) => {
 
 socket.on('chatMessage', (msg) => {
     carregarMensagens();
+});
+
+socket.on('chatMessage', (msg) => {
+ 
+    carregarInformacoesDaConversa(null, document.querySelector('.usuario:first-child'), 'Chat Global', '../../assets/imagens/logo-G.svg', true);
+
+ 
+    const usuariosDivs = document.querySelectorAll('.usuario:not(:first-child)');
+    usuariosDivs.forEach(usuarioDiv => {
+        const email = usuarioDiv.dataset.email; // Assume que cada div de usuário tem um atributo de dados com o email do usuário
+        carregarInformacoesDaConversa(email, usuarioDiv, usuarioDiv.dataset.nome, usuarioDiv.dataset.foto);
+    });
 });
 
 carregarUsuarios();
