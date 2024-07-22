@@ -18,11 +18,9 @@
           </div>
           <div class="nav-lista-direita">
             <ul>
-
               <li class="nav-item"><a href="telasuporte.html" class="nav-link">Contato</a></li>
               <li class="nav-item"><a href="../../../index.html#perguntas-frequentes" class="nav-link">Dúvidas</a></li>
               <li class="nav-item login"><a href="../../../login_register/front-end/HTML/login.html" class="nav-link">Login</a></li>
-
             </ul>
           </div>
           <div class="mobile-menu-icone">
@@ -38,14 +36,14 @@
             <li class="nav-item"><a href="../login_register/front-end/HTML/login.html" class="nav-link">Login</a></li>
           </ul>
         </div>
-      </header>
+    </header>
 
-      <section class="atendimento">
+    <section class="atendimento">
         <div class="texto">
-          <div class="texto1">
-            <h2>Estamos aqui para te atender</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. industry's standard dummy text ever since the 1500s,</p>
-          </div>
+            <div class="texto1">
+                <h2>Estamos aqui para te atender</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. industry's standard dummy text ever since the 1500s,</p>
+            </div>
         </div>
         <div class="contatos">
             <div class="contato">
@@ -69,32 +67,30 @@
         <h2>Feedback</h2>
         <p>Avalie nosso sistema para podermos melhorar</p>
         <form id="faq" action="#" method="post">
-          <div class="nome-avaliacao">
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome">
+            <div class="nome-avaliacao">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="avaliacao">Avaliação</label>
+                    <div class="rating">
+                        <input type="radio" id="star5" name="avaliacao" value="5"><label for="star5" title="5 estrelas"></label>
+                        <input type="radio" id="star4" name="avaliacao" value="4"><label for="star4" title="4 estrelas"></label>
+                        <input type="radio" id="star3" name="avaliacao" value="3"><label for="star3" title="3 estrelas"></label>
+                        <input type="radio" id="star2" name="avaliacao" value="2"><label for="star2" title="2 estrelas"></label>
+                        <input type="radio" id="star1" name="avaliacao" value="1"><label for="star1" title="1 estrelas"></label>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
-                <label for="avaliacao">Avaliação</label>
-                <div class="rating">
-                  <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 estrelas"></label>
-                  <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 estrelas"></label>
-                  <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 estrelas"></label>
-                  <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 estrelas"></label>
-                  <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 estrelas"></label>
-              </div>
-          </div>
-        </div>
-            <div class="form-group">
                 <label for="comentario">Comentário</label>
-                <textarea id="comentario" name="comentario"></textarea>
+                <textarea id="comentario" name="comentario" required></textarea>
             </div>
             <button type="submit">Enviar</button>
         </form>
     </section>
 
-    <script src="../js/telasuporte.js"></script>
     <script src="../../back-end/js/faq.js"></script>
-
 </body>
 </html>

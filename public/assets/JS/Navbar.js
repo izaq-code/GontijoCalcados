@@ -84,7 +84,7 @@ function loadDesktopNavbar() {
     header.innerHTML = `
 
    <div class="perfil-desk">
-      <div id="nome_user-desk">Nome do Usuário</div>
+      <div id="nome_user-desk"> </div>
       <div id="foto_user-desk"></div>
     </div>
 
