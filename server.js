@@ -50,13 +50,15 @@ app.get('/messages1', (req, res) => {
     let queryParams;
 
     if (privateChatWith) {
-        query = `SELECT * FROM messages 
+        query = `SELECT messages.*, users.foto_user AS foto_usuario, users.user_nome AS nome_usuario
+                 FROM messages
+                 LEFT JOIN users ON messages.id_user = users.email_user
                  WHERE (id_user = ? AND privateChatWith = ?) 
                  OR (id_user = ? AND privateChatWith = ?) 
                  ORDER BY timestamp DESC`;
         queryParams = [emailUsuarioAtual, privateChatWith, privateChatWith, emailUsuarioAtual];
     } else {
-        query = `SELECT messages.*, users.user_nome AS nome_usuario
+        query = `SELECT messages.*, users.foto_user AS foto_usuario, users.user_nome AS nome_usuario
                  FROM messages
                  LEFT JOIN users ON messages.id_user = users.email_user
                  WHERE privateChatWith IS NULL

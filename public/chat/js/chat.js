@@ -140,7 +140,7 @@ function carregarMensagens() {
         .then(messages => {
             chat.innerHTML = '';
             messages.reverse().forEach(msg => {
-                adicionarMensagem(msg.user, msg.message, msg.privateChatWith !== null);
+                adicionarMensagem(msg.user, msg.message, msg.privateChatWith !== null, msg.foto_usuario);
 
                 if (msg.privateChatWith && msg.user !== usuarioAtual) {
                     fetch('/messages/read', {
@@ -190,13 +190,13 @@ botaoEnviar.addEventListener('click', () => {
     enviarMensagem();
 });
 
-function adicionarMensagem(usuario, mensagem, isPrivate) {
+function adicionarMensagem(usuario, mensagem, isPrivate, fotoUsuario) {
     const containerMensagem = document.createElement('div');
     containerMensagem.classList.add('mensagem-container');
 
     const fotoPerfil = document.createElement('div');
     const fotomg = document.createElement('img');
-    fotomg.src = fotoAtual;
+    fotomg.src = fotoUsuario;
     fotoPerfil.appendChild(fotomg);
     fotoPerfil.classList.add('foto-perfil');
 
