@@ -139,9 +139,10 @@
   background-color: var(--cor-principal);
   width: 10px;
   height: 10px;
-  position: absolute;
+position: absolute;
+margin-top: auto;
   right: -7px;
-  top: calc(14% - 5px);
+  top: -0;
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
   transform: rotate(90deg);
 }
@@ -320,6 +321,8 @@ body.dark-mode #entradaMensagem {
   overflow: hidden;
   text-overflow: ellipsis;
   margin-left: -75px;
+  width: 100%;
+  max-width: 80%;
 }
 
 .usuario:first-child .ultima-mensagem {
@@ -457,7 +460,7 @@ body.dark-mode .usuario {
     border-radius: 10px;
     padding: 10px;
     color: var(--color-padrao-light);
-    margin-top: -30px;
+    margin-top: -10px;
   }
 
   #listaUsuarios {
