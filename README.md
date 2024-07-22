@@ -1,6 +1,5 @@
-
 ![Header - Gontijo](https://github.com/iannovais/GontijoCalcados/assets/136115980/b42f75aa-b9ce-4acd-8d39-62bb0226ada7)
-ㅤ
+
 # GontijoCalcados
 
 O Sistema de Gestão para Montagem de Sapatos é uma plataforma projetada para simplificar e otimizar o processo de produção de calçados, focando na eficiência e na qualidade. Nosso sistema visa proporcionar uma solução intuitiva que permite aos fabricantes de calçados agendar etapas de produção com facilidade, encontrar os materiais e mão de obra mais adequados para cada fase do processo, e promover a integração eficiente de todos os envolvidos na cadeia produtiva.
