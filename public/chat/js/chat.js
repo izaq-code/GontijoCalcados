@@ -105,12 +105,10 @@ function carregarInformacoesDaConversa(email, userDiv, nomeUsuario, fotoUsuario,
             userDiv.appendChild(fotoDiv);
             userDiv.appendChild(nomeDiv);
             userDiv.appendChild(mensagemDiv);
-            
-            console.log(`esse${email} = ${emailAtual}`);
 
-            if (ultimaMensagem[0] && !ultimaMensagem[0].is_read && email !== emailAtual) {
+            if (ultimaMensagem[0] && !ultimaMensagem[0].is_read && ultimaMensagem[0].user !== usuarioAtual && !isGlobal) {
                 const notificaDot = document.createElement('div');
-                notificaDot.classList.add('notification-dot');
+                notificaDot.classList.add('bolinha-notificacao');
                 mensagemDiv.appendChild(notificaDot);
             }
         })
