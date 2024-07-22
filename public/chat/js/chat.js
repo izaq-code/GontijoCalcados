@@ -106,14 +106,26 @@ function carregarInformacoesDaConversa(email, userDiv, nomeUsuario, fotoUsuario,
             userDiv.appendChild(nomeDiv);
             userDiv.appendChild(mensagemDiv);
 
-            if (ultimaMensagem[0] && !ultimaMensagem[0].is_read && ultimaMensagem[0].user !== usuarioAtual && !isGlobal) {
-                const notificaDot = document.createElement('div');
-                notificaDot.classList.add('bolinha-notificacao');
-                mensagemDiv.appendChild(notificaDot);
-            }
+            notificarMensagemNaoLida(email, userDiv, isGlobal);
         })
         .catch(error => {
             console.error('Erro ao carregar última mensagem:', error);
+        });
+}
+
+function notificarMensagemNaoLida(email, userDiv, isGlobal) {
+    const url = isGlobal ? '/messages1' : `/messages1?privateChatWith=${email}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(mensagens => {
+            if (mensagens[0] && !mensagens[0].is_read && mensagens[0].user !== usuarioAtual && !isGlobal) {
+                const notificaDot = document.createElement('div');
+                notificaDot.classList.add('bolinha-notificacao');
+                userDiv.appendChild(notificaDot);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar mensagens:', error);
         });
 }
 
@@ -236,12 +248,15 @@ socket.on('connect', () => {
             usuarioAtual = 'Anônimo';
         });
 });
+
 socket.on('initialMessages', (messages) => {
-    messages.reverse().forEach(msg => adicionarMensagem(msg.user, msg.message, msg.privateChatWith !== null));
+    messages.reverse().forEach(msg => {
+        carregarMensagens();
+    });
 });
 
 socket.on('chatMessage', (msg) => {
-    adicionarMensagem(msg.user, msg.message, msg.privateChatWith !== null);
+    carregarMensagens();
 });
 
 carregarUsuarios();
