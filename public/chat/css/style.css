@@ -320,13 +320,15 @@ body.dark-mode #entradaMensagem {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-left: -75px;
+  margin-left: -73px;
   width: 100%;
   max-width: 80%;
 }
 
 .usuario:first-child .ultima-mensagem {
   margin-left: -63px;
+  width: 100%;
+  max-width: 80%;
 }
 
 .usuario:hover {
