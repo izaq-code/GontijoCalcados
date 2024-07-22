@@ -3,7 +3,7 @@ const router = express.Router();
 const { connection2 } = require('../public/chat/js/db.js');
 
 // Rota POST para inserir os feedbacks do banco de dados ProductEase
-app.post('/feedback', (req, res) => {
+router.post('/feedback', (req, res) => {
     const { nome, comentario, avaliacao } = req.body;
 
     console.log('Nome:', nome);
