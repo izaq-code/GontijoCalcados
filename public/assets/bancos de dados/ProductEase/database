@@ -14,11 +14,21 @@ CREATE TABLE usuario (
     senha varchar(255),
     profile_picture VARCHAR(255),
     funcao Varchar(40),
-    telefone Varchar(40),
-    saldo_horas DECIMAL(5, 2) DEFAULT 0
+    telefone Varchar(40)
 );
 
 -- fim dos usuarios
+
+CREATE TABLE  bater_ponto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_funcionario int,
+    ini_ponto datetime,
+    fim_ponto datetime,
+    saldo_horas DECIMAL(5, 2),
+    banco_de_horas DECIMAL(5, 2)
+);
+
+-- fim bater ponto
 
 CREATE TABLE faq (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -29,14 +39,6 @@ CREATE TABLE faq (
 
 -- fim do faq
 
-CREATE TABLE  bater_ponto (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_funcionario int,
-    ini_ponto datetime,
-    fim_ponto datetime
-);
-
--- fim bater ponto
 
 CREATE TABLE material (
 id int PRIMARY KEY,

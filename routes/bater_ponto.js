@@ -39,10 +39,29 @@ router.get('/bater_ponto', (req, res) => {
                         [horaAtual, usuario_id, dataAtual],
                         (erro, resultado) => {
                             if (erro) {
-                                console.error('Erro ao atualizar registro:', err);
+                                console.error('Erro ao atualizar registro:', erro);
                                 return res.status(500).send('Erro ao atualizar registro');
                             }
-                            res.send('Ponto registrado com sucesso');
+
+                            if (update === 'fim_ponto') {
+                                const iniPonto = moment(ponto.ini_ponto);
+                                const fimPonto = moment(horaAtual);
+                                const horasTrabalhadas = fimPonto.diff(iniPonto, 'hours', true);
+                                const saldoHoras = horasTrabalhadas - 9 - 1 ; 
+                                connection2.query(
+                                    'UPDATE bater_ponto SET saldo_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
+                                    [saldoHoras, usuario_id, dataAtual],
+                                    (erro, resultado) => {
+                                        if (erro) {
+                                            console.error('Erro ao atualizar saldo de horas:', erro);
+                                            return res.status(500).send('Erro ao atualizar saldo de horas');
+                                        }
+                                        res.send('Ponto registrado e saldo de horas atualizado com sucesso');
+                                    }
+                                );
+                            } else {
+                                res.send('Ponto registrado com sucesso');
+                            }
                         }
                     );
                 } else {
