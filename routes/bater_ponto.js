@@ -27,10 +27,6 @@ router.get('/bater_ponto', (req, res) => {
             if (ponto) {
                 if (!ponto.ini_ponto) {
                     update = 'ini_ponto';
-                } else if (!ponto.ini_intervalo) {
-                    update = 'ini_intervalo';
-                } else if (!ponto.fim_intervalo) {
-                    update = 'fim_intervalo';
                 } else if (!ponto.fim_ponto) {
                     update = 'fim_ponto';
                 } else {
