@@ -147,7 +147,7 @@ function mostrarUsuarioLogado() {
         url: '/mostrarUsuarioLogado',
         type: 'GET',
         success: function (response) {
-            t(response);
+            deviceType == 'Desktop' ? t(response): q(response);
 
         },
         error: function (xhr, status, error) {
@@ -165,7 +165,20 @@ function mostrarUsuarioLogado() {
         q = $('#foto_user-desk');
         q.empty();
         var foto = $('<img>').attr('src', response.foto);
-        console.log(response.foto);
+
+        q.append(foto);
+
+    }
+
+    function q(response) {
+        t = $('#nome_user');
+        t.empty();
+        var nome = response.nome;
+        t.append(nome);
+
+        q = $('#foto_user');
+        q.empty();
+        var foto = $('<img>').attr('src', response.foto);
         q.append(foto);
 
     }
@@ -193,7 +206,7 @@ function loadMobileNavbar() {
 
   
     <div class="perfil">
-      <div id="nome_user">Nome do Usuário</div>
+      <div id="nome_user"></div>
       <div id="foto_user"></div>
     </div>
   </header>

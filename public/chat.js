@@ -267,7 +267,7 @@ socket.on('chatMessage', (msg) => {
 
 socket.on('chatMessage', (msg) => {
  
-    carregarInformacoesDaConversa(null, document.querySelector('.usuario:first-child'), 'Chat Global', '../../assets/imagens/logo-G.svg', true);
+    carregarInformacoesDaConversa(null, document.querySelector('.usuario:first-child'), 'Chat Global', '../../../assets/imagens/logo-G.svg', true);
 
  
     const usuariosDivs = document.querySelectorAll('.usuario:not(:first-child)');
