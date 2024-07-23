@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../assets/css/padrão.css">
+    <link rel="stylesheet" href="../Style/padrão.css">
+    <title>Gontijo | Calçados</title>
+</head>
+
+<body>
+    <form id="cadastrar-calcado" action="#" method="post">
+        <div class="input">
+            <input id="input-nome" name="nome" type="text" required>
+            <label for="input-nome">Nome</label>
+        </div>
+        <div class="input">
+            <input id="input-espessura-linha" name="espe_linha" type="text" required>
+            <label for="input-espessura-linha">Espessura da linha</label>
+        </div>
+        <div class="input">
+            <input id="input-temperatura-equipamento" name="temp_equi" type="text" required>
+            <label for="input-temperatura-equipamento">Temperatura do equipamento</label>
+        </div>
+        <div class="input">
+            <input id="input-espacamento-costura" name="espacamento_da_costura" type="text" required>
+            <label for="input-espacamento-costura">Espaçamento de costura</label>
+        </div>
+        <div class="input">
+            <input id="input-cor-linha" name="cor_linha" type="text" required>
+            <label for="input-cor-linha">Cor da linha</label>
+        </div>
+        <div class="input">
+            <input id="input-tamanho-costura" name="tam_costura" type="text" required>
+            <label for="input-tamanho-costura">Tamanho da costura</label>
+        </div>
+        <div class="input">
+            <input id="input-tempo-secagem" name="temp_sec" type="text" required>
+            <label for="input-tempo-secagem">Tempo de secagem</label>
+        </div>
+        <div class="input">
+            <input id="input-regulagem-equipamento" name="reg_equip" type="text" required>
+            <label for="input-regulagem-equipamento">Regulagem do equipamento</label>
+        </div>
+        <div class="input">
+            <input id="input-imagem-calcado" name="img_calcado" type="text" required>
+            <label for="input-imagem-calcado">Imagem calcado</label>
+        </div>
+        <div class="input">
+            <select id="select-tinta" name="id_tinta" required>
+                <option value="">Selecione a tinta</option>
+            </select>
+            <label for="select-tinta">Tinta</label>
+        </div>
+        <div class="input">
+            <select id="select-material" name="id_material" required>
+                <option value="">Selecione o material</option>
+            </select>
+            <label for="select-material">Material</label>
+        </div>
+        <div class="input">
+            <select id="select-cadarco" name="id_cadarco" required>
+                <option value="">Selecione o cadarço</option>
+            </select>
+            <label for="select-cadarco">Cadarço</label>
+        </div>
+        <div class="input">
+            <select id="select-solado" name="id_solado" required>
+                <option value="">Selecione o solado</option>
+            </select>
+            <label for="select-solado">Solado</label>
+        </div>
+        <div class="input">
+            <select id="select-adesivo" name="id_adesivo" required>
+                <option value="">Selecione o adesivo</option>
+            </select>
+            <label for="select-adesivo">Adesivo</label>
+        </div>
+        <div class="input">
+            <select id="select-tipo-de-tinta" name="id_tip_tinta" required>
+                <option value="">Selecione o tipo de tinta</option>
+            </select>
+            <label for="select-tipo-tinta">Tipo de tinta</label>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../../assets/JS/redirecionarNotFound.js"></script>
+    <script src="../../back-end/js/cadastro_calcados.js"></script>
+</body>
+
+</html>

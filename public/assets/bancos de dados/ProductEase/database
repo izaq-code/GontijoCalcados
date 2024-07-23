@@ -14,7 +14,8 @@ CREATE TABLE usuario (
     senha varchar(255),
     profile_picture VARCHAR(255),
     funcao Varchar(40),
-    telefone Varchar(40)
+    telefone Varchar(40),
+    saldo_horas DECIMAL(5, 2) DEFAULT 0
 );
 
 -- fim dos usuarios
@@ -32,8 +33,6 @@ CREATE TABLE  bater_ponto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_funcionario int,
     ini_ponto datetime,
-    ini_intervalo datetime,
-    fim_intervalo datetime,
     fim_ponto datetime
 );
 
@@ -60,8 +59,7 @@ nome Varchar(120)
 CREATE TABLE adesivo (
 id int PRIMARY KEY,
 nome Varchar(120),
-caminho Varchar(120),
-caminho2 Varchar(120)
+caminho Varchar(120)
 );
 
 CREATE TABLE solado (
@@ -77,8 +75,10 @@ nome Varchar(120)
 
 
 CREATE TABLE calcado (
-id int PRIMARY KEY,
+id int AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(120),
 espe_linha Varchar(30),
+espacamento_da_costura VARCHAR(30),
 temp_equi Varchar(30),
 cor_linha Varchar(30),
 tam_costura Varchar(30),
@@ -125,11 +125,11 @@ VALUES
 (2, 'Tipo de Tinta 2'),
 (3, 'Tipo de Tinta 3');
 
-INSERT INTO adesivo (id, nome, caminho, caminho2)
+INSERT INTO adesivo (id, nome, caminho)
 VALUES
-(1, 'Adesivo 1', 'caminho_adesivo1.jpg', 'caminho_adesivo1_thumb.jpg'),
-(2, 'Adesivo 2', 'caminho_adesivo2.jpg', 'caminho_adesivo2_thumb.jpg'),
-(3, 'Adesivo 3', 'caminho_adesivo3.jpg', 'caminho_adesivo3_thumb.jpg');
+(1, 'Adesivo 1', 'caminho_adesivo1.jpg'),
+(2, 'Adesivo 2', 'caminho_adesivo2.jpg'),
+(3, 'Adesivo 3', 'caminho_adesivo3.jpg');
 
 INSERT INTO solado (id, nome)
 VALUES

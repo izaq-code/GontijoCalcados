@@ -6,17 +6,17 @@ const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
-
 const port = 3000;
 
-app.use(bodyParser.json());
-
-const crypto = require('crypto');
 const secretKey = crypto.randomBytes(64).toString('hex');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.use(session({
     secret: secretKey,

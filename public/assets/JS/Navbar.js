@@ -83,9 +83,9 @@ function loadDesktopNavbar() {
     header.id = "header-inicial";
     header.innerHTML = `
 
-   <div class="perfil-desk">
-      <div id="nome_user-desk">Nome do Usuário</div>
-      <div id="foto_user-desk"></div>
+    <div class="perfil-desk">
+        <a href="http://localhost:3000/meu_perfil/front-end/html/meu_perfil.html" id="nome_user-desk">Nome do Usuário</a>
+        <div id="foto_user-desk"></div>
     </div>
 
         <header>
@@ -147,7 +147,7 @@ function mostrarUsuarioLogado() {
         url: '/mostrarUsuarioLogado',
         type: 'GET',
         success: function (response) {
-             t(response); 
+            deviceType == 'Desktop' ? t(response): q(response);
 
         },
         error: function (xhr, status, error) {
@@ -165,7 +165,20 @@ function mostrarUsuarioLogado() {
         q = $('#foto_user-desk');
         q.empty();
         var foto = $('<img>').attr('src', response.foto);
-        console.log(response.foto);
+
+        q.append(foto);
+
+    }
+
+    function q(response) {
+        t = $('#nome_user');
+        t.empty();
+        var nome = response.nome;
+        t.append(nome);
+
+        q = $('#foto_user');
+        q.empty();
+        var foto = $('<img>').attr('src', response.foto);
         q.append(foto);
 
     }
@@ -193,7 +206,7 @@ function loadMobileNavbar() {
 
   
     <div class="perfil">
-      <div id="nome_user">Nome do Usuário</div>
+      <div id="nome_user"></div>
       <div id="foto_user"></div>
     </div>
   </header>
@@ -283,28 +296,28 @@ function loadMobileNavbar() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const deviceType = detectDevice();
-    
-    applyStylesForDeviceType(); 
+
+    applyStylesForDeviceType();
     if (deviceType === "Desktop") {
-       
+
         loadDesktopNavbar();
     } else {
-       
+
         loadMobileNavbar();
     }
 
     const mobileMenuLinks = document.querySelectorAll('.mobile-navbar a');
     mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
+        link.addEventListener('click', function (event) {
             event.preventDefault();
             const url = this.getAttribute('href');
             if (url) {
-      
+
                 setTimeout(() => {
-                    window.location.href = url; 
-                }, 450); 
+                    window.location.href = url;
+                }, 450);
             }
         });
     });
@@ -315,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const desktopScreenWidth = 700;
         const submenuItems = document.querySelectorAll('.submenu-item');
 
-        submenuItems.forEach(function(item) {
+        submenuItems.forEach(function (item) {
             if (screenWidth < mobileScreenWidth) {
                 const htmlContent = item.innerHTML;
                 const tempElement = document.createElement('div');
@@ -328,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (storedTextContent) {
                         window.location.reload();
                         item.innerHTML = storedTextContent;
-                        item.removeAttribute('data-original-text'); 
+                        item.removeAttribute('data-original-text');
                     }
                 } else {
                     const storedTextContent = item.getAttribute('data-original-text');
@@ -349,10 +362,10 @@ document.addEventListener("DOMContentLoaded", function() {
         submenu.classList.toggle('visible');
 
         if (submenu.classList.contains('visible')) {
-            
+
             localStorage.setItem(submenuId + '-state', 'visible');
         } else {
-            
+
             localStorage.setItem(submenuId + '-state', 'hidden');
         }
     }
@@ -367,7 +380,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function temadapagina() {
         const darkmode = localStorage.getItem('dark-mode') === 'true';
         const lightmode = localStorage.getItem('light-mode') === 'true';
-        
+
         if (darkmode) {
             document.body.classList.add('dark-mode');
             document.body.classList.remove('light-mode');
@@ -375,21 +388,21 @@ document.addEventListener("DOMContentLoaded", function() {
             document.body.classList.add('light-mode');
             document.body.classList.remove('dark-mode');
         }
-        checkbox.checked = darkmode; 
+        checkbox.checked = darkmode;
     }
 
     const menuHeader = document.getElementById('menuHeader');
-    menuHeader.addEventListener('click', function() {
+    menuHeader.addEventListener('click', function () {
         toggleSubMenu('menu', 'menuIcon');
     });
 
     const settingsHeader = document.getElementById('settingsHeader');
-    settingsHeader.addEventListener('click', function() {
+    settingsHeader.addEventListener('click', function () {
         toggleSubMenu('settings', 'settingsIcon');
     });
 
     const checkbox = document.getElementById('inputto');
-    checkbox.addEventListener('change', function() {
+    checkbox.addEventListener('change', function () {
         const isChecked = this.checked;
         if (isChecked) {
             document.body.classList.add('dark-mode');
@@ -409,8 +422,8 @@ document.addEventListener("DOMContentLoaded", function() {
     restoreSubMenuState('settings', 'settingsIcon');
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.logout-button').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.logout-button').addEventListener('click', function () {
         Swal.fire({
             title: "Tem certeza?",
             text: "Você quer realmente sair?",
@@ -460,41 +473,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const navLista = document.querySelectorAll('nav.mobile-navbar li');
     const indicador = document.querySelector('nav.mobile-navbar .indicador');
 
-   
+
     const activeIndex = localStorage.getItem('activeMobileMenuItem');
     if (activeIndex !== null) {
         const activeItem = navLista[parseInt(activeIndex)];
         if (activeItem) {
-         
+
             activeItem.classList.add('ativa');
             indicador.style.left = `${activeItem.offsetLeft + (activeItem.offsetWidth / 3) - (indicador.offsetWidth / 1.6)}px`;
             indicador.style.display = 'block';
         }
     }
 
-  
+
     const onClick = (event, index) => {
         event.preventDefault();
 
-        
+
         navLista.forEach(item => item.classList.remove('ativa'));
         event.currentTarget.classList.add('ativa');
 
-      
+
         const itemWidth = event.currentTarget.offsetWidth;
         const itemLeft = event.currentTarget.offsetLeft;
         indicador.style.left = `${itemLeft + (itemWidth / 3) - (indicador.offsetWidth / 1.6)}px`;
         indicador.style.display = 'block';
 
- 
+
         localStorage.setItem('activeMobileMenuItem', index.toString());
     }
 
-   
+
     navLista.forEach((item, index) => item.addEventListener('click', (event) => {
         onClick(event, index);
     }));
@@ -515,7 +528,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const checkbox = document.getElementById('inputToggle');
-    checkbox.addEventListener('change', function() {
+    checkbox.addEventListener('change', function () {
         const isChecked = this.checked;
         if (isChecked) {
             document.body.classList.add('dark-mode');

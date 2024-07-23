@@ -114,6 +114,10 @@
 }
 
 .nome-usuario {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 73px;
   font-weight: bold;
   font-size: 12px;
 }
@@ -139,8 +143,8 @@
   background-color: var(--cor-principal);
   width: 10px;
   height: 10px;
-position: absolute;
-margin-top: auto;
+  position: absolute;
+  margin-top: auto;
   right: -7px;
   top: -0;
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
@@ -153,7 +157,8 @@ margin-top: auto;
   background-color: #f0f0f0;
   width: 10px;
   height: 10px;
-  position: relative;
+  position: absolute;
+  margin-top: auto;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   margin-left: -20px;
   margin-right: 5px;
@@ -175,6 +180,7 @@ margin-top: auto;
 body.dark-mode #nomeConversaAtual {
   border-bottom: 1px solid rgb(99, 99, 99, 0.4);
 }
+
 body.dark-mode .mensagem-outro .texto-mensagem::before {
   background-color: #555;
 }
@@ -313,6 +319,7 @@ body.dark-mode #entradaMensagem {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 73px;
 }
 
 .usuario .ultima-mensagem {
@@ -326,7 +333,7 @@ body.dark-mode #entradaMensagem {
 }
 
 .usuario:first-child .ultima-mensagem {
-  margin-left: -63px;
+  margin-left: -72px;
   width: 100%;
   max-width: 80%;
 }

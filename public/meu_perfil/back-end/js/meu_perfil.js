@@ -46,14 +46,9 @@ function listarfuncionarios() {
                 var entrada = $('<h2>').addClass('entrada').text('Entrada');
                 item.append(entrada);
 
-                var Intervalo = $('<h2>').addClass('Intervalo').text('Intervalo');
-                item.append(Intervalo);
-
-                var volta = $('<h2>').addClass('volta').text('Volta');
-                item.append(volta);
-
                 var saida = $('<h2>').addClass('saida').text('saida');
                 item.append(saida);
+                
                 // Adicionar botão Bater Ponto
                 var baterPontoButton = $('<button>').addClass('bater-ponto-button').text('Bater Ponto');
                 item.append(baterPontoButton);
