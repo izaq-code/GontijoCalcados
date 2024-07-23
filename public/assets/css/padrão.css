@@ -61,6 +61,7 @@ html{
 }
 
 #AbrirChat {
+  cursor: pointer;
   position: fixed;
   top: 90%;
   right: 30px;
