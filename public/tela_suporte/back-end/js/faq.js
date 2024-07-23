@@ -2,9 +2,8 @@ $(document).ready(function () {
     $('#faq').submit(function (e) {
         e.preventDefault();
 
-        // Serializando os dados do formulário
         var formData = $(this).serialize();
-        console.log(formData);  // Verifique o que está sendo enviado
+        console.log(formData); 
 
         $.ajax({
             type: 'POST',
@@ -18,7 +17,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 1500
                 }).then(function() {
-                    $('#faq')[0].reset();  // Limpa o formulário
+                    $('#faq')[0].reset(); 
                 });
             },
             error: function () {
