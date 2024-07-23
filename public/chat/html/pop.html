@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat em Tempo Real</title>
+    <link rel="stylesheet" href="../css/pop.css">
+    <link rel="stylesheet" href="../../assets/css/modos.css">
+    <link rel="stylesheet" href="../../assets/css/padrão.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+</head>
+
+<body>
+
+    <button id="AbrirChat" class="btn btn-primary"><i class="bi bi-chat-dots-fill"></i></button>
+
+
+    <div id="chatPopup" class="popup">
+        <div class="popup-content">
+            <span class="Fechar" id="FecharChat">&times;</span>
+            <div id="nomeConversaAtual">
+                <div class="foto-cont">
+                    <img src="../../assets/imagens/logo-G.svg" alt="Foto do Chat Global" class="foto-usuario-conversa">
+                </div>
+                Chat Global
+            </div>
+            <div id="chat" class="chat-container">
+                <div id="mensagens" class="mensagens"></div>
+            </div>
+            <div class="campo-envio">
+                <input id="entradaMensagem" type="text" placeholder="Digite sua mensagem...">
+                <button id="botaoEnviar"><i id="icone-enviar" class="bi bi-send"></i></button>
+            </div>
+            <div id="titulo-chats">Chats</div>
+            <div id="chats">
+                <div class="usuarios" id="listaUsuarios"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../assets/JS/redirecionarNotFound.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../../assets/JS/pop.js"></script>
+    <script src="../js/chat.js"></script>
+    
+</body>
+
+</html>
