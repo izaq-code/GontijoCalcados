@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Crie o HTML do popup e do botão
+document.addEventListener("DOMContentLoaded", async () => {
     const html = `
         <button id="AbrirChat" class="btn btn-primary">
            <i class="bi bi-chat-dots-fill"></i>
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="Fechar" id="FecharChat">&times;</span>
                 <div id="nomeConversaAtual">
                     <div class="foto-cont">
-                        <img src="../../assets/imagens/logo-G.svg" alt="Foto do Chat Global" class="foto-usuario-conversa">
+                       <img src="../../../assets/imagens/logo-G.svg" alt="Foto do Chat Global" class="foto-usuario-conversa">
                     </div>
                     Chat Global
                 </div>
@@ -26,32 +25,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         </div>
-        
     `;
 
     document.body.insertAdjacentHTML('beforeend', html);
 
-    const script = document.createElement('script');
-    script.src = '../js/chat.js';
-    document.head.appendChild(script);
+    function loadScript(src) {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = src;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
 
-    const sockett = document.createElement('script');
-    sockett.src = '/socket.io/socket.io.js';
-    document.head.appendChild(sockett);
+    try {
+        await loadScript('/socket.io/socket.io.js');
+        await loadScript('../../../chat.js');
 
+        const chatPopup = document.getElementById("chatPopup");
+        const AbrirChatButton = document.getElementById("AbrirChat");
+        const FecharChatButton = document.getElementById("FecharChat");
 
-    const chatPopup = document.getElementById("chatPopup");
-    const AbrirChatButton = document.getElementById("AbrirChat");
-    const FecharChatButton = document.getElementById("FecharChat");
+        AbrirChatButton.addEventListener("click", () => {
+            AbrirChatButton.style.display = "none";
+            chatPopup.style.display = "block";
+            carregarUsuarios();
+        });
 
-    AbrirChatButton.addEventListener("click", () => {
-        AbrirChatButton.style.display = "none";
-        chatPopup.style.display = "block";
-        carregarUsuarios(); 
-    });
-
-    FecharChatButton.addEventListener("click", () => {
-        chatPopup.style.display = "none";
-        AbrirChatButton.style.display = "block";
-    });
+        FecharChatButton.addEventListener("click", () => {
+            chatPopup.style.display = "none";
+            AbrirChatButton.style.display = "block";
+        });
+    } catch (error) {
+        console.error('Erro ao carregar os scripts:', error);
+    }
 });

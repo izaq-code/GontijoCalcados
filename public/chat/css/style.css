@@ -139,8 +139,8 @@
   background-color: var(--cor-principal);
   width: 10px;
   height: 10px;
-position: absolute;
-margin-top: auto;
+  position: absolute;
+  margin-top: auto;
   right: -7px;
   top: -0;
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
@@ -176,6 +176,7 @@ margin-top: auto;
 body.dark-mode #nomeConversaAtual {
   border-bottom: 1px solid rgb(99, 99, 99, 0.4);
 }
+
 body.dark-mode .mensagem-outro .texto-mensagem::before {
   background-color: #555;
 }
