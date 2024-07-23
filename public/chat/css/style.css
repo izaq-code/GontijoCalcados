@@ -314,6 +314,7 @@ body.dark-mode #entradaMensagem {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 73px;
 }
 
 .usuario .ultima-mensagem {
@@ -327,7 +328,7 @@ body.dark-mode #entradaMensagem {
 }
 
 .usuario:first-child .ultima-mensagem {
-  margin-left: -63px;
+  margin-left: -72px;
   width: 100%;
   max-width: 80%;
 }
