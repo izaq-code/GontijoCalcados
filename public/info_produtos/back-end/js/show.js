@@ -1,26 +1,32 @@
+var amostar = localStorage.getItem('id');
 
-    var t = 1; //localStorage.getItem('id');
 
-    
-    $(document).ready(function(){
+
+    $(document).ready(function() {
+ 
         $.ajax({
             type: 'GET',
-            url: '/info_produtos/',
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-            dataType: 'json',
+            url: '/info_produtos',
             data: {
-                id: t
-            },
-            success: function(data){
+                id : amostar
+            }, // Envia formData como dados da requisição
+            dataType: 'json',
+            success: function(data) {
                 console.log(data);
-                
-                data == false ? alert('Nenhum modelo encontrado.') : exibir(data);
+                if (data) {
+                    exibir(data);
+                } else {
+                    alert('Nenhum modelo encontrado.');
+                }
+            },
+            error: function(err) {
+                console.error('Erro na requisição AJAX:', err);
+                alert('Erro ao buscar dados');
             }
-
         });
     });
 
-0
+
 function exibir(data){
     console.log('me chamaram');
     
@@ -87,5 +93,4 @@ function exibir(data){
     });
 
 }
-//  t = (q, w, e, r)
-// array (var t, var y)
+
