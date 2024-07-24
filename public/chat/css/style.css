@@ -488,9 +488,13 @@ body.dark-mode .usuario {
 }
 
 .bolinha-notificacao {
-  width: 10px;
-  height: 10px;
+  font-size: 10px;
+  width: 12px;
+  height: 12px;
   background-color: var(--cor-principal);
   border-radius: 50%;
   display: flex;
+  justify-content: center;
+  align-items: center; 
 }
+

@@ -124,9 +124,14 @@ function notificarMensagemNaoLida(email, userDiv, isGlobal) {
     fetch(url)
         .then(response => response.json())
         .then(mensagens => {
+
+            const mensagensNaoLidas = mensagens.filter(msg => !msg.is_read);
+            const countNaoLidas = mensagensNaoLidas.length;
+            
             if (mensagens[0] && !mensagens[0].is_read && mensagens[0].user !== usuarioAtual && !isGlobal) {
                 const notificaDot = document.createElement('div');
                 notificaDot.classList.add('bolinha-notificacao');
+                notificaDot.textContent = countNaoLidas.toString();
                 userDiv.appendChild(notificaDot);
             }
         })

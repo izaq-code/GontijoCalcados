@@ -355,3 +355,14 @@ body.dark-mode #listaUsuarios {
     flex-direction: column;
   }
 }
+
+.bolinha-notificacao {
+  font-size: 10px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--cor-principal);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
