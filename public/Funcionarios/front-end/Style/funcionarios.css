@@ -115,15 +115,12 @@ body {
 }
 
 .verinformacoes:hover {
-    color: var(--corprincipalhover);
-    text-decoration: underline;
+    color: #052868;
 }
 
 .perfil-container {
     text-align: center;
 }
-
-
 
 @media screen and (max-width: 556px) {
     .usuario-card:last-child {
