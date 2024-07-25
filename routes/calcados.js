@@ -1,25 +1,47 @@
+
+const { connection2 } = require('../public/chat/js/db.js');
 const express = require('express');
 const router = express.Router();
-const { connection2 } = require('../public/chat/js/db.js');
 const moment = require('moment');
+const fs = require('fs');
+const path = require('path');
+
+const uploadsDir = path.join(__dirname, '../public/assets/uploads');
 
 // Rota POST para inserir uma demanda de calçado no banco de dados ProductEase
 router.post('/calcado', (req, res) => {
-  const { nome, espe_linha, espacamento_da_costura, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcado, tresd_calcado, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta } = req.body;
-
-  console.log(req.body);
-
+  const { nome, espe_linha, espacamento_da_costura, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta } = req.body;
+  
+  const img_calcado = req.files.img_calcado;
+  const tresd_calcado = req.files.tresd_calcado;
   const data = moment().format('YYYY-MM-DD');
+  
+  // Move os arquivos para o diretório de uploads
+  img_calcado.mv(path.join(uploadsDir, img_calcado.name), (err) => {
+      if (err) {
+          console.error('Erro ao mover imagem calcado:', err);
+          return res.status(500).send('Erro ao enviar calcado');
+      }
 
-  const query = `INSERT INTO calcado (nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcado, 3d_calcado, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data) 
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-  connection2.query(query, [nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcado, tresd_calcado, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data], (err) => {
-    if (err) {
-      console.error('Erro ao inserir calcado no banco de dados:', err);
-      res.status(500).send('Erro ao enviar calcado');
-      return;
-    }
-    res.status(201).send('Calcado enviado com sucesso');
+      tresd_calcado.mv(path.join(uploadsDir, tresd_calcado.name), (err) => {
+          if (err) {
+              console.error('Erro ao mover imagem 3D calcado:', err);
+              return res.status(500).send('Erro ao enviar calcado');
+          }
+
+          const img_calcadoPath = path.join('/uploads', img_calcado.name);
+          const tresd_calcadoPath = path.join('/uploads', tresd_calcado.name);
+
+          const query = `INSERT INTO calcado (nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcado, 3d_calcado, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data) 
+                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+          connection2.query(query, [nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcadoPath, tresd_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data], (err) => {
+              if (err) {
+                  console.error('Erro ao inserir calcado no banco de dados:', err);
+                  return res.status(500).send('Erro ao enviar calcado');
+              }
+              res.status(201).send('Calcado enviado com sucesso');
+          });
+      });
   });
 });
 

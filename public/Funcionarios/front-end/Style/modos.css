@@ -19,3 +19,11 @@ body.dark-mode .usuario-card {
     color: var(--color-padrao-dark);
     border-color: var(--color-padrao-dark);
 }
+
+body.dark-mode .verinformacoes {
+    color: #378add;
+}
+
+body.dark-mode .verinformacoes:hover {
+    color: #186dc2;
+}

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+
+:root {
+    --corprincipal: #225d99;
+    --corprincipalhover: #154a80;
+    --cor-outline: #e1ad33;
+    --corterciaria: #426441;
+    --corterciariahover: #2e4b2d;
+    --corfundo: #f5f6f6;
+    --corfundosecundaria: white;
+    --cortextoprincipal: black;
+    --cortextoprincipalhover: #d8d8d8;
+}
+
+body {
+    background-color: var(--corfundo);
+    font-family: Outfit;
+    margin: 0;
+}
+
+#cadastrar-calcado {
+    /* background-color: #FFFFFF; */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.input {
+    position: relative;
+    flex: 1 1 calc(50% - 20px); /* Cada input ocupará 50% da largura menos a margem */
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.input.input-nome {
+    flex: 1 1 100%; /* O input de nome ocupará 100% da largura do contêiner */
+}
+
+.input input, .input select {
+    width: 80%;
+    height: 50px;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 0 15px;
+    border: 1px solid var(--cortextosecundario);
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    background-color: var(--corfundosecundaria);
+}
+.input select {
+
+    width: 85%;
+}
+.input.input-nome input{
+    width: 90%;
+}
+
+.input label {
+    background-color: var(--corfundosecundaria);
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: var(--cortextosecundario);
+    font-size: 19px;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.input input:valid~label, .input input:focus~label {
+    top: 0;
+    left: 15px;
+    font-size: 16px;
+    padding: 0 1px;
+    color: var(--cortextosecundario);
+}
+
+.input input:focus, .input input:not(:placeholder-shown) {
+    border-color: var(--cortextosecundario);
+}
+
+.input input:focus~label {
+    top: 0;
+    left: 15px;
+    font-size: 16px;
+    padding: 0 1px;
+    background: transparent;
+    color: var(--corprincipal);
+}
+
+button[type="submit"] {
+    text-transform: uppercase;
+    background-color: var(--corprincipal);
+    color: var(--corfundo);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 24px;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background: var(--corprincipalhover);
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    .input {
+        flex: 1 1 100%; /* Faz com que cada input ocupe 100% da largura */
+    }
+}
