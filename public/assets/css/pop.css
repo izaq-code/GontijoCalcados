@@ -152,6 +152,7 @@
 .nome-usuario {
   font-weight: bold;
   font-size: 12px;
+
 }
 
 .texto-mensagem {
@@ -258,6 +259,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100px;
 }
 
 .usuario .ultima-mensagem {
@@ -265,13 +267,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-left: -73px;
+  margin-left: -100px;
   width: 100%;
-  max-width: 80%;
+  max-width: 80%; 
 }
 
 .usuario:first-child .ultima-mensagem {
-  margin-left: -63px;
+  margin-left: -99px;
   width: 100%;
   max-width: 80%;
 }
