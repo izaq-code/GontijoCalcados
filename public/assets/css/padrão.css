@@ -72,3 +72,76 @@ html{
   border-radius: 50%;
   z-index: 1000; 
 }
+
+
+
+.input {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#input-email,
+#input-senha {
+  color: var(--cortextoprincipal);
+}
+
+.input input {
+  width: 300px;
+  height: 50px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+  border: 1px solid var(--cortextosecundario);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+  background-color: var(--corfundo);
+}
+
+.input label {
+  background-color: var(--corfundo);
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: var(--cortextosecundario);
+  font-size: 19px;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.input input:valid~label {
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 1px;
+  color: var(--cortextosecundario);
+}
+
+.input input:focus,
+.input input:not(:placeholder-shown) {
+  border-color: var(--cortextosecundario);
+}
+
+.input input:focus~label {
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 1px;
+  background: var(--corfundo);
+  color: var(--corprincipal);
+}
+
+.input select {
+  width: 100%;
+  height: 45px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+  border: 1px solid var(--cortextosecundario);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.input input:focus {
+  border-color: var(--corprincipal);
+}
