@@ -7,6 +7,7 @@ const socketIo = require('socket.io');
 const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 const server = http.createServer(app);
@@ -17,6 +18,7 @@ const secretKey = crypto.randomBytes(64).toString('hex');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(fileUpload());
 
 app.use(session({
     secret: secretKey,
@@ -140,6 +142,11 @@ app.get('/ultimaMensagem', (req, res) => {
         res.json(results);
     });
 });
+
+const uploadsDir = path.join(__dirname, 'public/assets/uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir);
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 

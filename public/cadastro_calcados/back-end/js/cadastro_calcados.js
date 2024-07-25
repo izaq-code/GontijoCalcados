@@ -24,34 +24,36 @@ $(document).ready(function () {
     carregarOpcoesSelect('/tipo-de-tintas', '#select-tipo-de-tinta');
 
     $('#cadastrar-calcado').submit(function (e) {
-        e.preventDefault();
-
-        var formData = $(this).serialize();
-
+        e.preventDefault(); 
+        var formData = new FormData(this); 
+    
         $.ajax({
             type: 'POST',
             url: '/calcado',
             data: formData,
-            success: function () {
+            contentType: false,
+            processData: false, 
+            success: function (response) {
                 Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Enviado com sucesso",
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Enviado com sucesso',
                     showConfirmButton: false,
                     timer: 1500
                 }).then(function () {
                     $('#cadastrar-calcado')[0].reset();
                 });
             },
-            error: function () {
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('Erro:', textStatus, errorThrown);
                 Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: "Erro ao enviar",
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Erro ao enviar',
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
         });
-    });
+    });    
 });
