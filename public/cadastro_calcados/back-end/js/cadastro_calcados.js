@@ -5,7 +5,7 @@ $(document).ready(function () {
             url: url,
             success: function (data) {
                 $(selectId).empty();
-                $(selectId).append('<option value="">Selecione...</option>');
+                $(selectId).append('<option value=""></option>');
                 data.forEach(function (item) {
                     $(selectId).append('<option value="' + item.id + '">' + item.nome + '</option>');
                 });

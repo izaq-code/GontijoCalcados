@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="../../../assets/css/modos.css">
     <link rel="stylesheet" href="../../../assets/css/pop.css">
     <link rel="stylesheet" href="../Style/padrão.css">
+    <link rel="stylesheet" href="../Style/cadastro_calcados.css">
     <title>Gontijo | Calçados</title>
 </head>
 
 <body>
     <main>
         <form id="cadastrar-calcado" action="/calcado" method="post" enctype="multipart/form-data">
-            <div class="input">
+            <div class="input input-nome">
                 <input id="input-nome" name="nome" type="text" required>
                 <label for="input-nome">Nome</label>
             </div>
@@ -83,6 +84,7 @@
                 </select>
                 <label for="select-tipo-tinta">Tipo de tinta</label>
             </div>
+                       
             <input id="input-imagem-calcado" name="img_calcado" type="file" required>
             <input id="input-imagem-3d-calcado" name="tresd_calcado" type="file" required>
             
