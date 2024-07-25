@@ -24,8 +24,8 @@ CREATE TABLE  bater_ponto (
     id_funcionario int,
     ini_ponto datetime,
     fim_ponto datetime,
-    saldo_horas DECIMAL(5, 2),
-    banco_de_horas DECIMAL(5, 2)
+    saldo_horas time,
+    banco_de_horas time
 );
 
 -- fim bater ponto
