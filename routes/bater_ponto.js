@@ -1,24 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const { connection2 } = require('../public/chat/js/db.js'); 
+const { connection2 } = require('../public/chat/js/db.js');
 const moment = require('moment');
 
 router.get('/bater_ponto', (req, res) => {
-    const horaAtual = moment().format('HH:mm:ss');
     const dataAtual = moment().format('YYYY-MM-DD');
-    const dataHoraAtual = moment().format('YYYY-MM-DD HH:mm:ss'); 
+    const dataHoraAtual = moment().format('YYYY-MM-DD HH:mm:ss');
     const usuario_id = req.query.usuario_id;
 
     if (!usuario_id) {
         return res.status(400).send('Usuário ID não encontrado');
     }
 
+    // Consulta o último ponto registrado para o usuário no dia atual
     connection2.query(
         'SELECT * FROM bater_ponto WHERE id_funcionario = ? AND DATE(ini_ponto) = ? ORDER BY ini_ponto DESC LIMIT 1',
         [usuario_id, dataAtual],
         (erro, resultado) => {
             if (erro) {
-                console.error('Erro ao consultar banco de dados:', erro); 
+                console.error('Erro ao consultar banco de dados:', erro);
                 return res.status(500).send('Erro ao consultar banco de dados');
             }
 
@@ -35,10 +35,11 @@ router.get('/bater_ponto', (req, res) => {
                 }
 
                 if (update) {
+                    
                     connection2.query(
                         `UPDATE bater_ponto SET ${update} = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?`,
                         [dataHoraAtual, usuario_id, dataAtual],
-                        (erro, resultado) => {
+                        (erro) => {
                             if (erro) {
                                 console.error('Erro ao atualizar registro:', erro);
                                 return res.status(500).send('Erro ao atualizar registro');
@@ -47,36 +48,45 @@ router.get('/bater_ponto', (req, res) => {
                             if (update === 'fim_ponto') {
                                 const iniPonto = moment(ponto.ini_ponto);
                                 const fimPonto = moment(dataHoraAtual);
+
+                             
                                 const horasTrabalhadas = fimPonto.diff(iniPonto, 'hours', true) - 1; 
-
-                        
                                 const minutosTrabalhados = horasTrabalhadas * 60;
-                                const saldoMinutos = minutosTrabalhados - (8 * 60); 
+                                const saldoMinutos = minutosTrabalhados - (7 * 60); 
 
-                          
-                                let bancoHorasMinutos = saldoMinutos;
-                                if (ponto.banco_de_horas) {
-                                    const [bancoHoras, bancoMinutos] = ponto.banco_de_horas.split(':').map(Number);
-                                    bancoHorasMinutos += (bancoHoras * 60) + bancoMinutos; 
-                                }
-
-                        
-                                const saldoHoras = moment.utc(Math.abs(saldoMinutos) * 60 * 1000).format('HH:mm');
-                                const saldoHorasComSinal = saldoMinutos >= 0 ? `+${saldoHoras}` : `-${saldoHoras}`;
-
-                          
-                                const bancoHoras = moment.utc(Math.abs(bancoHorasMinutos) * 60 * 1000).format('HH:mm');
-                                const bancoHorasComSinal = bancoHorasMinutos >= 0 ? `+${bancoHoras}` : `-${bancoHoras}`;
-
+                                
                                 connection2.query(
-                                    'UPDATE bater_ponto SET saldo_horas = ?, banco_de_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
-                                    [saldoHorasComSinal, bancoHorasComSinal, usuario_id, dataAtual],
+                                    'SELECT SUM(saldo_horas) AS saldo_acumulado FROM bater_ponto WHERE id_funcionario = ?',
+                                    [usuario_id],
                                     (erro, resultado) => {
                                         if (erro) {
-                                            console.error('Erro ao atualizar saldo de horas:', erro);
-                                            return res.status(500).send('Erro ao atualizar saldo de horas');
+                                            console.error('Erro ao consultar saldo acumulado:', erro);
+                                            return res.status(500).send('Erro ao consultar saldo acumulado');
                                         }
-                                        res.send(`Ponto registrado e saldo de horas atualizado com sucesso. Saldo de horas: ${saldoHorasComSinal}, Banco de horas: ${bancoHorasComSinal}`);
+
+                                        console.log(resultado);
+
+                                        let saldoAcumulado = resultado[0].saldo_acumulado || 0;
+                                        saldoAcumulado += saldoMinutos;
+                                       
+                                        const saldoHoras = moment.utc(Math.abs(saldoMinutos) * 60 * 1000).format('HH:mm');
+                                        const saldoHorasComSinal = saldoMinutos >= 0 ? `+${saldoHoras}` : `-${saldoHoras}`;
+
+                                        const bancoHorasFormatado = moment.utc(Math.abs(saldoAcumulado) * 60 * 1000).format('HH:mm');
+                                        const bancoHorasComSinal = saldoAcumulado >= 0 ? `+${bancoHorasFormatado}` : `-${bancoHorasFormatado}`;
+
+                                       
+                                        connection2.query(
+                                            'UPDATE bater_ponto SET saldo_horas = ?, banco_de_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
+                                            [saldoHorasComSinal, bancoHorasComSinal, usuario_id, dataAtual],
+                                            (erro) => {
+                                                if (erro) {
+                                                    console.error('Erro ao atualizar saldo de horas:', erro);
+                                                    return res.status(500).send('Erro ao atualizar saldo de horas');
+                                                }
+                                                res.send(`Ponto registrado e saldo de horas atualizado com sucesso. Saldo de horas: ${saldoHorasComSinal}, Banco de horas: ${bancoHorasComSinal}`);
+                                            }
+                                        );
                                     }
                                 );
                             } else {
@@ -85,12 +95,13 @@ router.get('/bater_ponto', (req, res) => {
                         }
                     );
                 } else {
+                    // Adiciona um novo ponto de entrada
                     connection2.query(
                         'INSERT INTO bater_ponto (id_funcionario, ini_ponto) VALUES (?, ?)',
                         [usuario_id, dataHoraAtual],
-                        (erro, resultado) => {
+                        (erro) => {
                             if (erro) {
-                                console.error('Erro ao criar novo registro:', erro); 
+                                console.error('Erro ao criar novo registro:', erro);
                                 return res.status(500).send('Erro ao criar novo registro');
                             }
                             res.send('Novo registro criado e ponto registrado com sucesso');
@@ -98,12 +109,13 @@ router.get('/bater_ponto', (req, res) => {
                     );
                 }
             } else {
+                // Adiciona um novo ponto de entrada
                 connection2.query(
                     'INSERT INTO bater_ponto (id_funcionario, ini_ponto) VALUES (?, ?)',
                     [usuario_id, dataHoraAtual],
-                    (erro, resultado) => {
+                    (erro) => {
                         if (erro) {
-                            console.error('Erro ao criar novo registro:', erro); 
+                            console.error('Erro ao criar novo registro:', erro);
                             return res.status(500).send('Erro ao criar novo registro');
                         }
                         res.send('Ponto registrado com sucesso');
