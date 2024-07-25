@@ -8,7 +8,6 @@
   
 .navbar {
     height: 96vh;
-    width: 250px;
     position: fixed;
     top: 0;
     left: 0;
@@ -40,7 +39,7 @@
     background-color: var(--cor-principal);
     border-radius: 10px;
     padding: 10px;
-    width: 240px;
+    width: 210px;
     color: #fff;
     font-weight: bold;
 }
@@ -138,7 +137,7 @@ input:checked~label .to::before {
 
 @media only screen and (min-width: 550px) {
     .navbar {
-        width: 250px;
+        width: 225px;
     }
 
     .submenu {
