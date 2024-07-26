@@ -35,7 +35,6 @@ router.get('/bater_ponto', (req, res) => {
                 }
 
                 if (update) {
-                    
                     connection2.query(
                         `UPDATE bater_ponto SET ${update} = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?`,
                         [dataHoraAtual, usuario_id, dataAtual],
@@ -49,12 +48,14 @@ router.get('/bater_ponto', (req, res) => {
                                 const iniPonto = moment(ponto.ini_ponto);
                                 const fimPonto = moment(dataHoraAtual);
 
-                             
-                                const horasTrabalhadas = fimPonto.diff(iniPonto, 'hours', true) - 1; 
+                                const horasTrabalhadas = fimPonto.diff(iniPonto, 'hours', true);
                                 const minutosTrabalhados = horasTrabalhadas * 60;
-                                const saldoMinutos = minutosTrabalhados - (7 * 60); 
+                                const saldoMinutos = minutosTrabalhados - (8 * 60);
 
-                                
+                                console.log(`Horas trabalhadas: ${horasTrabalhadas}`);
+                                console.log(`Minutos trabalhados: ${minutosTrabalhados}`);
+                                console.log(`Saldo minutos: ${saldoMinutos}`);
+
                                 connection2.query(
                                     'SELECT SUM(saldo_horas) AS saldo_acumulado FROM bater_ponto WHERE id_funcionario = ?',
                                     [usuario_id],
@@ -67,15 +68,19 @@ router.get('/bater_ponto', (req, res) => {
                                         console.log(resultado);
 
                                         let saldoAcumulado = resultado[0].saldo_acumulado || 0;
-                                        saldoAcumulado += saldoMinutos;
-                                       
+                                        console.log(`Saldo acumulado antes da atualização: ${saldoAcumulado}`);
+
+                                        console.log( resultado[0].saldo_acumulado, 'FDP');
+
+                                        saldoAcumulado += saldoMinutos; 
+                                        console.log(`Saldo acumulado após a atualização: ${saldoAcumulado}`);
+
                                         const saldoHoras = moment.utc(Math.abs(saldoMinutos) * 60 * 1000).format('HH:mm');
                                         const saldoHorasComSinal = saldoMinutos >= 0 ? `+${saldoHoras}` : `-${saldoHoras}`;
 
                                         const bancoHorasFormatado = moment.utc(Math.abs(saldoAcumulado) * 60 * 1000).format('HH:mm');
                                         const bancoHorasComSinal = saldoAcumulado >= 0 ? `+${bancoHorasFormatado}` : `-${bancoHorasFormatado}`;
 
-                                       
                                         connection2.query(
                                             'UPDATE bater_ponto SET saldo_horas = ?, banco_de_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
                                             [saldoHorasComSinal, bancoHorasComSinal, usuario_id, dataAtual],
@@ -95,7 +100,6 @@ router.get('/bater_ponto', (req, res) => {
                         }
                     );
                 } else {
-                    // Adiciona um novo ponto de entrada
                     connection2.query(
                         'INSERT INTO bater_ponto (id_funcionario, ini_ponto) VALUES (?, ?)',
                         [usuario_id, dataHoraAtual],
@@ -109,7 +113,6 @@ router.get('/bater_ponto', (req, res) => {
                     );
                 }
             } else {
-                // Adiciona um novo ponto de entrada
                 connection2.query(
                     'INSERT INTO bater_ponto (id_funcionario, ini_ponto) VALUES (?, ?)',
                     [usuario_id, dataHoraAtual],
