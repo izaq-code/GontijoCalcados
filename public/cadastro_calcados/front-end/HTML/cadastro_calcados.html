@@ -72,26 +72,49 @@
                 </select>
                 <label for="select-solado">Solado</label>
             </div>
+            
             <div class="input">
                 <select id="select-adesivo" name="id_adesivo" required>
                     <option value="">Selecione o adesivo</option>
                 </select>
                 <label for="select-adesivo">Adesivo</label>
             </div>
-            <div class="input">
+            
+            <div class="input ultimo">
                 <select id="select-tipo-de-tinta" name="id_tip_tinta" required>
                     <option value="">Selecione o tipo de tinta</option>
                 </select>
                 <label for="select-tipo-tinta">Tipo de tinta</label>
             </div>
-                       
-            <input id="input-imagem-calcado" name="img_calcado" type="file" required>
-            <input id="input-imagem-3d-calcado" name="tresd_calcado" type="file" required>
-            
-            <button type="submit">Enviar</button>
+            <div class="baixo">
+
+
+                <div class="container-img">
+                    <div class="input-img">
+                        <input id="input-imagem-calcado" name="img_calcado" type="file" accept="image/*" required>
+                        <label for="input-imagem-calcado">Escolher imagem</label>
+                        <div class="image-preview" id="image-preview-calcado">
+                            <img id="preview-img-calcado" src="" alt="Imagem selecionada">
+                        </div>
+                    </div>
+                    <div class="input-img">
+                        <input id="input-imagem-3d-calcado" name="tresd_calcado" type="file" accept="image/*" required>
+                        <label for="input-imagem-3d-calcado">Escolher imagem 3D</label>
+                        <div class="image-preview" id="image-preview-3d">
+                            <img id="preview-img-3d" src="" alt="Imagem selecionada">
+                        </div>
+                    </div>
+                </div>
+                 
+                 <div class="enviar">
+                     <button type="submit">Enviar</button>
+                 </div>
+
+            </div>     
         </form>
     </main>
 
+    <script src="../js/preview.js"></script>
     <script src="../../../assets/JS/Navbar.js"></script>
     <script src="../../../assets/JS/links.js"></script>
     <script src="../../../assets/JS/pop_up.js"></script>
