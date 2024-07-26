@@ -1,0 +1,19 @@
+#exibir_calcados {
+    display: flex;
+    gap: 20px;
+}
+
+.card-calcados img {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.nome-calcado {
+    margin-top: 4px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 16px;
+}
