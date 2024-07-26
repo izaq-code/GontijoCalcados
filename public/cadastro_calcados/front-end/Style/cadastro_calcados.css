@@ -22,7 +22,7 @@ body {
 #cadastrar-calcado {
     /* background-color: #FFFFFF; */
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
     padding: 30px;
     display: flex;
@@ -39,6 +39,9 @@ body {
 
 .input.input-nome {
     flex: 1 1 100%; /* O input de nome ocupará 100% da largura do contêiner */
+}
+.input.ultimo {
+    flex: 1 1 100%;
 }
 
 .input input, .input select {
@@ -93,6 +96,116 @@ body {
     color: var(--corprincipal);
 }
 
+.ultimo select{
+    max-width: 42%;
+}
+
+
+
+button[type="submit"]:hover {
+    background: var(--corprincipalhover);
+}
+
+.container-img {
+    display: flex;
+}
+
+.input-img {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.image-preview {
+    display: none; /* Oculta a área de visualização inicialmente */
+    margin-top: 20px;
+}
+
+.image-preview img {
+    max-width: 60%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.input-img input[type="file"] {
+    display: none; /* Oculta o campo de input */
+}
+
+.input-img label {
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--corfundosecundaria);
+    color: var(--corprincipal);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.input-img label:hover {
+    background-color: var(--cortextoprincipalhover);
+}
+
+/* outra versão */
+.container-img {
+    display: block;
+}
+
+.input-img {
+    margin-bottom: 20px;
+}
+
+.image-preview {
+    display: none; /* Oculta a área de visualização inicialmente */
+    margin-top: 20px;
+}
+
+.image-preview img {
+    max-width: 50%;
+   
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.file-preview {
+    display: none; /* Oculta a área de visualização inicialmente */
+    margin-top: 20px;
+}
+
+.file-preview p {
+    font-size: 16px;
+    color: var(--corprincipal);
+}
+
+.input-img input[type="file"] {
+    display: none; /* Oculta o campo de input */
+}
+
+.input-img label {
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--corfundosecundaria);
+    color: var(--corprincipal);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.input-img label:hover {
+    background-color: var(--cortextoprincipalhover);
+}
+
+.baixo .container-img{
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+
 button[type="submit"] {
     text-transform: uppercase;
     background-color: var(--corprincipal);
@@ -103,14 +216,27 @@ button[type="submit"] {
     border-radius: 24px;
     font-size: 16px;
 }
-
-button[type="submit"]:hover {
-    background: var(--corprincipalhover);
+.enviar{
+    display: inline-block;
 }
 
 /* Estilos para telas menores */
 @media (max-width: 768px) {
     .input {
         flex: 1 1 100%; /* Faz com que cada input ocupe 100% da largura */
+    }
+    .input.input-nome input{
+        max-width: 80%;
+
+    }
+    .ultimo select{
+        max-width: 85%;
+    }
+    .container-img {
+        display: block;
+    }
+    .input-img {
+        margin-bottom: 10px;
+        padding: 0;
     }
 }
