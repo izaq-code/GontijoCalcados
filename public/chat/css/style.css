@@ -498,3 +498,6 @@ body.dark-mode .usuario {
   align-items: center; 
 }
 
+body.light-mode .bolinha-notificacao {
+  color: #ffffff;
+}
