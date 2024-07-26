@@ -23,18 +23,18 @@ router.post('/calcado', (req, res) => {
             return res.status(500).send('Erro ao enviar calcado');
         }
 
-        let tresd_calcadoPath = '/uploads/default_3d.png';
+        let tresd_calcadoPath = '../../../assets/uploads/tresdpadrao.glb';
         if (tresd_calcado) {
             tresd_calcado.mv(path.join(uploadsDir, tresd_calcado.name), (err) => {
                 if (err) {
                     console.error('Erro ao mover imagem 3D calcado:', err);
                     return res.status(500).send('Erro ao enviar calcado');
                 }
-                tresd_calcadoPath = path.join('/uploads', tresd_calcado.name);
+                tresd_calcadoPath = path.join('../../../assets/uploads', tresd_calcado.name);
             });
         }
 
-        const img_calcadoPath = path.join('/uploads', img_calcado.name);
+        const img_calcadoPath = path.join('../../../assets/uploads', img_calcado.name);
 
         const query = `INSERT INTO calcado (nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcado, 3d_calcado, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data) 
                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
@@ -48,17 +48,14 @@ router.post('/calcado', (req, res) => {
     });
 });
 
-// esta parte aqui mostra todas as imagens do banco de dados
-router.get('/imagens', (req, res) => {
+// Rota GET para receber os calçados do banco de dados ProductEase
+router.get('/calcados', (req, res) => {
     const id = req.query.id;
 
     const query = `
-     SELECT 
-  img_calcado as img,id
-  FROM 
-  calcado;
-
-  `;
+        SELECT img_calcado as img, id, nome
+        FROM calcado;
+    `;
 
     connection2.query(query, [id], (err, results) => {
         if (err) {
