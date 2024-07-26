@@ -146,6 +146,55 @@ button[type="submit"]:hover {
     background-color: var(--cortextoprincipalhover);
 }
 
+/* outra versão */
+.container-img {
+    display: block;
+}
+
+.input-img {
+    margin-bottom: 20px;
+}
+
+.image-preview {
+    display: none; /* Oculta a área de visualização inicialmente */
+    margin-top: 20px;
+}
+
+.image-preview img {
+    max-width: 50%;
+   
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.file-preview {
+    display: none; /* Oculta a área de visualização inicialmente */
+    margin-top: 20px;
+}
+
+.file-preview p {
+    font-size: 16px;
+    color: var(--corprincipal);
+}
+
+.input-img input[type="file"] {
+    display: none; /* Oculta o campo de input */
+}
+
+.input-img label {
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--corfundosecundaria);
+    color: var(--corprincipal);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.input-img label:hover {
+    background-color: var(--cortextoprincipalhover);
+}
 
 .baixo .container-img{
     margin-bottom: 30px;
