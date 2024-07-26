@@ -57,7 +57,7 @@ router.get('/bater_ponto', (req, res) => {
                                 console.log(`Saldo minutos: ${saldoMinutos}`);
 
                                 connection2.query(
-                                    'SELECT SUM(saldo_horas) AS saldo_acumulado FROM bater_ponto WHERE id_funcionario = ?',
+                                    'SELECT SUM(COALESCE(TIME_TO_SEC(saldo_horas) / 60, 0)) AS saldo_acumulado FROM bater_ponto WHERE id_funcionario = ?',
                                     [usuario_id],
                                     (erro, resultado) => {
                                         if (erro) {
@@ -70,14 +70,18 @@ router.get('/bater_ponto', (req, res) => {
                                         let saldoAcumulado = resultado[0].saldo_acumulado || 0;
                                         console.log(`Saldo acumulado antes da atualização: ${saldoAcumulado}`);
 
-                                        console.log( resultado[0].saldo_acumulado, 'FDP');
-
                                         saldoAcumulado += saldoMinutos; 
                                         console.log(`Saldo acumulado após a atualização: ${saldoAcumulado}`);
 
-                                        const saldoHoras = moment.utc(Math.abs(saldoMinutos) * 60 * 1000).format('HH:mm');
-                                        const saldoHorasComSinal = saldoMinutos >= 0 ? `+${saldoHoras}` : `-${saldoHoras}`;
+                                       
+                                        const horas = Math.floor(Math.abs(saldoAcumulado) / 60);
+                                        const minutos = Math.abs(saldoAcumulado) % 60;
+                                        const saldoHoras = `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}`;
 
+                                        console.log(saldoHoras, 'formatação');
+                                        const saldoHorasComSinal = saldoAcumulado >= 0 ? `+${saldoHoras}` : `-${saldoHoras}`;
+
+                                      
                                         const bancoHorasFormatado = moment.utc(Math.abs(saldoAcumulado) * 60 * 1000).format('HH:mm');
                                         const bancoHorasComSinal = saldoAcumulado >= 0 ? `+${bancoHorasFormatado}` : `-${bancoHorasFormatado}`;
 
