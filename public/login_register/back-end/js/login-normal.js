@@ -5,11 +5,13 @@ $(document).ready(function () {
         var formData = $(this).serialize();
 
         $.ajax({
-            url: 'PHP/login-normal.php',
+            url: '/login_normal',
             type: 'POST',
             data: formData,
             success: function (response) {
-                response == true ? q() : w();
+                sim = response.success
+                sim == true ? q() :
+                    w(response.mensage);
                 console.log('Resposta do servidor:', response); // Verifica a resposta do servidor
 
             },
@@ -23,26 +25,20 @@ $(document).ready(function () {
 });
 
 function q() {
-    // Swal.fire({
-    //     icon: 'success',
-    //     title: 'Enviado com sucesso!',
-    //     customClass: {
-    //         confirmButton: 'swal-button' 
-    //     }
-    // }).then((result) => {
-    //     if (result.isConfirmed) {
-    //         window.location.href = 'http://localhost/fono/src/inicio/inicio.html';
-    //     }
-    // });
-    window.location.href = '../../../padrão/front-end/HTML/padrão.html';
+
+    const redirecionar = callback();
+    window.location.href = redirecionar;
 }
-function w() {
-    //     Swal.fire({
-    //       icon: 'error',
-    //       title: 'Erro ao enviar o formulário',
-    //       text: 'Por favor, tente novamente mais tarde.',
-    //       customClass: {
-    //         confirmButton: 'swal-button' 
-    //     }
-    //     });
+function w(mensage) {
+    
+    alert('erro ao logar : ' + mensage);
+    location.reload();
+}
+
+function callback() {
+    const client_id = '686746649529-s1bjq6d0rjpl129etdr05ugps0n8a07b.apps.googleusercontent.com';
+    const redirect_uri = 'http://localhost:3000/login-google'; // URL de redirecionamento autorizado
+    const scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile';
+    const auth_url = 'https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=' + client_id + '&redirect_uri=' + encodeURIComponent(redirect_uri) + '&scope=' + encodeURIComponent(scope);
+    return auth_url;
 }
