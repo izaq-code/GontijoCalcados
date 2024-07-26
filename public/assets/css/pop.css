@@ -368,3 +368,16 @@ body.dark-mode #listaUsuarios {
   justify-content: center;
   align-items: center; 
 }
+.notificacao {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 10px;
+  width: 11px;
+  height: 12px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
