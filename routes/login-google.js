@@ -1,7 +1,37 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
+const app = express();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const axios = require('axios');
 const { connection2 } = require('../public/chat/js/db.js');
+
+
+
+//hash de senha (espero que não tenha que usar)
+
+const hashPassword = async (password) => {
+    try {
+        const hash = await bcrypt.hash(password, saltRounds);
+        console.log('Senha com hash:', hash);
+        return hash;
+    } catch (error) {
+        console.error('Erro ao criar hash:', error);
+    }
+};
+
+// verificação de senha
+
+const verifyPassword = (password, hash, callback) => {
+    bcrypt.compare(password, hash, (err, isMatch) => {
+        if (err) return callback(err);
+        callback(null, isMatch);
+    });
+};
+
+//Middleware para analisar dados codificados em URL
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Parâmetros para montar o token
 const client_id = '686746649529-s1bjq6d0rjpl129etdr05ugps0n8a07b.apps.googleusercontent.com';
@@ -38,7 +68,7 @@ router.get('/login-google', async (req, res) => {
                     if (results.length > 0) {
                         req.session.user = results[0];
 
-                        if (!req.session.user){
+                        if (!req.session.user) {
                             res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
                         }
 
@@ -56,7 +86,7 @@ router.get('/login-google', async (req, res) => {
                             }
                             req.session.user = userinfo;
 
-                            if (!req.session.user){
+                            if (!req.session.user) {
                                 res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
                             }
 
@@ -73,5 +103,44 @@ router.get('/login-google', async (req, res) => {
         res.status(400).send('Código não encontrado');
     }
 });
+
+router.post('/login_normal', async (req, res) => {
+    if (req.body) {
+        console.log(req.body.email)
+    }
+
+    connection2.query('SELECT * FROM usuario WHERE email = ?', [req.body.email], (error, results) => {
+
+        if (error) {
+            console.error(error);
+        } else {
+
+            if (results.length > 0) {
+                const user = results[0];
+
+                // Verificar a senha
+                verifyPassword(req.body.senha, user.senha, (err, isMatch) => {
+                    if (err) {
+                        console.error('Erro ao verificar a senha:', err);
+                        return res.status(500).json({ error: 'Erro interno do servidor' });
+                    }
+
+                    if (isMatch) {
+                        // Senha correta
+                        res.json({ success: true, mensage: 'Login bem sucedido' });
+                    } else {
+                        // Senha incorreta
+                        res.status(401).json({ error: 'Senha incorreta' });
+                    }
+                });
+            } else {
+                // Usuário não encontrado
+                res.status(404).json({ error: 'Usuário não encontrado' });
+                res.json({sucess: false, mensage: 'usuario nao encontrado'})
+            }
+        }
+
+    })
+})
 
 module.exports = router;
