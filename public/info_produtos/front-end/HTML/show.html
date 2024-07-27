@@ -7,71 +7,43 @@
     <link rel="stylesheet" href="../../../assets/css/padrão.css">
     <link rel="stylesheet" href="../../front-end/Style/show.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Informaçoes do modelo </title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <title>Informações do Modelo</title>
     <style>
-        .sim{
-            width: 40px;
-            height: 40px;
+        model-viewer {
+            background-color: #79797a;
+            width: 30%;
+            height: 30%; /* Ajuste a altura conforme necessário */
+        }
+
+        .info-container {
+            margin-top: 20px;
+        }
+
+        .info-container div {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
+    <model-viewer id="modelViewer" src="" camera-controls></model-viewer>
     
-        <div id="img" name="img"></div>
-
-        <div id="nome" name="nome:">
-            <!-- <label for="nome">Material:</label><br>
-                <input type="text" id="nome" name="nome" value="" required><br><br> -->
-        </div>
-
-        <div id="tipo_tinta" name="Tipo tinta:">
-            <!-- <label for="email">Tipo de tinta :</label><br>
-                <input type="email" id="email" name="email" value="" placeholder="" required><br><br> -->
-        </div>
-
-        <div id="espe_linha" name="Espeçura de linha:">
-            <!-- <label for="espe_linha">Espessura de linha:</label><br> -->
-            <!-- <input type="text" id="assunto" name="assunto" value="" required><br><br> -->
-        </div>
-
-        <div id="nome_solado" name="Nome Solado:">
-            <!-- <label for="motivo">Motivo do contato:</label><br>
-                <input type="text" id="motivo" name="motivo" value="" required><br><br> -->
-        </div>
-
-        <div id="nome_cadarco" name="Nome Cadarço:">
-            <!-- <label for="urgencia">Solado:</label><br>
-                <input type="text" id="urgencia" name="urgencia" value="" required><br><br> -->
-        </div>
-
-        <div id="tempo_calcado" name="Tempo Calçado:">
-            <!-- <label for="mensagem">Cadarços:</label><br>
-                <textarea id="mensagem" name="mensagem" rows="4"  required></textarea><br><br> -->
-        </div>
-
-        <div id="nome_tinta" name="Nome Tinta:">
-            <!-- <label for="mensagem">Temperatura do Equipamento:</label><br>
-                <textarea id="mensagem" name="mensagem" rows="4"  required></textarea><br><br> -->
-        </div>
-
-        <div id="corlinhacalcado" name="Cor linha Calçado:">
-            <!-- <label for="mensagem">Cor do Material :</label><br>
-                <textarea id="mensagem" name="mensagem" rows="4"  required></textarea><br><br> -->
-        </div>
-
-        <div id="temcosturacalcado" name="Tempo de costura Calçado:">
-            <!-- <label for="mensagem">Cor da tinta:</label><br>
-                <textarea id="mensagem" name="mensagem" rows="4"  required></textarea><br><br> -->
-        </div>
-
-        <div id="temp_sec" name="Tempo de Secura:">
-            <!-- <label for="mensagem">Tamanho da Costura:</label><br>
-                <textarea id="mensagem" name="mensagem" rows="4" required></textarea><br><br> -->
-        </div>
+    <div class="info-container">
+        <div id="img"></div>
+        <div id="nome"></div>
+        <div id="tipo_tinta"></div>
+        <div id="espe_linha"></div>
+        <div id="nome_solado"></div>
+        <div id="nome_cadarco"></div>
+        <div id="tempo_calcado"></div>
+        <div id="nome_tinta"></div>
+        <div id="corlinhacalcado"></div>
+        <div id="temcosturacalcado"></div>
+        <div id="temp_sec"></div>
+    </div>
 
     <script src="../../../info_produtos/back-end/js/show.js"></script>
-
 </body>
 
 </html>

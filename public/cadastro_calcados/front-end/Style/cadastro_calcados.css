@@ -138,16 +138,8 @@ button[type="submit"]:hover {
 
 }
 
-
-
 #foto__input1 {
   display: none;
-}
-
-.foto-container {
-  width: 200px;
-  margin: 20px;
-  display: inline-block;
 }
 
 .foto {
