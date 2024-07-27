@@ -9,12 +9,13 @@ CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     google_id VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
+    RA VARCHAR(255) NOT NULL,
     name VARCHAR(255),
     cpf VARCHAR(255),
     senha varchar(255),
     profile_picture VARCHAR(255),
     funcao Varchar(40),
-    telefone Varchar(40)
+    pl TINYINT(1) DEFAULT true -- pl = primeiro login --  
 );
 
 -- fim dos usuarios
@@ -109,9 +110,9 @@ FOREIGN KEY(id_solado) REFERENCES solado (id)
 
 
 
-INSERT INTO usuario (name, email, senha, funcao, telefone, profile_picture)
-VALUES ('João Silva', 'joao.silva@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', '(11) 9999-9999', 'https://img.freepik.com/fotos-gratis/vista-do-carro-3d_23-2150796894.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1719878400&semt=sph'),
-       ('admin', 'admin@admin.com','$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'gay', '(31) 7777-7777', 'https://img.freepik.com/fotos-premium/carro-supra-mk4-no-fundo-da-imagem-da-ponte_911078-4767.jpg?w=1380');
+INSERT INTO usuario (name, RA, email, senha, funcao, profile_picture)
+VALUES ('João Silva', '234567', 'joao.silva@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', 'https://img.freepik.com/fotos-gratis/vista-do-carro-3d_23-2150796894.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1719878400&semt=sph'),
+       ('admin','123456', 'admin@admin.com','$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Supervisor', 'https://img.freepik.com/fotos-premium/carro-supra-mk4-no-fundo-da-imagem-da-ponte_911078-4767.jpg?w=1380');
 
 
 INSERT INTO material (id, nome, caminho, caminho2)

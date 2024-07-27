@@ -9,8 +9,8 @@ CREATE TABLE users (
   user_nome VARCHAR(255) NOT NULL,
   email_user VARCHAR(300) NOT NULL,
   foto_user VARCHAR(255) NOT NULL,
-  FOREIGN KEY (email_user) REFERENCES ProductEase.usuario(email)
-);
+  FOREIGN KEY (email_user) REFERENCES ProductEase.usuario(email) ON UPDATE CASCADE ON DELETE CASCADE
+)engine = InnoDB;
 
 CREATE TABLE messages (
   id INT AUTO_INCREMENT PRIMARY KEY,

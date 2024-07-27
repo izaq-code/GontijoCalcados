@@ -60,11 +60,49 @@ router.get('/login-google', async (req, res) => {
             const userinfoResponse = await axios.get(userinfo_url);
             const userinfo = userinfoResponse.data;
 
+            //testando primeiro login
+            if (req.session.tempUser) {
+                if (req.session.tempUser.pl = true /*pl = Primeiro login */) {
+
+                    const tuser = req.session.tempUser
+
+                    connection2.query('UPDATE usuario SET google_id = ?, email = ? , profile_picture = ?, pl = false WHERE id = ?', [
+                        userinfo.id,
+                        userinfo.email,
+                        userinfo.picture,
+                        tuser.id
+                    ]), (error, results) => {
+                        if (error) {
+                            console.error(error);
+                        } else {
+                            connection2.query('SELECT * FROM usuario WHERE id = ?', [tuser.id], (error, results) => {
+                                if (error) {
+                                    console.error(error);
+                                } else {
+                                    const user = results[0];
+
+                                    req.session.user = user;
+
+                                    if (!req.session.user) {
+                                        res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
+                                    }
+
+                                    res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
+                                }
+                            })
+
+                        }
+                    }
+
+                }
+            }
+
             // Verificando se o usuario já existe no banco de dados
             connection2.query('SELECT * FROM usuario WHERE email = ?', [userinfo.email], (error, results) => {
                 if (error) {
                     console.error(error);
                 } else {
+                    //tratando usuarios novos
                     if (results.length > 0) {
                         req.session.user = results[0];
 
@@ -75,11 +113,12 @@ router.get('/login-google', async (req, res) => {
                         res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
                     } else {
                         // Inserir novo usuário
-                        connection2.query('INSERT INTO usuario (google_id, email, name, profile_picture) VALUES (?, ?, ?, ?)', [
+                        connection2.query('INSERT INTO usuario (google_id, email, name, profile_picture, pl) VALUES (?, ?, ?, ?, ?)', [
                             userinfo.id,
                             userinfo.email,
                             userinfo.name,
-                            userinfo.picture
+                            userinfo.picture,
+                            'false'
                         ], (error, results) => {
                             if (error) {
                                 console.log(error);
@@ -109,7 +148,7 @@ router.post('/login_normal', async (req, res) => {
         console.log(req.body.email)
     }
 
-    connection2.query('SELECT * FROM usuario WHERE email = ?', [req.body.email], (error, results) => {
+    connection2.query('SELECT * FROM usuario WHERE ra = ?', [req.body.email], (error, results) => {
 
         if (error) {
             console.error(error);
@@ -117,6 +156,7 @@ router.post('/login_normal', async (req, res) => {
 
             if (results.length > 0) {
                 const user = results[0];
+
 
                 // Verificar a senha
                 verifyPassword(req.body.senha, user.senha, (err, isMatch) => {
@@ -127,20 +167,26 @@ router.post('/login_normal', async (req, res) => {
 
                     if (isMatch) {
                         // Senha correta
-                        res.json({ success: true, mensage: 'Login bem sucedido' });
+                        req.session.tempUser = user;
+                        if (!user.pl) {
+                            req.session.user = user;
+                        }
+                        res.json({ success: true, mensage: 'Login bem sucedido', pl: user.pl });
                     } else {
                         // Senha incorreta
-                        res.status(401).json({ error: 'Senha incorreta' });
+                        res.json({ sucess: false, mensage: 'Senha incorreta' })
+                        // res.status(401).json({ error: 'Senha incorreta' });
                     }
                 });
             } else {
                 // Usuário não encontrado
-                res.status(404).json({ error: 'Usuário não encontrado' });
-                res.json({sucess: false, mensage: 'usuario nao encontrado'})
+                res.json({ sucess: false, mensage: 'usuario nao encontrado' })
+                // res.status(404).json({ error: 'Usuário não encontrado' });
             }
         }
 
     })
 })
+
 
 module.exports = router;

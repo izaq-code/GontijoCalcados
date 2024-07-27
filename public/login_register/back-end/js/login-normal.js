@@ -10,7 +10,8 @@ $(document).ready(function () {
             data: formData,
             success: function (response) {
                 sim = response.success
-                sim == true ? q() :
+                pl = response.pl
+                sim == true ? q(pl) :
                     w(response.mensage);
                 console.log('Resposta do servidor:', response); // Verifica a resposta do servidor
 
@@ -24,13 +25,19 @@ $(document).ready(function () {
     });
 });
 
-function q() {
 
-    const redirecionar = callback();
+function q(pl) {
+
+    var redirecionar;
+    if(pl) { 
+     redirecionar = callback();
+    } else {
+     redirecionar = 'http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html';
+    }
     window.location.href = redirecionar;
 }
 function w(mensage) {
-    
+
     alert('erro ao logar : ' + mensage);
     location.reload();
 }
