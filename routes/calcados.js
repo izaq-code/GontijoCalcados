@@ -31,20 +31,25 @@ router.post('/calcado', (req, res) => {
                     return res.status(500).send('Erro ao enviar calcado');
                 }
                 tresd_calcadoPath = path.join('../../../assets/uploads', tresd_calcado.name);
+                insertCalcado();
             });
+        } else {
+            insertCalcado();
         }
 
-        const img_calcadoPath = path.join('../../../assets/uploads', img_calcado.name);
+        function insertCalcado() {
+            const img_calcadoPath = path.join('../../../assets/uploads', img_calcado.name);
 
-        const query = `INSERT INTO calcado (nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcado, 3d_calcado, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data) 
-                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-        connection2.query(query, [nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcadoPath, tresd_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data], (err) => {
-            if (err) {
-                console.error('Erro ao inserir calcado no banco de dados:', err);
-                return res.status(500).send('Erro ao enviar calcado');
-            }
-            res.status(201).send('Calcado enviado com sucesso');
-        });
+            const query = `INSERT INTO calcado (nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcado, 3d_calcado, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+            connection2.query(query, [nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcadoPath, tresd_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data], (err) => {
+                if (err) {
+                    console.error('Erro ao inserir calcado no banco de dados:', err);
+                    return res.status(500).send('Erro ao enviar calcado');
+                }
+                res.status(201).send('Calcado enviado com sucesso');
+            });
+        }
     });
 });
 
