@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    function carregarOpcoesSelect(url, selectId) {
+    function carregarOpcoesSelect(url, selectId, item) {
         $.ajax({
             type: 'GET',
             url: url,
             success: function (data) {
                 $(selectId).empty();
-                $(selectId).append('<option value=""></option>');
+                $(selectId).append(`<option value="">${item}</option>`);
                 data.forEach(function (item) {
                     $(selectId).append('<option value="' + item.id + '">' + item.nome + '</option>');
                 });
@@ -16,12 +16,12 @@ $(document).ready(function () {
         });
     }
 
-    carregarOpcoesSelect('/tintas', '#select-tinta');
-    carregarOpcoesSelect('/materiais', '#select-material');
-    carregarOpcoesSelect('/cadarcos', '#select-cadarco');
-    carregarOpcoesSelect('/solados', '#select-solado');
-    carregarOpcoesSelect('/adesivos', '#select-adesivo');
-    carregarOpcoesSelect('/tipo-de-tintas', '#select-tipo-de-tinta');
+    carregarOpcoesSelect('/tintas', '#select-tinta', 'Selecione a Tinta');
+    carregarOpcoesSelect('/materiais', '#select-material', 'Selecione o Material');
+    carregarOpcoesSelect('/cadarcos', '#select-cadarco', 'Selecione o cadarço');
+    carregarOpcoesSelect('/solados', '#select-solado', 'Selecione o solado');
+    carregarOpcoesSelect('/adesivos', '#select-adesivo', 'Selecione o adesivo');
+    carregarOpcoesSelect('/tipo-de-tintas', '#select-tipo-de-tinta', 'Selecione o tipo de tinta');
 
     $('#cadastrar-calcado').submit(function (e) {
         e.preventDefault(); 
