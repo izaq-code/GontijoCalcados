@@ -6,6 +6,7 @@ router.get('/mostrarUsuarioLogado', (req, res) => {
  
         const nome = req.session.user.name;
         const email = req.session.user.email;
+        const id = req.session.user.id;
 
         if (req.session.user.profile_picture == null ){
             var foto = req.session.user.picture;
@@ -13,7 +14,7 @@ router.get('/mostrarUsuarioLogado', (req, res) => {
             var foto = req.session.user.profile_picture;
 
         }
-        const results = {nome, foto, email}
+        const results = {id, nome, foto, email}
         
         res.json(results);
 

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const html = `
         <button id="AbrirChat" class="btn btn-primary">
-            <i class="bi bi-chat-dots-fill"></i>
+            <i class="bi bi-chat-dots"></i>
             <span id="notificacao" class="notificacao" style="display: none;">0</span>
         </button>
         <div id="chatPopup" class="popup" style="display: none;">
