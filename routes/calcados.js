@@ -73,7 +73,7 @@ router.get('/info_produtos', (req, res) => {
     const id = req.query.id;
 
     const query = `
-      SELECT 
+     SELECT 
           material.nome as nome,
           tipo_tinta.nome as tipotinta,
           calcado.espe_linha as espelinha,
@@ -85,7 +85,8 @@ router.get('/info_produtos', (req, res) => {
           calcado.tam_costura as temcosturacalcado,
           calcado.temp_sec as tempsec,
           calcado.img_calcado as img,
-          calcado.reg_equip
+          calcado.reg_equip,
+          calcado.3d_calcado as modelo3d
       FROM 
           calcado
           INNER JOIN material ON material.id = calcado.id_material
