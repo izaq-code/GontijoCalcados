@@ -87,7 +87,7 @@ router.get('/login-google', async (req, res) => {
                                         res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
                                     }
 
-                                    res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
+                                    res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
                                 }
                             })
 
@@ -110,7 +110,7 @@ router.get('/login-google', async (req, res) => {
                             res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
                         }
 
-                        res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
+                        res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
                     } else {
                         // Inserir novo usuário
                         connection2.query('INSERT INTO usuario (google_id, email, name, profile_picture, pl) VALUES (?, ?, ?, ?, ?)', [
@@ -129,7 +129,7 @@ router.get('/login-google', async (req, res) => {
                                 res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
                             }
 
-                            res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html');
+                            res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
                         });
                     }
                 }

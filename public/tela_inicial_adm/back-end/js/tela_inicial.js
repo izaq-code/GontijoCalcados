@@ -5,16 +5,15 @@ function listarCalcados() {
         url: '/calcados', 
         type: 'GET',
         dataType: 'json',
-        success: function (calcado) {
+        success: function (calcados) {
             container.innerHTML = '';
             
-            calcado.forEach(function (calcado) {
-                var item =  `<div class="card-calcados">
-                                <img src="${calcado.img}">
-                                <h3 class="nome-calcado"> ${calcado.nome} </h3>
-                            </div>`;
-                
-                container.innerHTML += item;
+            calcados.forEach(function (item) {
+                var itemHtml = `<div class="card-calcados" data-id="${item['id']}">
+                                    <img src="${item['img']}">
+                                    <h3 class="nome-calcado">${item['nome']}</h3>
+                                </div>`;
+                container.innerHTML += itemHtml;
             });
         },
         error: function (xhr, status, error) {
@@ -22,6 +21,12 @@ function listarCalcados() {
         }
     });
 }
+
+$(document).on('click', '.card-calcados', function () {
+    var idImagem = $(this).data('id');
+    localStorage.setItem('id', idImagem);
+    window.location.href = 'http://localhost:3000/info_produtos/front-end/html/show.html';
+});
 
 $(document).ready(function () {
     listarCalcados();
