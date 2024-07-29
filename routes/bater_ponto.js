@@ -7,6 +7,7 @@ router.get('/bater_ponto', (req, res) => {
     const dataAtual = moment().format('YYYY-MM-DD');
     const dataHoraAtual = moment().format('YYYY-MM-DD HH:mm:ss');
     const usuario_id = req.query.usuario_id;
+    
 
     if (!usuario_id) {
         return res.status(400).send('Usuário ID não encontrado');
@@ -48,9 +49,9 @@ router.get('/bater_ponto', (req, res) => {
                                 const iniPonto = moment(ponto.ini_ponto);
                                 const fimPonto = moment(dataHoraAtual);
 
-                                const horasTrabalhadas = fimPonto.diff(iniPonto, 'hours', true) - 1;
+                                const horasTrabalhadas = fimPonto.diff(iniPonto, 'hours', true);
                                 const minutosTrabalhados = horasTrabalhadas * 60;
-                                const saldoMinutos = minutosTrabalhados - (8 * 60);
+                                const saldoMinutos = minutosTrabalhados - (9 * 60 - 60);
 
                                 console.log(`Horas trabalhadas: ${horasTrabalhadas}`);
                                 console.log(`Minutos trabalhados: ${minutosTrabalhados}`);

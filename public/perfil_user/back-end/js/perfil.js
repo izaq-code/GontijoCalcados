@@ -8,7 +8,7 @@ function listarfuncionarios() {
         type: 'GET',
         dataType: 'json',
         success: function (perfil) {
-            console.log("Perfil retornado:", perfil); // Verifique o que está sendo retornado
+            console.log("Perfil retornado:", perfil); 
 
             container.empty();
 
@@ -16,7 +16,7 @@ function listarfuncionarios() {
                 return funcionario.id == idFuncionario;
             });
 
-            console.log("Perfil do funcionário encontrado:", perfil_funcionario); // Verifique se o funcionário foi encontrado
+            console.log("Perfil do funcionário encontrado:", perfil_funcionario);
             
             if (perfil_funcionario) {
                 var item = $('<div>').addClass('produto');

@@ -1,7 +1,24 @@
+var idUsuarioLogado;
+
+function carregarInformacoes() {
+    $.ajax({
+        url: '/mostrarUsuarioLogado',
+        type: 'GET',
+        dataType: 'json',
+        success: function (usuario) {
+            idUsuarioLogado = usuario.id;
+            listarfuncionarios();
+        },
+        error: function () {
+            console.error('Erro ao carregar informações do usuário logado');
+        }
+    });
+}
+
+
 function listarfuncionarios() {
     var container = $('#perfil');
 
-    var idFuncionario = localStorage.getItem('idFuncionario');
 
     $.ajax({
         url: '/funcionarios/',
@@ -13,7 +30,7 @@ function listarfuncionarios() {
             container.empty();
 
             var perfil_funcionario = perfil.find(function (funcionario) {
-                return funcionario.id == idFuncionario;
+                return funcionario.id == idUsuarioLogado;
             });
 
             console.log("Perfil do funcionário encontrado:", perfil_funcionario); 
@@ -78,5 +95,5 @@ function listarfuncionarios() {
 }
 
 $(document).ready(function () {
-    listarfuncionarios();
+    carregarInformacoes();
 });
