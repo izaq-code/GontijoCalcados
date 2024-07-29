@@ -12,7 +12,7 @@ router.get('/bater_ponto', (req, res) => {
         return res.status(400).send('Usuário ID não encontrado');
     }
 
-    // Consulta o último ponto registrado para o usuário no dia atual
+ 
     connection2.query(
         'SELECT * FROM bater_ponto WHERE id_funcionario = ? AND DATE(ini_ponto) = ? ORDER BY ini_ponto DESC LIMIT 1',
         [usuario_id, dataAtual],
@@ -48,7 +48,7 @@ router.get('/bater_ponto', (req, res) => {
                                 const iniPonto = moment(ponto.ini_ponto);
                                 const fimPonto = moment(dataHoraAtual);
 
-                                const horasTrabalhadas = fimPonto.diff(iniPonto, 'hours', true);
+                                const horasTrabalhadas = fimPonto.diff(iniPonto, 'hours', true) - 1;
                                 const minutosTrabalhados = horasTrabalhadas * 60;
                                 const saldoMinutos = minutosTrabalhados - (8 * 60);
 
@@ -56,44 +56,44 @@ router.get('/bater_ponto', (req, res) => {
                                 console.log(`Minutos trabalhados: ${minutosTrabalhados}`);
                                 console.log(`Saldo minutos: ${saldoMinutos}`);
 
+                                const saldoHoras = saldoMinutos / 60;
+
+                                
                                 connection2.query(
-                                    'SELECT SUM(COALESCE(TIME_TO_SEC(saldo_horas) / 60, 0)) AS saldo_acumulado FROM bater_ponto WHERE id_funcionario = ?',
-                                    [usuario_id],
-                                    (erro, resultado) => {
+                                    'UPDATE bater_ponto SET saldo_horas = SEC_TO_TIME(?) WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
+                                    [saldoHoras * 3600, usuario_id, dataAtual],
+                                    (erro) => {
                                         if (erro) {
-                                            console.error('Erro ao consultar saldo acumulado:', erro);
-                                            return res.status(500).send('Erro ao consultar saldo acumulado');
+                                            console.error('Erro ao atualizar saldo de horas atual:', erro);
+                                            return res.status(500).send('Erro ao atualizar saldo de horas atual');
                                         }
 
-                                        console.log(resultado);
-
-                                        let saldoAcumulado = resultado[0].saldo_acumulado || 0;
-                                        console.log(`Saldo acumulado antes da atualização: ${saldoAcumulado}`);
-
-                                        saldoAcumulado += saldoMinutos; 
-                                        console.log(`Saldo acumulado após a atualização: ${saldoAcumulado}`);
-
-                                       
-                                        const horas = Math.floor(Math.abs(saldoAcumulado) / 60);
-                                        const minutos = Math.abs(saldoAcumulado) % 60;
-                                        const saldoHoras = `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}`;
-
-                                        console.log(saldoHoras, 'formatação');
-                                        const saldoHorasComSinal = saldoAcumulado >= 0 ? `+${saldoHoras}` : `-${saldoHoras}`;
-
-                                      
-                                        const bancoHorasFormatado = moment.utc(Math.abs(saldoAcumulado) * 60 * 1000).format('HH:mm');
-                                        const bancoHorasComSinal = saldoAcumulado >= 0 ? `+${bancoHorasFormatado}` : `-${bancoHorasFormatado}`;
-
+                                        
                                         connection2.query(
-                                            'UPDATE bater_ponto SET saldo_horas = ?, banco_de_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
-                                            [saldoHorasComSinal, bancoHorasComSinal, usuario_id, dataAtual],
-                                            (erro) => {
+                                            'SELECT SUM(COALESCE(TIME_TO_SEC(saldo_horas), 0)) AS saldo_acumulado FROM bater_ponto WHERE id_funcionario = ?',
+                                            [usuario_id],
+                                            (erro, resultado) => {
                                                 if (erro) {
-                                                    console.error('Erro ao atualizar saldo de horas:', erro);
-                                                    return res.status(500).send('Erro ao atualizar saldo de horas');
+                                                    console.error('Erro ao consultar saldo acumulado:', erro);
+                                                    return res.status(500).send('Erro ao consultar saldo acumulado');
                                                 }
-                                                res.send(`Ponto registrado e saldo de horas atualizado com sucesso. Saldo de horas: ${saldoHorasComSinal}, Banco de horas: ${bancoHorasComSinal}`);
+
+                                                let saldoAcumuladoSegundos = resultado[0].saldo_acumulado || 0;
+                                                const saldoHorasFormatado = moment.utc(Math.abs(saldoAcumuladoSegundos) * 1000).format('HH:mm:ss');
+                                                const saldoHorasComSinal = saldoAcumuladoSegundos >= 0 ? `${saldoHorasFormatado}` : `-${saldoHorasFormatado}`;
+
+                                               
+                                                connection2.query(
+                                                    'UPDATE bater_ponto SET banco_de_horas = SEC_TO_TIME(?) WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
+                                                    [saldoAcumuladoSegundos, usuario_id, dataAtual],
+                                                    (erro) => {
+                                                        if (erro) {
+                                                            console.error('Erro ao atualizar banco de horas:', erro);
+                                                            return res.status(500).send('Erro ao atualizar banco de horas');
+                                                        }
+                                                        res.send(`Ponto registrado e saldo de horas atualizado com sucesso. Saldo de horas: ${saldoHorasComSinal}, Banco de horas: ${saldoHorasComSinal}`);
+                                                    }
+                                                );
                                             }
                                         );
                                     }
