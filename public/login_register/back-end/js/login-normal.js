@@ -32,7 +32,7 @@ function q(pl) {
     if(pl) { 
      redirecionar = callback();
     } else {
-     redirecionar = 'http://localhost:3000/tela_inicial_adm/front-end/HTML/padr%c3%a3o.html';
+     redirecionar = 'http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html';
     }
     window.location.href = redirecionar;
 }

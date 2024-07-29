@@ -443,6 +443,7 @@ input:checked~label .to::before {
     margin-right: 15px;
     font-size: 13px;
     margin-top: 5px;
+    font-weight: bolder;
   }
 
   #foto_user-desk {

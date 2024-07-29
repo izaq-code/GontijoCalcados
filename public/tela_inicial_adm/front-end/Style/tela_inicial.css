@@ -1,6 +1,30 @@
+:root {
+    --corprincipal: #225d99;
+    --corprincipalhover: #154a80;
+    --cor-outline: #e1ad33;
+    --corterciaria: #426441;
+    --corterciariahover: #2e4b2d;
+    --corfundo: #f5f6f6;
+    --corfundosecundaria: white;
+    --cortextoprincipal: black;
+    --cortextoprincipalhover: #d8d8d8;
+}
+
 #exibir_calcados {
     display: flex;
     gap: 20px;
+    overflow: hidden;
+}
+
+.cabecalho-crafts-tenis {
+    display: flex;
+    align-items: center;
+}
+
+.mostrar-todos-crafts {
+    color: rgb(104, 104, 104);
+    position: absolute;
+    right: 45px;
 }
 
 .card-calcados img {
@@ -16,4 +40,61 @@
     text-align: center;
     font-weight: 100;
     font-size: 16px;
+}
+
+#carrossel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+#exibir_calcados {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.card-calcados {
+    flex: 0 0 auto;
+    width: 120px; 
+    margin-right: 20px;
+}
+
+.card-calcados img {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.nome-calcado {
+    margin-top: 4px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.carrossel-controls {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carrossel-controls button {
+    background: rgb(206, 206, 206);
+    border-radius: 50%;
+    border: none;
+    color: var(--corprincipal);
+    padding: 10px;
+    cursor: pointer;
+}
+
+#exibir_calcados::-webkit-scrollbar {
+    display: none;
 }

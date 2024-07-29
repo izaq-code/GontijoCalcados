@@ -84,7 +84,7 @@ function loadDesktopNavbar() {
     header.innerHTML = `
 
     <div class="perfil-desk">
-        <a href="http://localhost:3000/meu_perfil/front-end/html/meu_perfil.html" id="nome_user-desk">Nome do Usuário</a>
+        <a href="http://localhost:3000/meu_perfil/front-end/html/meu_perfil.html" id="nome_user-desk"> </a>
         <div id="foto_user-desk"></div>
     </div>
 
@@ -102,7 +102,7 @@ function loadDesktopNavbar() {
                         <h3 id="menuHeader">MENU</h3>
                     </div>
                     <div class="submenu" id="menu">
-                        <a href="#">
+                        <a href="../../../../tela_inicial_adm/front-end/html/tela_inicial_adm.html">
                             <div id="Clientes" data-tooltip="Home" class="submenu-item"><i class="bi bi-house icon-space"></i> Home</div>
                         </a>
                         <a href="#">
