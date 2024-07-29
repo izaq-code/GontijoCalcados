@@ -1,0 +1,218 @@
+DROP DATABASE IF EXISTS chat_app;
+DROP DATABASE IF EXISTS ProductEase;
+
+CREATE DATABASE ProductEase;
+
+USE ProductEase;
+
+-- usuarios do sistema 
+CREATE TABLE usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    google_id VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    RA VARCHAR(255) NOT NULL,
+    name VARCHAR(255),
+    cpf VARCHAR(255),
+    senha varchar(255),
+    profile_picture VARCHAR(255),
+    funcao Varchar(40),
+    pl TINYINT(1) DEFAULT true -- pl = primeiro login --  
+);
+
+-- fim dos usuarios
+
+-- Bater Ponto
+
+CREATE TABLE bater_ponto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_funcionario INT,
+    ini_ponto DATETIME,
+    fim_ponto DATETIME,
+    saldo_horas TIME,
+    banco_de_horas TIME,
+    FOREIGN KEY (id_funcionario) REFERENCES usuario(id)
+);
+
+-- fim bater ponto
+
+-- Faq
+
+CREATE TABLE faq (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name Varchar(120),
+    comentario Varchar(300),
+    avaliacao INT
+);
+
+-- fim do faq
+
+CREATE TABLE material (
+id int PRIMARY KEY,
+nome Varchar(120),
+caminho Varchar(120),
+caminho2 Varchar(120)
+);
+
+CREATE TABLE tinta (
+id int PRIMARY KEY,
+nome Varchar(120),
+caminho Varchar(120)
+);
+
+CREATE TABLE tipo_tinta (
+id int PRIMARY KEY,
+nome Varchar(120)
+);
+
+CREATE TABLE adesivo (
+id int PRIMARY KEY,
+nome Varchar(120),
+caminho Varchar(120)
+);
+
+CREATE TABLE solado (
+id int PRIMARY KEY,
+nome Varchar(120)
+);
+
+CREATE TABLE cadarco (
+id int PRIMARY KEY,
+nome Varchar(120)
+);
+
+
+
+CREATE TABLE calcado (
+id int AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(120),
+espe_linha Varchar(30),
+espacamento_da_costura VARCHAR(30),
+temp_equi Varchar(30),
+cor_linha Varchar(30),
+tam_costura Varchar(30),
+temp_sec Varchar(30),
+reg_equip Varchar(30),
+img_calcado VARCHAR(300),
+3d_calcado VARCHAR(300),
+id_tinta int,
+id_material int,
+id_cadarco int,
+id_solado int,
+id_adesivo int,
+id_tip_tinta int,
+data date,
+FOREIGN KEY(id_tinta) REFERENCES tinta (id),
+FOREIGN KEY(id_material) REFERENCES material (id),
+FOREIGN KEY(id_adesivo) REFERENCES adesivo (id),
+FOREIGN KEY(id_tip_tinta) REFERENCES tipo_tinta (id),
+FOREIGN KEY(id_cadarco) REFERENCES cadarco (id),
+FOREIGN KEY(id_solado) REFERENCES solado (id)
+);
+
+
+CREATE DATABASE chat_app;
+
+USE chat_app;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_nome VARCHAR(255) NOT NULL,
+  email_user VARCHAR(300) NOT NULL,
+  foto_user VARCHAR(255) NOT NULL,
+  FOREIGN KEY (email_user) REFERENCES ProductEase.usuario(email) ON UPDATE CASCADE ON DELETE CASCADE
+)engine = InnoDB;
+
+CREATE TABLE messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user VARCHAR(100) NOT NULL,
+  id_user VARCHAR(300) NOT NULL,
+  message TEXT NOT NULL,
+  privateChatWith VARCHAR(300) DEFAULT NULL,
+  timestamp DATETIME(3) DEFAULT CURRENT_TIMESTAMP(3),
+  is_read BOOLEAN DEFAULT FALSE,
+  FOREIGN KEY (id_user) REFERENCES users(email_user)
+);
+
+USE ProductEase;
+
+DELIMITER //
+
+CREATE TRIGGER after_insert_usuario
+AFTER INSERT ON usuario
+FOR EACH ROW
+BEGIN
+    -- Insere o e-mail e o nome do usuário na tabela users do banco de dados chat_app
+    INSERT INTO chat_app.users (email_user, user_nome, foto_user)
+    VALUES (NEW.email, NEW.name, NEW.profile_picture);
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER after_update_usuario
+AFTER UPDATE ON usuario
+FOR EACH ROW
+BEGIN
+    -- Atualiza o nome e a foto do usuário na tabela users do banco de dados chat_app quando o nome ou a foto são alterados em usuario
+    UPDATE chat_app.users
+    SET user_nome = NEW.name, foto_user = NEW.profile_picture
+    WHERE email_user = NEW.email;
+END//
+
+DELIMITER ;
+
+
+INSERT INTO usuario (name, RA, email, senha, funcao, profile_picture)
+VALUES ('João Silva', '234567', 'joao.silva@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', 'https://img.freepik.com/fotos-gratis/vista-do-carro-3d_23-2150796894.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1719878400&semt=sph'),
+       ('admin','123456', 'admin@admin.com','$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Supervisor', 'https://img.freepik.com/fotos-premium/carro-supra-mk4-no-fundo-da-imagem-da-ponte_911078-4767.jpg?w=1380');
+
+
+INSERT INTO material (id, nome, caminho, caminho2)
+VALUES
+(1, 'Material 1', 'caminho1.jpg', 'caminho1_thumb.jpg'),
+(2, 'Material 2', 'caminho2.jpg', 'caminho2_thumb.jpg'),
+(3, 'Material 3', 'caminho3.jpg', 'caminho3_thumb.jpg');
+
+INSERT INTO tinta (id, nome, caminho)
+VALUES
+(1, 'Tinta 1', 'caminho_tinta1.jpg'),
+(2, 'Tinta 2', 'caminho_tinta2.jpg'),
+(3, 'Tinta 3', 'caminho_tinta3.jpg');
+
+INSERT INTO tipo_tinta (id, nome)
+VALUES
+(1, 'Tipo de Tinta 1'),
+(2, 'Tipo de Tinta 2'),
+(3, 'Tipo de Tinta 3');
+
+INSERT INTO adesivo (id, nome, caminho)
+VALUES
+(1, 'Adesivo 1', 'caminho_adesivo1.jpg'),
+(2, 'Adesivo 2', 'caminho_adesivo2.jpg'),
+(3, 'Adesivo 3', 'caminho_adesivo3.jpg');
+
+INSERT INTO solado (id, nome)
+VALUES
+(1, 'Solado 1'),
+(2, 'Solado 2'),
+(3, 'Solado 3');
+
+INSERT INTO cadarco (id, nome)
+VALUES
+(1, 'Cadarço 1'),
+(2, 'Cadarço 2'),
+(3, 'Cadarço 3');
+
+
+INSERT INTO faq (name, comentario, avaliacao) VALUES 
+('João', 'Ótimo atendimento!', 5),
+('Maria', 'Muito satisfeita com o suporte.', 4),
+('Pedro', 'Experiência razoável.', 3),
+('Ana', 'Poderia ser melhor.', 2),
+('Carlos', 'Insatisfeito com o serviço.', 1),
+('Rafaela', 'Serviço excelente!', 5),
+('Fernando', 'Bom suporte técnico.', 4),
+('Juliana', 'Acho que poderia melhorar.', 3),
+('Lucas', 'Não gostei muito do atendimento.', 2),
+('Patrícia', 'Péssima experiência.', 1);
