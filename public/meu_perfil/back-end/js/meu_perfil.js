@@ -21,8 +21,8 @@ function listarfuncionarios() {
 
 
     $.ajax({
-        url: '/funcionarios/',
-        type: 'GET',
+        url: '/meu_perfil',
+        type: 'POST',
         dataType: 'json',
         success: function (perfil) {
             console.log("Perfil retornado:", perfil); 
@@ -46,13 +46,9 @@ function listarfuncionarios() {
                 var email = $('<h3>').addClass('perfil-email').text(perfil_funcionario.email);
                 item.append(email);
 
-                //exibi telefone
-                var telefone = $('<h3>').addClass('perfil-telefone').text(perfil_funcionario.telefone);
-                item.append(telefone);
-                
                 //exibi imagem
                 var imgContainer = $('<div>').addClass('img-container');
-                var imagem = $('<img>').attr('src', perfil_funcionario.profile_picture);
+                var imagem = $('<img>').attr('src', perfil_funcionario.imagem);
                 imgContainer.append(imagem);
                 item.append(imgContainer);
 
@@ -60,12 +56,15 @@ function listarfuncionarios() {
                 item.append(funcao);
                 //fim de exibição
 
-                var entrada = $('<h2>').addClass('entrada').text('Entrada');
+                var entrada = $('<h2>').addClass('entrada').text('Entrada: ' + perfil_funcionario.ponto_inicial);
                 item.append(entrada);
 
-                var saida = $('<h2>').addClass('saida').text('saida');
+                var saida = $('<h2>').addClass('saida').text('saida: '  + perfil_funcionario.ponto_final);
                 item.append(saida);
                 
+                var banco = $('<h2>').addClass('saida').text('Banco de Horas: '  + perfil_funcionario.banco);
+                item.append(banco);
+
                 // Adicionar botão Bater Ponto
                 var baterPontoButton = $('<button>').addClass('bater-ponto-button').text('Bater Ponto');
                 item.append(baterPontoButton);
@@ -76,7 +75,7 @@ function listarfuncionarios() {
                 baterPontoButton.on('click', function () {
                     $.ajax({
                         url: '/bater_ponto',
-                        type: 'GET',
+                        type: 'POST',
                         dataType: 'json',
                         data: { 
                             usuario_id: idFuncionario

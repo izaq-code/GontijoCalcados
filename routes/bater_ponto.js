@@ -3,17 +3,16 @@ const router = express.Router();
 const { connection2 } = require('../public/chat/js/db.js');
 const moment = require('moment');
 
-router.get('/bater_ponto', (req, res) => {
+router.post('/bater_ponto', (req, res) => {
     const dataAtual = moment().format('YYYY-MM-DD');
     const dataHoraAtual = moment().format('YYYY-MM-DD HH:mm:ss');
-    const usuario_id = req.query.usuario_id;
+    const { usuario_id } = req.body;
     
 
     if (!usuario_id) {
         return res.status(400).send('Usuário ID não encontrado');
     }
 
- 
     connection2.query(
         'SELECT * FROM bater_ponto WHERE id_funcionario = ? AND DATE(ini_ponto) = ? ORDER BY ini_ponto DESC LIMIT 1',
         [usuario_id, dataAtual],
