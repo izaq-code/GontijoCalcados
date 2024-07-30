@@ -217,15 +217,15 @@ INSERT INTO faq (name, comentario, avaliacao) VALUES
 ('Lucas', 'Não gostei muito do atendimento.', 2),
 ('Patrícia', 'Péssima experiência.', 1);
 
-INSERT INTO calcado (nome, id, img_calcado, 3d_calcado, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data)
+INSERT INTO calcado (id, nome, img_calcado, 3d_calcado, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data)
 VALUES
-(1, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 12, 130, 'Preto', 18, 25, 1, 1, 2, 3, 1, 1, 2024-07-29),
-(2, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 14, 125, 'Branco', 22, 20, 2, 2, 1, 1, 2, 2, 2024-07-30),
-(3, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 10, 140, 'Azul', 20, 22, 1, 3, 3, 2, 3, 1, 2024-07-31),
-(4, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 16, 135, 'Vermelho', 24, 28, 2, 1, 2, 3, 1, 2, 2024-08-01),
-(5, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 18, 120, 'Verde', 20, 30, 1, 2, 1, 1, 2, 1, 2024-08-02),
-(6, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 11, 150, 'Amarelo', 22, 25, 2, 3, 2, 2, 3, 2, 2024-08-03),
-(7, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 15, 140, 'Cinza', 18, 27, 1, 1, 3, 1, 2, 1, 2024-08-04),
-(8, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 13, 130, 'Rosa', 24, 20, 2, 2, 2, 3, 1, 2, 2024-08-05),
-(9, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 17, 125, 'Laranja', 22, 23, 1, 3, 1, 2, 3, 1, 2024-08-06),
-(10, 'Tenis AirForce', '..\..\..\assets\uploads/airforce.jpg', '..\..\..\assets\uploads\tresdpadrao.glb', 12, 145, 'Marrom', 20, 26, 2, 1, 3, 1, 2, 2, 2024-08-07);
+(1, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 12, 130, 'Preto', 18, 25, 1, 1, 2, 3, 1, 1, 1, '2024-07-29'),
+(2, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 14, 125, 'Branco', 22, 20, 2, 2, 1, 1, 2, 2, 2, '2024-07-30'),
+(3, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 10, 140, 'Azul', 20, 22, 1, 3, 3, 2, 3, 1, 3, '2024-07-31'),
+(4, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 16, 135, 'Vermelho', 24, 28, 2, 1, 2, 3, 1, 2, 1, '2024-08-01'),
+(5, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 18, 120, 'Verde', 20, 30, 1, 2, 1, 1, 2, 2, 2, '2024-08-02'),
+(6, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 12, 130, 'Preto', 18, 25, 1, 1, 2, 3, 1, 1, 1, '2024-07-29'),
+(7, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 14, 125, 'Branco', 22, 20, 2, 2, 1, 1, 2, 2, 2, '2024-07-30'),
+(8, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 10, 140, 'Azul', 20, 22, 1, 3, 3, 2, 3, 1, 3, '2024-07-31'),
+(9, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 16, 135, 'Vermelho', 24, 28, 2, 1, 2, 3, 1, 2, 1, '2024-08-01'),
+(10, 'Tenis AirForce', '../../assets/uploads/airforce.jpg', '../../assets/uploads/tresdpadrao.glb', 18, 120, 'Verde', 20, 30, 1, 2, 1, 1, 2, 2, 2, '2024-08-02');
