@@ -59,9 +59,4 @@ $(document).ready(function () {
     $('#exibir_calcados').on('mouseup touchend', function () {
         isDragging = false;
     });
-
-
-    setInterval(function () {
-        $('#exibir_calcados').animate({ scrollLeft: '+=600px' }, 'fast');
-    }, 10000);
 });
