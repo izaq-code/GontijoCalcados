@@ -21,8 +21,8 @@ function listarfuncionarios() {
 
 
     $.ajax({
-        url: '/meu_perfil',
-        type: 'POST',
+        url: '/funcionarios',
+        type: 'GET',
         dataType: 'json',
         success: function (perfil) {
             console.log("Perfil retornado:", perfil); 
