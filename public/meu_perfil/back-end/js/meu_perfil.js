@@ -86,24 +86,23 @@ function listarfuncionarios() {
                 container.append(item);
 
             
-
                 baterPontoButton.on('click', function () {
                     $.ajax({
                         url: '/bater_ponto',
-                        type: 'POST',
+                        type: 'GET',
                         dataType: 'json',
-                        contentType: 'application/json',
-                        data: JSON.stringify({
+                        data: {
                             usuario_id: idUsuarioLogado
-                        }),
+                        },
                         success: function (response) {
                             console.log("Ponto batido com sucesso:", response);
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
-                            console.log("Erro ao bater ponto:", textStatus, errorThrown);
+                            console.error("Erro ao bater ponto:", textStatus, errorThrown);
                         }
                     });
                 });
+                
             } else {
                 console.log("Funcionário não encontrado.");
             }
