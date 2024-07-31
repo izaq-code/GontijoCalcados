@@ -9,14 +9,14 @@ const { connection2 } = require('../public/chat/js/db.js');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 // Função para criar hash da senha
+
 const hashPassword = async (password) => {
     try {
         const hash = await bcrypt.hash(password, saltRounds);
-        console.log('Senha com hash:', hash);
         return hash;
     } catch (error) {
         console.error('Erro ao criar hash:', error);
-        throw error; // Propaga o erro para quem chamou a função
+        throw error;
     }
 };
 
@@ -47,18 +47,42 @@ const gerarRAUnico = async (nivelDesejado, maxTentativas = 10) => {
 };
 
 // Rota de registro
-router.get('/register', async (req, res) => {
+router.post('/register', async (req, res) => {
     try {
-        const nivel = req.body.nivel || 2; // Default para 2 se não fornecido
+
+         const {nome, senha, nivel} = req.body;
         const nivelEscolhido = escolherNivel(nivel);
         
         // Tenta gerar um RA único
         const raUnico = await gerarRAUnico(nivelEscolhido.nivel);
+        const ra = raUnico.numero;
+        const funcao = raUnico.nivel;
+
+
+        //criando a senha com hash
+        const hashedPassword = await hashPassword(senha);
+
+        const emailPadrao = ra + '@gmail.com';
+
+
 
         // Obtenha outros dados do corpo da requisição
         //continua aqui ... (amanhã, já bati ponto hoje)
+        connection2.query(
+            'INSERT INTO usuario (RA, name, email,  senha, funcao) VALUES (?, ?, ?, ?, ?)',
+            [ra, nome, emailPadrao, hashedPassword, funcao],
+            (error) => {
+                if (error) {
+                    console.error('Erro ao inserir dados no banco de dados:', error);
+                    res.status(500).send('Erro ao registrar usuário');
+                    res.json('Erro ao registrar usuário');
+                } else {
+                    res.json({true: true, response: 'cadastrado com sucesso', ra, nome, emailPadrao, funcao }); // Responde com dados do usuário registrado
+                }
+            }
+        );
 
-        res.json(raUnico)
+
 
 
     } catch (error) {
@@ -77,10 +101,6 @@ function escolherNivel(nivel) {
 
     const nivelEscolhido = niveis[nivel] || 'Nível desconhecido';
     const ra = gerarRA(nivelEscolhido);
-
-    console.log(`RA: ${ra.numero}`);
-    console.log(`Soma: ${ra.soma}`);
-    console.log(`Nível: ${ra.nivel}`);
 
     return ra;
 }
