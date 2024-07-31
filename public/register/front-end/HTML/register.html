@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../assets/css/padrão.css">
+    <link rel="stylesheet" href="../Style/padrão.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <form id="register">
+            <div>
+                <div class="input input-nome">
+                    <input id="input-nome" name="nome" type="text" required>
+                    <label for="input-nome">Nome</label>
+                </div>
+                <div class="input">
+                    <input id="input-senha" name="senha" type="password" required>
+                    <label for="input-senha">senha</label>
+                </div>
+                <div class="input">
+                    <input type="radio" name="nivel" id="nivel1" value="1">
+                    <label for="nivel1">Funcionário comum</label>
+                </div>
+
+                <div class="input">
+                    <input type="radio" name="nivel" id="nivel2" value="2">
+                    <label for="nivel2">Supervisor</label>
+                </div>
+
+                <div class="input">
+                    <input type="radio" name="nivel" id="nivel3" value="3">
+                    <label for="nivel3">Diretor</label>
+                </div>
+
+                <div class="input">
+                    <input type="submit" value="Cadastrar">
+                </div>
+            </div>
+        </form>
+
+        <div id="response"></div>
+    </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../../assets/JS/redirecionarNotFound.js"></script>
+    <script src="../../../assets/JS/Navbar.js"></script>
+    <script src="../../../assets/JS/links.js"></script>
+    <script src="../../../assets/JS/pop_up.js"></script>
+    <script src="../../back-end/js/register.js"></script>
+</body>
+</body>
+
+</html>
