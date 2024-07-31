@@ -47,15 +47,15 @@ router.get('/bater_ponto', (req, res) => {
                                 const iniPonto = moment(ponto.ini_ponto);
                                 const fimPonto = moment(dataHoraAtual);
 
-                                // Calculando horas trabalhadas
-                                const horasTrabalhadas = fimPonto.diff(iniPonto, 'minutes', true); // Em minutos
-                                const saldoMinutos = horasTrabalhadas - (8 * 60); // Subtrai 8 horas em minutos
+                                const saldoTrabalhado = fimPonto.diff(iniPonto, 'minutes', true);
+                                const saldoMinutos = saldoTrabalhado - (9 * 60 - 60);
 
-                                console.log(`Horas trabalhadas: ${horasTrabalhadas / 60}`);
+                                console.log(`Horas trabalhadas: ${saldoTrabalhado / 60}`);
                                 console.log(`Saldo minutos: ${saldoMinutos}`);
 
-                                // Formatando saldo de minutos para o formato HH:mm:ss
+                                
                                 const saldoHorasFormatado = formatarHoras(saldoMinutos);
+                                console.log(saldoHorasFormatado);
 
                                 connection2.query(
                                     'UPDATE bater_ponto SET saldo_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
@@ -75,8 +75,16 @@ router.get('/bater_ponto', (req, res) => {
                                                     return res.status(500).json({ error: 'Erro ao consultar saldo acumulado' });
                                                 }
 
-                                                let saldoAcumulado = resultado[0].saldo_acumulado || 0;
-                                                const saldoAcumuladoFormatado = formatarHoras(saldoAcumulado * 60);
+                                                const saldoAcumulado = resultado[0].saldo_acumulado || 0;
+
+                                                console.log('SALDO', saldoAcumulado);
+                                                const saldoAcumuladoMinutos = saldoAcumulado * 60;
+                                                console.log('SALDO EM MINUTOS', saldoAcumuladoMinutos);
+                                                const saldoAcumuladoFormatado = formatarHoras(saldoAcumuladoMinutos);
+                                                console.log('SALDO_FORMATADO', saldoAcumuladoFormatado);
+                                                
+
+                                                console.log(saldoAcumuladoFormatado);
 
                                                 connection2.query(
                                                     'UPDATE bater_ponto SET banco_de_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
@@ -123,13 +131,16 @@ router.get('/bater_ponto', (req, res) => {
 });
 
 function formatarHoras(minutos) {
-    const horas = Math.floor(Math.abs(minutos) / 60);
-    const minutosRestantes = Math.abs(minutos) % 60;
-    const horasFormatadas = horas.toString().padStart(2, '0');
-    const minutosFormatados = minutosRestantes.toString().padStart(2, '0');
 
     const sinal = minutos < 0 ? '-' : '';
-    return `${sinal}${horasFormatadas}:${minutosFormatados}:00`;
+    const minutosAbs = Math.abs(minutos);
+    const horas = Math.floor(minutosAbs / 60);
+    const minutosRestantes = minutosAbs % 60;
+    const duracao = moment.duration({ hours: horas, minutes: minutosRestantes });
+
+    return `${sinal}${moment.utc(duracao.asMilliseconds()).format('HH:mm:ss')}`;
 }
+
+
 
 module.exports = router;
