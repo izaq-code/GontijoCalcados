@@ -1,0 +1,87 @@
+
+.info-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .info-container div {
+    margin-bottom: 10px;
+  }
+  
+  .card-calcados img {
+    width: 100px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .nome-calcado {
+    margin-top: 4px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 12px;
+    margin-left: 16px;
+  }
+  
+  #imgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  /* Media Queries */
+  @media (min-width: 600px) {
+    main {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    #img img,
+    model-viewer {
+      width: 50%;
+      max-width: 380px;
+      height: 380px;
+    }
+  
+    .card-calcados img {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .nome-calcado {
+      font-size: 14px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #img img,
+    model-viewer {
+      width: 380px;
+      height: 380px;
+    }
+  
+    .card-calcados img {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .nome-calcado {
+      font-size: 12px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    main {
+      justify-content: space-between;
+    }
+  
+    .card-calcados img {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .nome-calcado {
+      font-size: 16px;
+    }
+  }
+  

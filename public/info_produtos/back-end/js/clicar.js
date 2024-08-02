@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $.ajax({
         type: 'GET',
         url: '/calcados',
@@ -8,7 +7,7 @@ $(document).ready(function () {
             if (data && data.length > 0) {
                 exibirImagens(data);
             } else {
-                alert('Nenhum imagem encontrada.');
+                alert('Nenhuma imagem encontrada.');
             }
         },
         error: function (err) {
@@ -32,9 +31,11 @@ function exibirImagens(data) {
     imgContainer.empty();
 
     data.forEach(function (item) {
-
+        var card = $('<div>').addClass('card-calcados').attr('data-id', item['id']);
         var img = $('<img>').attr('src', item['img']).attr('data-id', item['id']);
-        imgContainer.append(img);
+        var nome = $('<h3>').addClass('nome-calcado').text(item['nome']);
+
+        card.append(img).append(nome);
+        imgContainer.append(card);
     });
 }
-

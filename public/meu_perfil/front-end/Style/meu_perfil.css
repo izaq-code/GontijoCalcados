@@ -1,0 +1,84 @@
+:root {
+  --cor-principal: #225d99;
+  --cor-principal-hover: #154a80;
+  --cor-outline: #e1ad33;
+
+  --cor-fundo-body-light: #f5f5f6;
+  --cor-padrao-light: white;
+  --color-padrao-light: #333;
+
+  --cor-fundo-body-dark: #333;
+  --cor-padrao-dark: #444;
+  --color-padrao-dark: #fff;
+}
+
+#perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.produto {
+  background-color: var(--cor-padrao-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.perfil-nome,
+.perfil-email,
+.perfil-funcao,
+.entrada,
+.saida,
+.banco {
+  margin: 10px 0;
+}
+
+.img-container {
+  margin: 20px 0;
+}
+
+.img-container img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.bater-ponto-button {
+  background-color: var(--cor-principal);
+  border: none;
+  border-radius: 4px;
+  color: var(--color-padrao-dark);
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.bater-ponto-button:hover {
+  background-color: var(--cor-principal-hover);
+}
+
+body.dark-mode {
+  background-color: var(--cor-fundo-body-dark);
+  color: var(--color-padrao-dark);
+}
+
+body.dark-mode .produto {
+  background-color: var(--cor-padrao-dark);
+}
+
+body.dark-mode .bater-ponto-button {
+  color: var(--color-padrao-light);
+}
+
+body.dark-mode .img-container img {
+  border: 2px solid var(--color-padrao-dark);
+}
