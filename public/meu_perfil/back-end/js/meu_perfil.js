@@ -11,6 +11,7 @@ function carregarInformacoes(callback) {
                 if (callback && typeof callback === 'function') {
                     callback(); 
                 }
+                console.log(usuario);
             } else {
                 console.error('Dados do usuário logado não estão no formato esperado.');
             }
