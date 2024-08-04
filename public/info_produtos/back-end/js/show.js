@@ -120,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#nome_cadarco').text('Nome do Cadarço: ' + item['nomecadarco']);
         $('#tempo_calcado').text('Tempo do Calçado: ' + item['tempocalcado']);
         $('#nome_tinta').text('Nome da Tinta: ' + item['nometinta']);
-        $('#corlinhacalcado').text('Cor da Linha do Calçado: ' + item['corlinhacalcado']);
-        $('#temcosturacalcado').text('Tempo de Costura do Calçado: ' + item['temcosturacalcado']);
+        $('#corlinhacalcado').text('Cor da Linha do Calçado: ' + item['cor_linha']);
+        $('#temcosturacalcado').text('Tempo de Costura do Calçado: ' + item['tamcosturacalcado']);
         $('#temp_sec').text('Tempo de Secagem: ' + item['tempsec']);
     }
 
@@ -131,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
         data: { id: localStorage.getItem('id') },
         dataType: 'json',
         success: function(data) {
-          
             if (data && data.length > 0) {
                 exibir(data[0]);
                 atualizarSelects(data[0]);

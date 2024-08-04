@@ -19,6 +19,7 @@ margin-bottom: 20px;
   max-width: 380px;
   height: auto;
   border-radius: 20px;
+  border: none;
 }
 
 model-viewer {
@@ -42,12 +43,14 @@ model-viewer {
     width: 40%;
     max-width: 400px;
     height: auto; 
+    border: none;
   }
 
   #img img {
     width: 20%;
     max-width: 200px;
     height: auto; 
+    border: none;
   }
 }
 
@@ -56,6 +59,7 @@ model-viewer {
     width: 20%;
     max-width: 200px;
     height: auto; 
+    border: none;
   }
   #img img,
   model-viewer {
@@ -96,5 +100,28 @@ border: 1px solid #ddd;
 width: 80%;
 border-radius: 20px;
 margin-left: 20px;
+}
+
+
+body.light-mode #produto-info {
+  background-color: var(--cor-padrao-light);
+  color: #000;
+}
+
+
+body.dark-mode #produto-info {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+body.dark-mode .info {
+  background-color: var(--cor-padrao-dark) !important;
+  border: 1px solid rgb(221, 221, 221, 0.1)!important;
+  color: rgb(255, 255, 255,0.7);
+}
+
+body.light-mode .info {
+  background-color: var(--cor-padrao-light);
+  color: #000;
 }
 
