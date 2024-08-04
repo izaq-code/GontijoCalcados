@@ -100,6 +100,7 @@ npm install express body-parser express-session mysql http socket.io axios path 
 ```
 ## API's / LIB's Referência
 
+ - [jQuery](https://jquery.com/)
  - [Sweet Alert](https://sweetalert2.github.io/)
  - [Socket IO](https://developers.google.com/apis-explorer?hl=pt-br)
 
