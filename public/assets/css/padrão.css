@@ -93,7 +93,6 @@ html{
   border: 1px solid var(--cortextosecundario);
   outline: none;
   transition: border-color 0.3s ease-in-out;
-  background-color: var(--corfundo);
 }
 
 .input label {
