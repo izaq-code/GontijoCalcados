@@ -9,7 +9,7 @@ O sistema desenvolvido para a Calçados Gontijo é uma aplicação web que facil
 - CSS
 - JavaScript (AJAX, JSON)
 - Node.js
-- API de cadastro com o Google
+- Autenticação de cadastro com o Google
 
 ## Funcionalidades Principais 📦🛠️💬👤📊🛎️
 ### Gerenciamento de Produtos
