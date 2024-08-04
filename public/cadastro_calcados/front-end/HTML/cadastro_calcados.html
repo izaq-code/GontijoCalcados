@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../assets/css/padrão.css">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
     <link rel="stylesheet" href="../../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../../assets/css/modos.css">
     <link rel="stylesheet" href="../../../assets/css/pop.css">
@@ -12,12 +13,149 @@
     <link rel="stylesheet" href="../Style/cadastro_calcados.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <title>Gontijo | Calçados</title>
 </head>
 
 <body>
     <main>
         <form id="cadastrar-calcado" action="/calcado" method="post" enctype="multipart/form-data">
+
+            <div class="container">
+                <model-viewer
+                id="visualizadorSapato"
+                src="../../../assets/models/shoe3.gltf"
+                alt="Modelo 3D de um sapato"
+                auto-rotate
+                camera-controls
+              ></model-viewer>
+          
+              <div class="controles">
+                <div class="grupo-controle">
+                  <label for="solado">Solado:</label>
+                  <select id="solado" name="solado" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="logoSolado">Logo do solado:</label>
+                  <select id="logoSolado" name="logoSolado" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="cadarco">Cadarço:</label>
+                  <select id="cadarco" name="cadarco" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="malha">Malha:</label>
+                  <select id="malha" name="malha" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="lingua">Língua:</label>
+                  <select id="lingua" name="lingua" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="linha">Linha:</label>
+                  <select id="linha" name="linha" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="linhaLingua">Linha Língua:</label>
+                  <select id="linhaLingua" name="linhaLingua" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="couro">Couro:</label>
+                  <select id="couro" name="couro" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="logo">Logo:</label>
+                  <select id="logo" name="logo" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="etiqueta">Etiqueta:</label>
+                  <select id="etiqueta" name="etiqueta" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="espumainterna">Espuma Interna:</label>
+                  <select id="espumainterna" name="espumainterna" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+          
+                <div class="grupo-controle">
+                  <label for="bagulhodocardaco">Bagulho do Cadarço:</label>
+                  <select id="bagulhodocardaco"  name="bagulhodocardaco" class="categoria-cor">
+                    <option value="#FFD700" >Dourado</option>
+                    <option value="#4B0082" >Índigo</option>
+                    <option value="#00FFFF" >Ciano</option>
+                    <option value="#7FFF00" >Verde Limão</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+
+
+
             <div class="input input-nome">
                 <input id="input-nome" name="nome" type="text" required>
                 <label for="input-nome">Nome</label>
@@ -33,10 +171,6 @@
             <div class="input">
                 <input id="input-espacamento-costura" name="espacamento_da_costura" type="text" required>
                 <label for="input-espacamento-costura">Espaçamento de costura</label>
-            </div>
-            <div class="input">
-                <input id="input-cor-linha" name="cor_linha" type="text" required>
-                <label for="input-cor-linha">Cor da linha</label>
             </div>
             <div class="input">
                 <input id="input-tamanho-costura" name="tam_costura" type="text" required>
@@ -100,17 +234,7 @@
                             <input type="file" name="img_calcado" id="input-imagem-calcado" class="foto__input" data-index="1" accept="image/*" required>
                         </label>
                     </div>
-
-
-
-
-                    <div class="escolha escolha1">
-                        <p>Escolher imagem 3d</p>
-                        <label class="foto" for="input-imagem-3d-calcado" tabIndex="0">
-                            <span class="foto__image" id="preview-image-3d"></span>
-                            <input type="file" name="tresd_calcado" id="input-imagem-3d-calcado" class="foto__input" data-index="2" accept=".glb">
-                        </label>
-                    </div>
+                  
                 </div>
                 <div class="enviar">
                     <button type="submit">Enviar</button>
@@ -127,8 +251,8 @@
     <script src="../../../assets/JS/Navbar.js"></script>
     <script src="../../../assets/JS/links.js"></script>
     <script src="../../../assets/JS/pop_up.js"></script>
+    <script src="../../../assets/JS/script.js"></script>
     <script src="../../../assets/JS/redirecionarNotFound.js"></script>
     <script src="../../back-end/js/cadastro_calcados.js"></script>
 </body>
-
 </html>

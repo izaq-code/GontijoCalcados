@@ -10,10 +10,15 @@ const uploadsDir = path.join(__dirname, '../public/assets/uploads');
 
 // Rota POST para inserir uma demanda de calçado no banco de dados ProductEase
 router.post('/calcado', (req, res) => {
-    const { nome, espe_linha, espacamento_da_costura, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta } = req.body;
+    const {  nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, 
+        img_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, solado, logoSolado, linha, cadarco,  malha, 
+        lingua, linhaLingua, couro, logo, etiqueta, espumainterna, bagulhodocardaco  } = req.body;
+
+    console.log('Valores recebidos:', { nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, 
+        img_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, solado, logoSolado, linha, cadarco, malha, 
+        lingua, linhaLingua, couro, logo, etiqueta, espumainterna, bagulhodocardaco });
 
     const img_calcado = req.files.img_calcado;
-    const tresd_calcado = req.files.tresd_calcado ? req.files.tresd_calcado : null;
 
     const data = moment().format('YYYY-MM-DD');
 
@@ -21,37 +26,34 @@ router.post('/calcado', (req, res) => {
         if (err) {
             console.error('Erro ao mover imagem calcado:', err);
             return res.status(500).send('Erro ao enviar calcado');
-        }
-
-        let tresd_calcadoPath = '../../../assets/uploads/tresdpadrao.glb';
-        if (tresd_calcado) {
-            tresd_calcado.mv(path.join(uploadsDir, tresd_calcado.name), (err) => {
-                if (err) {
-                    console.error('Erro ao mover imagem 3D calcado:', err);
-                    return res.status(500).send('Erro ao enviar calcado');
-                }
-                tresd_calcadoPath = path.join('../../../assets/uploads', tresd_calcado.name);
-                insertCalcado();
-            });
         } else {
             insertCalcado();
         }
-
-        function insertCalcado() {
-            const img_calcadoPath = path.join('../../../assets/uploads', img_calcado.name);
-
-            const query = `INSERT INTO calcado (nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcado, 3d_calcado, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data) 
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-            connection2.query(query, [nome, espacamento_da_costura, espe_linha, temp_equi, cor_linha, tam_costura, temp_sec, reg_equip, img_calcadoPath, tresd_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data], (err) => {
-                if (err) {
-                    console.error('Erro ao inserir calcado no banco de dados:', err);
-                    return res.status(500).send('Erro ao enviar calcado');
-                }
-                res.status(201).send('Calcado enviado com sucesso');
-            });
-        }
     });
+
+    function insertCalcado() {
+        const img_calcadoPath = path.join('../../../assets/uploads', img_calcado.name);
+
+        const query = `INSERT INTO calcado (nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, img_calcado, id_tinta, id_material,
+        id_cadarco, id_solado, id_adesivo, id_tip_tinta, data, cor_solado, cor_logo_solado, cadarco, cor_malha, cor_lingua,
+        cor_linha, cor_linha_lingua, cor_couro, cor_logo, cor_espuma_interna, cor_etiqueta, cor_bagulho_cardaco) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+connection2.query(query, [nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, img_calcadoPath,
+id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data, solado, logoSolado, cadarco, malha, lingua, linha, linhaLingua, 
+couro, logo, etiqueta, espumainterna, bagulhodocardaco], (err) => {
+if (err) {
+   console.error('Erro ao inserir calcado no banco de dados:', err);
+   return res.status(500).send('Erro ao enviar calcado');
+}
+res.status(201).send('Calcado enviado com sucesso');
 });
+
+    }
+});
+
+
+
 
 // Rota GET para receber os calçados do banco de dados ProductEase
 router.get('/calcados', (req, res) => {
@@ -73,35 +75,46 @@ router.get('/calcados', (req, res) => {
     });
 });
 
-// agora essa é a parte em que mostra os reultados após o clique 
 router.get('/info_produtos', (req, res) => {
     const id = req.query.id;
 
     const query = `
-     SELECT 
-          material.nome as nome,
-          tipo_tinta.nome as tipotinta,
-          calcado.espe_linha as espelinha,
-          solado.nome as nomesolado,
-          cadarco.nome as nomecadarco,
-          calcado.temp_equi  as tempocalcado,
-          tinta.nome as nometinta,
-          calcado.cor_linha as corlinhacalcado,
-          calcado.tam_costura as temcosturacalcado,
-          calcado.temp_sec as tempsec,
-          calcado.img_calcado as img,
-          calcado.reg_equip,
-          calcado.3d_calcado as modelo3d
-      FROM 
-          calcado
-          INNER JOIN material ON material.id = calcado.id_material
-          INNER JOIN tipo_tinta ON calcado.id_tip_tinta = tipo_tinta.id
-          INNER JOIN solado ON calcado.id_solado = solado.id
-          INNER JOIN cadarco ON calcado.id_cadarco = cadarco.id
-          INNER JOIN tinta ON calcado.id_tinta = tinta.id
-      WHERE 
-          calcado.id = ?
-  `;
+        SELECT 
+            calcado.nome AS nome,
+            tipo_tinta.nome AS tipotinta,
+            calcado.espe_linha AS espelinha,
+            calcado.espacamento_da_costura AS espacamento_da_costura,
+            calcado.temp_equi AS tempocalcado,
+            calcado.tam_costura AS tamcosturacalcado,
+            calcado.temp_sec AS tempsec,
+            calcado.reg_equip AS reg_equip,
+            calcado.img_calcado AS img,
+            calcado.cor_solado AS cor_solado,
+            calcado.cor_logo_solado AS cor_logo_solado,
+            calcado.cadarco AS cor_cadarco,
+            calcado.cor_malha AS cor_malha,
+            calcado.cor_lingua AS cor_lingua,
+            calcado.cor_linha AS cor_linha,
+            calcado.cor_linha_lingua AS cor_linha_lingua,
+            calcado.cor_couro AS cor_couro,
+            calcado.cor_logo AS cor_logo,
+            calcado.cor_espuma_interna AS cor_espuma_interna,
+            calcado.cor_etiqueta AS cor_etiqueta,
+            calcado.cor_bagulho_cardaco AS cor_bagulho_cardaco,
+            tinta.nome AS nometinta,
+            material.nome AS nome_material,
+            cadarco.nome AS nomecadarco,
+            solado.nome AS nomesolado
+        FROM 
+            calcado
+            INNER JOIN tipo_tinta ON calcado.id_tip_tinta = tipo_tinta.id
+            INNER JOIN tinta ON calcado.id_tinta = tinta.id
+            INNER JOIN material ON calcado.id_material = material.id
+            INNER JOIN cadarco ON calcado.id_cadarco = cadarco.id
+            INNER JOIN solado ON calcado.id_solado = solado.id
+        WHERE 
+            calcado.id = ?
+    `;
 
     connection2.query(query, [id], (err, results) => {
         if (err) {
@@ -116,6 +129,7 @@ router.get('/info_produtos', (req, res) => {
         }
     });
 });
+
 
 // Rota GET para obter os adesivos do banco de dados ProductEase
 router.get('/adesivos', (req, res) => {

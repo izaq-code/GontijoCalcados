@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,38 +8,79 @@
     <link rel="stylesheet" href="../../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../../assets/css/pop.css">
     <link rel="stylesheet" href="../../../assets/css/modos.css">
-    <link rel="stylesheet" href="../../front-end/Style/show.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <title>Informações do Modelo</title>
-   
 </head>
-
 <body>
     <main>
-       
-        
-        <div class="info-container">
-            <model-viewer id="modelViewer"  camera-controls></model-viewer> 
-            <div id="img">Imagem</div>
-            <div id="nome">Nome</div>
-            <div id="tipo_tinta">Tipo de Tinta</div>
-            <div id="espe_linha">Especificação da Linha</div>
-            <div id="nome_solado">Nome do Solado</div>
-            <div id="nome_cadarco">Nome do Cadarço</div>
-            <div id="tempo_calcado">Tempo do Calçado</div>
-            <div id="nome_tinta">Nome da Tinta</div>
-            <div id="corlinhacalcado">Cor da Linha do Calçado</div>
-            <div id="temcosturacalcado">Tem Costura no Calçado</div>
-            <div id="temp_sec">Tempo de Secagem</div>
+        <div class="container">
+            <model-viewer
+                id="visualizadorSapato"
+                src="../../../assets/models/shoe3.gltf"
+                alt="Modelo 3D de um sapato"
+                auto-rotate
+                camera-controls
+            ></model-viewer>
+
+            <div id="produto-info">
+                <div id="img"></div>
+                <div id="nome"></div>
+                <div id="tipo_tinta"></div>
+                <div id="espe_linha"></div>
+                <div id="nome_solado"></div>
+                <div id="nome_cadarco"></div>
+                <div id="tempo_calcado"></div>
+                <div id="nome_tinta"></div>
+                <div id="corlinhacalcado"></div>
+                <div id="temcosturacalcado"></div>
+                <div id="temp_sec"></div>
+            </div>
+
+            <div id="cores">
+                <label for="solado">Cor do Solado:</label>
+                <select id="solado"></select>
+
+                <label for="logoSolado">Cor do Logo do Solado:</label>
+                <select id="logoSolado"></select>
+
+                <label for="cadarco">Cor do Cadarço:</label>
+                <select id="cadarco"></select>
+
+                <label for="malha">Cor da Malha:</label>
+                <select id="malha"></select>
+
+                <label for="lingua">Cor da Língua:</label>
+                <select id="lingua"></select>
+
+                <label for="linha">Cor da Linha:</label>
+                <select id="linha"></select>
+
+                <label for="linhaLingua">Cor da Linha da Língua:</label>
+                <select id="linhaLingua"></select>
+
+                <label for="couro">Cor do Couro:</label>
+                <select id="couro"></select>
+
+                <label for="logo">Cor do Logo:</label>
+                <select id="logo"></select>
+
+                <label for="espumainterna">Cor da Espuma Interna:</label>
+                <select id="espumainterna"></select>
+
+                <label for="etiqueta">Cor da Etiqueta:</label>
+                <select id="etiqueta"></select>
+
+                <label for="bagulhodocardaco">Cor do Bagulho do Cadarço:</label>
+                <select id="bagulhodocardaco"></select>
+            </div>
         </div>
+
+        <script src="../../../assets/JS/Navbar.js"></script>
+        <script src="../../../assets/JS/links.js"></script>
+        <script src="../../../assets/JS/pop_up.js"></script>
+        <script src="../../../assets/JS/redirecionarNotFound.js"></script>
+        <script src="../../../info_produtos/back-end/js/show.js"></script>
     </main>
-
-    <script src="../../../assets/JS/Navbar.js"></script>
-    <script src="../../../assets/JS/links.js"></script>
-    <script src="../../../assets/JS/pop_up.js"></script>
-    <script src="../../../assets/JS/redirecionarNotFound.js"></script>
-    <script src="../../../info_produtos/back-end/js/show.js"></script>
 </body>
-
 </html>
