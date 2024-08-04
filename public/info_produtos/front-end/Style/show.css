@@ -1,60 +1,100 @@
-main {
-    display: flex;
-    width: 100%;
-    height: 100%;
+
+.container {
+  max-width: 1200px; 
+  width: 80%;
+  box-sizing: border-box; 
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#obj {
+  display: flex;
+  align-items: center; 
+  gap: 20px; 
+margin-bottom: 20px;
+}
+
+#img img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  border-radius: 20px;
+}
+
+model-viewer {
+  border-radius: 20px;
+  box-shadow: inset 0 0 1em rgba(0, 0, 0, 0.2);
+  height: 150px; 
+  width: 100%;
+  max-width: 800px; 
+  box-sizing: border-box;
+}
+
+
+
+@media (min-width: 600px) {
+  #obj {
+    gap: 20px;
   }
-  
-  body{
-    height: 0;
-  }
-  #img img {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-  }
-  
+
+  #img img,
   model-viewer {
-    background-color: #79797a;
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    border: 1px solid black;
+    width: 40%;
+    max-width: 400px;
+    height: auto; 
   }
-  
-  /* Media Queries */
-  @media (min-width: 600px) {
-    main {
-      flex-direction: row;
-      justify-content: space-around;
-    }
-  
-    #img img,
-    model-viewer {
-      width: 50%;
-      max-width: 380px;
-      height: 380px;
-    }
-  
 
+  #img img {
+    width: 20%;
+    max-width: 200px;
+    height: auto; 
   }
-  
-  @media (min-width: 768px) {
-    #img img,
-    model-viewer {
-      width: 380px;
-      height: 380px;
-    }
-  
+}
 
+@media (min-width: 768px) {
+  #img img {
+    width: 20%;
+    max-width: 200px;
+    height: auto; 
   }
-  
-  @media (min-width: 1024px) {
-    main {
-      justify-content: space-between;
-    }
-  
+  #img img,
+  model-viewer {
+    width: 400px; 
+    height: 200px; 
   }
-  
-  #cores{
-    display: none;
+}
+
+
+@media (min-width: 1024px) {
+  #obj {
+    gap: 20px; 
   }
+}
+
+#cores{
+
+  display: none;
+}
+
+#produto-info {
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px 40px; 
+  padding: 20px;
+border-radius: 10px;
+width: 84%;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+
+#produto-info > div {
+text-align: center;
+padding: 10px;
+background-color: #fff; 
+border: 1px solid #ddd;
+width: 80%;
+border-radius: 20px;
+margin-left: 20px;
+}
+

@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function logMaterials() {
         if (modelViewer.model && modelViewer.model.materials) {
             const materials = modelViewer.model.materials;
-            console.log("Materiais disponíveis no modelo:");
+       
             materials.forEach((material, index) => {
-                console.log(`Material ${index + 1}: Nome: ${material.name}`);
+          
             });
         } else {
-            console.error('Modelo ou materiais não encontrados.');
+          
         }
     }
 
@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (material.name === materialName) {
                     material.pbrMetallicRoughness.setBaseColorFactor(color);
                     materialFound = true;
-                    console.log(`Atualizado a cor de ${materialName} para ${color}`);
+                  
                     break;
                 }
             }
 
             if (!materialFound) {
-                console.warn(`Material ${materialName} não encontrado.`);
+              
             }
         }
     }
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const materialName = materialNameMapping[id];
         if (!materialName) {
-            console.warn(`Nome do material para ${id} não encontrado no mapeamento.`);
+    
             return;
         }
 
@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (material) {
                 material.pbrMetallicRoughness.setBaseColorFactor(color);
-                console.log(`Cor ${color} aplicada ao material ${materialName}.`);
+               
             } else {
-                console.warn(`Material ${materialName} não encontrado no modelo.`);
+               
             }
         } else {
             console.error('Modelo ou materiais não encontrados.');
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data: { id: localStorage.getItem('id') },
         dataType: 'json',
         success: function(data) {
-            console.log(data)
+          
             if (data && data.length > 0) {
                 exibir(data[0]);
                 atualizarSelects(data[0]);

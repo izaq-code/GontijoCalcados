@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function logMaterials() {
         if (modelViewer.model && modelViewer.model.materials) {
             const materials = modelViewer.model.materials;
-            console.log("Materiais disponíveis no modelo:");
+      
             materials.forEach((material, index) => {
-                console.log(`Material ${index + 1}: Nome: ${material.name}`);
+              
             });
         } else {
             console.error('Modelo ou materiais não encontrados.');
@@ -27,13 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (material.name === materialName) {
                     material.pbrMetallicRoughness.setBaseColorFactor(color);
                     materialFound = true;
-                    console.log(`Atualizado a cor de ${materialName} para ${color}`);
                     break;
                 }
             }
 
             if (!materialFound) {
-                console.warn(`Material ${materialName} não encontrado.`);
+              
             }
         }
     }

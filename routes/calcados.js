@@ -14,10 +14,6 @@ router.post('/calcado', (req, res) => {
         img_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, solado, logoSolado, linha, cadarco,  malha, 
         lingua, linhaLingua, couro, logo, etiqueta, espumainterna, bagulhodocardaco  } = req.body;
 
-    console.log('Valores recebidos:', { nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, 
-        img_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, solado, logoSolado, linha, cadarco, malha, 
-        lingua, linhaLingua, couro, logo, etiqueta, espumainterna, bagulhodocardaco });
-
     const img_calcado = req.files.img_calcado;
 
     const data = moment().format('YYYY-MM-DD');
@@ -51,9 +47,6 @@ res.status(201).send('Calcado enviado com sucesso');
 
     }
 });
-
-
-
 
 // Rota GET para receber os calçados do banco de dados ProductEase
 router.get('/calcados', (req, res) => {

@@ -1,147 +1,82 @@
-
 :root {
-    --corprincipal: #225d99;
-    --corprincipalhover: #154a80;
-    --cor-outline: #e1ad33;
-    --corterciaria: #426441;
-    --corterciariahover: #2e4b2d;
-    --corfundo: #f5f6f6;
-    --corfundosecundaria: white;
-    --cortextoprincipal: black;
-    --cortextoprincipalhover: #d8d8d8;
+  --corprincipal: #225d99;
+  --corprincipalhover: #154a80;
+  --cor-outline: #e1ad33;
+  --corterciaria: #426441;
+  --corterciariahover: #2e4b2d;
+  --corfundo: #f5f6f6;
+  --corfundosecundaria: white;
+  --cortextoprincipal: black;
+  --cortextoprincipalhover: #d8d8d8;
 }
-
-body {
-    background-color: var(--corfundo);
-    font-family: Outfit;
-    margin: 0;
-}
-
 #cadastrar-calcado {
-    /* background-color: #FFFFFF; */
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px;
 }
 
 .input {
-    position: relative;
-    flex: 1 1 calc(50% - 20px); /* Cada input ocupará 50% da largura menos a margem */
-    box-sizing: border-box;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.input.input-nome {
-    flex: 1 1 100%; /* O input de nome ocupará 100% da largura do contêiner */
-}
-.input.ultimo {
-    flex: 1 1 100%;
-}
-
-.input input, .input select {
-    width: 80%;
-    height: 50px;
-    border-radius: 6px;
-    font-size: 18px;
-    padding: 0 15px;
-    border: 1px solid var(--cortextosecundario);
-    outline: none;
-    transition: border-color 0.3s ease-in-out;
-    background-color: var(--corfundosecundaria);
+.input input,
+.input select {
+  margin-bottom: 5px;
+  width: 61%;
+  max-width: 100%;
 }
 .input select {
-    width: 85%;
-}
-.input.input-nome input{
-    width: 90%;
+  width: 67%;
 }
 
 .input label {
-    background-color: var(--corfundosecundaria);
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: var(--cortextosecundario);
-    font-size: 19px;
-    pointer-events: none;
-    transition: .3s;
+  margin-top: 5px;
 }
 
-.input input:valid~label, .input input:focus~label {
-    top: 0;
-    left: 15px;
-    font-size: 16px;
-    padding: 0 1px;
-    color: var(--cortextosecundario);
+.input #input-nome {
+  width: 81%;
+  max-width: 100%;
 }
 
-.input input:focus, .input input:not(:placeholder-shown) {
-    border-color: var(--cortextosecundario);
+.baixo2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
-.input input:focus~label {
-    top: 0;
-    left: 15px;
-    font-size: 16px;
-    padding: 0 1px;
-    background: transparent;
-    color: var(--corprincipal);
+.baixo {
+  display: flex;
+  align-items: center;
 }
 
-.ultimo select{
-    max-width: 42%;
+.escolha {
+  padding: 15px 0;
 }
 
-
+.enviar {
+  margin-top: 15px;
+}
 
 button[type="submit"]:hover {
-    background: var(--corprincipalhover);
+  background: var(--corprincipalhover);
 }
 
-.container-img {
-    display: flex;
+.foto__image {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
 }
-
-
-
-
-.baixo .container-img{
-    margin-bottom: 30px;
-}
-
-.baixo{
-    display: flex;
-}
-
-.escolha{
-    padding: 15px 0;
-}
-
-.escolha1{
-   padding: 15px 20px;
-}
-
-.baixo2{
-    display: inline-block;
-    margin-top: -40px;
-}
-
-.enviar{
-    margin-top: 15px;
-
-}
-
-#foto__input1 {
-  display: none;
-}
-
 .foto {
-
   border-radius: 23px;
   width: 150px;
   height: 150px;
@@ -158,8 +93,6 @@ button[type="submit"]:hover {
   outline: none;
   overflow: hidden;
 }
-
-
 
 .foto1 {
   margin-left: 40px;
@@ -180,12 +113,8 @@ button[type="submit"]:hover {
   transition: color 300ms ease-in-out, background 300ms ease-in-out;
   outline: none;
   overflow: hidden;
-    position: relative; /* Adicionando position: relative; para uso de position:absolute; */
-
+  position: relative; 
 }
-
-
-
 
 .foto:hover {
   color: #777;
@@ -207,9 +136,9 @@ button[type="submit"]:hover {
 .foto__img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Para preencher o espaço mantendo a proporção */
+  object-fit: cover; 
   object-position: center;
-  position: relative; /* Posicionamento absoluto para ocupar todo o espaço do contêiner */
+  position: relative; 
   top: 0;
   left: 0;
   right: 0;
@@ -219,9 +148,9 @@ button[type="submit"]:hover {
 .foto__img1 {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Para preencher o espaço mantendo a proporção */
+  object-fit: cover; 
   object-position: center;
-  position: absolute; /* Posicionamento absoluto para ocupar todo o espaço do contêiner */
+  position: absolute; 
   top: 0;
   left: 0;
   right: 0;
@@ -309,39 +238,70 @@ button[type="submit"]:hover {
 }
 
 button[type="submit"] {
-    text-transform: uppercase;
-    background-color: var(--corprincipal);
-    color: var(--corfundo);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 24px;
-    font-size: 16px;
+  text-transform: uppercase;
+  background-color: var(--corprincipal);
+  color: var(--corfundo);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 24px;
+  font-size: 16px;
 }
-.enviar{
-    display: inline-block;
+.enviar {
+  display: inline-block;
 }
 
-/* Estilos para telas menores */
-@media (max-width: 768px) {
-    .input {
-        flex: 1 1 100%; /* Faz com que cada input ocupe 100% da largura */
-    }
-    .input.input-nome input{
-        max-width: 80%;
+body.dark-mode .grupo-controle select {
+  background-color: var(--cor-padrao-dark);
+  color: var(--corfundo);
+}
 
-    }
-    .ultimo select{
-        max-width: 85%;
-    }
-    .container-img {
-        display: block;
-    }
-    .input-img {
-        margin-bottom: 10px;
-        padding: 0;
-    }
-    #cadastrar-calcado {
-        max-height: auto;
-    }
+body.dark-mode .input input,
+.input select {
+  background-color: var(--cor-padrao-dark);
+  color: var(--corfundo);
+}
+
+body.dark-mode .input label {
+  background-color: var(--cor-padrao-dark);
+  color: var(--corfundo);
+}
+
+body.dark-mode .input input:valid ~ label,
+.input input:focus ~ label {
+  background-color: transparent !important;
+}
+
+body.dark-mode .select-material {
+  background-color: var(--cor-padrao-dark);
+  color: var(--corfundo);
+}
+
+body.light-mode .grupo-controle select {
+  background-color: var(--cor-padrao-light);
+  color: var(--color-padrao-light);
+}
+
+body.light-mode .input label {
+  background-color: var(--cor-padrao-light);
+  color: var(--color-padrao-light);
+}
+
+body.light-mode .input input:valid ~ label,
+.input input:focus ~ label {
+  background-color: transparent !important;
+}
+
+body.light-mode .input select {
+  background-color: var(--cor-padrao-light);
+  color: var(--color-padrao-light);
+}
+
+body.light-mode .foto__image {
+  background-color: var(--cor-padrao-light);
+  border: 1px solid var(--cor-padrao-light);
+}
+body.dark-mode .foto__image {
+  background-color: var(--cor-padrao-dark);
+  border: 1px solid var(--cor-padrao-dark);
 }

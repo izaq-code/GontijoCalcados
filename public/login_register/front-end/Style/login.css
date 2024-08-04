@@ -54,6 +54,8 @@ main {
     width: 40%;
 }
 
+
+
 #cadastro-separacao{
     margin: 30px 0px 30px 0px;
     border-color: var(--corfundo);
@@ -62,6 +64,7 @@ main {
 #cadastro-outra-opcao {
     position: relative;
     text-align: center;
+
 }
 
 #cadastro-texto-outro {

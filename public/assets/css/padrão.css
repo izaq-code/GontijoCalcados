@@ -83,13 +83,9 @@ html{
   margin-bottom: 20px;
 }
 
-#input-email,
-#input-senha {
-  color: var(--cortextoprincipal);
-}
-
 .input input {
-  width: 300px;
+  width: 100%; 
+  max-width: 300px; 
   height: 50px;
   border-radius: 6px;
   font-size: 18px;
@@ -103,7 +99,7 @@ html{
 .input label {
   background-color: var(--corfundo);
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 15px;
   transform: translateY(-50%);
   color: var(--cortextosecundario);
@@ -112,8 +108,9 @@ html{
   transition: .3s;
 }
 
-.input input:valid~label {
-  top: 0;
+.input input:valid~label,
+.input input:focus~label {
+  top: -5px;
   left: 15px;
   font-size: 16px;
   padding: 0 1px;
@@ -126,16 +123,12 @@ html{
 }
 
 .input input:focus~label {
-  top: 0;
-  left: 15px;
-  font-size: 16px;
-  padding: 0 1px;
-  background: var(--corfundo);
   color: var(--corprincipal);
 }
 
 .input select {
   width: 100%;
+  max-width: 300px; 
   height: 45px;
   border-radius: 6px;
   font-size: 18px;
@@ -145,6 +138,39 @@ html{
   transition: border-color 0.3s ease-in-out;
 }
 
-.input input:focus {
+.input input:focus,
+.input select:focus {
   border-color: var(--corprincipal);
+}
+
+@media (max-width: 600px) {
+  .input input {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .input select {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .input label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .input input {
+    font-size: 14px;
+    height: 35px;
+  }
+
+  .input select {
+    font-size: 14px;
+    height: 35px;
+  }
+
+  .input label {
+    font-size: 14px;
+  }
 }
