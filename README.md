@@ -101,7 +101,6 @@ npm install express body-parser express-session mysql http socket.io axios path 
 ## API's / LIB's Referência
 
  - [Sweet Alert](https://sweetalert2.github.io/)
- - [API Google](https://developers.google.com/apis-explorer?hl=pt-br)
  - [Socket IO](https://developers.google.com/apis-explorer?hl=pt-br)
 
 ## 📜 Licença
