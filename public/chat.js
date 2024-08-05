@@ -12,7 +12,7 @@ let fotoAtual = localStorage.getItem('fotoAtual') || 'null';
 let privateChatWith = null;
 
 function carregarUsuarios() {
-    fotoPadrao = '../../../assets/imagens/logo-G.svg';
+    fotoPadrao = '../../../assets/imagens/G.png';
 
     const globalChatDiv = document.createElement('div');
     globalChatDiv.classList.add('usuario');
@@ -272,12 +272,12 @@ socket.on('chatMessage', (msg) => {
 
 socket.on('chatMessage', (msg) => {
  
-    carregarInformacoesDaConversa(null, document.querySelector('.usuario:first-child'), 'Chat Global', '../../../assets/imagens/logo-G.svg', true);
+    carregarInformacoesDaConversa(null, document.querySelector('.usuario:first-child'), 'Chat Global', '../../../assets/imagens/g.png', true);
 
  
     const usuariosDivs = document.querySelectorAll('.usuario:not(:first-child)');
     usuariosDivs.forEach(usuarioDiv => {
-        const email = usuarioDiv.dataset.email; // Assume que cada div de usuário tem um atributo de dados com o email do usuário
+        const email = usuarioDiv.dataset.email;
         carregarInformacoesDaConversa(email, usuarioDiv, usuarioDiv.dataset.nome, usuarioDiv.dataset.foto);
     });
 });
