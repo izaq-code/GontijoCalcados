@@ -21,6 +21,7 @@
 
 #informacoes-principais-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
 }
 

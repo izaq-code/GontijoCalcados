@@ -31,6 +31,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
+#container-informacoes-gerais h4 {
+  font-weight: 300;
+}
+
 #container-informacoes-esquerda {
   display: flex;
   gap: 20px;
@@ -41,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 
-.bater-ponto-button {
+.bater-ponto-button, .historico_de_pontos {
   background-color: var(--cor-principal);
   border: none;
   border-radius: 4px;
@@ -70,9 +74,49 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   text-align: center;
   gap: 30px;
+  width: 200px;
 }
 
 .conteudo-ponto {
   margin-top: 10px;
   opacity: .8;
+}
+
+@media (max-width: 1251px) {
+  #tela-meu-perfil {
+    padding: 40px 5vh;
+  }
+
+  #container-informacoes-esquerda {
+    margin-bottom: -20px;
+  }
+}
+
+@media (max-width: 993px) {
+  #tela-meu-perfil {
+    padding: 40px 5vh;
+  }
+
+  #container-informacoes-esquerda {
+    margin-bottom: -80px;
+  }
+}
+
+@media (max-width: 768px) {
+  #tela-meu-perfil {
+    padding: 40px 5vh;
+  }
+
+  #container-informacoes-esquerda {
+    margin-bottom: -70px;
+  }
+
+  .card-ponto {
+    width: 100%;
+  }
+
+  .card-informacoes {
+    width: 100%;
+    background-color: red;
+  }
 }
