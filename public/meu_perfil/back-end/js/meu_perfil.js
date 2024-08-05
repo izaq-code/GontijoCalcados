@@ -79,12 +79,17 @@ function listarfuncionarios() {
                                 <h3 class="saida">Saída</h3>
                                 <h1 class="conteudo-ponto">${perfil_funcionario.ponto_final}</h1>
                             </div>
+                             <div class="card-ponto">
+                                <h3 class="saida">Horas Trabalhadas</h3>
+                                <h1 class="conteudo-ponto">${perfil_funcionario.horas_trabalhadas}</h1>
+                            </div>
                             <div class="card-ponto">
                                 <h3 class="banco">Banco de Horas</h3>
                                 <h1 class="conteudo-ponto">${perfil_funcionario.banco}</h1>
                             </div>
                         </div>
                         <button class="bater-ponto-button">Bater Ponto</button>
+                        <button class="historico_de_pontos">Histórico de Pontos</button>
                     </div>
                 `;
                 container.innerHTML = item;
@@ -105,6 +110,12 @@ function listarfuncionarios() {
                             console.error("Erro ao bater ponto:", textStatus, errorThrown);
                         }
                     });
+                });
+
+                
+                var botao = container.querySelector('.historico_de_pontos');
+                botao.addEventListener('click', function () {
+                    window.location.href = '../../front-end/HTML/historico_de_pontos.html?usuario_id=' + idUsuarioLogado;
                 });
                 
             } else {
