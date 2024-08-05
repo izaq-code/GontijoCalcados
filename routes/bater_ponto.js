@@ -5,6 +5,7 @@ const moment = require('moment');
 
 router.get('/bater_ponto', (req, res) => {
     const dataAtual = moment().format('YYYY-MM-DD');
+    const horaAtual = moment().format('HH:mm:ss');
     const dataHoraAtual = moment().format('YYYY-MM-DD HH:mm:ss');
     const usuario_id = req.query.usuario_id;
 
@@ -13,7 +14,7 @@ router.get('/bater_ponto', (req, res) => {
     }
 
     connection2.query(
-        'SELECT * FROM bater_ponto WHERE id_funcionario = ? AND DATE(ini_ponto) = ? ORDER BY ini_ponto DESC LIMIT 1',
+        'SELECT * FROM bater_ponto WHERE id_funcionario = ? AND data = ? ORDER BY ini_ponto DESC LIMIT 1',
         [usuario_id, dataAtual],
         (erro, resultado) => {
             if (erro) {
@@ -35,8 +36,8 @@ router.get('/bater_ponto', (req, res) => {
 
                 if (update) {
                     connection2.query(
-                        `UPDATE bater_ponto SET ${update} = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?`,
-                        [dataHoraAtual, usuario_id, dataAtual],
+                        `UPDATE bater_ponto SET ${update} = ? WHERE id_funcionario = ? AND data = ?`,
+                        [horaAtual, usuario_id, dataAtual],
                         (erro) => {
                             if (erro) {
                                 console.error('Erro ao atualizar registro:', erro);
@@ -44,22 +45,18 @@ router.get('/bater_ponto', (req, res) => {
                             }
 
                             if (update === 'fim_ponto') {
-                                const iniPonto = moment(ponto.ini_ponto);
+                                const iniPonto = moment(`${dataAtual} ${ponto.ini_ponto}`);
                                 const fimPonto = moment(dataHoraAtual);
 
                                 const saldoTrabalhado = fimPonto.diff(iniPonto, 'seconds', true);
                                 const saldoMinutos = saldoTrabalhado - (9 * 60 * 60 - 60 * 60);
 
-                                console.log(`Horas trabalhadas: ${saldoTrabalhado / 3600}`);
-                                console.log(`Saldo segundos: ${saldoTrabalhado}`);
-                                console.log(`Saldo minutos: ${saldoMinutos / 60}`);
-
+                                const horasTrabalhadasFormatado = formatarHoras(saldoTrabalhado);
                                 const saldoHorasFormatado = formatarHoras(saldoMinutos);
-                                console.log(`Saldo formatado: ${saldoHorasFormatado}`);
 
                                 connection2.query(
-                                    'UPDATE bater_ponto SET saldo_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
-                                    [saldoMinutos / 60, usuario_id, dataAtual], 
+                                    'UPDATE bater_ponto SET horas_trabalhadas = ?, saldo_horas = ? WHERE id_funcionario = ? AND data = ?',
+                                    [horasTrabalhadasFormatado, saldoMinutos / 60, usuario_id, dataAtual], 
                                     (erro) => {
                                         if (erro) {
                                             console.error('Erro ao atualizar saldo de horas atual:', erro);
@@ -79,10 +76,8 @@ router.get('/bater_ponto', (req, res) => {
                                                 const saldoAcumuladoMinutos = saldoAcumulado * 60;
                                                 const saldoAcumuladoFormatado = formatarHoras(saldoAcumuladoMinutos);
 
-                                                console.log(`Saldo acumulado formatado: ${saldoAcumuladoFormatado}`);
-
                                                 connection2.query(
-                                                    'UPDATE bater_ponto SET banco_de_horas = ? WHERE id_funcionario = ? AND DATE(ini_ponto) = ?',
+                                                    'UPDATE bater_ponto SET banco_de_horas = ? WHERE id_funcionario = ? AND data = ?',
                                                     [saldoAcumuladoFormatado, usuario_id, dataAtual],
                                                     (erro) => {
                                                         if (erro) {
@@ -110,8 +105,8 @@ router.get('/bater_ponto', (req, res) => {
                 }
             } else {
                 connection2.query(
-                    'INSERT INTO bater_ponto (id_funcionario, ini_ponto) VALUES (?, ?)',
-                    [usuario_id, dataHoraAtual],
+                    'INSERT INTO bater_ponto (id_funcionario, ini_ponto, data) VALUES (?, ?, ?)',
+                    [usuario_id, horaAtual, dataAtual],
                     (erro) => {
                         if (erro) {
                             console.error('Erro ao criar novo registro:', erro);

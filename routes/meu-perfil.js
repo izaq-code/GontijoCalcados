@@ -11,16 +11,15 @@ router.get('/meu_perfil', (req, res) => {
     }
 
     const query = `
-        SELECT u.id AS id, u.email AS email, u.name AS nome, u.ra as ra, u.cpf AS cpf, u.funcao AS funcao, u.profile_picture AS imagem,DATE_FORMAT(bp.ini_ponto, '%d-%m-%Y %H:%i:%s') AS ponto_inicial,
-        DATE_FORMAT(bp.fim_ponto, '%d-%m-%Y %H:%i:%s') AS ponto_final,
+        SELECT u.id AS id, u.email AS email, u.name AS nome, u.ra AS ra, u.cpf AS cpf, u.funcao AS funcao, u.profile_picture AS imagem,
+        TIME_FORMAT(bp.ini_ponto, '%H:%i:%s') AS ponto_inicial,
+        TIME_FORMAT(bp.fim_ponto, '%H:%i:%s') AS ponto_final,
         bp.banco_de_horas AS banco
-        FROM usuario u LEFT JOIN bater_ponto bp ON 
-        u.id = bp.id_funcionario 
-        AND bp.ini_ponto = (
-        SELECT MAX(ini_ponto)
-        FROM bater_ponto
-        WHERE id_funcionario = u.id
-    )  WHERE u.id = ?;`;
+    FROM usuario u
+    LEFT JOIN bater_ponto bp ON u.id = bp.id_funcionario AND bp.data = ?
+    WHERE u.id = ?
+    ORDER BY bp.ini_ponto DESC
+    LIMIT 1;`;
 
     connection2.query(query, [id], (err, results) => {
         if (err) {

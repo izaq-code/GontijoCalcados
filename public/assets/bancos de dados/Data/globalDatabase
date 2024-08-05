@@ -26,8 +26,10 @@ CREATE TABLE usuario (
 CREATE TABLE bater_ponto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_funcionario INT,
-    ini_ponto DATETIME,
-    fim_ponto DATETIME,
+    ini_ponto TIME,
+    fim_ponto TIME,
+    data DATE,
+    horas_trabalhadas TIME,
     saldo_horas DECIMAL(10, 2),
     banco_de_horas TIME,
     FOREIGN KEY (id_funcionario) REFERENCES usuario(id)
