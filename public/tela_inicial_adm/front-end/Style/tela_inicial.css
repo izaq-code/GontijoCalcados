@@ -192,3 +192,7 @@ body.dark-mode .card-informacoes {
 
   background-color: var(--cor-padrao-dark);
 }
+
+.mostrar-todos-crafts i {
+  font-size: 12px;
+}
