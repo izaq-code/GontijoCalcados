@@ -290,3 +290,36 @@ Node.js é uma plataforma de desenvolvimento de código aberto baseada no mecani
     - Comparação de hashes
     - Segurança na manipulação de senhas
 
+---
+## Links Úteis
+
+- **Express**
+  - [Documentação do Express](https://expressjs.com/)
+  - [Express no npm](https://www.npmjs.com/package/express)
+
+- **Body-Parser**
+  - [Documentação do Body-Parser](https://www.npmjs.com/package/body-parser)
+
+- **Express-Session**
+  - [Documentação do Express-Session](https://www.npmjs.com/package/express-session)
+
+- **MySQL**
+  - [Documentação do MySQL](https://www.npmjs.com/package/mysql)
+
+- **Socket.io**
+  - [Documentação do Socket.io](https://socket.io/docs/v4/)
+  - [Socket.io no npm](https://www.npmjs.com/package/socket.io)
+
+- **Axios**
+  - [Documentação do Axios](https://axios-http.com/docs/intro)
+  - [Axios no npm](https://www.npmjs.com/package/axios)
+
+- **Moment**
+  - [Documentação do Moment](https://momentjs.com/docs/)
+  - [Moment no npm](https://www.npmjs.com/package/moment)
+
+- **Express-Fileupload**
+  - [Documentação do Express-Fileupload](https://www.npmjs.com/package/express-fileupload)
+
+- **Bcrypt**
+  - [Documentação do Bcrypt](https://www.npmjs.com/package/bcrypt)
