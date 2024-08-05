@@ -12,7 +12,7 @@ let fotoAtual = localStorage.getItem('fotoAtual') || 'null';
 let privateChatWith = null;
 
 function carregarUsuarios() {
-    fotoPadrao = '../../../assets/imagens/logo-G.svg';
+    fotoPadrao = '../../../assets/imagens/G.png';
 
     const globalChatDiv = document.createElement('div');
     globalChatDiv.classList.add('usuario');

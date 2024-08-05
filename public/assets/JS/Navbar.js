@@ -112,12 +112,14 @@ function loadDesktopNavbar() {
                             <div id="at" data-tooltip="Demandas" class="submenu-item"><i class="bi bi-clipboard2-pulse icon-space"></i> Demandas</div>
                         </a>
                         <a href="../../../../chat/html/chat.html">
-                            <div id="ar" data-tooltip="Chats" class="submenu-item"><i class="bi bi-chat-left-dots icon-space"></i> Chats</div>
+                            <div id="ar" data-tooltip="Chats" class="submenu-item"><i class="bi bi-chat-text icon-space"></i> Chats</div>
                         </a>
                         <a href="../../../../funcionarios/front-end/html/funcionarios.html">
                             <div id="estoque" data-tooltip="Funcionarios" class="submenu-item"><i class="bi bi-person icon-space"></i> Funcionarios</div>
                         </a>
-                       
+                        <a href="../../../../feedbacks/feedbacks.html">
+                            <div id="estoque" data-tooltip="Feedbacks" class="submenu-item"><i class="bi bi-card-text icon-space"></i> Feedbacks</div>
+                        </a>
                     </div>
                 </div>
 

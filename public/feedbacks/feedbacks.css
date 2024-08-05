@@ -1,5 +1,5 @@
 #tela-feedbacks{ 
-    padding: 40px;
+    padding: 10px 40px;
     height: auto;
 }    
 
@@ -48,5 +48,5 @@ h2 {
 } 
 
 .comentario {
-    opacity: .7;
+    opacity: .8;
 }
