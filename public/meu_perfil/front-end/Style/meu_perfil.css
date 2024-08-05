@@ -12,42 +12,33 @@
   --color-padrao-dark: #fff;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+#tela-meu-perfil {
+  padding: 10px 20vh;
+}
+
 #perfil {
+  margin-bottom: 30px;
+}
+
+#container-informacoes-gerais {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 100px;
   align-items: center;
-  padding: 20px;
 }
 
-.produto {
-  background-color: var(--cor-padrao-light);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 20px;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+#container-informacoes-esquerda {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-.perfil-nome,
-.perfil-email,
-.perfil-funcao,
-.entrada,
-.saida,
-.banco {
-  margin: 10px 0;
-}
-
-.img-container {
-  margin: 20px 0;
-}
-
-.img-container img {
+#container-informacoes-esquerda img {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
 }
 
 .bater-ponto-button {
@@ -66,19 +57,22 @@
   background-color: var(--cor-principal-hover);
 }
 
-body.dark-mode {
-  background-color: var(--cor-fundo-body-dark);
-  color: var(--color-padrao-dark);
+#container-ponto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
 }
 
-body.dark-mode .produto {
-  background-color: var(--cor-padrao-dark);
+.card-ponto {
+  background-color: var(--color-padrao-dark);
+  padding: 25px 40px;
+  border-radius: 10px;
+  text-align: center;
+  gap: 30px;
 }
 
-body.dark-mode .bater-ponto-button {
-  color: var(--color-padrao-light);
-}
-
-body.dark-mode .img-container img {
-  border: 2px solid var(--color-padrao-dark);
+.conteudo-ponto {
+  margin-top: 10px;
+  opacity: .8;
 }

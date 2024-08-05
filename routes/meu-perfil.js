@@ -11,7 +11,7 @@ router.get('/meu_perfil', (req, res) => {
     }
 
     const query = `
-        SELECT u.id AS id, u.email AS email, u.name AS nome, u.funcao AS funcao, u.profile_picture AS imagem,DATE_FORMAT(bp.ini_ponto, '%d-%m-%Y %H:%i:%s') AS ponto_inicial,
+        SELECT u.id AS id, u.email AS email, u.name AS nome, u.telefone as telefone, u.cpf AS cpf, u.funcao AS funcao, u.profile_picture AS imagem,DATE_FORMAT(bp.ini_ponto, '%d-%m-%Y %H:%i:%s') AS ponto_inicial,
         DATE_FORMAT(bp.fim_ponto, '%d-%m-%Y %H:%i:%s') AS ponto_final,
         bp.banco_de_horas AS banco
         FROM usuario u LEFT JOIN bater_ponto bp ON 
@@ -20,7 +20,7 @@ router.get('/meu_perfil', (req, res) => {
         SELECT MAX(ini_ponto)
         FROM bater_ponto
         WHERE id_funcionario = u.id
-)  WHERE u.id = ?;`;
+    )  WHERE u.id = ?;`;
 
     connection2.query(query, [id], (err, results) => {
         if (err) {
@@ -31,11 +31,13 @@ router.get('/meu_perfil', (req, res) => {
  
         const perfilFormatado = results.map(result => {
             return {
-                id: result.id || "",
-                email: result.email || "",
-                nome: result.nome || "",
-                funcao: result.funcao || "",
-                imagem: result.imagem || "",
+                id: result.id || "Sem ID cadastrado",
+                email: result.email || "Sem email cadastrado",
+                nome: result.nome || "Sem nome cadastrado",
+                cpf: result.cpf || "Sem CPF cadastrado",
+                telefone: result.telefone || "Sem telefone cadastrado",
+                funcao: result.funcao || "Sem função cadastrada",
+                imagem: result.imagem || "Sem foto cadastrada",
                 ponto_inicial: result.ponto_inicial ? moment(result.ponto_inicial, 'DD-MM-YYYY HH:mm:ss').format('DD-MM-YYYY HH:mm:ss') : "",
                 ponto_final: result.ponto_final ? moment(result.ponto_final, 'DD-MM-YYYY HH:mm:ss').format('DD-MM-YYYY HH:mm:ss') : "",
                 banco: result.banco || ""

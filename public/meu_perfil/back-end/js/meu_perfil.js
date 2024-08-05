@@ -29,7 +29,7 @@ function listarfuncionarios() {
         return;
     }
 
-    var container = $('#perfil');
+    var container = document.getElementById('perfil');
     $.ajax({
         url: '/meu_perfil',
         type: 'GET',
@@ -40,9 +40,8 @@ function listarfuncionarios() {
         success: function (perfil) {
             console.log("Perfil retornado:", perfil);
 
-            container.empty();
+            container.innerHTML = '';
 
-            
             if (!Array.isArray(perfil) || perfil.length === 0) {
                 console.error("Nenhum perfil encontrado ou resposta não é um array:", perfil);
                 return;
@@ -55,39 +54,43 @@ function listarfuncionarios() {
             console.log("Perfil do funcionário encontrado:", perfil_funcionario);
 
             if (perfil_funcionario) {
-                var item = $('<div>').addClass('produto');
+                var item = `
+                    <div class="perfil-usuario">
+                        <div id="container-informacoes-gerais">
+                            <div id="container-informacoes-esquerda">
+                                <img src="${perfil_funcionario.imagem}" alt="Imagem do funcionário">
+                                <div id="informacoes-usuario">
+                                    <h2 class="perfil-nome">${perfil_funcionario.nome}</h2>
+                                    <h4 class="perfil-email">${perfil_funcionario.email}</h4>
+                                    <h4 class="perfil-cpf">${perfil_funcionario.cpf}</h4>
+                                </div>
+                            </div>
+                            <div id="container-informacoes-direita">
+                                <h3 class="perfil-funcao">Função</h3>
+                                <h4>${perfil_funcionario.funcao}</h4>
+                            </div>
+                        </div>
+                        <div id="container-ponto">
+                            <div class="card-ponto">
+                                <h3 class="entrada">Entrada</h3> 
+                                <h1 class="conteudo-ponto">${perfil_funcionario.ponto_inicial}</h1>
+                            </div>
+                            <div class="card-ponto">
+                                <h3 class="saida">Saída</h3>
+                                <h1 class="conteudo-ponto">${perfil_funcionario.ponto_final}</h1>
+                            </div>
+                            <div class="card-ponto">
+                                <h3 class="banco">Banco de Horas</h3>
+                                <h1 class="conteudo-ponto">${perfil_funcionario.banco}</h1>
+                            </div>
+                        </div>
+                        <button class="bater-ponto-button">Bater Ponto</button>
+                    </div>
+                `;
+                container.innerHTML = item;
 
-                var nome = $('<h3>').addClass('perfil-nome').text(perfil_funcionario.nome);
-                item.append(nome);
-
-                var email = $('<h3>').addClass('perfil-email').text(perfil_funcionario.email);
-                item.append(email);
-
-                var imgContainer = $('<div>').addClass('img-container');
-                var imagem = $('<img>').attr('src', perfil_funcionario.imagem);
-                imgContainer.append(imagem);
-                item.append(imgContainer);
-
-                var funcao = $('<h2>').addClass('perfil-funcao').text('Função: ' + perfil_funcionario.funcao);
-                item.append(funcao);
-
-                var entrada = $('<h2>').addClass('entrada').text('Entrada: ' + perfil_funcionario.ponto_inicial);
-                item.append(entrada);
-
-
-                var saida = $('<h2>').addClass('saida').text('Saída: ' + perfil_funcionario.ponto_final);
-                item.append(saida);
- 
-                var banco = $('<h2>').addClass('banco').text('Banco de Horas: ' + perfil_funcionario.banco);
-                item.append(banco);
-
-                var baterPontoButton = $('<button>').addClass('bater-ponto-button').text('Bater Ponto');
-                item.append(baterPontoButton);
-
-                container.append(item);
-
-            
-                baterPontoButton.on('click', function () {
+                var baterPontoButton = container.querySelector('.bater-ponto-button');
+                baterPontoButton.addEventListener('click', function () {
                     $.ajax({
                         url: '/bater_ponto',
                         type: 'GET',
@@ -114,6 +117,6 @@ function listarfuncionarios() {
     });
 }
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
     carregarInformacoes(listarfuncionarios);
 });
