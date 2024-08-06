@@ -268,7 +268,7 @@ function loadMobileNavbar() {
 <li class="">
   <a href="../../../../configuracao/front-end/html/configuracao.html">
    <div class="icone">
-    <i class="bi bi-gear"></i>
+    <i id="feed" class="bi bi-archive icon-space"></i>
     </div>
     <span class="label">configuraçoes.</span>
   </a>
@@ -358,27 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
     extractIconAndTextOnMobile();
     window.addEventListener('resize', extractIconAndTextOnMobile);
 
-    function toggleSubMenu(submenuId, iconId) {
-        const submenu = document.getElementById(submenuId);
-        const icon = document.getElementById(iconId);
-        submenu.classList.toggle('visible');
-
-        if (submenu.classList.contains('visible')) {
-
-            localStorage.setItem(submenuId + '-state', 'visible');
-        } else {
-
-            localStorage.setItem(submenuId + '-state', 'hidden');
-        }
-    }
-
-    function restoreSubMenuState(submenuId, iconId) {
-        const submenuState = localStorage.getItem(submenuId + '-state');
-        if (submenuState === 'visible') {
-            toggleSubMenu(submenuId, iconId);
-        }
-    }
-
+ 
     function temadapagina() {
         const darkmode = localStorage.getItem('dark-mode') === 'true';
         const lightmode = localStorage.getItem('light-mode') === 'true';
@@ -392,16 +372,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         checkbox.checked = darkmode;
     }
-
-    const menuHeader = document.getElementById('menuHeader');
-    menuHeader.addEventListener('click', function () {
-        toggleSubMenu('menu', 'menuIcon');
-    });
-
-    const settingsHeader = document.getElementById('settingsHeader');
-    settingsHeader.addEventListener('click', function () {
-        toggleSubMenu('settings', 'settingsIcon');
-    });
 
     const checkbox = document.getElementById('inputto');
     checkbox.addEventListener('change', function () {
@@ -420,8 +390,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     temadapagina();
-    restoreSubMenuState('menu', 'menuIcon');
-    restoreSubMenuState('settings', 'settingsIcon');
 });
 
 document.addEventListener('DOMContentLoaded', function () {
