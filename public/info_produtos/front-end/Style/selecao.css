@@ -28,6 +28,20 @@
     flex-wrap: wrap;
     gap: 40px;
   }
+
+  .cabecalho-demandas-tenis {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mostrar-todas-demandas {
+    color: white;
+    background-color: var(--cor-principal);
+    border-radius: 5px;
+    padding: 8px;
+    position: absolute;
+    right: 45px;
+  }
   
   /* Media Queries */
   @media (min-width: 600px) {

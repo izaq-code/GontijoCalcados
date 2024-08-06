@@ -105,10 +105,7 @@ function loadDesktopNavbar() {
                         <a href="../../../../tela_inicial_adm/front-end/html/tela_inicial_adm.html">
                             <div id="Clientes" data-tooltip="Home" class="submenu-item"><i class="bi bi-house icon-space"></i> Home</div>
                         </a>
-                        <a href="../../../../Graficos/front-end/html/Graficos.html">
-                            <div id="cad" data-tooltip="Graficos" class="submenu-item"><i class="bi bi-bar-chart icon-space"></i> Graficos</div>
-                        </a>
-                        <a href="../../../../cadastro_calcados/front-end/html/cadastro_calcados.html">
+                        <a href="../../../../info_produtos/front-end/html/selecao.html">
                             <div id="at" data-tooltip="Demandas" class="submenu-item"><i class="bi bi-clipboard2-pulse icon-space"></i> Demandas</div>
                         </a>
                         <a href="../../../../chat/html/chat.html">
@@ -116,28 +113,29 @@ function loadDesktopNavbar() {
                         </a>
                         <a href="../../../../funcionarios/front-end/html/funcionarios.html">
                             <div id="estoque" data-tooltip="Funcionarios" class="submenu-item"><i class="bi bi-person icon-space"></i> Funcionarios</div>
-                        </a>              
-                    </div>
-                </div>
-
-                <div class="settings-section">
-                    <div class="settings-header">
-                        <h3 id="settingsHeader">SETTINGS</h3>
-                    </div>
-                    <div class="submenu" id="settings">
-               <a href="../../../../configuracao/front-end/html/configuracao.html">
-                             <div id="Informacoes" data-tooltip="Informações" class="submenu-item"><i class="bi bi-gear icon-space"></i> Configurações</div>
+                        </a>     
+                        <a href="../../../../configuracao/front-end/html/configuracao.html">
+                            <div id="estoque" data-tooltip="Cadastros" class="submenu-item"><i class="bi bi-archive icon-space"></i> Cadastros</div>
+                        </a>    
+                        <a href="../../../../Graficos/front-end/html/Graficos.html">
+                            <div id="cad" data-tooltip="Graficos" class="submenu-item"><i class="bi bi-bar-chart icon-space"></i> Graficos</div>
                         </a>
-                     
-                       <a href="../../../../feedbacks/feedbacks.html">
+                        <a href="../../../../feedbacks/feedbacks.html">
                             <div id="estoque" data-tooltip="Feedbacks" class="submenu-item"><i class="bi bi-card-text icon-space"></i> Feedbacks</div>
-                        </a>
+                        </a>       
+                    </div>
+                    <div class="settings-section">
+                        <div class="settings-header">
+                            <h3 id="settingsHeader"></h3>
+                        </div>
+                        <div class="submenu" id="settings">
+                        </div>
                     </div>
                 </div>
-
+                        
                 <button class="logout-button"><i class="bi bi-box-arrow-in-right space"></i>Logout</button>
             </div>
-
+                        
             <div class="content"></div>
         </header>
     `;
@@ -151,7 +149,7 @@ function mostrarUsuarioLogado() {
         url: '/mostrarUsuarioLogado',
         type: 'GET',
         success: function (response) {
-            deviceType == 'Desktop' ? t(response): q(response);
+            deviceType == 'Desktop' ? t(response) : q(response);
 
         },
         error: function (xhr, status, error) {
