@@ -322,6 +322,30 @@ body.dark-mode #entradaMensagem {
   width: 73px;
 }
 
+@media screen and (max-width: 1510px) {
+  .usuario .ultima-mensagem {
+    margin-left: -58px !important;
+  }
+}
+
+@media screen and (max-width: 1340px) {
+  .usuario .ultima-mensagem {
+    margin-left: -55px !important;
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .usuario .ultima-mensagem {
+    margin-left: -50px !important;
+  }
+}
+
+@media screen and (max-width: 1016px) {
+  .usuario .ultima-mensagem {
+    margin-left: -73px !important;
+  }
+}
+
 .usuario .ultima-mensagem {
   margin-top: 14px;
   white-space: nowrap;
@@ -495,7 +519,7 @@ body.dark-mode .usuario {
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 body.light-mode .bolinha-notificacao {

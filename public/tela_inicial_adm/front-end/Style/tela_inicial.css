@@ -36,7 +36,7 @@
   margin-top: 6px;
   font-size: 20px;
   font-weight: bolder;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .card-icone {
@@ -162,6 +162,18 @@
   pointer-events: none;
 }
 
+@media screen and (max-width: 1500px) {
+  .carrossel-controls {
+    gap: 85% !important;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .carrossel-controls {
+    gap: 75% !important;
+  }
+}
+
 .carrossel-controls {
   display: flex;
   justify-content: center;
@@ -195,7 +207,6 @@ body.dark-mode .mostrar-todos-crafts {
 }
 
 body.dark-mode .card-informacoes {
-
   background-color: var(--cor-padrao-dark);
 }
 
