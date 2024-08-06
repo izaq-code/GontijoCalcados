@@ -345,7 +345,7 @@ body.dark-mode #listaUsuarios {
   .popup-content {
     background: var(--cor-padrao-light);
     margin-top: 200px;
-    margin-right: 80px;
+    margin-right: 30px;
     float: right;
     padding: 20px;
     border-radius: 10px;
