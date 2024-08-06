@@ -12,7 +12,7 @@
   --color-padrao-dark: #fff;
 }
 
-h1, h2, h3, h4, h5, h6 {
+#perfil h1, #perfil h2, #perfil h3, #perfil h4, #perfil h5, #perfil h6 {
   margin: 0;
 }
 
@@ -82,13 +82,26 @@ h1, h2, h3, h4, h5, h6 {
   opacity: .8;
 }
 
+@media (max-width: 1341px) {
+  #tela-meu-perfil {
+    padding: 40px 8vh;
+  }
+}
+
 @media (max-width: 1251px) {
   #tela-meu-perfil {
-    padding: 40px 5vh;
+    padding: 40px 4vh;
   }
 
   #container-informacoes-esquerda {
     margin-bottom: -20px;
+  }
+}
+
+@media (max-width: 1040px) {
+  #container-informacoes-direita {
+    display: block;
+    margin-top: -65px;
   }
 }
 
@@ -97,8 +110,18 @@ h1, h2, h3, h4, h5, h6 {
     padding: 40px 5vh;
   }
 
+  #perfil {
+    display: block;
+    gap: 0px;
+  }
+
   #container-informacoes-esquerda {
     margin-bottom: -80px;
+  }
+
+  #container-informacoes-direita {
+    display: block;
+    margin-top: 0;
   }
 }
 
