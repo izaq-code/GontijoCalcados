@@ -113,6 +113,7 @@ id_solado int,
 id_adesivo int,
 id_tip_tinta int,
 data date,
+inProd TINYINT(1) DEFAULT true,
 FOREIGN KEY(id_tinta) REFERENCES tinta (id),
 FOREIGN KEY(id_material) REFERENCES material (id),
 FOREIGN KEY(id_adesivo) REFERENCES adesivo (id),
@@ -120,6 +121,17 @@ FOREIGN KEY(id_tip_tinta) REFERENCES tipo_tinta (id),
 FOREIGN KEY(id_cadarco) REFERENCES cadarco (id),
 FOREIGN KEY(id_solado) REFERENCES solado (id)
 );
+-- eu te odeio izaq
+
+CREATE TABLE controle (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data date DEFAULT curdate(),
+    id_user int,
+    id_calcado int,
+    conc0/erro1 TINYINT(1) DEFAULT false,
+    FOREIGN KEY(id_user) REFERENCES usuario (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY(id_calcado) REFERENCES calcado (id) ON DELETE CASCADE ON UPDATE CASCADE
+) engine = innoDB; 
 
 
 CREATE DATABASE chat_app;
