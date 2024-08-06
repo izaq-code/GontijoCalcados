@@ -82,13 +82,26 @@
   opacity: .8;
 }
 
+@media (max-width: 1341px) {
+  #tela-meu-perfil {
+    padding: 40px 8vh;
+  }
+}
+
 @media (max-width: 1251px) {
   #tela-meu-perfil {
-    padding: 40px 5vh;
+    padding: 40px 4vh;
   }
 
   #container-informacoes-esquerda {
     margin-bottom: -20px;
+  }
+}
+
+@media (max-width: 1040px) {
+  #container-informacoes-direita {
+    display: block;
+    margin-top: -65px;
   }
 }
 
@@ -104,6 +117,11 @@
 
   #container-informacoes-esquerda {
     margin-bottom: -80px;
+  }
+
+  #container-informacoes-direita {
+    display: block;
+    margin-top: 0;
   }
 }
 
