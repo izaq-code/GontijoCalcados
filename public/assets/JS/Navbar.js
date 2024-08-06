@@ -90,7 +90,7 @@ function loadDesktopNavbar() {
 
         <header>
             <div class="navbar">
-                <div class="to-con">
+                <div class="to-con" >
                     <input type="checkbox" id="inputto" />
                     <label id="labe" for="inputto">
                         <div class="to"></div>
@@ -105,7 +105,7 @@ function loadDesktopNavbar() {
                         <a href="../../../../tela_inicial_adm/front-end/html/tela_inicial_adm.html">
                             <div id="Clientes" data-tooltip="Home" class="submenu-item"><i class="bi bi-house icon-space"></i> Home</div>
                         </a>
-                        <a href="#">
+                        <a href="../../../../Graficos/front-end/html/Graficos.html">
                             <div id="cad" data-tooltip="Graficos" class="submenu-item"><i class="bi bi-bar-chart icon-space"></i> Graficos</div>
                         </a>
                         <a href="../../../../cadastro_calcados/front-end/html/cadastro_calcados.html">
@@ -116,10 +116,7 @@ function loadDesktopNavbar() {
                         </a>
                         <a href="../../../../funcionarios/front-end/html/funcionarios.html">
                             <div id="estoque" data-tooltip="Funcionarios" class="submenu-item"><i class="bi bi-person icon-space"></i> Funcionarios</div>
-                        </a>
-                        <a href="../../../../feedbacks/feedbacks.html">
-                            <div id="estoque" data-tooltip="Feedbacks" class="submenu-item"><i class="bi bi-card-text icon-space"></i> Feedbacks</div>
-                        </a>
+                        </a>              
                     </div>
                 </div>
 
@@ -128,8 +125,13 @@ function loadDesktopNavbar() {
                         <h3 id="settingsHeader">SETTINGS</h3>
                     </div>
                     <div class="submenu" id="settings">
-                        <div id="Informacoes" data-tooltip="Informações" class="submenu-item"><i class="bi bi-gear icon-space"></i> Configurações</div>
-                        <div id="salvos" data-tooltip="Salvos" class="submenu-item"><i class="bi bi-bookmark icon-space"></i> Salvos</div>
+               <a href="../../../../configuracao/front-end/html/configuracao.html">
+                             <div id="Informacoes" data-tooltip="Informações" class="submenu-item"><i class="bi bi-gear icon-space"></i> Configurações</div>
+                        </a>
+                     
+                       <a href="../../../../feedbacks/feedbacks.html">
+                            <div id="estoque" data-tooltip="Feedbacks" class="submenu-item"><i class="bi bi-card-text icon-space"></i> Feedbacks</div>
+                        </a>
                     </div>
                 </div>
 
@@ -221,7 +223,7 @@ function loadMobileNavbar() {
 
 
 <li class="">
-  <a href="#">
+  <a href="../../../../tela_inicial_adm/front-end/html/tela_inicial_adm.html">
    <div class="icone">
      <i class="bi bi-house"></i>
     </div>
@@ -230,7 +232,7 @@ function loadMobileNavbar() {
 </li>
 
 <li class="">
-  <a href="#">
+     <a href="../../../../Graficos/front-end/html/Graficos.html">
    <div class="icone">
     <i class="bi bi-bar-chart"></i>
     </div>
@@ -239,7 +241,7 @@ function loadMobileNavbar() {
 </li>
 
 <li class="">
-  <a href="../../../../chat/html/chat.html">
+  <a href="../../../../cadastro_calcados/front-end/html/cadastro_calcados.html">
    <div class="icone">
     <i class="bi bi-clipboard2-pulse"></i>
     </div>
@@ -266,7 +268,7 @@ function loadMobileNavbar() {
 </li>
 
 <li class="">
-  <a href="#">
+  <a href="../../../../configuracao/front-end/html/configuracao.html">
    <div class="icone">
     <i class="bi bi-gear"></i>
     </div>
@@ -275,11 +277,11 @@ function loadMobileNavbar() {
 </li>
 
 <li class="">
-  <a href="#">
+  <a href="../../../../feedbacks/feedbacks.html">
    <div class="icone">
-    <i class="bi bi-bookmark"></i>
+    <i  id="feed" class="bi bi-card-text icon-space"></i>
     </div>
-    <span class="label">Salvos</span>
+    <span class="label">Feedbacks</span>
   </a>
 </li>
 

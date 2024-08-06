@@ -15,7 +15,7 @@ function listarFeedbacks() {
                 var item =  '<div class="usuario-card">' +
                                 '<h3 class="nome-feedback">' + feedback.name + '</h3>' +
                                 '<div class="container-avaliacao">' +
-                                    '<p>' + avaliacaoFormatada + '</p>' +
+                                    '<p class="avaliacao" >' + avaliacaoFormatada + '</p>' +
                                     estrelas +
                                 '</div>' +
                                 '<p class="comentario">' + feedback.comentario + '</p>' +

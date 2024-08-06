@@ -16,6 +16,11 @@
     padding: 20px;
 }
 
+#feed{
+
+margin-left: 30px;
+}
+
 .icon-space {
     margin-right: 30px;
 }
@@ -80,6 +85,7 @@
     padding: 5px;
     position: relative;
     transition: 200ms ease-in-out background-color;
+    
 }
 
 .to {

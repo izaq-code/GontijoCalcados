@@ -3,11 +3,11 @@
     height: auto;
 }    
 
-p, h3, h2 {
+.avaliacao, .nome-feedback, #titl {
     margin: 0;
 }
 
-h2 {
+#titl {
     margin-bottom: 20px;
 }
 

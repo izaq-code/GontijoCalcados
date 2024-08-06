@@ -38,6 +38,12 @@ html{
   .content {
       margin-left: 100px;
   }
+
+  #AbrirChat {
+  
+    top: 80% !important;
+
+  }
 }
 
 .content1 {

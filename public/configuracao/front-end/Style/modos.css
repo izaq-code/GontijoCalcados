@@ -1,0 +1,28 @@
+body.light-mode {
+    background-color: var(--cor-fundo-body-light);
+    color: var(--color-padrao-light);
+  }
+  
+  body.light-mode .cartao-config {
+    background-color: var(--cor-padrao-light);
+    color: var(--color-padrao-light);
+  }
+  
+  body.light-mode .descricao {
+    color: #666;
+  }
+  
+  /* Modo Escuro */
+  body.dark-mode {
+    background-color: var(--cor-fundo-body-dark);
+    color: var(--color-padrao-dark);
+  }
+  
+  body.dark-mode .cartao-config {
+    background-color: var(--cor-padrao-dark);
+    color: var(--color-padrao-dark);
+  }
+  
+  body.dark-mode .descricao {
+    color: #bbb;
+  }
