@@ -21,7 +21,7 @@ router.get('/meu_perfil', (req, res) => {
     ON u.id = bp.id_funcionario AND bp.data = CURDATE()
     LEFT JOIN bater_ponto bh
     ON u.id = bh.id_funcionario
-    WHERE u.id = 3
+    WHERE u.id = ?
     ORDER BY bp.ini_ponto DESC  
     LIMIT 1;`
 
