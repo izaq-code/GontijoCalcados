@@ -12,7 +12,7 @@
   --color-padrao-dark: #fff;
 }
 
-h1, h2, h3, h4, h5, h6 {
+#perfil h1, #perfil h2, #perfil h3, #perfil h4, #perfil h5, #perfil h6 {
   margin: 0;
 }
 
@@ -95,6 +95,11 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 993px) {
   #tela-meu-perfil {
     padding: 40px 5vh;
+  }
+
+  #perfil {
+    display: block;
+    gap: 0px;
   }
 
   #container-informacoes-esquerda {
