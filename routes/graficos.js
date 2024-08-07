@@ -14,8 +14,8 @@ router.get('/grafico1', async (req, res) => {
                         FROM calcado 
                         LEFT JOIN 
                         controle ON calcado.id = controle.id_calcado
-                        WHERE calcado.inProd = true
-                        GROUP BY calcado.id, controle.data`, (error, results) => {
+                        WHERE controle.conc0OrErro1 = false and controle.data >= CURDATE() - INTERVAL 10 MONTH
+                        GROUP BY controle.data`, (error, results) => {
         if (error) {
             console.error(error);
         } else {
@@ -28,14 +28,14 @@ router.get('/grafico1', async (req, res) => {
                         FROM calcado 
                         LEFT JOIN 
                         controle ON calcado.id = controle.id_calcado
-                        WHERE calcado.inProd = false
-                        GROUP BY calcado.id, controle.data`, (error, results) => {
+                        WHERE controle.conc0OrErro1 = true and controle.data >= CURDATE() - INTERVAL 10 MONTH
+                        GROUP BY controle.data`, (error, results) => {
                 if (error) {
                     console.error(error);
                 } else {
 
                     const erro = results;
-                    res.json({ prod, erro });
+                    res/*ouve */.json({ prod, erro });
                 }
             });
         }
