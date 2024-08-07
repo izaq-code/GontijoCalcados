@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../../assets/css/pop.css">
     <link rel="stylesheet" href="../../../assets/css/modos.css">
-    <link rel="stylesheet" href="../Style/padrão.css">
+    <link rel="stylesheet" href="../Style/graficos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" href="../../../assets/imagens/g.png" type="image/x-icon">
@@ -16,19 +16,17 @@
 </head>
 
 <body>
-    <main>
-        <div>
-            <div>
+    <main id="tela-graficos">
+        <div id="container-graficos">
+            <div class="graficos">
                 <h2>Demandas concluídas</h2>
+                <canvas class="graficoSuccess" id="graficoSuccess"></canvas>
             </div>
-            <canvas class="graficoSuccess" id="graficoSuccess"></canvas>
-        </div>
-        <div>
-            <div>
-                <h2>Demandas com erros reportados</h2>
-            </div>
-            <canvas class="graficoError" id="graficoError"></canvas>
 
+            <div class="graficos">
+                <h2>Demandas com erros reportados</h2>
+                <canvas class="graficoError" id="graficoError"></canvas>
+            </div>
         </div>
 
     </main>

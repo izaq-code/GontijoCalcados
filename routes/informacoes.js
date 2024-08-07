@@ -34,5 +34,33 @@ router.get('/quantidade-mensagens', (req, res) => {
     });
 });
 
+// Rota GET para obter a quantidade de erros em demandas do banco de dados ProductEase
+router.get('/quantidade-erros', (req, res) => {
+    const query = `SELECT COUNT(id) AS erros
+                    FROM controle
+                    WHERE conc0OrErro1 = 1;`;
+    connection2.query(query, (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar erros:', err);
+            res.status(500).send('Erro ao buscar erros');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+// Rota GET para obter a quantidade de funcionários do banco de dados ProductEase
+router.get('/quantidade-funcionarios', (req, res) => {
+    const query = `SELECT COUNT(id) AS funcionarios
+                    FROM usuario`;
+    connection2.query(query, (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar funcionarios:', err);
+            res.status(500).send('Erro ao buscar funcionarios');
+            return;
+        }
+        res.json(results);
+    });
+});
 
 module.exports = router;

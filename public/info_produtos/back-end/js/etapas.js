@@ -1,3 +1,4 @@
+
 const corMap = {
     '#FFD700': 'Dourado',
     '#4B0082': 'Índigo',
@@ -40,110 +41,191 @@ function getEtapas() {
                 }
 
                 var item = `
-                <div class="informacoes-demanda">
-                    <p><strong>Nome:</strong></p>
-                    <p>${demanda.nome}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Tipo de Tinta:</strong></p>
-                    <p>${demanda.tipotinta}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Espelinha:</strong></p>
-                    <p>${demanda.espelinha}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Espaçamento da Costura:</strong></p>
-                    <p>${demanda.espacamento_da_costura}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Tamanho Costura Calçado:</strong></p>
-                    <p>${demanda.tamcosturacalcado}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor da Linha:</strong></p>
-                    <p>${getNomeCor(demanda.cor_linha)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Tempo Calçado:</strong></p>
-                    <p>${demanda.tempocalcado}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Tempo Secagem:</strong></p>
-                    <p>${demanda.tempsec}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Registro Equipamento:</strong></p>
-                    <p>${demanda.reg_equip}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor do Solado:</strong></p>
-                    <p>${getNomeCor(demanda.cor_solado)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor do Logo do Solado:</strong></p>
-                    <p>${getNomeCor(demanda.cor_logo_solado)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor do Cadarço:</strong></p>
-                    <p>${getNomeCor(demanda.cor_cadarco)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor da Malha:</strong></p>
-                    <p>${getNomeCor(demanda.cor_malha)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor da Língua:</strong></p>
-                    <p>${getNomeCor(demanda.cor_lingua)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor da Linha da Língua:</strong></p>
-                    <p>${getNomeCor(demanda.cor_linha_lingua)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor do Couro:</strong></p>
-                    <p>${getNomeCor(demanda.cor_couro)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor do Logo:</strong></p>
-                    <p>${getNomeCor(demanda.cor_logo)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor da Espuma Interna:</strong></p>
-                    <p>${getNomeCor(demanda.cor_espuma_interna)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor da Etiqueta:</strong></p>
-                    <p>${getNomeCor(demanda.cor_etiqueta)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Cor do Bagulho do Cadarço:</strong></p>
-                    <p>${getNomeCor(demanda.cor_bagulho_cardaco)}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Nome da Tinta:</strong></p>
-                    <p>${demanda.nometinta}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Nome do Material:</strong></p>
-                    <p>${demanda.nome_material}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Nome do Cadraço:</strong></p>
-                    <p>${demanda.nomecadarco}</p>
-                </div>
-                <div class="informacoes-demanda">
-                    <p><strong>Nome do Solado:</strong></p>
-                    <p>${demanda.nomesolado}</p>
+                <div class="container-progresso">
+                    <div class="barra-progresso">
+                        <div class="progresso"></div>
+                    </div>
+                    <div class="numeros-progresso">
+                        <div class="numero">1</div>
+                        <div class="numero">2</div>
+                        <div class="numero">3</div>
+                        <div class="numero">4</div>
+                        <div class="numero">5</div>
+                        <div class="numero">6</div>
+                    </div>
+                    <div id="conteudo">
+                        <div class="passo"> 
+                            <div class="informacoes-demanda">
+                                <p><strong>Nome:</strong></p>
+                                <p>${demanda.nome}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Tipo de Tinta:</strong></p>
+                                <p>${demanda.tipotinta}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Espelinha:</strong></p>
+                                <p>${demanda.espelinha}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Espaçamento da Costura:</strong></p>
+                                <p>${demanda.espacamento_da_costura}</p>
+                            </div>
+
+                        </div>
+                        <div class="passo"> 
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor da Linha:</strong></p>
+                                <p>${getNomeCor(demanda.cor_linha)}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Tempo Calçado:</strong></p>
+                                <p>${demanda.tempocalcado}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Tempo Secagem:</strong></p>
+                                <p>${demanda.tempsec}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Registro Equipamento:</strong></p>
+                                <p>${demanda.reg_equip}</p>
+                            </div>
+
+                        </div>
+                        <div class="passo">
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor do Logo do Solado:</strong></p>
+                                <p>${getNomeCor(demanda.cor_logo_solado)}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor do Cadarço:</strong></p>
+                                <p>${getNomeCor(demanda.cor_cadarco)}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor da Malha:</strong></p>
+                                <p>${getNomeCor(demanda.cor_malha)}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor da Língua:</strong></p>
+                                <p>${getNomeCor(demanda.cor_lingua)}</p>
+                            </div>
+ 
+                        </div>
+                        <div class="passo">
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor do Couro:</strong></p>
+                                <p>${getNomeCor(demanda.cor_couro)}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor do Logo:</strong></p>
+                                <p>${getNomeCor(demanda.cor_logo)}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor da Espuma Interna:</strong></p>
+                                <p>${getNomeCor(demanda.cor_espuma_interna)}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor da Etiqueta:</strong></p>
+                                <p>${getNomeCor(demanda.cor_etiqueta)}</p>
+                            </div>
+
+                        </div>
+                        <div class="passo"> 
+                            <div class="informacoes-demanda">
+                                <p><strong>Nome da Tinta:</strong></p>
+                                <p>${demanda.nometinta}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Nome do Material:</strong></p>
+                                <p>${demanda.nome_material}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Nome do Cadraço:</strong></p>
+                                <p>${demanda.nomecadarco}</p>
+                            </div>
+                            <div class="informacoes-demanda">
+                                <p><strong>Nome do Solado:</strong></p>
+                                <p>${demanda.nomesolado}</p>
+                            </div>
+                        </div>
+
+                        <div class="passo"> 
+                           
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor do Bagulho do Cadarço:</strong></p>
+                                <p>${getNomeCor(demanda.cor_bagulho_cardaco)}</p>
+                            </div>
+
+                           <div class="informacoes-demanda">
+                                <p><strong>Cor da Linha da Língua:</strong></p>
+                                <p>${getNomeCor(demanda.cor_linha_lingua)}</p>
+                            </div>
+
+                            <div class="informacoes-demanda">
+                                <p><strong>Cor do Solado:</strong></p>
+                                <p>${getNomeCor(demanda.cor_solado)}</p>
+                            </div>
+
+                            <div class="informacoes-demanda">
+                                <p><strong>Tamanho Costura Calçado:</strong></p>
+                                <p>${demanda.tamcosturacalcado}</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div id="conteiner-botao">
+                        <button id="voltar">Voltar</button>
+                        <button id="proximo">Próximo</button>
+                    </div>
                 </div>
                 `;
-
                 container.innerHTML += item;
             });
+
+            iniciarNavegacao();
         },
         error: function (xhr, status, error) {
             console.error('Erro ao carregar feedbacks:', error);
         }
+    });
+}
+
+function iniciarNavegacao() {
+    $(document).ready(function () {
+        let passoAtual = 1;
+        const totalPassos = $('.numero').length;
+        const barraProgresso = $('.progresso');
+        const passos = $('.passo');
+
+        function atualizarPasso() {
+            const larguraProgresso = (passoAtual / totalPassos) * 100 + '%';
+            barraProgresso.css('width', larguraProgresso);
+
+            $('.numero').removeClass('ativo');
+            passos.removeClass('ativo');
+
+            for (let i = 0; i < passoAtual; i++) {
+                $('.numero').eq(i).addClass('ativo');
+            }
+            passos.eq(passoAtual - 1).addClass('ativo');
+        }
+
+        $('#proximo').on('click', function () {
+            if (passoAtual < totalPassos) {
+                passoAtual++;
+                atualizarPasso();
+            }
+        });
+
+        $('#voltar').on('click', function () {
+            if (passoAtual > 1) {
+                passoAtual--;
+                atualizarPasso();
+            }
+        });
+
+        atualizarPasso();
     });
 }
 

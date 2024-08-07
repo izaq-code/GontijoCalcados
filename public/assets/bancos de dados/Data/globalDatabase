@@ -49,36 +49,36 @@ CREATE TABLE faq (
 -- fim do faq
 
 CREATE TABLE material (
-id int PRIMARY KEY,
+id int AUTO_INCREMENT PRIMARY KEY,
 nome Varchar(120),
 caminho Varchar(120),
 caminho2 Varchar(120)
 );
 
 CREATE TABLE tinta (
-id int PRIMARY KEY,
+id int AUTO_INCREMENT PRIMARY KEY,
 nome Varchar(120),
 caminho Varchar(120)
 );
 
 CREATE TABLE tipo_tinta (
-id int PRIMARY KEY,
+id int AUTO_INCREMENT PRIMARY KEY,
 nome Varchar(120)
 );
 
 CREATE TABLE adesivo (
-id int PRIMARY KEY,
+id int AUTO_INCREMENT PRIMARY KEY,
 nome Varchar(120),
 caminho Varchar(120)
 );
 
 CREATE TABLE solado (
-id int PRIMARY KEY,
+id int AUTO_INCREMENT PRIMARY KEY,
 nome Varchar(120)
 );
 
 CREATE TABLE cadarco (
-id int PRIMARY KEY,
+id int AUTO_INCREMENT PRIMARY KEY,
 nome Varchar(120)
 );
 
