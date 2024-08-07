@@ -53,34 +53,40 @@ router.get('/meu_perfil', (req, res) => {
 
 router.get('/historico', (req, res) => {
     const id = req.query.id;
-
-    console.log('ID recebido:', id); 
+    const data_ini = req.query.data_ini;
+    const data_fim = req.query.data_fim;
 
     if (!id) {
         return res.status(400).json({ error: 'ID do usuário é necessário' });
     }
 
-    const query2 = `
+    let query = `
         SELECT bp.id AS id, bp.id_funcionario AS id_funcionario, bp.data AS data, bp.ini_ponto AS ponto_inicial, bp.fim_ponto AS ponto_final, 
         bp.horas_trabalhadas AS horas_trabalho, bp.banco_de_horas AS banco, 
-   COALESCE( ( 
-        SELECT bp_prev.banco_de_horas 
-        FROM bater_ponto bp_prev 
-        WHERE bp_prev.id_funcionario = bp.id_funcionario 
-         AND bp_prev.data = DATE_SUB(bp.data, INTERVAL 1 DAY)
-          ), '00:00:00' ) AS banco_de_horas_anterior 
-    FROM bater_ponto bp 
-    WHERE bp.id_funcionario = ?
-    ORDER BY bp.data, bp.id_funcionario;
+        COALESCE( ( 
+            SELECT bp_prev.banco_de_horas 
+            FROM bater_ponto bp_prev 
+            WHERE bp_prev.id_funcionario = bp.id_funcionario 
+            AND bp_prev.data = DATE_SUB(bp.data, INTERVAL 1 DAY)
+        ), '00:00:00' ) AS banco_de_horas_anterior 
+        FROM bater_ponto bp 
+        WHERE bp.id_funcionario = ?
     `;
 
-    connection2.query(query2, [id], (err, resultado) => {
+    const queryParams = [id];
+
+    if (data_ini && data_fim) {
+        query += ' AND bp.data BETWEEN ? AND ?';
+        queryParams.push(data_ini, data_fim);
+    }
+
+    query += ' ORDER BY bp.data, bp.id_funcionario';
+
+    connection2.query(query, queryParams, (err, resultado) => {
         if (err) {
             console.error('Erro na consulta SQL:', err);
             return res.status(500).json({ error: 'Erro interno do servidor' });
         }
-
-        console.log('Resultado da consulta SQL:', resultado); 
 
         const historicoFormatado = resultado.map(resultado => {
             return {
@@ -98,4 +104,5 @@ router.get('/historico', (req, res) => {
         res.json(historicoFormatado);
     });
 });
+
 module.exports = router;
