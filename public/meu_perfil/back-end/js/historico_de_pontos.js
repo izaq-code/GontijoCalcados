@@ -80,7 +80,7 @@ function listarFuncionarios() {
         return;
     }
 
-    var container = document.getElementById('historico');
+    var container = document.getElementById('historico_1');
     var data_ini = document.getElementById('data_ini').value;
     var data_fim = document.getElementById('data_fim').value;
 
