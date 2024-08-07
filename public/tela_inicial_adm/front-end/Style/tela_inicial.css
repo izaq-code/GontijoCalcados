@@ -71,6 +71,12 @@
   align-items: center;
 }
 
+.cabecalho-graficos-tenis {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
 .mostrar-todos-crafts {
   color: rgb(104, 104, 104);
   position: absolute;
@@ -202,6 +208,27 @@
   padding: 8px;
 }
 
+.mostrar-todos-crafts i {
+  font-size: 12px;
+}
+
+#container-graficos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.graficos {
+  margin-top: 20px;
+  width: 80%;
+  border-radius: 10px;
+  padding: 10px 30px;
+  padding-bottom: 40px;
+}
+
+
 body.light-mode .carrossel-controls button {
   background: rgb(0, 0, 0, 0.6);
   color: #fff;
@@ -224,6 +251,24 @@ body.dark-mode .card-informacoes {
   background-color: var(--cor-padrao-dark);
 }
 
-.mostrar-todos-crafts i {
-  font-size: 12px;
+body.dark-mode .graficos {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+body.light-mode .graficos {
+  background-color: var(--cor-padrao-light);
+  color: var(--color-padrao-light);
+}
+
+@media screen and (max-width: 1500px) {
+  .graficos {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 690px) {
+  #container-graficos {
+    margin-bottom: 100px;
+  }
 }

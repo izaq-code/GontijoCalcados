@@ -12,12 +12,10 @@
   --color-padrao-dark: #fff;
 }
 
-
 .informacoes-demanda {
   width: 230px;
-background-color: white;
-text-align: center;
-border-radius: 10px;
+  text-align: center;
+  border-radius: 10px;
 }
 
 #mostrar-etapas {
@@ -30,21 +28,6 @@ border-radius: 10px;
   width: 70%;
   margin-bottom: 20px;
   position: relative;
-}
-
-body.dark-mode .barra-progresso {
-  background: var(--cor-padrao-dark);
-}
-
-body.dark-mode .numero.ativo {
-  background: var(--cor-principal);
-  color: white;
-  box-shadow: 0 0 4px black;
-}
-
-body.dark-mode .numero {
-  color: rgb(245, 245, 246, 0.6);
-  background: var(--cor-padrao-dark);
 }
 
 .barra-progresso {
@@ -104,10 +87,8 @@ body.dark-mode .numero {
 
 .passo.ativo {
   margin-left: 30px;
-
   display: flex;
   flex-wrap: wrap;
-
   gap: 40px;
 }
 #conteiner-botao {
@@ -128,4 +109,30 @@ body.dark-mode .numero {
   font-size: 16px;
   margin: 5px;
   margin: 5px;
+}
+
+body.light-mode .informacoes-demanda {
+  background-color: var(--cor-padrao-light);
+  color: #000;
+}
+
+body.dark-mode .informacoes-demanda {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+
+body.dark-mode .barra-progresso {
+  background: var(--cor-padrao-dark);
+}
+
+body.dark-mode .numero.ativo {
+  background: var(--cor-principal);
+  color: white;
+  box-shadow: 0 0 2px black;
+}
+
+body.dark-mode .numero {
+  color: rgb(245, 245, 246, 0.6);
+  background: var(--cor-padrao-dark);
 }
