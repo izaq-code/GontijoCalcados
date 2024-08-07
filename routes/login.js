@@ -112,25 +112,9 @@ router.get('/login-google', async (req, res) => {
 
                         res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
                     } else {
-                        // Inserir novo usuário
-                        connection2.query('INSERT INTO usuario (google_id, email, name, profile_picture, pl) VALUES (?, ?, ?, ?, ?)', [
-                            userinfo.id,
-                            userinfo.email,
-                            userinfo.name,
-                            userinfo.picture,
-                            'false'
-                        ], (error, results) => {
-                            if (error) {
-                                console.log(error);
-                            }
-                            req.session.user = userinfo;
 
-                            if (!req.session.user) {
-                                res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
-                            }
+                        res.redirect('http://localhost:3000/userNotFound/front-end/HTML/userNotFound.html');
 
-                            res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
-                        });
                     }
                 }
             });
@@ -167,9 +151,10 @@ router.post('/login_normal', async (req, res) => {
 
                     if (isMatch) {
                         // Senha correta
-                        req.session.tempUser = user;
-                        if (!user.pl) {
-                            req.session.user = user;
+
+                        user.pl == true ? req.session.tempUser = user : req.session.user = user;
+                        if (user.pl) {
+                            ;
                         }
                         res.json({ success: true, mensage: 'Login bem sucedido', pl: user.pl });
                     } else {

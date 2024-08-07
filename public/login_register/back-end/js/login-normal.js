@@ -38,8 +38,16 @@ function q(pl) {
 }
 function w(mensage) {
 
-    alert('erro ao logar : ' + mensage);
-    location.reload();
+   
+    Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Erro ao efetuar o login :' + mensage,
+        showConfirmButton: false,
+        timer: 1500
+    });
+   
+   
 }
 
 function callback() {

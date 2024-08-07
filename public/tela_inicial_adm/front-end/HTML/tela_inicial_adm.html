@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../../assets/css/pop.css">
     <link rel="stylesheet" href="../Style/tela_inicial.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" href="../../../assets/imagens/g.png" type="image/x-icon">
     <title>Gontijo</title>
 </head>
@@ -17,11 +18,12 @@
 <body>
     <main>
         <div id="informacoes-principais-container"></div>
-        
+
         <div class="cabecalho-crafts-tenis">
             <h2>Crafts</h2>
             <div class="mostrar-todos-crafts">
-                <a href="../../../info_produtos/front-end/HTML/selecao.html">Mostrar todos <i class="bi bi-chevron-right"></i></a>
+                <a href="../../../info_produtos/front-end/HTML/selecao.html">Mostrar todos <i
+                        class="bi bi-chevron-right"></i></a>
             </div>
         </div>
         <div id="carrossel">
@@ -31,10 +33,24 @@
                 <button id="next"><i class="bi bi-arrow-right-short"></i></button>
             </div>
         </div>
+        <div>
+            <div class="cabecalho-crafts-tenis">
+                <h2>Gráfico dos Modelos</h2>
+                
+                <div class="mostrar-todos-crafts">
+                    <a href="../../../Graficos/front-end/HTML/graficos.html">Mostrar todos <i
+                            class="bi bi-chevron-right"></i></a>
+                </div>
+            </div>
+            <div>
+                <canvas id="grafModelos"></canvas>
+            </div>
+        </div>
     </main>
 
     <script src="../../front-end/js/tela_inicial.js"></script>
     <script src="../../back-end/js/tela_inicial.js"></script>
+    <script src="../../back-end/js/graficos.js"></script>
     <script src="../../../assets/JS/Navbar.js"></script>
     <script src="../../../assets/JS/links.js"></script>
     <script src="../../../assets/JS/pop_up.js"></script>
