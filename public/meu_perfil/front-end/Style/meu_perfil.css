@@ -69,7 +69,7 @@
 }
 
 .card-ponto {
-  background-color: var(--color-padrao-dark);
+
   padding: 25px 40px;
   border-radius: 10px;
   text-align: center;
@@ -80,6 +80,16 @@
 .conteudo-ponto {
   margin-top: 10px;
   opacity: .8;
+}
+
+body.light-mode .card-ponto {
+  background-color: var(--cor-padrao-light);
+  color: #000;
+}
+
+body.dark-mode .card-ponto {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
 }
 
 @media (max-width: 1341px) {
