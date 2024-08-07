@@ -1,17 +1,16 @@
-
 .container {
-  max-width: 1200px; 
+  max-width: 1200px;
   width: 80%;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
 }
 #obj {
   display: flex;
-  align-items: center; 
-  gap: 20px; 
-margin-bottom: 20px;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 #img img {
@@ -25,89 +24,79 @@ margin-bottom: 20px;
 model-viewer {
   border-radius: 20px;
   box-shadow: inset 0 0 1em rgba(0, 0, 0, 0.2);
-  height: 150px; 
+  height: 150px;
   width: 100%;
-  max-width: 800px; 
+  max-width: 800px;
   box-sizing: border-box;
-}
-
-
-
-@media (min-width: 600px) {
-  #obj {
-    gap: 20px;
-  }
-
-  #img img,
-  model-viewer {
-    width: 40%;
-    max-width: 400px;
-    height: auto; 
-    border: none;
-  }
-
-  #img img {
-    width: 20%;
-    max-width: 200px;
-    height: auto; 
-    border: none;
-  }
 }
 
 @media (min-width: 768px) {
   #img img {
     width: 20%;
     max-width: 200px;
-    height: auto; 
+    height: auto;
     border: none;
   }
   #img img,
   model-viewer {
-    width: 400px; 
-    height: 200px; 
+    width: 400px;
+    height: 200px;
   }
 }
-
 
 @media (min-width: 1024px) {
   #obj {
-    gap: 20px; 
+    gap: 20px;
   }
 }
 
-#cores{
-
+#cores {
   display: none;
 }
 
 #produto-info {
   background-color: white;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 20px 40px; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 40px;
   padding: 20px;
-border-radius: 10px;
-width: 84%;
-padding-top: 30px;
-padding-bottom: 30px;
+  border-radius: 10px;
+  width: 84%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@media screen and (max-width: 1090px) {
+  #produto-info > div {
+    font-size: 10px;
+    margin-left: 0 !important;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  #obj {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 #produto-info > div {
-text-align: center;
-padding: 10px;
-background-color: #fff; 
-border: 1px solid #ddd;
-width: 80%;
-border-radius: 20px;
-margin-left: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 80%;
+  border-radius: 20px;
+  margin-left: 20px;
 }
-
 
 body.light-mode #produto-info {
   background-color: var(--cor-padrao-light);
   color: #000;
 }
-
 
 body.dark-mode #produto-info {
   background-color: var(--cor-padrao-dark);
@@ -116,12 +105,11 @@ body.dark-mode #produto-info {
 
 body.dark-mode .info {
   background-color: var(--cor-padrao-dark) !important;
-  border: 1px solid rgb(221, 221, 221, 0.1)!important;
-  color: rgb(255, 255, 255,0.7);
+  border: 1px solid rgb(221, 221, 221, 0.1) !important;
+  color: rgb(255, 255, 255, 0.7);
 }
 
 body.light-mode .info {
   background-color: var(--cor-padrao-light);
   color: #000;
 }
-

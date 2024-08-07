@@ -1,101 +1,116 @@
-
 .info-container {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.info-container div {
+  margin-bottom: 10px;
+}
+
+.card-calcados img {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.nome-calcado {
+  margin-top: 4px;
+  text-align: center;
+  font-weight: 100;
+  font-size: 12px;
+  margin-left: 16px;
+}
+
+#imgContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.cabecalho-demandas-tenis {
+  display: flex;
+  align-items: center;
+}
+
+.mostrar-todas-demandas {
+  color: white;
+  background-color: var(--cor-principal);
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+  right: 45px;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+  main {
+    flex-direction: row;
+    justify-content: space-around;
   }
-  
-  .info-container div {
-    margin-bottom: 10px;
+
+  #img img,
+  model-viewer {
+    width: 50%;
+    max-width: 380px;
+    height: 380px;
   }
-  
+
+  .card-calcados img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .nome-calcado {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  #img img,
+  model-viewer {
+    width: 380px;
+    height: 380px;
+  }
+
   .card-calcados img {
     width: 100px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-  }
-  
-  .nome-calcado {
-    margin-top: 4px;
-    text-align: center;
-    font-weight: 100;
-    font-size: 12px;
-    margin-left: 16px;
-  }
-  
-  #imgContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+    height: 100px;
   }
 
-  .cabecalho-demandas-tenis {
-    display: flex;
-    align-items: center;
+  .nome-calcado {
+    font-size: 12px;
   }
-  
-  .mostrar-todas-demandas {
-    color: white;
-    background-color: var(--cor-principal);
-    border-radius: 5px;
-    padding: 8px;
-    position: absolute;
-    right: 45px;
+}
+
+@media (min-width: 1024px) {
+  main {
+    justify-content: space-between;
   }
-  
-  /* Media Queries */
-  @media (min-width: 600px) {
-    main {
-      flex-direction: row;
-      justify-content: space-around;
-    }
-  
-    #img img,
-    model-viewer {
-      width: 50%;
-      max-width: 380px;
-      height: 380px;
-    }
-  
-    .card-calcados img {
-      width: 150px;
-      height: 150px;
-    }
-  
-    .nome-calcado {
-      font-size: 14px;
-    }
+
+  .card-calcados img {
+    width: 120px;
+    height: 120px;
   }
-  
-  @media (min-width: 768px) {
-    #img img,
-    model-viewer {
-      width: 380px;
-      height: 380px;
-    }
-  
-    .card-calcados img {
-      width: 100px;
-      height: 100px;
-    }
-  
-    .nome-calcado {
-      font-size: 12px;
-    }
+
+  .nome-calcado {
+    font-size: 16px;
   }
-  
-  @media (min-width: 1024px) {
-    main {
-      justify-content: space-between;
-    }
-  
-    .card-calcados img {
-      width: 120px;
-      height: 120px;
-    }
-  
-    .nome-calcado {
-      font-size: 16px;
-    }
+}
+
+@media screen and (max-width: 1090px) {
+  .card-calcados img {
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
   }
-  
+
+  #ti {
+    margin-left: 10px;
+  }
+}
+
+body.dark-mode .card-calcados img {
+  background-color: var(--cor-padrao-dark);
+}

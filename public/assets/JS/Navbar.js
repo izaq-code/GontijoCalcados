@@ -239,7 +239,7 @@ function loadMobileNavbar() {
 </li>
 
 <li class="">
-  <a href="../../../../cadastro_calcados/front-end/html/cadastro_calcados.html">
+  <a href="../../../../info_produtos/front-end/html/selecao.html">
    <div class="icone">
     <i class="bi bi-clipboard2-pulse"></i>
     </div>
