@@ -128,7 +128,7 @@ CREATE TABLE controle (
     data date DEFAULT curdate(),
     id_user int,
     id_calcado int,
-    conc0/erro1 TINYINT(1) DEFAULT false,
+    concOrErro1 TINYINT(1) DEFAULT false,
     FOREIGN KEY(id_user) REFERENCES usuario (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY(id_calcado) REFERENCES calcado (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) engine = innoDB; 
