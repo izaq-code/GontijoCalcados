@@ -1,0 +1,79 @@
+:root {
+  --corprincipal: #225d99;
+  --corprincipalhover: #154a80;
+  --cor-outline: #e1ad33;
+  --corterciaria: #426441;
+  --corterciariahover: #2e4b2d;
+  --corfundo: #f5f6f6;
+  --corfundosecundaria: white;
+  --cortextoprincipal: black;
+  --cortextoprincipalhover: #d8d8d8;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.grid-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  align-items: center;
+}
+#cadastrar-funcionarios {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.input-sub {
+  margin-top: 40px;
+}
+#titl {
+  font-size: 20px;
+}
+input[type="submit"] {
+  text-transform: uppercase;
+  background-color: var(--corprincipal);
+  color: var(--corfundo);
+  border: none;
+  padding: 7px 20px;
+  cursor: pointer;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: 0.2 all linear;
+}
+
+input[type="submit"]:hover {
+  transition: 0.2 all linear;
+  background: var(--corprincipalhover);
+}
+
+body.dark-mode .inputt {
+  background-color: var(--cor-padrao-dark);
+  color: var(--color-padrao-dark);
+}
+
+body.dark-mode .input label {
+  background-color: var(--cor-padrao-dark);
+  color: var(--corfundo);
+}
+
+body.dark-mode .input input:valid ~ label,
+.input input:focus ~ label {
+  background-color: transparent !important;
+}
+
+body.light-mode .input label {
+  background-color: var(--cor-padrao-light);
+  color: var(--color-padrao-light);
+}
+
+body.light-mode .input input:valid ~ label,
+.input input:focus ~ label {
+  background-color: transparent !important;
+}

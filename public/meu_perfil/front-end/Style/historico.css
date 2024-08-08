@@ -1,0 +1,285 @@
+:root {
+  --cor-principal: #225d99;
+  --cor-principal-hover: #154a80;
+  --cor-outline: #e1ad33;
+
+  --cor-fundo-body-light: #f5f5f6;
+  --cor-padrao-light: white;
+  --color-padrao-light: #333;
+
+  --cor-fundo-body-dark: #333;
+  --cor-padrao-dark: #444;
+  --color-padrao-dark: #fff;
+}
+
+#perfil h1,
+#perfil h2,
+#perfil h3,
+#perfil h4,
+#perfil h5,
+#perfil h6 {
+  margin: 0;
+}
+
+#tela-meu-historico {
+  padding: 10px 20vh;
+}
+
+#perfil {
+  margin-bottom: 30px;
+}
+
+#container-ponto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card-ponto {
+  padding: 25px 40px;
+  border-radius: 10px;
+  text-align: center;
+  gap: 30px;
+  width: 200px;
+}
+
+.conteudo-ponto {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+.cabecalho-historico {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.cabecalho-historico h1 {
+  font-size: 16px;
+  margin-top: 6px;
+}
+.cabecalho-historico i {
+  margin-top: 6px;
+}
+
+#filtro {
+  margin-top: 1px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container {
+  border-radius: 10px;
+  padding: 30px 30px;
+  padding-bottom: 40px;
+  height: 500px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+  padding: 24px;
+}
+
+th {
+  font-size: 17px;
+  padding: 18px;
+  font-weight: bolder;
+}
+
+.table-wrapper {
+    height: 440px;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+.filtro-label {
+  font-size: 14px;
+}
+
+.filtro-botao {
+  background-color: var(--cor-principal);
+  padding: 5px 20px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.filtro-botao:hover {
+  background-color: var(--cor-principal-hover);
+  transition: 0.2s all linear;
+}
+
+.filtro-input {
+  outline: none;
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+body.light-mode .filtro-input::-webkit-calendar-picker-indicator {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+body.light-mode .filtro-input::-moz-calendar-picker-indicator {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+body.light-mode .filtro-input::-ms-calendar-picker {
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+body.dark-mode .filtro-input::-webkit-calendar-picker-indicator {
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+body.dark-mode .filtro-input::-moz-calendar-picker-indicator {
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+body.dark-mode .filtro-input::-ms-calendar-picker {
+  padding: 3px;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+body.light-mode .filtro-input {
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  background-color: var(--cor-fundo-body-light);
+}
+
+body.dark-mode .filtro-input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--cor-fundo-body-dark);
+  color: white;
+}
+
+body.light-mode tr.linha-abaixo {
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+}
+
+body.dark-mode tr.linha-abaixo {
+  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+}
+
+body.light-mode .container {
+  background-color: var(--cor-padrao-light);
+  color: #000;
+}
+
+body.dark-mode .container {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+body.light-mode .card-ponto {
+  background-color: var(--cor-padrao-light);
+  color: #000;
+}
+
+body.dark-mode .card-ponto {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+@media (max-width: 1341px) {
+  #tela-meu-historico {
+    padding: 40px 8vh;
+  }
+}
+
+@media (max-width: 1251px) {
+  #tela-meu-historico {
+    padding: 40px 4vh;
+  }
+}
+
+@media (max-width: 993px) {
+  #tela-meu-historico {
+    padding: 40px 5vh;
+  }
+
+  #perfil {
+    display: block;
+    gap: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  #tela-meu-historico {
+    padding: 40px 5vh;
+  }
+
+  .card-ponto {
+    width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 1500px) {
+    .table-wrapper {
+        height: 380px;
+ 
+      }
+  }
+
+  @media only screen and (max-width: 1150px) {
+    .table-wrapper {
+        height: 350px;
+ 
+      }
+  }
+
+@media only screen and (max-width: 1200px) {
+  .cabecalho-historico {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #filtro {
+    margin-left: 0;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cabecalho-historico {
+    gap: 10px;
+  }
+  .table-wrapper {
+    height: 230px;
+
+  }
+  #filtro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
+  }
+}

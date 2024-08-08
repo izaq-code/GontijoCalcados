@@ -81,6 +81,43 @@ function listarFuncionarios() {
     }
 
     var container = document.getElementById('historico_1');
+    container.innerHTML = ''; 
+
+    var cabeçalho = `
+        <div class='container'>
+     
+            <div class='cabecalho-historico'>
+                <i class="bi bi-calendar-week"></i><h1>Espelho de ponto</h1>
+            
+             <div id="filtro">
+                <label class="filtro-label" for="data_ini">Data Início:</label>
+                <input class="filtro-input" type="date" id="data_ini">
+                <label class="filtro-label" for="data_fim">Data Fim:</label>
+                <input class="filtro-input" type="date" id="data_fim">
+                <button class="filtro-botao" id="filtrar">Filtrar</button>
+                <button class="filtro-botao" id="mostrar-todos">Mostrar Todos</button>
+            </div>
+            </div>
+             <div class="table-wrapper">
+            <table class='tabela-historico'>
+                <thead>
+                    <tr class="linha-abaixo">
+                        <th>Data</th>
+                        <th>Entrada e Saída</th>
+                        <th>Horas Trabalhadas</th>
+                        <th>Banco de Horas Anterior</th>
+                        <th>Banco de Horas</th>
+                    </tr>
+                </thead>
+                <tbody id='historico'>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    `;
+
+    container.innerHTML = cabeçalho;
+
     var data_ini = document.getElementById('data_ini').value;
     var data_fim = document.getElementById('data_fim').value;
 
@@ -99,27 +136,6 @@ function listarFuncionarios() {
         success: function (historico) {
             console.log("Historico:", historico);
 
-            var cabeçalho = `
-                <div class='container'>
-                    <div class='...'></div>
-                    <table class='...'>
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Entrada e Saída</th>
-                                <th>Horas Trabalhadas</th>
-                                <th>Banco de Horas Anterior</th>
-                                <th>Banco de Horas</th>
-                            </tr>
-                        </thead>
-                        <tbody id='historico'>
-                        </tbody>
-                    </table>
-                </div>
-            `;
-
-            container.innerHTML = cabeçalho;
-
             var tbody = document.getElementById('historico');
 
             if (Array.isArray(historico) && historico.length > 0) {
@@ -132,13 +148,14 @@ function listarFuncionarios() {
                     var banco_de_horas_anterior = item.banco_de_horas_anterior || '00:00:00';
 
                     var row = `
-                        <tr>
+                        <tr class="linha-abaixo">
                             <td>${data}</td>
                             <td>${ponto_inicial} - ${ponto_final}</td>
                             <td>${horas_trabalhadas}</td>
                             <td>${banco_de_horas_anterior}</td>
                             <td>${banco}</td>
                         </tr>
+                     
                     `;
 
                     tbody.innerHTML += row;
@@ -153,19 +170,19 @@ function listarFuncionarios() {
             container.innerHTML = '<p>Erro ao carregar histórico.</p>';
         }
     });
+
+        document.getElementById('filtrar').addEventListener('click', function() {
+            listarFuncionarios();
+        });
+
+    document.getElementById('mostrar-todos').addEventListener('click', function() {
+        document.getElementById('data_ini').value = '';
+        document.getElementById('data_fim').value = '';
+        listarFuncionarios();
+    });
 }
 
 carregarInformacoes(function() {
     carregarPerfil();
-    listarFuncionarios();
-});
-
-document.getElementById('filtrar').addEventListener('click', function() {
-    listarFuncionarios();
-});
-
-document.getElementById('mostrar-todos').addEventListener('click', function() {
-    document.getElementById('data_ini').value = '';
-    document.getElementById('data_fim').value = '';
     listarFuncionarios();
 });

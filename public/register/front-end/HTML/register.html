@@ -16,34 +16,43 @@
 <body>
     <main>
         <form id="register">
-            <div>
+            <h1 id="titl">Cadastrar Funcionário</h1>
+            <div id="cadastrar-funcionarios">
+                <div class="grid-container">
+
+               
                 <div class="input input-nome">
-                    <input id="input-nome" name="nome" type="text" required>
+                    <input class="inputt" id="input-nome" name="nome" type="text" required>
                     <label for="input-nome">Nome</label>
                 </div>
                 <div class="input">
-                    <input id="input-senha" name="senha" type="password" required>
+                    <input class="inputt" id="input-senha" name="senha" type="password" required>
                     <label for="input-senha">senha</label>
-                </div>
-                <div class="input">
+                </div> 
+            
+            </div>
+
+            <div class="grid-container1">
+                <div class="input1">
                     <input type="radio" name="nivel" id="nivel1" value="1">
                     <label for="nivel1">Funcionário comum</label>
                 </div>
 
-                <div class="input">
+                <div class="input1">
                     <input type="radio" name="nivel" id="nivel2" value="2">
                     <label for="nivel2">Supervisor</label>
                 </div>
 
-                <div class="input">
+                <div class="input1">
                     <input type="radio" name="nivel" id="nivel3" value="3">
                     <label for="nivel3">Diretor</label>
                 </div>
-
-                <div class="input">
+            </div> 
+           <div class="input-sub">
                     <input type="submit" value="Cadastrar">
                 </div>
             </div>
+    
         </form>
 
         <div id="response"></div>
