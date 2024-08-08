@@ -2,7 +2,6 @@ const { connection2 } = require('../public/chat/js/db.js');
 const express = require('express');
 const router = express.Router();
 
-
 router.post('/cadastro_especificacoes', (req, res) => {
     const { tinta, cadarco, adesivo, material, solado, tipo_tinta } = req.body;
 
