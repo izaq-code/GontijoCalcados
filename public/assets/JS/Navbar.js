@@ -208,7 +208,7 @@ function loadMobileNavbar() {
 
   
     <div class="perfil">
-      <div id="nome_user"></div>
+      <a href="http://localhost:3000/meu_perfil/front-end/html/meu_perfil.html" id="nome_user"></a>
       <div id="foto_user"></div>
     </div>
   </header>

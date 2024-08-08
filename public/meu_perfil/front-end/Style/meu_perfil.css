@@ -57,7 +57,7 @@
   transition: background-color 0.3s;
 }
 
-.bater-ponto-button:hover {
+.bater-ponto-button:hover, .historico_de_pontos:hover {
   background-color: var(--cor-principal-hover);
 }
 
