@@ -9,6 +9,11 @@
   --cortextoprincipal: black;
   --cortextoprincipalhover: #d8d8d8;
 }
+
+#visualizadorSapato{
+width: 80%;
+}
+
 #cadastrar-calcado {
   width: 100%;
   max-width: 1100px;
@@ -25,44 +30,6 @@
 .input {
   display: flex;
   flex-direction: column;
-}
-
-.input input,
-.input select {
-  margin-bottom: 5px;
-  width: 61%;
-  max-width: 100%;
-}
-.input select {
-  width: 67%;
-}
-
-.input label {
-  margin-top: 5px;
-}
-
-.input #input-nome {
-  width: 81%;
-  max-width: 100%;
-}
-
-.baixo2 {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-
-.baixo {
-  display: flex;
-  align-items: center;
-}
-
-.escolha {
-  padding: 15px 0;
-}
-
-.enviar {
-  margin-top: 15px;
 }
 
 .foto__image {
@@ -187,6 +154,23 @@
   display: none;
 }
 
+
+.input-nome label {
+  background-color: var(--corfundo);
+  position: absolute;
+  top: 13%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: var(--cortextosecundario);
+  font-size: 19px;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.input label {
+  font-size: 14px
+}
+
 .foto {
   border-radius: 23px;
   width: 150px;
@@ -251,6 +235,123 @@ button[type="submit"]:hover {
 .enviar {
   display: inline-block;
 }
+
+.container-progresso {
+  width: 80%;
+  margin-bottom: 20px;
+  position: relative;
+  margin-right: 109px;
+}
+
+.barra-progresso {
+  width: 100%;
+  background: #ddd;
+  border-radius: 5px;
+  height: 5px;
+  position: relative;
+}
+
+.progresso {
+  height: 100%;
+  width: 0;
+  background: var(--cor-principal);
+  transition: width 0.3s ease;
+}
+
+.numeros-progresso {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -12px;
+  left: 0;
+  width: 100%;
+}
+
+.numero {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease, color 0.3s ease;
+  background: #ddd;
+  color: black;
+  position: relative;
+}
+
+.numero.ativo {
+  background: var(--cor-principal);
+  color: white;
+  box-shadow: 0 0 3px black;
+}
+
+#conteudo {
+  margin-top: 20px;
+
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.passo {
+  display: none;
+}
+
+.passo.ativo {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+#conteiner-botao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#voltar,
+#proximo {
+  padding: 10px 20px;
+  background: var(--cor-principal);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  margin: 5px;
+}
+
+body.light-mode .informacoes-demanda {
+  background-color: var(--cor-padrao-light);
+  color: #000;
+}
+
+body.dark-mode .informacoes-demanda {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+
+body.dark-mode .barra-progresso {
+  background: var(--cor-padrao-dark);
+}
+
+body.dark-mode .numero.ativo {
+  background: var(--cor-principal);
+  color: white;
+  box-shadow: 0 0 2px black;
+}
+
+body.dark-mode .numero {
+  color: rgb(245, 245, 246, 0.6);
+  background: var(--cor-padrao-dark);
+}
+
+
+
 
 body.dark-mode .grupo-controle select {
   background-color: var(--cor-padrao-dark);

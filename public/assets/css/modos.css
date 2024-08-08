@@ -91,3 +91,40 @@ body.light-mode .container-toggle {
 body.light-mode .to-con {
   background-color: #ebeaea;
 }
+
+body.light-mode .swal2-popup {
+  background-color: var(--cor-padrao-light);
+  color: #000;
+}
+
+body.dark-mode .swal2-popup {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+body.light-mode .swal2-confirm.btn-success {
+  font-weight: bolder;
+  background-color: var(--cor-principal); 
+  color: #fff;
+}
+
+body.dark-mode .swal2-confirm.btn-success {
+  font-weight: bolder;
+  background-color: var(--cor-principal); 
+  color: #fff;
+}
+
+body.light-mode .swal2-cancel.btn-danger {
+  font-weight: bolder;
+  background-color: #68040e; 
+  color: #fff;
+}
+
+body.dark-mode .swal2-cancel.btn-danger {
+  font-weight: bolder;
+  background-color: #68040e;
+  color: #fff;
+}
+
+
+
