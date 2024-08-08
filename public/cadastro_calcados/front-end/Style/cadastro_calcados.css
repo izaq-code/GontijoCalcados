@@ -12,6 +12,8 @@
 
 #visualizadorSapato{
 width: 80%;
+margin-top: 30px;
+margin-left: 10%;
 }
 
 #cadastrar-calcado {
@@ -158,7 +160,7 @@ width: 80%;
 .input-nome label {
   background-color: var(--corfundo);
   position: absolute;
-  top: 13%;
+  top: 45%;
   left: 15px;
   transform: translateY(-50%);
   color: var(--cortextosecundario);
@@ -168,7 +170,8 @@ width: 80%;
 }
 
 .input label {
-  font-size: 14px
+  font-size: 14px;
+  top: 50%;
 }
 
 .foto {
@@ -288,8 +291,7 @@ button[type="submit"]:hover {
 
 #conteudo {
   margin-top: 20px;
-
-  height: 500px;
+  height: 400px;
   display: flex;
   align-items: center;
 }
@@ -297,13 +299,18 @@ button[type="submit"]:hover {
 .passo {
   display: none;
 }
+#grid-vertical{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .passo.ativo {
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
 }
+
 #conteiner-botao {
   display: flex;
   justify-content: space-between;
