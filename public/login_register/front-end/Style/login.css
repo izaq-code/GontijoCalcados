@@ -1,16 +1,4 @@
-:root {
-    --corprincipal: #225d99;
-    --corprincipalhover: #154a80;
-    --cor-outline: #e1ad33;
-    --corterciaria: #426441;
-    --corterciariahover: #2e4b2d;
-    --corfundo: #f5f6f6;
-    --corfundosecundaria: white;
-    --cortextoprincipal: black;
-    --cortextoprincipalhover: #d8d8d8;
-    --cortextosecundario: rgb(158, 158, 158);
-    --cortextosecundariohover: #7e7e7e;
-}
+
 
 main {
     display: flex;

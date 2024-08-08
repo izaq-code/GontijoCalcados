@@ -8,6 +8,8 @@
   --corfundosecundaria: white;
   --cortextoprincipal: black;
   --cortextoprincipalhover: #d8d8d8;
+  --cortextosecundario: rgb(158, 158, 158);
+  --cortextosecundariohover: #7e7e7e;
 }
 
 #visualizadorSapato{
@@ -122,56 +124,9 @@ margin-left: 10%;
   bottom: 0;
 }
 
-.remover-foto {
-  top: -20px;
-  font-weight: bolder;
-  cursor: pointer;
-  font-size: 14px;
-  padding: auto;
-  background-color: transparent;
-  border-radius: 4px;
-  color: rgb(0, 0, 0);
-  font-size: 20px;
-  margin-top: -50px;
-  margin-left: 130px;
-  border: none;
-  padding-top: 6px;
-  padding-left: 7px;
-  padding-right: 7px;
-  position: relative;
-  transition: 0.2s all linear;
-}
-
-.remover-foto:hover {
-  background-color: rgb(255, 255, 255, 0.3);
-  border-radius: 13px;
-  padding-top: 6px;
-  padding-left: 7px;
-  padding-right: 7px;
-  transition: 0.2s all linear;
-}
-
 #input-imagem-calcado,
 #input-imagem-3d-calcado {
   display: none;
-}
-
-
-.input-nome label {
-  background-color: var(--corfundo);
-  position: absolute;
-  top: 45%;
-  left: 15px;
-  transform: translateY(-50%);
-  color: var(--cortextosecundario);
-  font-size: 19px;
-  pointer-events: none;
-  transition: .3s;
-}
-
-.input label {
-  font-size: 14px;
-  top: 50%;
 }
 
 .foto {
@@ -331,90 +286,18 @@ button[type="submit"]:hover {
   margin: 5px;
 }
 
-body.light-mode .informacoes-demanda {
-  background-color: var(--cor-padrao-light);
-  color: #000;
+body.dark-mode select.categoria-cor {
+  background-color: var(--cor-fundo-body-dark);
+  color: var(--color-padrao-dark);
 }
 
-body.dark-mode .informacoes-demanda {
-  background-color: var(--cor-padrao-dark);
-  color: #fff;
-}
-
-
-body.dark-mode .barra-progresso {
-  background: var(--cor-padrao-dark);
-}
-
-body.dark-mode .numero.ativo {
-  background: var(--cor-principal);
-  color: white;
-  box-shadow: 0 0 2px black;
-}
-
-body.dark-mode .numero {
-  color: rgb(245, 245, 246, 0.6);
-  background: var(--cor-padrao-dark);
-}
-
-
-
-
-body.dark-mode .grupo-controle select {
-  background-color: var(--cor-padrao-dark);
-  color: var(--corfundo);
-}
-
-body.dark-mode .input label {
-  background-color: var(--cor-padrao-dark);
-  color: var(--corfundo);
-}
-
-body.dark-mode .input input:valid ~ label,
-.input input:focus ~ label {
-  background-color: transparent !important;
-}
-
-body.light-mode .input label {
-  background-color: var(--cor-padrao-light);
-  color: var(--color-padrao-light);
-}
-
-body.light-mode .input input:valid ~ label,
-.input input:focus ~ label {
-  background-color: transparent !important;
-}
-
-body.dark-mode .select-material {
-  background-color: var(--cor-padrao-dark);
-  color: var(--corfundo);
-}
-
-body.light-mode .grupo-controle select {
-  background-color: var(--cor-padrao-light);
-  color: var(--color-padrao-light);
-}
-
-body.light-mode .input select {
-  background-color: var(--cor-padrao-light);
-  color: var(--color-padrao-light);
+body.dark-mode .foto__image {
+  background-color: var(--cor-fundo-body-dark);
+  border: 1px solid var(--cor-padrao-dark);
 }
 
 body.dark-mode .input select {
-  background-color: var(--cor-padrao-dark);
+  background-color: var(--cor-fundo-body-dark);
   color: var(--color-padrao-dark);
-}
-
-body.dark-mode .inputt {
-  background-color: var(--cor-padrao-dark);
-  color: var(--color-padrao-dark);
-}
-
-body.light-mode .foto__image {
-  background-color: var(--cor-padrao-light);
-  border: 1px solid var(--cor-padrao-light);
-}
-body.dark-mode .foto__image {
-  background-color: var(--cor-padrao-dark);
   border: 1px solid var(--cor-padrao-dark);
 }

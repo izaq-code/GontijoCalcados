@@ -29,6 +29,20 @@ html{
   --color-padrao-dark: #fff;
 }
 
+:root {
+  --corprincipal: #225d99;
+  --corprincipalhover: #154a80;
+  --cor-outline: #e1ad33;
+  --corterciaria: #426441;
+  --corterciariahover: #2e4b2d;
+  --corfundo: #f5f6f6;
+  --corfundosecundaria: white;
+  --cortextoprincipal: black;
+  --cortextoprincipalhover: #d8d8d8;
+  --cortextosecundario: rgb(158, 158, 158);
+  --cortextosecundariohover: #7e7e7e;
+}
+
 .content {
   margin-left: 265px;
   padding: 20px;
@@ -83,15 +97,18 @@ html{
 #AbrirChat:hover {
   background-color: var(--cor-principal-hover);
 }
-
 .input {
   position: relative;
   margin-bottom: 20px;
 }
 
+#input-email,
+#input-senha {
+  color: var(--cortextoprincipal);
+}
+
 .input input {
-  width: 100%; 
-  max-width: 300px; 
+  width: 300px;
   height: 50px;
   border-radius: 6px;
   font-size: 18px;
@@ -99,12 +116,13 @@ html{
   border: 1px solid var(--cortextosecundario);
   outline: none;
   transition: border-color 0.3s ease-in-out;
+  background-color: var(--corfundo);
 }
 
 .input label {
   background-color: var(--corfundo);
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 15px;
   transform: translateY(-50%);
   color: var(--cortextosecundario);
@@ -113,9 +131,17 @@ html{
   transition: .3s;
 }
 
-.input input:valid~label,
 .input input:focus~label {
-  top: -5px;
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 1px;
+  background: var(--corfundo);
+  color: var(--corprincipal);
+}
+
+.input input:valid~label {
+  top: 0;
   left: 15px;
   font-size: 16px;
   padding: 0 1px;
@@ -127,13 +153,9 @@ html{
   border-color: var(--cortextosecundario);
 }
 
-.input input:focus~label {
-  color: var(--corprincipal);
-}
-
 .input select {
+  background-color: var(--cor-fundo-body-light);
   width: 100%;
-  max-width: 300px; 
   height: 45px;
   border-radius: 6px;
   font-size: 18px;
@@ -143,39 +165,31 @@ html{
   transition: border-color 0.3s ease-in-out;
 }
 
-.input input:focus,
-.input select:focus {
+.input input:focus {
   border-color: var(--corprincipal);
 }
 
-@media (max-width: 600px) {
-  .input input {
-    font-size: 16px;
-    height: 40px;
-  }
-
-  .input select {
-    font-size: 16px;
-    height: 40px;
-  }
-
-  .input label {
-    font-size: 16px;
-  }
+body.dark-mode .input input {
+  border: 1px solid var(--cortextosecundario);
+  background-color: var(--cor-fundo-body-dark);
+  color: var(--color-padrao-dark);
 }
 
-@media (max-width: 400px) {
-  .input input {
-    font-size: 14px;
-    height: 35px;
-  }
+body.dark-mode .input label {
+  background-color:var(--cor-fundo-body-dark);
+  color: var(--cortextosecundario);
+}
 
-  .input select {
-    font-size: 14px;
-    height: 35px;
-  }
+body.dark-mode .input input:focus~label {
+  background: var(--cor-fundo-body-dark);
+  color: var(--color-padrao-dark);
+}
 
-  .input label {
-    font-size: 14px;
-  }
+body.dark-mode .input input:focus,
+body.dark-mode .input input:not(:placeholder-shown) {
+  border: 1px solid var(--cortextosecundario);
+}
+
+body.dark-mode .input input:focus {
+  border-color: var(--color-padrao-dark);
 }

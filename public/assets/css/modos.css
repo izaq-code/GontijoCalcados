@@ -13,11 +13,11 @@
 }
 
 body.light-mode {
-  background-color: var(--cor-fundo-body-ligth-ligth);
+  background-color: var(--cor-fundo-body-ligth);
   color: #333;
 }
 body.dark-mode {
-  background-color: var(--cor-fundo-body-dark-dark);
+  background-color: var(--cor-fundo-body-dark);
   color: #fff;
 }
 

@@ -156,7 +156,7 @@
 }
 
 select.categoria-cor {
-  border: none;
+  border: 1px solid var(--cortextosecundario);
   border-radius: 5px;
   padding: 10px;
   background-color: #f0f0f0;

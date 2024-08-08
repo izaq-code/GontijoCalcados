@@ -53,27 +53,3 @@ input[type="submit"]:hover {
   background: var(--corprincipalhover);
 }
 
-body.dark-mode .inputt {
-  background-color: var(--cor-padrao-dark);
-  color: var(--color-padrao-dark);
-}
-
-body.dark-mode .input label {
-  background-color: var(--cor-padrao-dark);
-  color: var(--corfundo);
-}
-
-body.dark-mode .input input:valid ~ label,
-.input input:focus ~ label {
-  background-color: transparent !important;
-}
-
-body.light-mode .input label {
-  background-color: var(--cor-padrao-light);
-  color: var(--color-padrao-light);
-}
-
-body.light-mode .input input:valid ~ label,
-.input input:focus ~ label {
-  background-color: transparent !important;
-}
