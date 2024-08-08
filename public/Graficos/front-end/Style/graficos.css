@@ -1,49 +1,61 @@
 #tela-graficos {
-    padding: 10px 10vh;
-  }
-  
-  #container-graficos {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-  
+  padding: 10px 10vh;
+  height: 10vh;
+}
+
+body {
+  height: auto;
+}
+
+#container-graficos {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.graficos {
+  width: 43%;
+  border-radius: 10px;
+  padding: 10px 30px;
+  padding-bottom: 40px;
+  background-color: var(--cor-padrao-light);
+}
+
+#graficoSuccess {
+  margin-top: 30px;
+}
+
+#graficoError {
+  margin-top: 30px;
+}
+
+body.dark-mode .graficos {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+body.light-mode .graficos {
+  background-color: var(--cor-padrao-light);
+  color: var(--color-padrao-light);
+}
+
+@media screen and (max-width: 1500px) {
   .graficos {
-    width: 43%;
-    border-radius: 10px;
-    padding: 10px 30px;
-    padding-bottom: 40px;
-    background-color: var(--cor-padrao-light);
+    width: 100%;
   }
-  
-  #graficoSuccess {
-    margin-top: 30px;
+}
+
+@media (max-width: 1100px) {
+  #tela-graficos {
+    padding: 10px 4vh;
   }
-  
-  #graficoError {
-    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  #tela-graficos {
+    margin-top: 100px;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
-  
-  body.dark-mode .graficos {
-    background-color: var(--cor-padrao-dark);
-    color: #fff;
-  }
-  
-  body.light-mode .graficos {
-    background-color: var(--cor-padrao-light);
-    color: var(--color-padrao-light);
-  }
-  
-  @media screen and (max-width: 1500px) {
-    .graficos {
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 1100px) {
-    #tela-graficos {
-      padding: 10px 4vh;
-    }
-  }
-  
+}

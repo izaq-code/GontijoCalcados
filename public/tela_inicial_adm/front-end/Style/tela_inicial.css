@@ -192,6 +192,10 @@
   #informacoes-principais-container {
     gap: 1px;
   }
+
+  .content1 {
+    margin-top: 85px;
+  }
 }
 
 .carrossel-controls {
@@ -261,12 +265,21 @@ body.light-mode .graficos {
 
 @media screen and (max-width: 1500px) {
   .graficos {
-    width: 100%;
+    width: 88%;
   }
 }
 
 @media only screen and (max-width: 690px) {
+  #tela-inicial {
+    margin-left: 120px;
+  }
   #container-graficos {
     margin-bottom: 100px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #tela-inicial {
+    margin-left: 0;
   }
 }

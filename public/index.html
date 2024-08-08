@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./lading/index.css">
-  <link rel="shortcut icon" href="/assets/imagens/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/imagens/g.png" type="image/x-icon">
   <title>Gontijo Calçados</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
@@ -19,9 +20,11 @@
       </div>
       <div class="nav-lista-direita">
         <ul>
-          <li class="nav-item"><a href="./tela_suporte/front-end/HTML/telasuporte.html" class="nav-link">Contato</a></li>
+          <li class="nav-item"><a href="./tela_suporte/front-end/HTML/telasuporte.html" class="nav-link">Contato</a>
+          </li>
           <li class="nav-item"><a href="#perguntas-frequentes" class="nav-link">Dúvidas</a></li>
-          <li class="nav-item login"><a href="./login_register/front-end/HTML/login.html" class="nav-link">Login</a></li>
+          <li class="nav-item login"><a href="./login_register/front-end/HTML/login.html" class="nav-link">Login</a>
+          </li>
         </ul>
       </div>
       <div class="mobile-menu-icone">
@@ -55,12 +58,14 @@
         <div class="cards-informacoes-iniciais">
           <img src="/assets/imagens/dinheiro.svg" class="circulo-imagem-card">
           <h4>Dinheiro</h4>
-          <p>O aumento dos custos é consequencia daqueles calçados que se tornaram "inutilizaveis" na etapa de produção.</p>
+          <p>O aumento dos custos é consequencia daqueles calçados que se tornaram "inutilizaveis" na etapa de produção.
+          </p>
         </div>
         <div class="cards-informacoes-iniciais">
           <img src="/assets/imagens/relogio.svg" class="circulo-imagem-card">
           <h4>Tempo</h4>
-          <p>A perda de tempo é consequencia dos processos que poderiam ser evitados se feitos corretamente na etapa de produção.</p>
+          <p>A perda de tempo é consequencia dos processos que poderiam ser evitados se feitos corretamente na etapa de
+            produção.</p>
         </div>
       </div>
     </div>
@@ -74,36 +79,124 @@
       <div id="accordion">
         <div class="accordion__item active">
           <button class="accordion__header start">
-            <span>Como usar o chat?</span>
+            <span>Quem pode acessar o sistema?</span>
             <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
           </button>
           <div class="accordion__body">
             <p>
-             Faça o login com sua conta cadastrada no sistema. 
-             No icone de um balão de conversa ou na sessão "chat" você 
-             tem acesso ao chat e pode se conectar com o supervisor da produção, etc
+              Apenas funcionários cadastrados têm acesso ao sistema. O cadastro é realizado pelo gerente, que cria
+              contas e distribui as credenciais de login para os funcionários.
             </p>
           </div>
         </div>
         <div class="accordion__item">
           <button class="accordion__header">
-            <span>Como bater ponto?</span>
+            <span>Como funciona o login via Google?</span>
             <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
           </button>
           <div class="accordion__body">
             <p>
-              Na tela de perfil do usuario voce pode bater o ponto uma vez ao dia que será indicando o horario de entrada quando apertar no botao e ao final do expediente será informado o banco de horas e a sua jornada de horas.           
+              Além do login padrão, você pode optar por fazer login usando sua conta do Google. Essa opção está
+              disponível na tela de login e permite um acesso rápido e seguro ao sistema.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__header">
+            <span>Como posso iniciar uma nova demanda de criação de sapatos?</span>
+            <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
+          </button>
+          <div class="accordion__body">
+            <p>
+              Para iniciar uma nova demanda, o supervisor ou o gerente deve ir até a seção "Cadastros" e depois em "Nova
+              demanda" no painel principal e siga o processo
+              passo-a-passo para definir as especificações do sapato, incluindo modelo, material, cores, e outros
+              detalhes.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__header">
+            <span>Como cadastrar uma nova demanda de tênis?</span>
+            <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
+          </button>
+          <div class="accordion__body">
+            <p>
+              Após se cadastrar no sistema vá em demanda e selecione as opções que deseja implementar na criação do
+              tênis. E na tela home voce pode ver todos os tenis criados.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__header">
+            <span>O que é o processo passo-a-passo e como ele funciona?</span>
+            <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
+          </button>
+          <div class="accordion__body">
+            <p>
+              O processo passo-a-passo guia você através de cada etapa necessária para criar um novo sapato. Ele ajuda a
+              garantir que todas as especificações e detalhes sejam cobertos antes de enviar a demanda para produção.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__header">
+            <span>Como utilizo o sistema de chat?</span>
+            <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
+          </button>
+          <div class="accordion__body">
+            <p>
+              O sistema de chat permite que você se comunique diretamente com a equipe ou suporte. Acesse o chat pelo
+              ícone no canto inferior da tela ou na seção "Chat" do sistema.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__header">
+            <span>Como posso visualizar métricas das minhas demandas?</span>
+            <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
+          </button>
+          <div class="accordion__body">
+            <p>
+              Utilize a funcionalidade de gráficos no seu painel para acompanhar o progresso das demandas em tempo
+              real. Os gráficos mostrarão demandas concluídas, com erros e outras métricas relevantes.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__header">
+            <span>Como registrar meu ponto eletrônico?</span>
+            <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
+          </button>
+          <div class="accordion__body">
+            <p>
+              O ponto eletrônico pode ser registrado apenas uma vez diretamente no sistema através da seção "Meu perfil"
+              do
+              sistema. Basta clicar no botão "Bater Ponto" para marcar sua entrada ou saída.
+            </p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__header">
+            <span>Como posso visualizar o histórico do meu ponto eletrônico?</span>
+            <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
+          </button>
+          <div class="accordion__body">
+            <p>
+              O histórico do ponto eletrônico está disponível no botão "Histório de pontos", localizado na seção onde você registra seus pontos. Você pode
+              visualizar todas as entradas e saídas anteriores.
             </p>
           </div>
         </div>
         <div class="accordion__item accordion__item__end">
           <button class="accordion__header">
-            <span>Como cadastrar o tênis?</span>
+            <span>O que fazer se encontrar um problema ou erro no sistema?</span>
             <img src="/assets/imagens/arrow-landing.svg" alt="" class="bi-caret-down-fill">
           </button>
           <div class="accordion__body end">
             <p>
-              Após se cadastrar no sistema vá em demanda e selecione as opções que deseja implementar na criação do tênis. E na tela home voce pode ver todos os tenis criados. 
+              Caso encontre algum problema, utilize o sistema de chat para reportá-lo à equipe de suporte ou envie uma
+              mensagem diretamente na seção de "Contato", na tela inicial.
             </p>
           </div>
         </div>
@@ -118,17 +211,17 @@
 
         <p>Direitos Autorais 2024<br>
           Todos os Direitos Reservados<br>
-          ® Calçados Gontijo e o logotipo G são marcas registradas da Calçados Gontijo, Inc. no Brasil e outros países.</p>
+          ® Calçados Gontijo e o logotipo G são marcas registradas da Calçados Gontijo, Inc. no Brasil e outros países.
+        </p>
       </div>
 
       <div class="footer-group">
         <h3>Produto</h3>
         <ul>
-          <li>Alertas de Colisão Preditiva</li>
-          <li>Alertas de Comportamento de fabricação</li>
-          <li>Relatórios de Incidentes</li>
-          <li>Vídeo Sob Demanda</li>
-          <li>Vídeo Sob Demanda</li>
+          <li>Alertas de Demandas</li>
+          <li>Alertas de Erro em demandas</li>
+          <li>Gráfico de demandas</li>
+          <li>Passos da demanda</li>
         </ul>
       </div>
 
@@ -154,10 +247,11 @@
     </div>
     <div class="redes-sociais">
       <div class="icons-sociais">
-        <img class="icone-s" src="/assets/imagens/icons/facebook.svg" alt="facebook">
-        <img class="icone-s" src="/assets/imagens/icons/twitter.svg" alt="twitter">
-        <img class="icone-s" src="/assets/imagens/icons/linkedin.svg" alt="linkedin">
-        <img class="icone-s" src="/assets/imagens/icons/youtube.svg" alt="youtube">
+        <a href="https://www.facebook.com/profile.php?id=100077790558748"><i class="bi bi-facebook"></i></a>
+        <a
+          href="https://api.whatsapp.com/send?phone=553732441170&fbclid=IwY2xjawEiF9JleHRuA2FlbQIxMAABHTM_NoNpGPc6CF0W4ElmO_6SuChld_kHyz5Ce7j1KqwUQmBY2VSZwzo4cQ_aem_fgzlUYBUdRrXG0gqPMXnJg"><i
+            class="bi bi-whatsapp"></i></a>
+        <a href="https://www.instagram.com/gontijocalcados/"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
   </footer>

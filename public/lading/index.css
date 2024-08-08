@@ -196,7 +196,7 @@ body {
 
 .accordion__body {
     display: none;
-    padding: 1.25rem;
+    padding: 0 0 0 1.25rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.625rem;
@@ -272,11 +272,6 @@ footer {
 
 .footer-group h3{
     text-align: initial ;
-}
-
-.footer-group h3:hover{
-    color: var(--corprincipal);
-    cursor: pointer;
 }
 
 @media screen and (max-width: 730px) {
@@ -388,4 +383,21 @@ header {
     width: 100%;
     z-index: 1000;
     background-color: transparent;
+}
+
+.footer-group li {
+    cursor: pointer;
+}
+
+.footer-group li:hover {
+    color: var(--corprincipal);
+}
+
+.icons-sociais i {
+    color: var(--cortextoprincipal);
+    font-size: 35px;
+}
+
+.icons-sociais i:hover {
+    color: var(--corprincipal);
 }
