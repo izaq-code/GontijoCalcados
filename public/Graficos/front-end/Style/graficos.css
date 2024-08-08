@@ -10,10 +10,11 @@
   }
   
   .graficos {
-    width: 44%;
+    width: 43%;
     border-radius: 10px;
     padding: 10px 30px;
     padding-bottom: 40px;
+    background-color: var(--cor-padrao-light);
   }
   
   #graficoSuccess {

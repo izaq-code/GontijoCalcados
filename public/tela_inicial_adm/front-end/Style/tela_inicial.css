@@ -214,9 +214,6 @@
 
 #container-graficos {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 30px;
 }
 
@@ -226,6 +223,7 @@
   border-radius: 10px;
   padding: 10px 30px;
   padding-bottom: 40px;
+  background-color: var(--cor-padrao-light);
 }
 
 
