@@ -8,60 +8,62 @@
     <link rel="stylesheet" href="../../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../../assets/css/pop.css">
     <link rel="stylesheet" href="../../../assets/css/modos.css">
-    <link rel="stylesheet" href="../Style/padrão.css">
+    <link rel="stylesheet" href="../Style/register.css">
     <link rel="shortcut icon" href="../../../assets/imagens/g.png" type="image/x-icon">
-    <title>Document</title>
+    <title>Gontijo | Novo funcionário</title>
 </head>
 
 <body>
     <main>
-        <form id="register">
-            <h1 id="titl">Cadastrar Funcionário</h1>
-            <div id="cadastrar-funcionarios">
-                <div class="grid-container">
+        <div id="container-cadastrar">
+            <form id="register">
+                <h1 id="titl">Cadastrar Funcionário</h1>
+                <div id="cadastrar-funcionarios">
+                    <div class="grid-container">
 
-               
-                <div class="input input-nome">
-                    <input class="inputt" id="input-nome" name="nome" type="text" required>
-                    <label for="input-nome">Nome</label>
-                </div>
-                <div class="input">
-                    <input class="inputt" id="input-senha" name="senha" type="password" required>
-                    <label for="input-senha">senha</label>
-                </div> 
-            
-            </div>
 
-            <div class="grid-container1">
-                <div class="input1">
-                    <input type="radio" name="nivel" id="nivel1" value="1">
-                    <label for="nivel1">Funcionário comum</label>
+                        <div class="input input-nome">
+                            <input class="inputt" id="input-nome" name="nome" type="text" required>
+                            <label for="input-nome">Nome</label>
+                        </div>
+                        <div class="input">
+                            <input class="inputt" id="input-senha" name="senha" type="password" required>
+                            <label for="input-senha">senha</label>
+                        </div>
+
+                    </div>
+
+                    <div class="grid-container1">
+                        <div class="input1">
+                            <input type="radio" name="nivel" id="nivel1" value="1">
+                            <label for="nivel1">Funcionário</label>
+                        </div>
+
+                        <div class="input1">
+                            <input type="radio" name="nivel" id="nivel2" value="2">
+                            <label for="nivel2">Supervisor</label>
+                        </div>
+
+                        <div class="input1">
+                            <input type="radio" name="nivel" id="nivel3" value="3">
+                            <label for="nivel3">Diretor</label>
+                        </div>
+                    </div>
+                    <div class="input-sub">
+                        <input type="submit" value="Cadastrar">
+                    </div>
                 </div>
 
-                <div class="input1">
-                    <input type="radio" name="nivel" id="nivel2" value="2">
-                    <label for="nivel2">Supervisor</label>
-                </div>
-
-                <div class="input1">
-                    <input type="radio" name="nivel" id="nivel3" value="3">
-                    <label for="nivel3">Diretor</label>
-                </div>
-            </div> 
-           <div class="input-sub">
-                    <input type="submit" value="Cadastrar">
-                </div>
-            </div>
-    
-        </form>
+            </form>
+        </div>
 
         <div id="response"></div>
     </main>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="../../../assets/JS/redirecionarNotFound.js"></script>
-<script src="../../../assets/JS/Navbar.js"></script>
-<script src="../../../assets/JS/links.js"></script>
-<script src="../../../assets/JS/pop_up.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../../assets/JS/redirecionarNotFound.js"></script>
+    <script src="../../../assets/JS/Navbar.js"></script>
+    <script src="../../../assets/JS/links.js"></script>
+    <script src="../../../assets/JS/pop_up.js"></script>
     <script src="../../back-end/js/register.js"></script>
 </body>
 </body>
