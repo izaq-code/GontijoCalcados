@@ -41,63 +41,22 @@ Para utilizar nossos sistema é necessário ter instalado na sua maquina:
 
 Atenção! Cadastre os dois banco de dados `ProductEase` e `chat_app`
 
-**Passo 3: No xamp, vá nas configurações do Apache:**
-- Vá no httpd.conf
-- Em seguida inisira no final do arquivo txt
-  
+**Passo 3: Instalar os pacotes node:**
 
 ```bash
-  
-<VirtualHost *:80>
-    ServerName redePI
-    DocumentRoot "C:/xampp/htdocs/GontijoCalcados/public"
-
-    ProxyPass /Gontijocalcados http://localhost:3000/
-    ProxyPassReverse /Gontijocalcados http://localhost:3000/
-
-    Alias /backend "C:/xampp/htdocs/GontijoCalcados/backend"
-    <Directory "C:/xampp/htdocs/GontijoCalcados/backend">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-
-    <Directory "C:/xampp/htdocs/GontijoCalcados/public">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-
-    ErrorLog "logs/redePI-error.log"
-    CustomLog "logs/redePI-access.log" common
-</VirtualHost>
+npm install express body-parser express-session mysql http socket.io axios path crypto moment express-fileupload bcrypt nodemailer
 ```
-
-**Passo 4: Instalar os pacotes node:**
-
-```bash
-npm install express body-parser express-session mysql http socket.io axios path crypto
-```
-**Passo 5: Inicializar o servidor:**
+**Passo 4: Inicializar o servidor:**
 
 ```bash
   node server.js
 ```
-**Passo 6: Para encontrar a página:**
+**Passo 5: Para encontrar a página:**
 
 ```bash
   http://localhost:3000/
 ```
-**Passo 7: Para finalizar o servidor procure quem esta na porta 3000 com o:**
 
-```bash
-  netstat -ano | findstr :3000
-```
-**Passo 8: Finalaze colocando quem esta na porta com esse comando:**
-
-```bash
-  taskkill /PID <porta> /F
-```
 ## API's / LIB's Referência
 
  - [jQuery](https://jquery.com/)
