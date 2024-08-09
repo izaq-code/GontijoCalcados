@@ -5,6 +5,7 @@ const router = express.Router();
 router.post('/cadastro_especificacoes', (req, res) => {
     const { tinta, cadarco, adesivo, material, solado, tipo_tinta } = req.body;
 
+
     const promises = [];
 
     if (tinta) {
@@ -29,7 +30,6 @@ router.post('/cadastro_especificacoes', (req, res) => {
     Promise.all(promises)
         .then(() => res.send('Dados enviados com sucesso'))
         .catch(err => {
-            console.error(err);
             res.status(500).send('Erro ao inserir dados.');
         });
 });
@@ -41,7 +41,6 @@ function inserttable(tableName, value) {
             if (err) {
                 reject(err);
             } else {
-                console.log(`Dados inseridos na tabela ${tableName}`);
                 resolve(result);
             }
         });

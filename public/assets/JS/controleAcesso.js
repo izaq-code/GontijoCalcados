@@ -21,7 +21,6 @@
             type: 'GET',
             dataType: 'json',
             success: function(usuario) {
-                console.log('Usuário logado:', usuario);
                 idUsuarioLogado = usuario.id;
                 funcaoUsuarioLogado = usuario.funcao;
                 mostrarUsuarioLogado(usuario);
@@ -29,7 +28,6 @@
                 removeDiv(); 
             },
             error: function() {
-                console.error('Erro ao carregar informações do usuário logado');
             }
         });
     }
@@ -47,20 +45,16 @@
     function permissoesExibidas() {
         const permissoesUsuario = permissoes[funcaoUsuarioLogado] || [];
 
-        console.log('Permissões do usuário:', permissoesUsuario);
-
         if (deviceType === 'Desktop') {
             $('.submenu-item').each(function() {
                 const link = $(this).closest('a').attr('href');
                 const isAllowed = permissoesUsuario.some(permission => link.includes(permission));
-                console.log('Link:', link, 'Permissão:', isAllowed);
                 $(this).parent().toggle(isAllowed);
             });
         } else {
             $('.mobile-navbar li').each(function() {
                 const link = $(this).find('a').attr('href');
                 const isAllowed = permissoesUsuario.some(permission => link.includes(permission));
-                console.log('Link:', link, 'Permissão:', isAllowed);
                 $(this).toggle(isAllowed);
             });
         }

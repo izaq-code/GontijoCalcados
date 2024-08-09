@@ -59,7 +59,6 @@ router.get('/bater_ponto', (req, res) => {
                                     [horasTrabalhadasFormatado, saldoMinutos / 60, usuario_id, dataAtual], 
                                     (erro) => {
                                         if (erro) {
-                                            console.error('Erro ao atualizar saldo de horas atual:', erro);
                                             return res.status(500).json({ error: 'Erro ao atualizar saldo de horas atual' });
                                         }
 
@@ -68,7 +67,6 @@ router.get('/bater_ponto', (req, res) => {
                                             [usuario_id],
                                             (erro, resultado) => {
                                                 if (erro) {
-                                                    console.error('Erro ao consultar saldo acumulado:', erro);
                                                     return res.status(500).json({ error: 'Erro ao consultar saldo acumulado' });
                                                 }
 
@@ -109,7 +107,6 @@ router.get('/bater_ponto', (req, res) => {
                     [usuario_id, horaAtual, dataAtual],
                     (erro) => {
                         if (erro) {
-                            console.error('Erro ao criar novo registro:', erro);
                             return res.status(500).json({ error: 'Erro ao criar novo registro' });
                         }
                         res.json({ message: 'Ponto registrado com sucesso' });
