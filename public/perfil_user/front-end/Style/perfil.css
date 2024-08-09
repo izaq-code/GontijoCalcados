@@ -1,0 +1,69 @@
+#tela-perfil-outro-funcionario {
+    padding: 10px 20vh;
+}
+
+#perfil img {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.funcionario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    align-items: center;
+}
+
+#informacoes-principais h1,
+#informacoes-principais h2,
+#informacoes-principais h3,
+#informacoes-principais h4,
+#informacoes-principais h5,
+#informacoes-principais h6,
+#container-funcoes h3 {
+    margin: 0;
+}
+
+#informacoes-principais h3,
+.perfil-funcao {
+    font-weight: 400;
+}
+
+#container-informacoes-principais {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.perfil-funcao {
+    font-weight: 800px;
+}
+
+@media (max-width: 1341px) {
+    #tela-perfil-outro-funcionario {
+      padding: 40px 8vh;
+    }
+  }
+  
+  @media (max-width: 1251px) {
+    #tela-perfil-outro-funcionario {
+      padding: 40px 4vh;
+    }
+  }
+  
+  @media (max-width: 908px) {
+    .funcionario {
+      display: block;
+    }
+
+    #container-funcoes {
+        margin-block-start: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #tela-perfil-outro-funcionario {
+      padding: 40px 5vh;
+    }
+  }

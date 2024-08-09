@@ -15,7 +15,7 @@ function carregarInformacoes(callback) {
             } 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('Erro ao carregar informações do usuário logado:', textStatus, errorThrown);
+        
         }
     });
 }
@@ -63,7 +63,6 @@ function carregarPerfil() {
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('Erro ao carregar perfil:', textStatus, errorThrown);
         }
     });
 }

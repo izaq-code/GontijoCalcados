@@ -11,21 +11,14 @@ function carregarInformacoes(callback) {
                 if (callback && typeof callback === 'function') {
                     callback(); 
                 }
-                console.log(usuario);
-            } else {
-                console.error('Dados do usuário logado não estão no formato esperado.');
+                
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('Erro ao carregar informações do usuário logado:', textStatus, errorThrown);
-        }
     });
 }
 
 function listarfuncionarios() {
-    console.log("ID do Usuário Logado:", idUsuarioLogado);
     if (typeof idUsuarioLogado === 'undefined') {
-        console.error('ID do usuário logado não está definido.');
         return;
     }
 
@@ -38,7 +31,7 @@ function listarfuncionarios() {
             id: idUsuarioLogado 
         },
         success: function (perfil) {
-            console.log("Perfil retornado:", perfil);
+           
 
             container.innerHTML = '';
 
@@ -51,7 +44,6 @@ function listarfuncionarios() {
                 return funcionario.id == idUsuarioLogado;
             });
 
-            console.log("Perfil do funcionário encontrado:", perfil_funcionario);
 
             if (perfil_funcionario) {
                 var item = `
@@ -62,7 +54,7 @@ function listarfuncionarios() {
                                 <div id="informacoes-usuario">
                                     <h2 class="perfil-nome">${perfil_funcionario.nome}</h2>
                                     <h4 class="perfil-email">${perfil_funcionario.email}</h4>
-                                    <h4 class="perfil-cpf">${perfil_funcionario.cpf}</h4>
+                                    <h4 class="perfil-ra">${perfil_funcionario.ra}</h4>
                                 </div>
                             </div>
                             <div id="container-informacoes-direita">
@@ -104,27 +96,19 @@ function listarfuncionarios() {
                             usuario_id: idUsuarioLogado
                         },
                         success: function (response) {
-                            console.log("Ponto batido com sucesso:", response);
+                            carregarInformacoes(listarfuncionarios);
                         },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.error("Erro ao bater ponto:", textStatus, errorThrown);
-                        }
                     });
                 });
 
                 
                 var botao = container.querySelector('.historico_de_pontos');
                 botao.addEventListener('click', function () {
-                    window.location.href = '../../front-end/HTML/historico_de_pontos.html?usuario_id=' + idUsuarioLogado;
+                window.location.href = '../../front-end/HTML/historico_de_pontos.html?usuario_id=' + idUsuarioLogado;
                 });
                 
-            } else {
-                console.log("Funcionário não encontrado.");
-            }
+            } 
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("Erro na requisição AJAX:", textStatus, errorThrown);
-        }
     });
 }
 

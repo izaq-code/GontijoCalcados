@@ -11,7 +11,7 @@ router.get('/meu_perfil', (req, res) => {
     }
 
     const query = `
-        SELECT u.id AS id, u.email AS email, u.name AS nome, u.cpf AS cpf, u.funcao AS funcao, u.profile_picture AS imagem,
+        SELECT u.id AS id, u.email AS email, u.name AS nome, u.ra AS ra, u.funcao AS funcao, u.profile_picture AS imagem,
         TIME_FORMAT(bp.ini_ponto, '%H:%i:%s') AS ponto_inicial,
         TIME_FORMAT(bp.fim_ponto, '%H:%i:%s') AS ponto_final,
         COALESCE(bp.banco_de_horas, bh.banco_de_horas) AS banco,
@@ -37,6 +37,7 @@ router.get('/meu_perfil', (req, res) => {
                 email: result.email || "Sem email cadastrado",
                 nome: result.nome || "Sem nome cadastrado",
                 cpf: result.cpf || "Sem CPF cadastrado",
+                ra: result.ra || "Sem RA cadastrado",
                 funcao: result.funcao || "Sem função cadastrada",
                 imagem: result.imagem || "Sem foto cadastrada",
                 ponto_inicial: result.ponto_inicial ? moment(result.ponto_inicial, 'HH:mm:ss').format('HH:mm:ss') : "00:00:00",

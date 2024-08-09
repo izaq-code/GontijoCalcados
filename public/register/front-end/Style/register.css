@@ -61,3 +61,9 @@ input[type="submit"]:hover {
     margin: 0 auto;
   }
 }
+
+.btn-blue {
+  background-color: var(--corprincipal)!important; 
+  color: white !important; 
+ 
+}

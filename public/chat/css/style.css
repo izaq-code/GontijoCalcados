@@ -185,20 +185,13 @@ body.dark-mode .mensagem-outro .texto-mensagem::before {
   background-color: #555;
 }
 
-.mobile-navbar .indicador::before {
-  left: unset;
-  right: -21px;
-  border-top-right-radius: 0;
-  border-top-left-radius: 22px;
-}
-
 .mensagem-propria {
   justify-content: flex-end;
 }
 
 .mensagem-propria .nome-usuario {
   margin-left: auto;
-  margin-right: 30px;
+  margin-right: -10px;
 }
 
 .mensagem-propria .foto-perfil {
@@ -262,7 +255,7 @@ body.dark-mode #entradaMensagem {
 
 #listaUsuarios {
   margin-left: 10px;
-  margin-top: -30px;
+
   right: 20px;
   width: 20%;
   max-width: 60%;
@@ -498,11 +491,11 @@ body.dark-mode .usuario {
 
   #listaUsuarios {
     margin-left: 10px;
-    margin-top: -30px;
+    margin-top: -10px;
     right: 20px;
     width: 20%;
     max-width: 60%;
-    height: 84vh;
+    height: 80vh;
     background-color: var(--cor-padrao-light);
     border-right: 1px solid rgb(204, 204, 204, 0.4);
     overflow-y: scroll;

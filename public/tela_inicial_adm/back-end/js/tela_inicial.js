@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    // Função auxiliar para fazer a requisição AJAX e retornar uma Promise
     function fetchData(url) {
         return $.ajax({
             url: url,
@@ -12,7 +11,6 @@ $(document).ready(function () {
         var containerInformacoes = document.getElementById('informacoes-principais-container');
         var htmlContent = '';
 
-        // Chama as funções de requisição paralelamente
         Promise.all([
             fetchData('/quantidade-demandas'),
             fetchData('/quantidade-mensagens'),
@@ -24,7 +22,6 @@ $(document).ready(function () {
             var erros = results[2];
             var funcionarios = results[3];
 
-            // Processa os dados de demandas
             demandas.forEach(function (informacao) {
                 var item = `<div class="card-informacoes">
                                 <div class="card-icone">
@@ -78,6 +75,7 @@ $(document).ready(function () {
             });
 
             containerInformacoes.innerHTML = htmlContent;
+            
         }).catch(function (error) {
             console.error('Erro ao carregar informações:', error);
         });

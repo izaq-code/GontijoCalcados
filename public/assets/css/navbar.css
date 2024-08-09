@@ -4,8 +4,8 @@
     --cor-outline: #e1ad33;
     --cor-fundo: #f5f5f6;
     --cor-nav: white;
-  }
-  
+}
+
 .navbar {
     height: 96vh;
     position: fixed;
@@ -16,9 +16,9 @@
     padding: 20px;
 }
 
-#feed{
+#feed {
 
-margin-left: 30px;
+    margin-left: 30px;
 }
 
 .icon-space {
@@ -64,29 +64,37 @@ margin-left: 30px;
 
 
 #logout-button-moba {
-    font-size: 10px;
-    position: absolute;
+    font-size: 15px;
     width: 20px;
     height: 20px;
     padding: 10px;
     border-radius: 50%;
-    color: #ffffff;
+    color: #000000;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: var(--cor-principal);
+    background-color: transparent;
+}
+
+body.dark-mode #logout-button-moba {
+    color: #ffffff;
+}
+
+body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+
+    overflow: auto !important;
 }
 
 #logout-button-moba i {
     margin-left: 6px;
 }
 
-#logout-button-desk{
-    position: absolute; 
-    bottom: 20px; 
+#logout-button-desk {
+    position: absolute;
+    bottom: 20px;
     left: 20px;
     padding: 10px 20px;
     border-radius: 5px;
@@ -107,7 +115,7 @@ margin-left: 30px;
     padding: 5px;
     position: relative;
     transition: 200ms ease-in-out background-color;
-    
+
 }
 
 .to {
@@ -442,7 +450,7 @@ input:checked~label .to::before {
         margin-left: 1px;
     }
 
-    #logout-button-desk{
+    #logout-button-desk {
         font-size: 14px;
         position: absolute;
         bottom: 20px;
@@ -465,23 +473,23 @@ input:checked~label .to::before {
     align-items: center;
     padding: 10px;
     border-bottom-left-radius: 10px;
-  }
+}
 
-  #nome_user-desk {
+#nome_user-desk {
     margin-right: 15px;
     font-size: 13px;
     margin-top: 5px;
     font-weight: bolder;
-  }
+}
 
-  #foto_user-desk {
+#foto_user-desk {
     width: 30px;
     height: 30px;
     background-color: #ccc;
     border-radius: 50%;
-  }
+}
 
-  @media only screen and (min-width: 1800px) {
+@media only screen and (min-width: 1800px) {
     #logout-button-desk {
         margin-top: 360px;
         bottom: 20px;
@@ -512,7 +520,7 @@ input:checked~label .to::before {
 }
 
 .mobile-navbar ul li {
-  margin-right: 10px;
+    margin-right: 10px;
     list-style: none;
     width: 40px;
     height: 60px;
@@ -568,20 +576,6 @@ input:checked~label .to::before {
     transition: .5s;
 }
 
-/* .mobile-navbar .indicador::after,
-.mobile-navbar .indicador::before {
-    content: "";
-    display: block;
-    position: absolute;
-    background-color: white;
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    left: -21px;
-    border-top-right-radius: 22px;
-    box-shadow: 0px -11px 0 0 var(--cor-fundo);
-} */
-
 .mobile-navbar .indicador::before {
     left: unset;
     right: -21px;
@@ -597,36 +591,35 @@ input:checked~label .to::before {
     background-color: var(--cor-nav);
     border-radius: 0 0 20px 20px;
     position: fixed;
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    z-index: 1000; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
-  
-  .perfil {
+.perfil {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: -240px;
     margin-top: 5px;
-  }
-  
-  #foto_user img {
+}
+
+#foto_user img {
     width: 30px;
     height: 30px;
-    background-color: #ccc; 
+    background-color: #ccc;
     border-radius: 50%;
     margin-right: 10px;
-  }
-  
-  #nome_user {
+}
+
+#nome_user {
     margin-right: 15px;
     font-size: 9px;
-    margin-top: -5px;    
-  }
-  
+    margin-top: -5px;
+}
 
-  .container-toggle {
+
+.container-toggle {
     width: 35px;
     height: 15px;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
@@ -642,7 +635,7 @@ input:checked~label .to::before {
 
 .container-toggle {
     margin-left: 50px;
-  }
+}
 
 .toggle {
     position: absolute;
@@ -691,6 +684,6 @@ input:checked~label .toggle::before {
 }
 
 a {
-    text-decoration: none; 
-    color: inherit; 
+    text-decoration: none;
+    color: inherit;
 }

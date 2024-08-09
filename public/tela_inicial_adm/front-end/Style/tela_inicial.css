@@ -144,7 +144,8 @@
 }
 
 .carrossel-controls button {
-  background: rgb(206, 206, 206);
+  background: rgb(0, 0, 0, 0.6);
+  color: #fff;
   border-radius: 50%;
   border: none;
   color: var(--corprincipal);

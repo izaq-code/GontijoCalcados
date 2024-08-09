@@ -188,7 +188,7 @@ DELIMITER ;
 
 INSERT INTO usuario (name, RA, email, senha, funcao, profile_picture)
 VALUES ('João Silva', '234567', 'joao.silva@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', 'https://img.freepik.com/fotos-gratis/vista-do-carro-3d_23-2150796894.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1719878400&semt=sph'),
-       ('admin','123456', 'admin@admin.com','$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Supervisor', 'https://img.freepik.com/fotos-premium/carro-supra-mk4-no-fundo-da-imagem-da-ponte_911078-4767.jpg?w=1380');
+       ('admin','123456', 'admin@admin.com','$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Diretor', 'https://img.freepik.com/fotos-premium/carro-supra-mk4-no-fundo-da-imagem-da-ponte_911078-4767.jpg?w=1380');
 
 
 INSERT INTO material (id, nome, caminho, caminho2)
