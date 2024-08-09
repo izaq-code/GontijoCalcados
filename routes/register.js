@@ -63,21 +63,20 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await hashPassword(senha);
 
         const emailPadrao = ra + '@gmail.com';
-
-
+        const fotoPadrao = "https://jangada.ag/wp-content/uploads/2017/04/jangada-v2-baby-do-brasil-7-capa-quadrada.jpg"
 
         // Obtenha outros dados do corpo da requisição
         //continua aqui ... (amanhã, já bati ponto hoje)
         connection2.query(
-            'INSERT INTO usuario (RA, name, email,  senha, funcao) VALUES (?, ?, ?, ?, ?)',
-            [ra, nome, emailPadrao, hashedPassword, funcao],
+            'INSERT INTO usuario (RA, name, email,  senha, funcao, profile_picture) VALUES (?, ?, ?, ?, ?, ?)',
+            [ra, nome, emailPadrao, hashedPassword, funcao, fotoPadrao],
             (error) => {
                 if (error) {
                     console.error('Erro ao inserir dados no banco de dados:', error);
                     res.status(500).send('Erro ao registrar usuário');
                     res.json('Erro ao registrar usuário');
                 } else {
-                    res.json({true: true, response: 'cadastrado com sucesso', ra, nome, emailPadrao, funcao }); // Responde com dados do usuário registrado
+                    res.json({true: true, response: 'cadastrado com sucesso', ra, nome, emailPadrao, funcao, fotoPadrao }); // Responde com dados do usuário registrado
                 }
             }
         );

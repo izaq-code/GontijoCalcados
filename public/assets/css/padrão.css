@@ -172,7 +172,7 @@ html{
 body.dark-mode .input input {
   border: 1px solid var(--cortextosecundario);
   background-color: var(--cor-fundo-body-dark);
-  color: var(--color-padrao-dark);
+  color: var(--color-padrao-dark) !important;
 }
 
 body.dark-mode .input label {
