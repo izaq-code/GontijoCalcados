@@ -63,7 +63,7 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await hashPassword(senha);
 
         const emailPadrao = ra + '@gmail.com';
-        const fotoPadrao = "https://jangada.ag/wp-content/uploads/2017/04/jangada-v2-baby-do-brasil-7-capa-quadrada.jpg"
+        const fotoPadrao = "../../../assets/imagens/sem-foto.png";
 
         // Obtenha outros dados do corpo da requisição
         //continua aqui ... (amanhã, já bati ponto hoje)
