@@ -133,7 +133,7 @@ function loadDesktopNavbar() {
                     </div>
                 </div>
                         
-                <button class="logout-button"><i class="bi bi-box-arrow-in-right space"></i>Logout</button>
+                <button class="logout-button"  id="logout-button-desk" ><i class="bi bi-box-arrow-in-right space"></i>Logout</button>
             </div>
                         
             <div class="content"></div>
@@ -211,6 +211,7 @@ function loadMobileNavbar() {
       <a href="http://localhost:3000/meu_perfil/front-end/html/meu_perfil.html" id="nome_user"></a>
       <div id="foto_user"></div>
     </div>
+                  <button class="logout-button"  id="logout-button-moba"  ><i class="bi bi-box-arrow-in-right space"></i></button>
   </header>
 
 
@@ -423,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }).then((result) => {
                     if (result.dismiss === Swal.DismissReason.timer) {
-                        window.location.href = '../../index.html';
+                        window.location.href = 'http://localhost:3000/';
                     }
                 });
                 //limpando arquivos temporários

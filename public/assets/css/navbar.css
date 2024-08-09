@@ -62,9 +62,31 @@ margin-left: 30px;
     display: none;/
 }
 
-.logout-button {
-    margin-top: 240px;
-    bottom: 20px;
+
+#logout-button-moba {
+    font-size: 10px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--cor-principal);
+}
+
+#logout-button-moba i {
+    margin-left: 6px;
+}
+
+#logout-button-desk{
+    position: absolute; 
+    bottom: 20px; 
     left: 20px;
     padding: 10px 20px;
     border-radius: 5px;
@@ -420,7 +442,7 @@ input:checked~label .to::before {
         margin-left: 1px;
     }
 
-    .logout-button {
+    #logout-button-desk{
         font-size: 14px;
         position: absolute;
         bottom: 20px;
@@ -460,7 +482,7 @@ input:checked~label .to::before {
   }
 
   @media only screen and (min-width: 1800px) {
-    .logout-button {
+    #logout-button-desk {
         margin-top: 360px;
         bottom: 20px;
 
@@ -586,7 +608,7 @@ input:checked~label .to::before {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    margin-top: 25px;
+    margin-top: 5px;
   }
   
   #foto_user img {
