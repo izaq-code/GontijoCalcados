@@ -1,6 +1,7 @@
 #tela-feedbacks{ 
     padding: 10px 40px;
     height: auto;
+    margin-bottom: 500px;
 }    
 
 .avaliacao, .nome-feedback, #titl {
@@ -40,7 +41,6 @@
     height: 20px;
     background: url('../../../assets/imagens/star-empty.svg') no-repeat center;
     background-size: contain;
-    cursor: pointer;
 }    
 
 .avaliacao .estrela-cheia {
@@ -50,4 +50,10 @@
 
 .comentario {
     opacity: .8;
+}
+
+@media (max-width: 600px) {
+    .feedbacks-container {
+        margin-bottom: 80px;
+    }
 }

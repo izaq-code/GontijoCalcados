@@ -12,6 +12,10 @@
   --color-padrao-dark: #fff;
 }
 
+#tela-inicial {
+  padding: 40px 5% 0 5%;
+}
+
 .cabecalho-card {
   display: flex;
   align-items: center;
@@ -72,7 +76,7 @@
 }
 
 .cabecalho-graficos-tenis {
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
 }
@@ -80,7 +84,7 @@
 .mostrar-todos-crafts {
   color: rgb(104, 104, 104);
   position: absolute;
-  right: 45px;
+  right: 7%;
 }
 
 .card-calcados img {

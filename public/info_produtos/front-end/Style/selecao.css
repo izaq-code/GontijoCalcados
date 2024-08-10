@@ -3,6 +3,14 @@
   text-align: center;
 }
 
+#tela-selecao-demandas {
+  padding: 50px 7% 0 7%;
+}
+
+body {
+  height: auto;
+}
+
 .info-container div {
   margin-bottom: 10px;
 }
@@ -13,6 +21,7 @@
   padding: 20px;
   background-color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .nome-calcado {
@@ -20,7 +29,6 @@
   text-align: center;
   font-weight: 100;
   font-size: 12px;
-  margin-left: 16px;
 }
 
 #imgContainer {

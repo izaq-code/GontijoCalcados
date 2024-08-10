@@ -8,6 +8,10 @@
   flex-wrap: wrap;
 }
 
+body {
+  height: auto;
+}
+
 .secao-titulo {
   display: flex;
   align-items: center;
