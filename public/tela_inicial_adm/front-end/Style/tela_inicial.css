@@ -72,7 +72,7 @@
 }
 
 .cabecalho-graficos-tenis {
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
 }
@@ -80,7 +80,7 @@
 .mostrar-todos-crafts {
   color: rgb(104, 104, 104);
   position: absolute;
-  right: 45px;
+  right: 30px;
 }
 
 .card-calcados img {

@@ -41,7 +41,6 @@
     height: 20px;
     background: url('../../../assets/imagens/star-empty.svg') no-repeat center;
     background-size: contain;
-    cursor: pointer;
 }    
 
 .avaliacao .estrela-cheia {
