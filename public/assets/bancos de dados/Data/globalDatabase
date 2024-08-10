@@ -14,7 +14,7 @@ CREATE TABLE usuario (
     name VARCHAR(255),
     cpf VARCHAR(255),
     senha varchar(255),
-    profile_picture VARCHAR(255),
+    profile_picture VARCHAR(255) DEFAULT '../../../assets/imagens/sem-foto.png',
     funcao Varchar(40),
     pl TINYINT(1) DEFAULT true -- pl = primeiro login --  
 );

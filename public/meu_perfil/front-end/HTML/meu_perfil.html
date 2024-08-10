@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../../assets/css/pop.css">
     <link rel="stylesheet" href="../../../assets/css/modos.css">
     <link rel="stylesheet" href="../Style/meu_perfil.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Gontijo | Perfil</title>
     <link rel="shortcut icon" href="../../../assets/imagens/g.png" type="image/x-icon">
 </head>
@@ -16,11 +17,17 @@
     <main id="tela-meu-perfil">
         <div id="perfil"></div>
         <h2>Meus gráficos</h2>
-        <div id="graficos">trabalha tiago</div>
+        <div id="graficos">
+            <div>
+                <h3>demandas reportadas</h3>
+            </div>
+            <canvas id="grafico3"></canvas>
+        </div>
     </main>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../back-end/js/meu_perfil.js"></script>>
+    <script src="../../back-end/js/meu_perfil.js"></script>
+    <script src="../../back-end/js/grafico.js"></script>
     <script src="../../../assets/JS/redirecionarNotFound.js"></script>
     <script src="../../../assets/JS/Navbar.js"></script>
     <script src="../../../assets/JS/links.js"></script>

@@ -197,26 +197,26 @@ function iniciarNavegacao() {
         const totalPassos = $('.numero').length;
         const barraProgresso = $('.progresso');
         const passos = $('.passo');
-    
+
         function atualizarPasso() {
             const larguraProgresso = (passoAtual / totalPassos) * 100 + '%';
             barraProgresso.css('width', larguraProgresso);
-    
+
             $('.numero').removeClass('ativo');
             passos.removeClass('ativo');
-    
+
             for (let i = 0; i < passoAtual; i++) {
                 $('.numero').eq(i).addClass('ativo');
             }
             passos.eq(passoAtual - 1).addClass('ativo');
-    
+
             if (passoAtual === totalPassos) {
                 $('#proximo').attr('type', 'button').text('Enviar');
             } else {
                 $('#proximo').attr('type', 'button').text('Próximo');
             }
         }
-    
+
         $('#proximo').on('click', function () {
             if (passoAtual < totalPassos) {
                 passoAtual++;
@@ -227,9 +227,9 @@ function iniciarNavegacao() {
                         confirmButton: "btn btn-success",
                         cancelButton: "btn btn-danger"
                     },
-                    
+
                 });
-    
+
                 swalWithBootstrapButtons.fire({
                     title: "Tem certeza?",
                     text: "Você não poderá reverter isso!",
@@ -240,8 +240,9 @@ function iniciarNavegacao() {
                     reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
-                       
-                        $('#form-etapas').submit();
+                        //aqui eu chamo a função pra reportar uma conclusão de calçado 
+                        calcadoConcluido();
+                        window.location.href = 'http://localhost:3000/info_produtos/front-end/html/selecao.html';
                     } else if (
                         result.dismiss === Swal.DismissReason.cancel
                     ) {
@@ -254,17 +255,17 @@ function iniciarNavegacao() {
                 });
             }
         });
-    
+
         $('#voltar').on('click', function () {
             if (passoAtual > 1) {
                 passoAtual--;
                 atualizarPasso();
             }
         });
-    
+
         atualizarPasso();
     });
-    
+
 }
 
 $(document).ready(function () {

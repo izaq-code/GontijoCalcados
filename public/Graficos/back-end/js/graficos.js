@@ -8,24 +8,20 @@ $(document).ready(function () {
         },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText;
-            console.error('Erro ao enviar o formulário:', error);
+            console.error('Erro ao enviar o formulário:', errorMessage);
         }
     });
-
 });
 
 function grafSuccess(dados) {
-    // Função para calcular intervalos de data
     function calcularIntervalo(meses) {
         let hoje = new Date();
         hoje.setMonth(hoje.getMonth() - meses);
         return hoje.toISOString().split('T')[0];
     }
 
-    // Calcula as datas de início para os intervalos de 2 em 2 meses, totalizando 10 meses
     let intervalos = [2, 4, 6, 8, 10].map(meses => calcularIntervalo(meses));
     
-    // Inicializa um objeto para armazenar os dados de produção por período e por tipo de tênis
     let producaoPorPeriodo = {
         '2meses': {},
         '4meses': {},
@@ -34,7 +30,6 @@ function grafSuccess(dados) {
         '10meses': {}
     };
 
-    // Função para agregar a produção por período
     function agregarProducao(item, periodo) {
         if (!producaoPorPeriodo[periodo][item.nome]) {
             producaoPorPeriodo[periodo][item.nome] = 0;
@@ -42,26 +37,24 @@ function grafSuccess(dados) {
         producaoPorPeriodo[periodo][item.nome] += item.finalizado;
     }
 
-    // Agrupa as quantidades de calçados por dia e intervalo
     dados.forEach(item => {
-        if (item.data >= intervalos[0]) {
-            agregarProducao(item, '2meses');
-        }
-        if (item.data >= intervalos[1]) {
-            agregarProducao(item, '4meses');
-        }
-        if (item.data >= intervalos[2]) {
-            agregarProducao(item, '6meses');
+        if (item.data >= intervalos[4]) {
+            agregarProducao(item, '10meses');
         }
         if (item.data >= intervalos[3]) {
             agregarProducao(item, '8meses');
         }
-        if (item.data >= intervalos[4]) {
-            agregarProducao(item, '10meses');
+        if (item.data >= intervalos[2]) {
+            agregarProducao(item, '6meses');
+        }
+        if (item.data >= intervalos[1]) {
+            agregarProducao(item, '4meses');
+        }
+        if (item.data >= intervalos[0]) {
+            agregarProducao(item, '2meses');
         }
     });
 
-    // Extrai os nomes dos calçados e os dados para os datasets
     let nomesCalcados = [...new Set(dados.map(item => item.nome))];
     let datasets = nomesCalcados.map(nome => {
         return {
@@ -84,9 +77,8 @@ function grafSuccess(dados) {
         datasets: datasets
     };
 
-    // Configurações do gráfico
     const config = {
-        type: 'line', // Tipo de gráfico: 'line'
+        type: 'line',
         data: data,
         options: {
             responsive: true,
@@ -120,9 +112,8 @@ function grafSuccess(dados) {
         }
     };
 
-    // Criação do gráfico
     const ctx = document.getElementById('graficoSuccess').getContext('2d');
-    const myChart = new Chart(ctx, config);
+    new Chart(ctx, config);
 }
 
 function grafError(dados) {
@@ -132,11 +123,9 @@ function grafError(dados) {
         return hoje.toISOString().split('T')[0];
     }
 
-    // Calcula as datas de início para os intervalos de 2 em 2 meses, totalizando 10 meses
     let intervalos = [2, 4, 6, 8, 10].map(meses => calcularIntervalo(meses));
-    
-    // Inicializa um objeto para armazenar os dados de produção por período e por tipo de tênis
-    let producaoPorPeriodo = {
+
+    let erroPorPeriodo = {
         '2meses': {},
         '4meses': {},
         '6meses': {},
@@ -144,44 +133,41 @@ function grafError(dados) {
         '10meses': {}
     };
 
-    // Função para agregar a produção por período
-    function agregarProducao(item, periodo) {
-        if (!producaoPorPeriodo[periodo][item.nome]) {
-            producaoPorPeriodo[periodo][item.nome] = 0;
+    function agregarErro(item, periodo) {
+        if (!erroPorPeriodo[periodo][item.nome]) {
+            erroPorPeriodo[periodo][item.nome] = 0;
         }
-        producaoPorPeriodo[periodo][item.nome] += item.finalizado;
+        erroPorPeriodo[periodo][item.nome] += item.finalizado;
     }
 
-    // Agrupa as quantidades de calçados por dia e intervalo
     dados.forEach(item => {
-        if (item.data >= intervalos[0]) {
-            agregarProducao(item, '2meses');
-        }
-        if (item.data >= intervalos[1]) {
-            agregarProducao(item, '4meses');
-        }
-        if (item.data >= intervalos[2]) {
-            agregarProducao(item, '6meses');
+        if (item.data >= intervalos[4]) {
+            agregarErro(item, '10meses');
         }
         if (item.data >= intervalos[3]) {
-            agregarProducao(item, '8meses');
+            agregarErro(item, '8meses');
         }
-        if (item.data >= intervalos[4]) {
-            agregarProducao(item, '10meses');
+        if (item.data >= intervalos[2]) {
+            agregarErro(item, '6meses');
+        }
+        if (item.data >= intervalos[1]) {
+            agregarErro(item, '4meses');
+        }
+        if (item.data >= intervalos[0]) {
+            agregarErro(item, '2meses');
         }
     });
 
-    // Extrai os nomes dos calçados e os dados para os datasets
     let nomesCalcados = [...new Set(dados.map(item => item.nome))];
     let datasets = nomesCalcados.map(nome => {
         return {
             label: nome,
             data: [
-                producaoPorPeriodo['2meses'][nome] || 0,
-                producaoPorPeriodo['4meses'][nome] || 0,
-                producaoPorPeriodo['6meses'][nome] || 0,
-                producaoPorPeriodo['8meses'][nome] || 0,
-                producaoPorPeriodo['10meses'][nome] || 0
+                erroPorPeriodo['2meses'][nome] || 0,
+                erroPorPeriodo['4meses'][nome] || 0,
+                erroPorPeriodo['6meses'][nome] || 0,
+                erroPorPeriodo['8meses'][nome] || 0,
+                erroPorPeriodo['10meses'][nome] || 0
             ],
             borderColor: 'rgba(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',1)',
             borderWidth: 1,
@@ -194,9 +180,8 @@ function grafError(dados) {
         datasets: datasets
     };
 
-    // Configurações do gráfico
     const config = {
-        type: 'line', // Tipo de gráfico: 'line'
+        type: 'line',
         data: data,
         options: {
             responsive: true,
@@ -230,7 +215,6 @@ function grafError(dados) {
         }
     };
 
-    // Criação do gráfico
     const ctx = document.getElementById('graficoError').getContext('2d');
-    const myChart = new Chart(ctx, config);
+    new Chart(ctx, config);
 }

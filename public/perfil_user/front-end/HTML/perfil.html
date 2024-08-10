@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../../assets/css/modos.css">
     <link rel="stylesheet" href="../Style/perfil.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Gontijo | Usuario</title>
     <link rel="shortcut icon" href="../../../assets/imagens/g.png" type="image/x-icon">
 </head>
@@ -17,10 +18,14 @@
 <body>
     <main id="tela-perfil-outro-funcionario">
         <div id="perfil"></div>
-        <h2>Gráficos do funcionário</h2>
+        <h2>Gráfico do funcionário</h2>
+        <div>
+            <canvas id="graf"></canvas>
+        </div>
     </main>
 </body>
 <script src="../../back-end/js/perfil.js"></script>
+<script src="../../back-end/js/grafico.js"></script>
 <script src="../../../assets/JS/Navbar.js"></script>
 <script src="../../../assets/JS/links.js"></script>
 <script src="../../../assets/JS/pop_up.js"></script>

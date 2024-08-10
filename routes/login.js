@@ -7,10 +7,7 @@ const saltRounds = 10;
 const axios = require('axios');
 const { connection2 } = require('../public/chat/js/db.js');
 
-
-
-//hash de senha (espero que não tenha que usar)
-
+// Hash de senha (se necessário)
 const hashPassword = async (password) => {
     try {
         const hash = await bcrypt.hash(password, saltRounds);
@@ -21,8 +18,7 @@ const hashPassword = async (password) => {
     }
 };
 
-// verificação de senha
-
+// Verificação de senha
 const verifyPassword = (password, hash, callback) => {
     bcrypt.compare(password, hash, (err, isMatch) => {
         if (err) return callback(err);
@@ -30,7 +26,7 @@ const verifyPassword = (password, hash, callback) => {
     });
 };
 
-//Middleware para analisar dados codificados em URL
+// Middleware para analisar dados codificados em URL
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Parâmetros para montar o token
@@ -55,123 +51,102 @@ router.get('/login-google', async (req, res) => {
             const response = await axios.post(token_url, params);
             const token = response.data;
 
-            // Resgatando informações do usuario
+            // Resgatando informações do usuário
             const userinfo_url = `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${token.access_token}`;
             const userinfoResponse = await axios.get(userinfo_url);
             const userinfo = userinfoResponse.data;
 
-            //testando primeiro login
-            if (req.session.tempUser) {
-                if (req.session.tempUser.pl = true /*pl = Primeiro login */) {
+            // Testando primeiro login
+            if (req.session.tempUser && req.session.tempUser.pl) {
+                const tuser = req.session.tempUser;
 
-                    const tuser = req.session.tempUser
+                connection2.query('SELECT * FROM usuario WHERE email = ?', [userinfo.email], (error, results) => {
+                    if (error) {
+                        console.error(error);
+                        return res.status(500).send('Erro ao consultar usuário');
+                    } 
+
+                    if (results.length > 0) {
+                        return res.redirect('http://localhost:3000/userJaCadastrado/front-end/HTML/userJaCadastrado.html');
+                    } 
 
                     connection2.query('UPDATE usuario SET google_id = ?, email = ? , profile_picture = ?, pl = false WHERE id = ?', [
                         userinfo.id,
                         userinfo.email,
                         userinfo.picture,
                         tuser.id
-                    ]), (error, results) => {
+                    ], (error, results) => {
                         if (error) {
                             console.error(error);
-                        } else {
-                            connection2.query('SELECT * FROM usuario WHERE id = ?', [tuser.id], (error, results) => {
-                                if (error) {
-                                    console.error(error);
-                                } else {
-                                    const user = results[0];
-
-                                    req.session.user = user;
-
-                                    if (!req.session.user) {
-                                        res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
-                                    }
-
-                                    res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
-                                }
-                            })
-
+                            return res.status(500).send('Erro ao atualizar usuário');
                         }
+
+                        connection2.query('SELECT * FROM usuario WHERE id = ?', [tuser.id], (error, results) => {
+                            if (error) {
+                                console.error(error);
+                                return res.status(500).send('Erro ao consultar usuário');
+                            }
+
+                            const user = results[0];
+                            req.session.user = user;
+
+                            return res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
+                        });
+                    });
+                });
+            } else {
+                // Verificando se o usuário já existe no banco de dados
+                connection2.query('SELECT * FROM usuario WHERE email = ?', [userinfo.email], (error, results) => {
+                    if (error) {
+                        console.error(error);
+                        return res.status(500).send('Erro ao consultar usuário');
                     }
 
-                }
-            }
-
-            // Verificando se o usuario já existe no banco de dados
-            connection2.query('SELECT * FROM usuario WHERE email = ?', [userinfo.email], (error, results) => {
-                if (error) {
-                    console.error(error);
-                } else {
-                    //tratando usuarios novos
                     if (results.length > 0) {
                         req.session.user = results[0];
-
-                        if (!req.session.user) {
-                            res.redirect('http://localhost:3000/not-found/front-end/HTML/notfound.html');
-                        }
-
-                        res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
+                        return res.redirect('http://localhost:3000/tela_inicial_adm/front-end/HTML/tela_inicial_adm.html');
                     } else {
-
-                        res.redirect('http://localhost:3000/userNotFound/front-end/HTML/userNotFound.html');
-
+                        return res.redirect('http://localhost:3000/userNotFound/front-end/HTML/userNotFound.html');
                     }
-                }
-            });
+                });
+            }
         } catch (error) {
             console.error('Erro ao obter o token:', error);
-            res.status(500).send('Erro ao obter o token');
+            return res.status(500).send('Erro ao obter o token');
         }
     } else {
-        res.status(400).send('Código não encontrado');
+        return res.status(400).send('Código não encontrado');
     }
 });
 
-router.post('/login_normal', async (req, res) => {
-    if (req.body) {
-        console.log(req.body.email)
-    }
-
+router.post('/login_normal', (req, res) => {
     connection2.query('SELECT * FROM usuario WHERE ra = ?', [req.body.email], (error, results) => {
-
         if (error) {
             console.error(error);
-        } else {
-
-            if (results.length > 0) {
-                const user = results[0];
-
-
-                // Verificar a senha
-                verifyPassword(req.body.senha, user.senha, (err, isMatch) => {
-                    if (err) {
-                        console.error('Erro ao verificar a senha:', err);
-                        return res.status(500).json({ error: 'Erro interno do servidor' });
-                    }
-
-                    if (isMatch) {
-                        // Senha correta
-
-                        user.pl == true ? req.session.tempUser = user : req.session.user = user;
-                        if (user.pl) {
-                            ;
-                        }
-                        res.json({ success: true, mensage: 'Login bem sucedido', pl: user.pl });
-                    } else {
-                        // Senha incorreta
-                        res.json({ sucess: false, mensage: 'Senha incorreta' })
-                        // res.status(401).json({ error: 'Senha incorreta' });
-                    }
-                });
-            } else {
-                // Usuário não encontrado
-                res.json({ sucess: false, mensage: 'usuario nao encontrado' })
-                // res.status(404).json({ error: 'Usuário não encontrado' });
-            }
+            return res.status(500).json({ error: 'Erro interno do servidor' });
         }
 
-    })
-})
+        if (results.length > 0) {
+            const user = results[0];
 
+            // Verificar a senha
+            verifyPassword(req.body.senha, user.senha, (err, isMatch) => {
+                if (err) {
+                    console.error('Erro ao verificar a senha:', err);
+                    return res.status(500).json({ error: 'Erro interno do servidor' });
+                }
+
+                if (isMatch) {
+                    user.pl ? req.session.tempUser = user : req.session.user = user;
+                    return res.json({ success: true, message: 'Login bem-sucedido', pl: user.pl });
+                } else {
+                    return res.json({ success: false, message: '404' });
+                }
+            });
+        } else {
+            return res.json({ success: false, message: '404' });
+        }
+    });
+});
 
 module.exports = router;
