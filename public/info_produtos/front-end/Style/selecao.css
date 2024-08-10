@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+body {
+  height: auto;
+}
+
 .info-container div {
   margin-bottom: 10px;
 }

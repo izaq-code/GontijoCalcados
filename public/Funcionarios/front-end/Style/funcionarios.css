@@ -18,6 +18,7 @@ body {
     background-color: var(--corfundo);
     font-family: Outfit;
     margin: 0;
+    height: auto;
 }
 
 #tela-busca-usuario {
@@ -128,7 +129,6 @@ body {
     }
 
     .usuario-card {
-        width: 40vh;
-        margin-left: 60px;
+        width: 100%;
     }
 }
