@@ -223,6 +223,7 @@
 #container-graficos {
   width: 100%;
   gap: 30px;
+ 
 }
 
 .graficos {
@@ -276,6 +277,7 @@ body.light-mode .graficos {
 @media only screen and (max-width: 690px) {
   #tela-inicial {
     margin-left: 120px;
+    padding: 40px 5% 20px 5%;
   }
   #container-graficos {
     margin-bottom: 100px;

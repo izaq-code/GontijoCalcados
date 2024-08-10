@@ -117,9 +117,7 @@
 }
 
 @media (max-width: 576px) {
-  select.categoria-cor {
-    width: 150%;
-  }
+
   .controles {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px 80px;
@@ -132,9 +130,7 @@
 }
 
 @media (max-width: 400px) {
-  select.categoria-cor {
-    width: 200%;
-  }
+
   .controles {
     grid-template-columns: 1fr;
   }
@@ -153,19 +149,4 @@
 
 .categoria-cor.selecionado {
   border: 2px solid #000;
-}
-
-select.categoria-cor {
-  border: 1px solid var(--cortextosecundario);
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #f0f0f0;
-  font-size: 16px;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 20px;
 }

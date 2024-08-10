@@ -190,7 +190,6 @@ function getEtapas() {
         }
     });
 }
-
 function iniciarNavegacao() {
     $(document).ready(function () {
         let passoAtual = 1;
@@ -227,7 +226,6 @@ function iniciarNavegacao() {
                         confirmButton: "btn btn-success",
                         cancelButton: "btn btn-danger"
                     },
-
                 });
 
                 swalWithBootstrapButtons.fire({
@@ -240,12 +238,18 @@ function iniciarNavegacao() {
                     reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        //aqui eu chamo a função pra reportar uma conclusão de calçado 
-                        calcadoConcluido();
-                        window.location.href = 'http://localhost:3000/info_produtos/front-end/html/selecao.html';
-                    } else if (
-                        result.dismiss === Swal.DismissReason.cancel
-                    ) {
+                        swalWithBootstrapButtons.fire({
+                            title: 'Enviado com Sucesso!',
+                            text: 'Você será redirecionado em breve.',
+                            icon: 'success',
+                            timer: 2000, 
+                            showConfirmButton: false
+                        }).then(() => {
+                            // Função de conclusão do processo
+                            calcadoConcluido();
+                            window.location.href = 'http://localhost:3000/info_produtos/front-end/html/selecao.html';
+                        });
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
                         swalWithBootstrapButtons.fire({
                             title: "Cancelado",
                             text: "A ação foi cancelada",
@@ -256,7 +260,8 @@ function iniciarNavegacao() {
             }
         });
 
-        $('#voltar').on('click', function () {
+        $('#voltar').on('click', function (event) {
+            event.preventDefault();
             if (passoAtual > 1) {
                 passoAtual--;
                 atualizarPasso();
@@ -265,8 +270,8 @@ function iniciarNavegacao() {
 
         atualizarPasso();
     });
-
 }
+
 
 $(document).ready(function () {
     getEtapas();

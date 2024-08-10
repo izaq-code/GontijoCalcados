@@ -62,23 +62,6 @@
     display: none;/
 }
 
-
-#logout-button-moba {
-    font-size: 15px;
-    width: 20px;
-    height: 20px;
-    padding: 10px;
-    border-radius: 50%;
-    color: #000000;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: transparent;
-}
-
 body.dark-mode #logout-button-moba {
     color: #ffffff;
 }
@@ -602,6 +585,22 @@ input:checked~label .to::before {
     align-items: center;
     margin-right: -240px;
     margin-top: 5px;
+}
+
+#logout-button-moba {
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: transparent;
 }
 
 #foto_user img {

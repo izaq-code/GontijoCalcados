@@ -1,13 +1,23 @@
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 15px;
+#grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+@media only screen and (max-width: 690px) {
+  #grid {
+   margin-left: 20px;
+  }
+  #titl {
+    margin-left: 20px;
+  }
 }
 
 #cadastrar-especificacoes {
   width: 100%;
   max-width: 1100px;
   padding: 10px;
+  box-sizing: border-box; 
 }
 
 #titl {
@@ -23,36 +33,58 @@ button[type="submit"] {
   border-radius: 7px;
   font-size: 14px;
   font-weight: bold;
-  transition: 0.2 all linear;
-  width: 230px;
+  transition: background-color 0.2s linear;
+  width: 100%; 
+  max-width: 230px; 
 }
 
 button[type="submit"]:hover {
-  transition: 0.2 all linear;
-  background: var(--corprincipalhover);
+  background-color: var(--corprincipalhover);
 }
 
-body.dark-mode .inputt {
-  background-color: var(--cor-padrao-dark);
-  color: var(--color-padrao-dark);
+.input input,
+.input select {
+  width: 100%;
+  max-width: 200px;
 }
 
-body.dark-mode .input label {
-  background-color: var(--cor-padrao-dark);
-  color: var(--corfundo);
+@media only screen and (max-width: 1020px) {
+  #grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
 
-body.dark-mode .input input:valid~label,
-.input input:focus~label {
-  background-color: transparent !important;
+@media (max-width: 768px) {
+  .input input,
+  .input select {
+    height: 45px;
+    font-size: 18px; 
+  }
+
+  .input label {
+    font-size: 16px; 
+  }
+
+  .input input:focus ~ label,
+  .input input:valid ~ label {
+    font-size: 12px;
+  }
 }
 
-body.light-mode .input label {
-  background-color: var(--cor-padrao-light);
-  color: var(--color-padrao-light);
-}
+@media (max-width: 480px) {
+  .input input,
+  .input select {
+    height: 40px;
+    font-size: 16px; 
+  }
 
-body.light-mode .input input:valid~label,
-.input input:focus~label {
-  background-color: transparent !important;
+  .input label {
+    font-size: 14px;
+  }
+
+  .input input:focus ~ label,
+  .input input:valid ~ label {
+    font-size: 10px; 
+  }
 }

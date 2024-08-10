@@ -140,7 +140,7 @@ body.dark-mode .card-ponto {
 
 @media (max-width: 768px) {
   #tela-meu-perfil {
-    padding: 40px 5vh;
+    padding: 100px 5vh;
   }
 
   .card-ponto {
@@ -150,4 +150,24 @@ body.dark-mode .card-ponto {
   .card-informacoes {
     width: 100%;
   }
+}
+
+
+.graficos {
+  margin-top: 20px;
+  width: 80%;
+  border-radius: 10px;
+  padding: 10px 30px;
+  padding-bottom: 40px;
+  background-color: var(--cor-padrao-light);
+}
+
+body.dark-mode .graficos {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+body.light-mode .graficos {
+  background-color: var(--cor-padrao-light);
+  color: var(--color-padrao-light);
 }

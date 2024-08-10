@@ -40,6 +40,25 @@
     font-weight: 800px;
 }
 
+.graficos {
+  margin-top: 20px;
+  width: 80%;
+  border-radius: 10px;
+  padding: 10px 30px;
+  padding-bottom: 40px;
+  background-color: var(--cor-padrao-light);
+}
+
+body.dark-mode .graficos {
+  background-color: var(--cor-padrao-dark);
+  color: #fff;
+}
+
+body.light-mode .graficos {
+  background-color: var(--cor-padrao-light);
+  color: var(--color-padrao-light);
+}
+
 @media (max-width: 1341px) {
     #tela-perfil-outro-funcionario {
       padding: 40px 8vh;

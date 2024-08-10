@@ -12,10 +12,10 @@
   --cortextosecundariohover: #7e7e7e;
 }
 
-#visualizadorSapato{
-width: 80%;
-margin-top: 30px;
-margin-left: 10%;
+#visualizadorSapato {
+  width: 80%;
+  margin-top: 30px;
+  margin-left: 10%;
 }
 
 #cadastrar-calcado {
@@ -249,21 +249,19 @@ button[type="submit"]:hover {
   height: 400px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+#grid-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .passo {
   display: none;
-}
-#grid-vertical{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.passo.ativo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 35px;
 }
 
 #conteiner-botao {
@@ -300,4 +298,101 @@ body.dark-mode .input select {
   background-color: var(--cor-fundo-body-dark);
   color: var(--color-padrao-dark);
   border: 1px solid var(--cor-padrao-dark);
+}
+
+.input {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#input-email,
+#input-senha {
+  color: var(--cortextoprincipal);
+}
+
+.input input,
+.input select {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.passo.ativo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px 90px;
+}
+
+select.categoria-cor {
+  border: 1px solid var(--cortextosecundario);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .input input,
+  .input select,
+  select.categoria-cor {
+    height: 45px;
+    font-size: 20px;
+  }
+
+  select.categoria-cor {
+    padding: 8px;
+  }
+
+  .input label {
+    font-size: 18px;
+  }
+
+  .input input:focus ~ label,
+  .input input:valid ~ label {
+    font-size: 14px;
+  }
+
+  .passo.ativo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input input,
+  .input select,
+  select.categoria-cor {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  select.categoria-cor {
+    padding: 6px;
+  }
+
+  .input label {
+    font-size: 16px;
+  }
+
+  .input input:focus ~ label,
+  .input input:valid ~ label {
+    font-size: 12px;
+  }
+
+  .passo.ativo {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media only screen and (min-width: 773px) {
+  .meio {
+    margin-left: 37%;
+  }
 }

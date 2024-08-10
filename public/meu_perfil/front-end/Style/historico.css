@@ -236,7 +236,7 @@ body.dark-mode .card-ponto {
 
 @media (max-width: 768px) {
   #tela-meu-historico {
-    padding: 40px 5vh;
+    padding: 100px 5vh;
   }
 
   .card-ponto {

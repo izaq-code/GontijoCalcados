@@ -17,12 +17,18 @@ $('#calcadoErro').click(function(){
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            //aqui eu chamo a função pra reportar uma conclusão de calçado 
-            calcadoErro();
-            window.location.href = 'http://localhost:3000/info_produtos/front-end/html/selecao.html';
-        } else if (
-            result.dismiss === Swal.DismissReason.cancel
-        ) {
+            swalWithBootstrapButtons.fire({
+                title: 'Reportado com Sucesso!',
+                text: 'Você será redirecionado em breve.',
+                icon: 'success',
+                timer: 2000, 
+                showConfirmButton: false
+            }).then(() => {
+                // Função de conclusão do processo
+                calcadoErro();
+                window.location.href = 'http://localhost:3000/info_produtos/front-end/html/selecao.html';
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire({
                 title: "Cancelado",
                 text: "A ação foi cancelada",
@@ -31,6 +37,8 @@ $('#calcadoErro').click(function(){
         }
     });
 })
+
+
 
 function calcadoErro () {
     $.ajax({
