@@ -1,12 +1,16 @@
+#tela-cadastro-especificacoes {
+  padding: 50px 7% 0 7%;
+}
+
 #grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  column-gap: 10%;
 }
 
 @media only screen and (max-width: 690px) {
   #grid {
-   margin-left: 20px;
+    margin-left: 20px;
   }
   #titl {
     margin-left: 20px;
@@ -17,7 +21,13 @@
   width: 100%;
   max-width: 1100px;
   padding: 10px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+.cadastrar-especificacoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 #titl {
@@ -28,14 +38,14 @@ button[type="submit"] {
   background-color: var(--corprincipal);
   color: var(--corfundo);
   border: none;
-  padding: 12px 25px;
   cursor: pointer;
+  padding: 10px 20px;
   border-radius: 7px;
   font-size: 14px;
   font-weight: bold;
   transition: background-color 0.2s linear;
-  width: 100%; 
-  max-width: 230px; 
+  height: 53px;
+  width: 180px;
 }
 
 button[type="submit"]:hover {
@@ -48,10 +58,18 @@ button[type="submit"]:hover {
   max-width: 200px;
 }
 
-@media only screen and (max-width: 1020px) {
+@media (max-width: 938px) {
+  .botao {
+    width: 332px !important;
+    max-width: 400px !important ;
+  }
+
+  .cadastrar-especificacoes {
+    gap: 0;
+  }
+
   #grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 50px;
   }
 }
 
@@ -59,11 +77,11 @@ button[type="submit"]:hover {
   .input input,
   .input select {
     height: 45px;
-    font-size: 18px; 
+    font-size: 18px;
   }
 
   .input label {
-    font-size: 16px; 
+    font-size: 16px;
   }
 
   .input input:focus ~ label,
@@ -72,11 +90,26 @@ button[type="submit"]:hover {
   }
 }
 
+@media (max-width: 600px) {
+  #tela-cadastro-especificacoes {
+    padding-bottom: 120px;
+  }
+
+  #grid {
+    max-width: 332px;
+    margin: 0 auto;
+  }
+
+  #tela-cadastro-especificacoes h1 {
+    text-align: center;
+  }
+}
+
 @media (max-width: 480px) {
   .input input,
   .input select {
     height: 40px;
-    font-size: 16px; 
+    font-size: 16px;
   }
 
   .input label {
@@ -85,6 +118,11 @@ button[type="submit"]:hover {
 
   .input input:focus ~ label,
   .input input:valid ~ label {
-    font-size: 10px; 
+    font-size: 10px;
   }
+}
+
+.inputt {
+  width: 300px !important;
+  max-width: 300px !important;
 }
