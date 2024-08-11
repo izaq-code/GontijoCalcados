@@ -31,6 +31,12 @@
   cursor: pointer;
 }
 
+#calcadoCad {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 #ver {
   text-decoration: none;
   margin-top: 20px;
@@ -70,6 +76,44 @@
 }
 
 #calcadoErro[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  display: block;
+}
+
+#calcadoCad {
+  margin-top: 20px;
+  border: none;
+  background-color: var(--cor-principal);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  position: relative;
+}
+
+#calcadoCad::after {
+  content: attr(data-tooltip);
+  display: none;
+  position: absolute;
+  background-color: var(--cor-principal);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  width: 90px;
+  left: 50%;
+  top: -45px;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#calcadoCad:hover::after {
+  display: block;
+}
+
+#calcadoCad[data-tooltip]:hover::after {
   content: attr(data-tooltip);
   display: block;
 }
