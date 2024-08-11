@@ -16,7 +16,7 @@ $(document).ready(function() {
                 success: function(response) {
                     $(this).find('input').val(''); 
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
                         title: 'Cadastrado com sucesso!',
                         showConfirmButton: false,

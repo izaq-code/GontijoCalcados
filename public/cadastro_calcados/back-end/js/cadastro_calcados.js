@@ -35,7 +35,7 @@ $(document).ready(function () {
             processData: false, 
             success: function (response) {
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'success',
                     title: 'Enviado com sucesso',
                     showConfirmButton: false,
@@ -47,7 +47,7 @@ $(document).ready(function () {
             error: function (jqXHR, textStatus, errorThrown) {
                 console.error('Erro:', textStatus, errorThrown);
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'error',
                     title: 'Erro ao enviar',
                     showConfirmButton: false,
