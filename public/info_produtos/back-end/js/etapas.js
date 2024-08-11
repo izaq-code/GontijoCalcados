@@ -1,6 +1,6 @@
 
 const corMap = {
-    '#FFD700': 'Dourado',
+    '#FFD700': 'Dourada',
     '#4B0082': 'Índigo',
     '#00FFFF': 'Ciano',
     '#7FFF00': 'Verde Limão',
@@ -56,121 +56,108 @@ function getEtapas() {
                     <div id="conteudo">
                         <div class="passo"> 
                             <div class="informacoes-demanda">
-                                <p><strong>Nome:</strong></p>
-                                <p>${demanda.nome}</p>
+                                <p><i class="bi bi-box"></i></p>
+                                <p class="texto-demanda">Você está fabricando o sapato <strong>${demanda.nome}</strong></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Tipo de Tinta:</strong></p>
-                                <p>${demanda.tipotinta}</p>
+                                <p><i class="bi bi-gear"></i></i></p>
+                                <p class="texto-demanda">Ajuste a temperatura da máquina para <strong>${demanda.tempocalcado}</strong>°C</p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Espelinha:</strong></p>
-                                <p>${demanda.espelinha}</p>
+                                <p><i class="bi bi-gear"></i></i></p>
+                                <p class="texto-demanda">Ajuste a regulagem do equipamento para <strong>${demanda.reg_equip}</strong></p>
                             </div>
-                            <div class="informacoes-demanda">
-                                <p><strong>Espaçamento da Costura:</strong></p>
-                                <p>${demanda.espacamento_da_costura}</p>
-                            </div>
-
                         </div>
                         <div class="passo"> 
                             <div class="informacoes-demanda">
-                                <p><strong>Cor da Linha:</strong></p>
-                                <p>${getNomeCor(demanda.cor_linha)}</p>
+                                <p><i class="bi bi-paint-bucket"></i></p>
+                                <p class="texto-demanda">Pegue a tinta <strong>${demanda.tipotinta}</strong></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Tempo Calçado:</strong></p>
-                                <p>${demanda.tempocalcado}</p>
+                                <p><i class="bi bi-crosshair"></i></p>
+                                <p class="texto-demanda">Pegue o material ${demanda.nome_material}</p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Tempo Secagem:</strong></p>
-                                <p>${demanda.tempsec}</p>
+                                <p><i class="bi bi-crosshair"></i></p>
+                                <p class="texto-demanda">Pegue o solado ${demanda.nomesolado}</p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Registro Equipamento:</strong></p>
-                                <p>${demanda.reg_equip}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue o solado do sapato da coloração <span span style="color: ${demanda.cor_solado}; font-weight: bolder;">${getNomeCor(demanda.cor_solado)}<span></p>
                             </div>
-
                         </div>
                         <div class="passo">
                             <div class="informacoes-demanda">
-                                <p><strong>Cor do Logo do Solado:</strong></p>
-                                <p>${getNomeCor(demanda.cor_logo_solado)}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue o logo do solado do sapato da coloração <span span style="color: ${demanda.cor_logo_solado}; font-weight: bolder;">${getNomeCor(demanda.cor_logo_solado)}<span></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Cor do Cadarço:</strong></p>
-                                <p>${getNomeCor(demanda.cor_cadarco)}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue a malha do sapato da coloração <span span style="color: ${demanda.cor_malha}; font-weight: bolder;">${getNomeCor(demanda.cor_malha)}<span></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Cor da Malha:</strong></p>
-                                <p>${getNomeCor(demanda.cor_malha)}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue o couro do sapato da coloração <span span style="color: ${demanda.cor_couro}; font-weight: bolder;">${getNomeCor(demanda.cor_couro)}<span></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Cor da Língua:</strong></p>
-                                <p>${getNomeCor(demanda.cor_lingua)}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue a logo do sapato da coloração <span span style="color: ${demanda.cor_logo}; font-weight: bolder;">${getNomeCor(demanda.cor_logo)}<span></p>
                             </div>
- 
                         </div>
                         <div class="passo">
                             <div class="informacoes-demanda">
-                                <p><strong>Cor do Couro:</strong></p>
-                                <p>${getNomeCor(demanda.cor_couro)}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue a linha da coloração <span style="color: ${demanda.cor_linha}; font-weight: bolder;">${getNomeCor(demanda.cor_linha)}</span></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Cor do Logo:</strong></p>
-                                <p>${getNomeCor(demanda.cor_logo)}</p>
+                                <p><i class="bi bi-command"></i></p>
+                                <p class="texto-demanda">Faça costuras com a espessura de <strong>${demanda.espelinha}</strong> u.m.</p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Cor da Espuma Interna:</strong></p>
-                                <p>${getNomeCor(demanda.cor_espuma_interna)}</p>
+                                <p><i class="bi bi-command"></i></p>
+                                <p class="texto-demanda">Faça as costuras com o tamanho de <strong>${demanda.tamcosturacalcado}</strong> u.m.</p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Cor da Etiqueta:</strong></p>
-                                <p>${getNomeCor(demanda.cor_etiqueta)}</p>
+                                <p><i class="bi bi-command"></i></p>
+                                <p class="texto-demanda">Faça as costuras com o espaçamento de <strong>${demanda.espacamento_da_costura}</strong> u.m.</p>
                             </div>
-
                         </div>
                         <div class="passo"> 
                             <div class="informacoes-demanda">
-                                <p><strong>Nome da Tinta:</strong></p>
-                                <p>${demanda.nometinta}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue a espuma interna do sapato da coloração <span span style="color: ${demanda.cor_espuma_interna}; font-weight: bolder;">${getNomeCor(demanda.cor_espuma_interna)}<span></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Nome do Material:</strong></p>
-                                <p>${demanda.nome_material}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue a língua do sapato da coloração <span span style="color: ${demanda.cor_lingua}; font-weight: bolder;">${getNomeCor(demanda.cor_lingua)}<span></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Nome do Cadraço:</strong></p>
-                                <p>${demanda.nomecadarco}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue a linha para a lingua do sapato da coloração <span span style="color: ${demanda.cor_linha_lingua}; font-weight: bolder;">${getNomeCor(demanda.cor_linha_lingua)}<span></p>
                             </div>
                             <div class="informacoes-demanda">
-                                <p><strong>Nome do Solado:</strong></p>
-                                <p>${demanda.nomesolado}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue a etiqueta do sapato da coloração <span span style="color: ${demanda.cor_etiqueta}; font-weight: bolder;">${getNomeCor(demanda.cor_etiqueta)}<span></p>
                             </div>
                         </div>
 
                         <div class="passo"> 
-                           
                             <div class="informacoes-demanda">
-                                <p><strong>Cor do Bagulho do Cadarço:</strong></p>
-                                <p>${getNomeCor(demanda.cor_bagulho_cardaco)}</p>
+                                <p><i class="bi bi-crosshair"></i></p>
+                                <p class="texto-demanda">Pegue o cadarço ${demanda.nomecadarco}</p>
                             </div>
-
-                           <div class="informacoes-demanda">
-                                <p><strong>Cor da Linha da Língua:</strong></p>
-                                <p>${getNomeCor(demanda.cor_linha_lingua)}</p>
-                            </div>
-
                             <div class="informacoes-demanda">
-                                <p><strong>Cor do Solado:</strong></p>
-                                <p>${getNomeCor(demanda.cor_solado)}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue o cadarço do sapato da coloração <span span style="color: ${demanda.cor_cadarco}; font-weight: bolder;">${getNomeCor(demanda.cor_cadarco)}<span></p>
                             </div>
-
                             <div class="informacoes-demanda">
-                                <p><strong>Tamanho Costura Calçado:</strong></p>
-                                <p>${demanda.tamcosturacalcado}</p>
+                                <p><i class="bi bi-palette"></i></p>
+                                <p class="texto-demanda">Pegue a etiqueta cadarço do sapato da coloração <span span style="color: ${demanda.cor_bagulho_cardaco}; font-weight: bolder;">${getNomeCor(demanda.cor_bagulho_cardaco)}<span></p>
                             </div>
-
+                            <div class="informacoes-demanda">
+                                <p><i class="bi bi-clock"></i></p>
+                                <p class="texto-demanda">Deixe o sapato secar por <strong>${demanda.tempsec}</strong> horas</p>
+                            </div>
                         </div>
 
                     </div>

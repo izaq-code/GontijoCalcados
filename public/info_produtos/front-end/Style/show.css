@@ -8,8 +8,11 @@
   margin-top: -60px;
 }
 
-#obj {
+.content {
+  padding: 0;
+}
 
+#obj {
   display: flex;
   align-items: center;
   gap: 20px;

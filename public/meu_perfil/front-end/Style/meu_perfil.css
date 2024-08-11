@@ -16,8 +16,12 @@
   margin: 0;
 }
 
+.content1 {
+  margin-top: 0;
+}
+
 #tela-meu-perfil {
-  padding: 50px 7% 0 7%;
+  padding: 20px 7% 0 7%;
 }
 
 #perfil {
@@ -43,6 +47,7 @@
 
 #container-informacoes-esquerda img {
   border-radius: 50%;
+  width: 100px;
 }
 
 .bater-ponto-button, .historico_de_pontos {

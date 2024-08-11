@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <span class="Fechar" id="FecharChat">&times;</span>
                 <div id="nomeConversaAtual">
                     <div class="foto-cont">
-                        <img src="../../../assets/imagens/logo-G.svg" alt="Foto do Chat Global" class="foto-usuario-conversa">
+                        <img src="../../../assets/imagens/g.png" alt="Foto do Chat Global" class="foto-usuario-conversa">
                     </div>
                     Chat Global
                 </div>

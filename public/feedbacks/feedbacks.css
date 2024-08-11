@@ -1,7 +1,6 @@
 #tela-feedbacks{ 
-    padding: 10px 40px;
+    padding: 20px 7% 0 7%;
     height: auto;
-    margin-bottom: 500px;
 }    
 
 .avaliacao, .nome-feedback, #titl {
