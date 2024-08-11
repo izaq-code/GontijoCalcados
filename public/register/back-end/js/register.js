@@ -26,7 +26,7 @@ $(document).ready(function () {
                             confirmButton: 'btn-blue', 
                         }
                 });
-                
+                $('#register')[0].reset(); 
             },
             error: function (xhr, status, error) {
                 var errorMessage = xhr.status + ': ' + xhr.statusText;
