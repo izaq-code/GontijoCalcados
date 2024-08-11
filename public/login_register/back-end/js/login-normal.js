@@ -39,7 +39,7 @@ function w(mensage) {
 
    
     Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: 'error',
         title: 'Erro ao efetuar o login :' + mensage,
         showConfirmButton: false,

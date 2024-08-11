@@ -11,7 +11,7 @@ $(document).ready(function () {
             data: formData,
             success: function () {
                 Swal.fire({
-                    position: "top-end",
+                    position: "center",
                     icon: "success",
                     title: "Enviado com sucesso",
                     showConfirmButton: false,
@@ -22,7 +22,7 @@ $(document).ready(function () {
             },
             error: function () {
                 Swal.fire({
-                    position: "top-end",
+                    position: "center",
                     icon: "error",
                     title: "Erro ao enviar feedback",
                     showConfirmButton: false,
