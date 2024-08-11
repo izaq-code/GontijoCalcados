@@ -24,469 +24,567 @@
 
             <div class="container">
 
-              <div class="container-progresso">
-                <div class="barra-progresso">
-                    <div class="progresso"></div>
-                </div>
-                <div class="numeros-progresso">
-                    <div class="numero">1</div>
-                    <div class="numero">2</div>
-                    <div class="numero">3</div>
-                    <div class="numero">4</div>
-                    <div class="numero">5</div>
-                    <div class="numero">6</div>
-                    <div class="numero">7</div>
-                </div>
+                <div class="container-progresso">
+                    <div class="barra-progresso">
+                        <div class="progresso"></div>
+                    </div>
+                    <div class="numeros-progresso">
+                        <div class="numero">1</div>
+                        <div class="numero">2</div>
+                        <div class="numero">3</div>
+                        <div class="numero">4</div>
+                        <div class="numero">5</div>
+                        <div class="numero">6</div>
+                        <div class="numero">7</div>
+                    </div>
 
-                <model-viewer
-                id="visualizadorSapato"
-                src="../../../assets/models/shoe3.gltf"
-                alt="Modelo 3D de um sapato"
-                camera-controls
-              ></model-viewer>
-        
-                <div id="conteudo">
+                    <model-viewer id="visualizadorSapato" src="../../../assets/models/shoe3.gltf"
+                        alt="Modelo 3D de um sapato" camera-controls></model-viewer>
 
-                    <div class="passo meio">
+                    <div id="conteudo">
 
-                        <div id="grid-vertical">
+                        <div class="passo meio">
 
-                        <div class="baixo">
-                            <div class="escolha">
-                                <p>Escolher imagem</p>
-                                <label class="foto" for="input-imagem-calcado" tabIndex="0">
-                                    <span class="foto__image" id="preview-image"></span>
-                                    <input type="file" name="img_calcado" id="input-imagem-calcado" class="foto__input" data-index="1" accept="image/*" required>
-                                </label>
+                            <div id="grid-vertical">
+
+                                <div class="baixo">
+                                    <div class="escolha">
+                                        <p>Escolher imagem</p>
+                                        <label class="foto" for="input-imagem-calcado" tabIndex="0">
+                                            <span class="foto__image" id="preview-image"></span>
+                                            <input type="file" name="img_calcado" id="input-imagem-calcado"
+                                                class="foto__input" data-index="1" accept="image/*" required>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="input input-nome">
+                                    <input class="inputt" id="input-nome" name="nome" type="text" required>
+                                    <label for="input-nome">Nome</label>
+                                </div>
+
                             </div>
+
                         </div>
 
-                        <div class="input input-nome">
-                            <input class="inputt" id="input-nome" name="nome" type="text" required>
-                            <label for="input-nome">Nome</label>
+
+                        <div class="passo">
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="solado">Solado:</label>
+                                <select id="solado" name="solado" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="logoSolado">Logo do solado:</label>
+                                <select id="logoSolado" name="logoSolado" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="cadarco">Cadarço:</label>
+                                <select id="cadarco" name="cadarco" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="malha">Malha:</label>
+                                <select id="malha" name="malha" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+
+
                         </div>
-                        
+                        <div class="passo">
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="lingua">Língua:</label>
+                                <select id="lingua" name="lingua" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="linha">Linha:</label>
+                                <select id="linha" name="linha" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="linhaLingua">Linha Língua:</label>
+                                <select id="linhaLingua" name="linhaLingua" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="couro">Couro:</label>
+                                <select id="couro" name="couro" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
                         </div>
-                        
+                        <div class="passo">
+
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="logo">Logo:</label>
+                                <select id="logo" name="logo" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="etiqueta">Etiqueta:</label>
+                                <select id="etiqueta" name="etiqueta" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="espumainterna">Espuma Interna:</label>
+                                <select id="espumainterna" name="espumainterna" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                            <div class="grupo-controle">
+                                <label class="lb1" for="bagulhodocardaco">Etiqueta do Cadarço:</label>
+                                <select id="bagulhodocardaco" name="bagulhodocardaco" class="categoria-cor" required>
+                                    <option value="">Selecione uma cor</option>
+                                    <option value="#000000">Preto</option>
+                                    <option value="#FFFFFF">Branco</option>
+                                    <option value="#FFB6C1">Rosa Claro</option>
+                                    <option value="#FF69B4">Rosa</option>
+                                    <option value="#8B0000">Vermelho Escuro</option>
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FF4500">Laranja Escuro</option>
+                                    <option value="#FFA07A">Laranja Claro</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#FFFACD">Amarelo Canário</option>
+                                    <option value="#A9A9A9">Cinza Escuro</option>
+                                    <option value="#D3D3D3">Cinza Claro</option>
+                                    <option value="#90EE90">Verde Claro</option>
+                                    <option value="#228B22">Verde Folha</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#40E0D0">Verde Turquesa</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#0047AB">Azul Cobalto</option>
+                                    <option value="#00CED1">Azul Turquesa</option>
+                                    <option value="#960018">Carmim</option>
+                                    <option value="#8A2BE2">Violeta</option>
+                                    <option value="#D02090">Vermelho Violeta</option>
+                                    <option value="#4B5320">Marrom Terra</option>
+                                    <option value="#4d3201">Marrom</option>
+                                    <option value="#D2B48C">Marrom Claro</option>
+                                    <option value="#FFD700">Dourado</option>
+                                    <option value="#B8860B">Dourado Escuro</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="passo">
+
+                            <div class="input">
+                                <input class="inputt" id="input-espessura-linha " name="espe_linha" type="text"
+                                    required>
+                                <label for="input-espessura-linha">Espessura da linha</label>
+                            </div>
+                            <div class="input">
+                                <input class="inputt" id="input-temperatura-equipamento" name="temp_equi" type="text"
+                                    required>
+                                <label for="input-temperatura-equipamento">Temperatura do equipamento</label>
+                            </div>
+                            <div class="input">
+                                <input class="inputt" id="input-espacamento-costura" name="espacamento_da_costura"
+                                    type="text" required>
+                                <label for="input-espacamento-costura">Espaçamento de costura</label>
+                            </div>
+                            <div class="input">
+                                <input class="inputt" id="input-tamanho-costura" name="tam_costura" type="text"
+                                    required>
+                                <label for="input-tamanho-costura">Tamanho da costura</label>
+                            </div>
+
+                        </div>
+                        <div class="passo">
+
+                            <div class="input">
+                                <input class="inputt" id="input-tempo-secagem" name="temp_sec" type="text" required>
+                                <label for="input-tempo-secagem">Tempo de secagem</label>
+                            </div>
+                            <div class="input">
+                                <input class="inputt" id="input-regulagem-equipamento" name="reg_equip" type="text"
+                                    required>
+                                <label for="input-regulagem-equipamento">Regulagem do equipamento</label>
+                            </div>
+                            <div class="input">
+                                <select id="select-tinta" name="id_tinta" required>
+                                    <option value=""></option>
+                                </select>
+                                <label for="select-tinta"></label>
+                            </div>
+                            <div class="input">
+                                <select id="select-material" name="id_material" required>
+                                    <option value=""></option>
+                                </select>
+                                <label for="select-material"></label>
+                            </div>
+
+                        </div>
+                        <div class="passo">
+
+                            <div class="input">
+                                <select id="select-cadarco" name="id_cadarco" required>
+                                    <option value=""></option>
+                                </select>
+                                <label for="select-cadarco"></label>
+                            </div>
+                            <div class="input">
+                                <select id="select-solado" name="id_solado" required>
+                                    <option value=""></option>
+                                </select>
+                                <label for="select-solado"></label>
+                            </div>
+                            <div class="input">
+                                <select id="select-adesivo" name="id_adesivo" required>
+                                    <option value="">Selecione o adesivo</option>
+                                </select>
+                                <label for="select-adesivo"></label>
+                            </div>
+                            <div class="input ultimo">
+                                <select id="select-tipo-de-tinta" name="id_tip_tinta" required>
+                                    <option value=""></option>
+                                </select>
+                                <label for="select-tipo-tinta"> </label>
+                            </div>
+
+                        </div>
                     </div>
-
-
-                    <div class="passo">
-
-                        <div class="grupo-controle">
-                            <label class="lb1"  for="solado">Solado:</label>
-                            <select id="solado" name="solado" class="categoria-cor"required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1"  for="logoSolado">Logo do solado:</label>
-                            <select id="logoSolado" name="logoSolado" class="categoria-cor" required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1"  for="cadarco">Cadarço:</label>
-                            <select id="cadarco" name="cadarco" class="categoria-cor" required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1"  for="malha">Malha:</label>
-                            <select id="malha" name="malha" class="categoria-cor" required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-
-
-                    </div>
-                    <div class="passo">
-
-                        <div class="grupo-controle">
-                            <label class="lb1"  for="lingua">Língua:</label>
-                            <select id="lingua" name="lingua" class="categoria-cor" required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1"  for="linha">Linha:</label>
-                            <select id="linha" name="linha" class="categoria-cor"required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1"  for="linhaLingua">Linha Língua:</label>
-                            <select id="linhaLingua" name="linhaLingua" class="categoria-cor"required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1"  for="couro">Couro:</label>
-                            <select id="couro" name="couro" class="categoria-cor"required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-
-                    </div>
-                    <div class="passo">
-
-
-                        <div class="grupo-controle">
-                            <label class="lb1"  for="logo">Logo:</label>
-                            <select id="logo" name="logo" class="categoria-cor"required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1"  for="etiqueta">Etiqueta:</label>
-                            <select id="etiqueta" name="etiqueta" class="categoria-cor"required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1"  for="espumainterna">Espuma Interna:</label>
-                            <select id="espumainterna" name="espumainterna" class="categoria-cor"required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-                        
-                          <div class="grupo-controle">
-                            <label class="lb1" for="bagulhodocardaco">Etiqueta do Cadarço:</label>
-                            <select id="bagulhodocardaco" name="bagulhodocardaco" class="categoria-cor"required>
-                                  <option value="">Selecione uma cor</option>
-                                  <option value="#FFD700">Dourado</option>
-                                  <option value="#4B0082">Índigo</option>
-                                  <option value="#00FFFF">Ciano</option>
-                                  <option value="#7FFF00">Verde Limão</option>
-                                  <option value="#FF6347">Tomate</option>
-                                  <option value="#40E0D0">Turquesa</option>
-                                  <option value="#FF1493">Deep Pink</option>
-                                  <option value="#1E90FF">Azul Dodger</option>
-                                  <option value="#32CD32">Lime Green</option>
-                                  <option value="#FFDAB9">Pêssego</option>
-                                  <option value="#D3D3D3">Cinza Claro</option>
-                                  <option value="#A0522D">Marrom</option>
-                                  <option value="#FF4500">Laranja Vermelho</option>
-                                  <option value="#DAA520">Ouro Escuro</option>
-                                  <option value="#FF69B4">Hot Pink</option>
-                                  <option value="#7CFC00">Verde Claro</option>
-                                  <option value="#FF8C00">Laranja Escuro</option>
-                                  <option value="#800080">Roxo</option>
-                                  <option value="#00FF00">Verde Neon</option>
-                                  <option value="#FF00FF">Magenta</option>
-                            </select>
-                          </div>
-
-                    </div>
-                    <div class="passo">
-
-                        <div class="input">
-                            <input class="inputt" id="input-espessura-linha " name="espe_linha" type="text" required>
-                            <label for="input-espessura-linha">Espessura da linha</label>
-                        </div>
-                        <div class="input">
-                            <input class="inputt" id="input-temperatura-equipamento" name="temp_equi" type="text" required>
-                            <label for="input-temperatura-equipamento">Temperatura do equipamento</label>
-                        </div>
-                        <div class="input">
-                            <input class="inputt" id="input-espacamento-costura" name="espacamento_da_costura" type="text" required>
-                            <label for="input-espacamento-costura">Espaçamento de costura</label>
-                        </div>
-                        <div class="input">
-                            <input class="inputt" id="input-tamanho-costura" name="tam_costura" type="text" required>
-                            <label for="input-tamanho-costura">Tamanho da costura</label>
-                        </div>
-
-                    </div>
-                    <div class="passo">
-
-                        <div class="input">
-                            <input class="inputt" id="input-tempo-secagem" name="temp_sec" type="text" required>
-                            <label for="input-tempo-secagem">Tempo de secagem</label>
-                        </div>
-                        <div class="input">
-                            <input class="inputt" id="input-regulagem-equipamento" name="reg_equip" type="text" required>
-                            <label for="input-regulagem-equipamento">Regulagem do equipamento</label>
-                        </div>
-                        <div class="input">
-                            <select id="select-tinta" name="id_tinta" required>
-                                <option value=""></option>
-                            </select>
-                            <label for="select-tinta"></label>
-                        </div>
-                        <div class="input">
-                            <select id="select-material" name="id_material" required>
-                                <option value=""></option>
-                            </select>
-                            <label for="select-material"></label>
-                        </div>
-
-                    </div>
-                    <div class="passo">
-
-                        <div class="input">
-                            <select id="select-cadarco" name="id_cadarco" required>
-                                <option value=""></option>
-                            </select>
-                            <label for="select-cadarco"></label>
-                        </div>
-                        <div class="input">
-                            <select id="select-solado" name="id_solado" required>
-                                <option value=""></option>
-                            </select>
-                            <label for="select-solado"></label>
-                        </div>
-                        <div class="input">
-                            <select id="select-adesivo" name="id_adesivo" required>
-                                <option value="">Selecione o adesivo</option>
-                            </select>
-                            <label for="select-adesivo"></label>
-                        </div>
-                        <div class="input ultimo">
-                            <select id="select-tipo-de-tinta" name="id_tip_tinta" required>
-                                <option value=""></option>
-                            </select>
-                            <label for="select-tipo-tinta"> </label>
-                        </div>
-
+                    <div id="conteiner-botao">
+                        <button id="voltar">Voltar</button>
+                        <button id="proximo">Próximo</button>
                     </div>
                 </div>
-                <div id="conteiner-botao">
-                    <button id="voltar">Voltar</button>
-                    <button id="proximo">Próximo</button>
-                </div>
+
             </div>
-
-            </div>     
         </form>
     </main>
     <script src="../js/etapas.js"></script>
@@ -499,4 +597,5 @@
     <script src="../../back-end/js/cadastro_calcados.js"></script>
     <script src="../../../assets/JS/controleAcesso.js"></script>
 </body>
+
 </html>

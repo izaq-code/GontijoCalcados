@@ -1,26 +1,34 @@
 
 const corMap = {
-    '#FFD700': 'Dourada',
-    '#4B0082': 'Índigo',
-    '#00FFFF': 'Ciano',
-    '#7FFF00': 'Verde Limão',
-    '#FF6347': 'Tomate',
-    '#40E0D0': 'Turquesa',
-    '#FF1493': 'Deep Pink',
-    '#1E90FF': 'Azul Dodger',
-    '#32CD32': 'Lime Green',
-    '#FFDAB9': 'Pêssego',
+    '#000000': 'Preto',
+    '#FFFFFF': 'Branco',
+    '#FFB6C1': 'Rosa Claro',
+    '#FF69B4': 'Rosa',
+    '#8B0000': 'Vermelho Escuro',
+    '#FF0000': 'Vermelho',
+    '#FF4500': 'Laranja Escuro',
+    '#FFA07A': 'Laranja Claro',
+    '#FFFF00': 'Amarelo',
+    '#FFFACD': 'Amarelo Canário',
+    '#A9A9A9': 'Cinza Escuro',
     '#D3D3D3': 'Cinza Claro',
-    '#A0522D': 'Marrom',
-    '#FF4500': 'Laranja Vermelho',
-    '#DAA520': 'Ouro Escuro',
-    '#FF69B4': 'Hot Pink',
-    '#7CFC00': 'Verde Claro',
-    '#FF8C00': 'Laranja Escuro',
-    '#800080': 'Roxo',
-    '#00FF00': 'Verde Neon',
-    '#FF00FF': 'Magenta'
+    '#90EE90': 'Verde Claro',
+    '#228B22': 'Verde Folha',
+    '#008000': 'Verde',
+    '#40E0D0': 'Verde Turquesa',
+    '#0000FF': 'Azul',
+    '#0047AB': 'Azul Cobalto',
+    '#00CED1': 'Azul Turquesa',
+    '#960018': 'Carmim',
+    '#8A2BE2': 'Violeta',
+    '#D02090': 'Vermelho Violeta',
+    '#4B5320': 'Marrom Terra',
+    '#4d3201': 'Marrom',
+    '#D2B48C': 'Marrom Claro',
+    '#FFD700': 'Dourado',
+    '#B8860B': 'Dourado Escuro'
 };
+
 
 function getEtapas() {
     var container = document.getElementById('mostrar-etapas');
