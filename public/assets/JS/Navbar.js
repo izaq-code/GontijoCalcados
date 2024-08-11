@@ -115,13 +115,13 @@ function loadDesktopNavbar() {
                             <div id="estoque" data-tooltip="Funcionarios" class="submenu-item"><i class="bi bi-person icon-space"></i> Funcionarios</div>
                         </a>     
                         <a href="../../../../configuracao/front-end/html/configuracao.html">
-                            <div id="estoque" data-tooltip="Cadastros" class="submenu-item"><i class="bi bi-archive icon-space"></i> Cadastros</div>
+                            <div id="Venda" data-tooltip="Cadastros" class="submenu-item"><i class="bi bi-archive icon-space"></i> Cadastros</div>
                         </a>    
                         <a href="../../../../Graficos/front-end/html/Graficos.html">
                             <div id="cad" data-tooltip="Graficos" class="submenu-item"><i class="bi bi-bar-chart icon-space"></i> Graficos</div>
                         </a>
                         <a href="../../../../feedbacks/feedbacks.html">
-                            <div id="estoque" data-tooltip="Feedbacks" class="submenu-item"><i class="bi bi-card-text icon-space"></i> Feedbacks</div>
+                            <div id="rel" data-tooltip="Feedbacks" class="submenu-item"><i class="bi bi-card-text icon-space"></i> Feedbacks</div>
                         </a>       
                     </div>
                     <div class="settings-section">

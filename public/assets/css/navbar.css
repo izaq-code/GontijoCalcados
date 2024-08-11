@@ -213,15 +213,17 @@ input:checked~label .to::before {
 
     #salvos::after {
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 460px;
-        z-index: 1;
+        left: 100%; 
+        top: 52.5%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #salvos:hover::after {
@@ -235,15 +237,17 @@ input:checked~label .to::before {
 
     #Informacoes::after {
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 420px;
-        z-index: 1;
+        left: 100%; 
+        top: 52.5%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #Informacoes:hover::after {
@@ -257,15 +261,17 @@ input:checked~label .to::before {
 
     #Clientes::after {
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 135px;
-        z-index: 1;
+        left: 100%; 
+        top: 22%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #Clientes:hover::after {
@@ -278,17 +284,18 @@ input:checked~label .to::before {
     }
 
     #cad::after {
-        width: 200px;
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 175px;
-        z-index: 1;
+        left: 100%; 
+        top: 52.5%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #cad:hover::after {
@@ -301,17 +308,18 @@ input:checked~label .to::before {
     }
 
     #at::after {
-        width: 200px;
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 215px;
-        z-index: 1;
+        left: 100%; 
+        top: 28.6%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #at:hover::after {
@@ -324,17 +332,18 @@ input:checked~label .to::before {
     }
 
     #ar::after {
-        width: 200px;
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 255px;
-        z-index: 1;
+        left: 100%; 
+        top: 34.5%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #ar:hover::after {
@@ -347,17 +356,18 @@ input:checked~label .to::before {
     }
 
     #estoque::after {
-        width: 200px;
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 296px;
-        z-index: 1;
+        left: 100%; 
+        top: 40.5%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #estoque:hover::after {
@@ -370,17 +380,18 @@ input:checked~label .to::before {
     }
 
     #Venda::after {
-        width: 200px;
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 405px;
-        z-index: 1;
+        left: 100%; 
+        top: 46.5%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #Venda:hover::after {
@@ -393,17 +404,18 @@ input:checked~label .to::before {
     }
 
     #rel::after {
-        width: 200px;
         content: attr(data-tooltip);
-        display: none;
+        display: none; 
         position: absolute;
-        background-color: var(--cor-principal);
+        background-color: var(--cor-principal, #333);
         color: #fff;
         padding: 5px;
         border-radius: 5px;
-        left: 150px;
-        top: 445px;
-        z-index: 1;
+        left: 100%; 
+        top: 58.5%;
+        transform: translateY(-50%); 
+        z-index: 1000; 
+        white-space: nowrap; 
     }
 
     #rel:hover::after {
