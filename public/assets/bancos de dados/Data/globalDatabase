@@ -184,39 +184,60 @@ DELIMITER ;
 
 
 INSERT INTO usuario (name, RA, email, senha, funcao, profile_picture)
-VALUES ('João Silva', '234567', 'joao.silva@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', '../../../assets/imagens/sem-foto.png'),
-       ('admin','123456', 'admin@admin.com','$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Diretor', '../../../assets/imagens/sem-foto.png');
-
+VALUES 
+('admin','123456', 'admin@admin.com','$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Diretor', '../../../assets/imagens/sem-foto.png'),
+('Eduardo Pereira', '134067', 'eduardo.pereira@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', 'https://republicanos10.org.br/wp-content/uploads/2022/03/Prefeito-Doutor-Pessoa-Teresina.jpg'),
+('João Silva', '234567', 'joao.silva@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', '../../../assets/imagens/sem-foto.png'),
+('Rafaela Gonçalves', '987654', 'rafa.goncalves@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionario comum', 'https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg'),
+('Silvana Santos', '902931', 'silvana.santos@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionario comum', 'https://assets.betalabs.net/production/reisman/extra_fields/272/phpSEQgO91687782311.jpg'),
+('Samuel Pontes', '902931', 'samuel.pontes@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionario comum', 'https://www.dmtpalestras.com.br/wp-content/uploads/2020/08/samuel-pessoa-palestrante-dmtpalestras.jpg'),
+('Mariana Souza', '456789', 'mariana.souza@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Gerente de Vendas', 'https://accamargo.org.br/sites/default/files/styles/ac_recorte_people/public/Adriana-Pessoa-Mendes-Eris.jpg?h=89d6a65b&itok=ENFb5XEh'),
+('Carlos Almeida', '678901', 'carlos.almeida@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Funcionario comum', 'https://s3.us-east-1.amazonaws.com/brazillab/mentors/August2021/JAbGxg1R6v5KvXFbfXu9.png'),
+('Fernanda Costa', '765432', 'fernanda.costa@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Diretor', 'https://imagem.natelinha.uol.com.br/tudo-sobre/nadja_pessoa_342d75dfd8ef51ac01a6a97f1415c0075d5204dc_aea7562fc23211ebacde9b7c619f28e9ff077949.jpeg'),
+('Lucas Martins', '345678', 'lucas.martins@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Funcionario comum', 'https://www.vagalume.com.br/ivo-pessoa/images/ivo-pessoa.jpg');
 
 INSERT INTO material (id, nome, caminho, caminho2)
 VALUES
-(1, 'Material 1', 'caminho1.jpg', 'caminho1_thumb.jpg'),
-(2, 'Material 2', 'caminho2.jpg', 'caminho2_thumb.jpg'),
-(3, 'Material 3', 'caminho3.jpg', 'caminho3_thumb.jpg');
+(1, 'Malha', 'caminho1.jpg', 'caminho1_thumb.jpg'),
+(2, 'Couro', 'caminho2.jpg', 'caminho2_thumb.jpg'),
+(3, 'Borracha', 'caminho2.jpg', 'caminho2_thumb.jpg'),
+(4, 'EVA', 'caminho3.jpg', 'caminho3_thumb.jpg');
 
 INSERT INTO tinta (id, nome, caminho)
 VALUES
-(1, 'Tinta 1', 'caminho_tinta1.jpg'),
-(2, 'Tinta 2', 'caminho_tinta2.jpg'),
-(3, 'Tinta 3', 'caminho_tinta3.jpg');
+(1, 'Azul Ultramarino', 'caminho_azul_ultramarino.jpg'),
+(2, 'Vermelho Carmim', 'caminho_vermelho_carmim.jpg'),
+(3, 'Amarelo Cadmio', 'caminho_amarelo_cadmio.jpg'),
+(4, 'Verde Esmeralda', 'caminho_verde_esmeralda.jpg'),
+(5, 'Preto Marfim', 'caminho_preto_marfim.jpg'),
+(6, 'Branco Titânio', 'caminho_branco_titanio.jpg'),
+(7, 'Laranja Cromo', 'caminho_laranja_cromo.jpg'),
+(8, 'Roxo Dioxazine', 'caminho_roxo_dioxazine.jpg'),
+(9, 'Rosa Quinacridona', 'caminho_rosa_quinacridona.jpg'),
+(10, 'Ocre Amarelo', 'caminho_ocre_amarelo.jpg'),
+(11, 'Verde Oliva', 'caminho_verde_oliva.jpg'),
+(12, 'Azul Cobalto', 'caminho_azul_cobalto.jpg');
 
 INSERT INTO tipo_tinta (id, nome)
 VALUES
-(1, 'Tipo de Tinta 1'),
-(2, 'Tipo de Tinta 2'),
-(3, 'Tipo de Tinta 3');
+(1, 'Tinta de Couro'),
+(2, 'Tinta Acrílica para Couro'),
+(3, 'Tinta de Borracha'),
+(4, 'Tinta para Camurça'),
+(5, 'Tinta de Poliuretano');
 
 INSERT INTO adesivo (id, nome, caminho)
 VALUES
-(1, 'Adesivo 1', 'caminho_adesivo1.jpg'),
-(2, 'Adesivo 2', 'caminho_adesivo2.jpg'),
-(3, 'Adesivo 3', 'caminho_adesivo3.jpg');
+(1, 'Adesivo de Poliuretano', 'caminho_adesivo1.jpg'),
+(2, 'Adesivo de Neoprene', 'caminho_adesivo2.jpg'),
+(3, 'Adesivo à Base de Água', 'caminho_adesivo3.jpg');
 
 INSERT INTO solado (id, nome)
 VALUES
-(1, 'Solado 1'),
-(2, 'Solado 2'),
-(3, 'Solado 3');
+(1, 'Solado de Borracha'),
+(2, 'Solado de EVA'),
+(3, 'Solado de PU'),
+(4, 'Solado de TR');
 
 INSERT INTO cadarco (id, nome)
 VALUES
@@ -240,10 +261,12 @@ INSERT INTO faq (name, comentario, avaliacao) VALUES
 
 INSERT INTO calcado (id, nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, img_calcado, cor_solado, cor_logo_solado, cadarco, cor_malha, cor_lingua, cor_linha, cor_linha_lingua, cor_couro, cor_logo, cor_espuma_interna, cor_etiqueta, cor_bagulho_cardaco, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data)
 VALUES 
-(1, 'Air Force 1`07 Branco', '10', '5', '120', '15', '5', '33', '../../../assets/uploads/airforce-branco.png', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', '#D3D3D3', 1, 1, 2, 2, 1, 1, '2024-08-01'),
-(2, 'Air Force 1`07 Dourado', '10', '5', '125', '16', '3', '33', '../../../assets/uploads/airforce-dourado.png', '#D3D3D3', '#D3D3D3', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', 2, 2, 1, 1, 2, 2, '2024-08-02'),
-(3, 'airforce3', 'Linha 3', 'Espaçamento 3', '130', '17', '24', '1', '../../assets/uploads/Airforce.jpeg', '#4B0082', '#FFD700', '#7FFF00', '#FFD700', '#4B0082', '#00FFFF', '#7FFF00', '#00FFFF', '#4B0082', '#7FFF00', '#00FFFF', '#FFD700', 3, 1, 3, 2, 1, 2, '2024-08-03'),
-(4, 'airforce4', 'Linha 4', 'Espaçamento 4', '135', '18', '26', '2', '../../assets/uploads/Airforce.jpeg', '#7FFF00', '#00FFFF', '#4B0082', '#7FFF00', '#FFD700', '#4B0082', '#00FFFF', '#7FFF00', '#FFD700', '#4B0082', '#00FFFF', '#4B0082', 1, 2, 1, 3, 2, 1, '2024-08-04');
+(1, 'Air Force 1`07 Branco', '10', '5', '120', '15', '5', '33', '../../../assets/uploads/airforce-branco.png', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', 1, 1, 2, 2, 1, 1, '2024-08-01'),
+(2, 'Air Force 1`07 Dourado', '10', '5', '125', '16', '3', '33', '../../../assets/uploads/airforce-dourado.png', '#FFFFFF', '#FFFFFF', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', '#B8860B', 2, 2, 1, 1, 2, 2, '2024-08-02'),
+(3, 'Air Force 1`07 Marrom', '15', '4', '130', '17', '24', '44', '../../../assets/uploads/airforce-marrom.png', '#D2B48C', '#4d3201', '#D3D3D3', '#4d3201', '#4d3201', '#4d3201', '#4d3201', '#4d3201', '#A9A9A9', '#4d3201', '#D2B48C', '#4d3201', 3, 1, 3, 2, 1, 2, '2024-08-03'),
+(4, 'Air Force 1`07 Preto', '20', '4', '135', '18', '14', '49', '../../../assets/uploads/airforce-preto.png', '#FFFFFF', '#000000', '#000000', '#FFFFFF', '#000000', '#000000', '#000000', '#000000', '#D3D3D3', '#000000', '#000000', '#FFFFFF', 1, 2, 1, 3, 2, 1, '2024-08-04'),
+(5, 'Air Force 1`07 Rosa', '20', '6', '110', '18', '15', '35', '../../../assets/uploads/airforce-rosa.png', '#FFFFFF', '#FFFFFF', '#FFB6C1', '#FFB6C1', '#FFB6C1', '#FFB6C1', '#FFB6C1', '#FFB6C1', '#FFB6C1', '#FFB6C1', '#FFB6C1', '#FFB6C1', 1, 2, 3, 3, 2, 1, '2024-08-05'),
+(6, 'Air Force 1`07 Laranja', '15', '6', '120', '12', '19', '45', '../../../assets/uploads/airforce-laranja.png', '#D3D3D3', '#FFFFFF', '#D3D3D3', '#FFFFFF', '#FFFFFF', '#D02090', '#FFFFFF', '#FF4500', '#FF4500', '#FF4500', '#FFFFFF', '#FF4500', 1, 2, 3, 3, 2, 1, '2024-08-05');
 
 INSERT INTO controle (data, id_user, id_calcado, conc0OrErro1)
 VALUES 
@@ -251,7 +274,9 @@ VALUES
     (CURDATE() - INTERVAL 10 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 10 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 10 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
+    (CURDATE() - INTERVAL 10 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     -- Dados para 9 meses atrás
+    (CURDATE() - INTERVAL 9 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 9 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 9 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 9 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
@@ -259,7 +284,9 @@ VALUES
     (CURDATE() - INTERVAL 8 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 8 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 8 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
+    (CURDATE() - INTERVAL 8 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     -- Dados para 7 meses atrás
+    (CURDATE() - INTERVAL 7 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 7 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 7 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 7 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
@@ -267,7 +294,9 @@ VALUES
     (CURDATE() - INTERVAL 6 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 6 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 6 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
+    (CURDATE() - INTERVAL 6 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     -- Dados para 5 meses atrás
+    (CURDATE() - INTERVAL 5 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 5 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 5 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 5 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
@@ -275,7 +304,9 @@ VALUES
     (CURDATE() - INTERVAL 4 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 4 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 4 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
+    (CURDATE() - INTERVAL 4 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     -- Dados para 3 meses atrás
+    (CURDATE() - INTERVAL 3 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 3 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 3 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 3 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
@@ -283,11 +314,14 @@ VALUES
     (CURDATE() - INTERVAL 2 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 2 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 2 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
+    (CURDATE() - INTERVAL 2 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     -- Dados para 1 mês atrás
+    (CURDATE() - INTERVAL 1 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 1 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 1 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE() - INTERVAL 1 MONTH, 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     -- Dados para o mês atual
     (CURDATE(), 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
     (CURDATE(), 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
-    (CURDATE(), 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2));
+    (CURDATE(), 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),
+    (CURDATE(), 2, FLOOR(RAND() * 4) + 1, FLOOR(RAND() * 2)),

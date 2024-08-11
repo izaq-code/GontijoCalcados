@@ -120,6 +120,7 @@
   flex: 0 0 auto;
   width: 120px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .card-calcados img {
