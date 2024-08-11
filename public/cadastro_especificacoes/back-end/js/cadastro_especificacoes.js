@@ -15,6 +15,15 @@ $(document).ready(function() {
                 }, 
                 success: function(response) {
                     $(this).find('input').val(''); 
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Cadastrado com sucesso!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(function () {
+                        $('#cadastrar-calcado')[0].reset();
+                    });
                 }.bind(this), 
 
                 error: function(xhr, status, error) {
