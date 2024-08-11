@@ -144,7 +144,7 @@ function getEtapas() {
                         <div class="passo"> 
                             <div class="informacoes-demanda">
                                 <p><i class="bi bi-crosshair"></i></p>
-                                <p class="texto-demanda">Pegue o cadarço ${demanda.nomecadarco}</p>
+                                <p class="texto-demanda">Pegue o cadarço <strong>${demanda.nomecadarco}</strong></p>
                             </div>
                             <div class="informacoes-demanda">
                                 <p><i class="bi bi-palette"></i></p>
