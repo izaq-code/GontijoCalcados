@@ -12,7 +12,7 @@ const uploadsDir = path.join(__dirname, '../public/assets/uploads');
 router.post('/calcado', (req, res) => {
     const {  nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, 
         img_calcadoPath, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, solado, logoSolado, linha, cadarco,  malha, 
-        lingua, linhaLingua, couro, logo, etiqueta, espumainterna, bagulhodocardaco  } = req.body;
+        lingua, linhaLingua, couro, logo, espumainterna, etiqueta, bagulhodocardaco  } = req.body;
 
     const img_calcado = req.files.img_calcado;
 
@@ -37,7 +37,7 @@ router.post('/calcado', (req, res) => {
 
 connection2.query(query, [nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, img_calcadoPath,
 id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data, solado, logoSolado, cadarco, malha, lingua, linha, linhaLingua, 
-couro, logo, etiqueta, espumainterna, bagulhodocardaco], (err) => {
+couro, logo, espumainterna, etiqueta, bagulhodocardaco], (err) => {
 if (err) {
    console.error('Erro ao inserir calcado no banco de dados:', err);
    return res.status(500).send('Erro ao enviar calcado');
