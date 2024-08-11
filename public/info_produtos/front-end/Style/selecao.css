@@ -122,3 +122,9 @@ body {
 body.dark-mode .card-calcados img {
   background-color: var(--cor-padrao-dark);
 }
+
+@media screen and (max-width: 600px) {
+  #imgContainer:last-child {
+    padding-bottom: 110px;
+  }
+}

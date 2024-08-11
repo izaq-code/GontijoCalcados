@@ -271,7 +271,7 @@ function loadMobileNavbar() {
    <div class="icone">
     <i id="feed" class="bi bi-archive icon-space"></i>
     </div>
-    <span class="label">configuraçoes.</span>
+    <span class="label">Cadastros</span>
   </a>
 </li>
 

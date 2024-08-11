@@ -70,7 +70,6 @@ body {
 #exibir_funcionarios {
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .usuario-card {
@@ -123,9 +122,9 @@ body {
     text-align: center;
 }
 
-@media screen and (max-width: 556px) {
+@media screen and (max-width: 600px) {
     .usuario-card:last-child {
-        margin-bottom: 100px;
+        margin-bottom: 110px;
     }
 
     .usuario-card {
