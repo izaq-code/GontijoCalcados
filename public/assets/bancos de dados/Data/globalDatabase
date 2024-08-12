@@ -269,7 +269,8 @@ VALUES
 (7, 1, '08:30:00', '17:00:00', '2024-08-07', '08:30:00', '-30', '07:50:00'),
 (8, 1, '08:00:00', '17:00:00', '2024-08-08', '09:00:00', '60', '08:50:00'),
 (9, 1, '08:10:00', '17:20:00', '2024-08-09', '09:10:00', '70', '10:00:00'),
-(10, 1, '19:27:26', '19:27:26', '2024-08-10', '00:00:00', '-480', '02:00:00');
+(10, 1, '19:27:26', '19:27:26', '2024-08-10', '00:00:00', '-480', '02:00:00'),
+(11, 1, '19:27:26', '19:27:26', '2024-08-11', '00:00:00', '-480', '02:00:00');
 
 
 INSERT INTO calcado (id, nome, espe_linha, espacamento_da_costura, temp_equi, tam_costura, temp_sec, reg_equip, img_calcado, cor_solado, cor_logo_solado, cadarco, cor_malha, cor_lingua, cor_linha, cor_linha_lingua, cor_couro, cor_logo, cor_espuma_interna, cor_etiqueta, cor_bagulho_cardaco, id_tinta, id_material, id_cadarco, id_solado, id_adesivo, id_tip_tinta, data)
