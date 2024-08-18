@@ -56,6 +56,12 @@ npm install express body-parser express-session mysql http socket.io axios path 
 ```bash
   http://localhost:3000/
 ```
+**Passo 6: Para logar no site:**
+
+```bash
+  user: 123456
+  senha: admin
+```
 
 ## API's / LIB's Referência
 
