@@ -1,0 +1,29 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: Gontijo Calçados
+authors:
+  - family-names: Cardoso Pereira
+    given-names: André
+  - family-names: Ferreira Vilaca
+    given-names: Eduarda
+  - family-names: Vieira Gonçalves
+    given-names: Eduarda
+  - family-names: dos Reis Novais
+    given-names: Ian 
+  - family-names: Gomes Azevedo
+    given-names: Isaque
+  - family-names: Gonçalves Alcantara Ferreira
+    given-names: Tiago
+  - name-suffix: Professor
+    affiliation: SENAI
+    family-names: Feliciano Gomes
+    given-names: Wíverson 
+keywords:
+  - Gestão 
+  - Sapato
+  - Ponto
+  - Gerenciamento
+repository-code: https://github.com/iannovais/GontijoCalcados
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2024-08-12

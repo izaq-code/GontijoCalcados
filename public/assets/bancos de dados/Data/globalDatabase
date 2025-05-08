@@ -186,15 +186,15 @@ DELIMITER ;
 INSERT INTO usuario (name, RA, email, senha, funcao, profile_picture)
 VALUES 
 ('admin','123456', 'admin@admin.com','$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Diretor', '../../../assets/imagens/sem-foto.png'),
-('Eduardo Pereira', '134067', 'eduardo.pereira@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Supervisor', 'https://republicanos10.org.br/wp-content/uploads/2022/03/Prefeito-Doutor-Pessoa-Teresina.jpg'),
-('João Silva', '234567', 'joao.silva@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Supervisor', '../../../assets/imagens/sem-foto.png'),
-('Rafaela Gonçalves', '987654', 'rafa.goncalves@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionário comum', 'https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg'),
-('Silvana Santos', '902931', 'silvana.santos@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionário comum', 'https://assets.betalabs.net/production/reisman/extra_fields/272/phpSEQgO91687782311.jpg'),
-('Samuel Pontes', '902931', 'samuel.pontes@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionário comum', 'https://www.dmtpalestras.com.br/wp-content/uploads/2020/08/samuel-pessoa-palestrante-dmtpalestras.jpg'),
-('Mariana Souza', '456789', 'mariana.souza@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Supervisor', 'https://accamargo.org.br/sites/default/files/styles/ac_recorte_people/public/Adriana-Pessoa-Mendes-Eris.jpg?h=89d6a65b&itok=ENFb5XEh'),
-('Carlos Almeida', '678901', 'carlos.almeida@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Funcionário comum', 'https://s3.us-east-1.amazonaws.com/brazillab/mentors/August2021/JAbGxg1R6v5KvXFbfXu9.png'),
+('Eduardo Pereira', '134067', 'eduardo.pereira@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', 'https://republicanos10.org.br/wp-content/uploads/2022/03/Prefeito-Doutor-Pessoa-Teresina.jpg'),
+('João Silva', '234567', 'joao.silva@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Gerente de Vendas', '../../../assets/imagens/sem-foto.png'),
+('Rafaela Gonçalves', '987654', 'rafa.goncalves@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionario comum', 'https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg'),
+('Silvana Santos', '902931', 'silvana.santos@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionario comum', 'https://assets.betalabs.net/production/reisman/extra_fields/272/phpSEQgO91687782311.jpg'),
+('Samuel Pontes', '902931', 'samuel.pontes@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2' , 'Funcionario comum', 'https://www.dmtpalestras.com.br/wp-content/uploads/2020/08/samuel-pessoa-palestrante-dmtpalestras.jpg'),
+('Mariana Souza', '456789', 'mariana.souza@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Gerente de Vendas', 'https://accamargo.org.br/sites/default/files/styles/ac_recorte_people/public/Adriana-Pessoa-Mendes-Eris.jpg?h=89d6a65b&itok=ENFb5XEh'),
+('Carlos Almeida', '678901', 'carlos.almeida@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Funcionario comum', 'https://s3.us-east-1.amazonaws.com/brazillab/mentors/August2021/JAbGxg1R6v5KvXFbfXu9.png'),
 ('Fernanda Costa', '765432', 'fernanda.costa@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Diretor', 'https://imagem.natelinha.uol.com.br/tudo-sobre/nadja_pessoa_342d75dfd8ef51ac01a6a97f1415c0075d5204dc_aea7562fc23211ebacde9b7c619f28e9ff077949.jpeg'),
-('Lucas Martins', '345678', 'lucas.martins@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Funcionário comum', 'https://www.vagalume.com.br/ivo-pessoa/images/ivo-pessoa.jpg');
+('Lucas Martins', '345678', 'lucas.martins@email.com', '$2b$10$HR4nEboHKqvYe8R2D6FokeDDbyiTwVb1ZSzKrztaGzwjF3svVOni2', 'Funcionario comum', 'https://www.vagalume.com.br/ivo-pessoa/images/ivo-pessoa.jpg');
 
 INSERT INTO material (id, nome, caminho, caminho2)
 VALUES
